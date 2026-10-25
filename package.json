@@ -1,16 +1,22 @@
 {
     "name": "tw-selia-landing",
     "version": "1.0.0",
-    "description": "",
+    "description": "Selia landing page components and templates for Salla landing pages",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "typecheck": "tsc --noEmit",
         "preview": "vite preview"
     },
+    "dependencies": {
+        "@salla.sa/twilight-bundles": "0.1.64",
+        "lit": "^3.2.1"
+    },
     "devDependencies": {
-        "@salla.sa/twilight-bundles": "^0.1.0",
-        "vite": "^5.0.0"
+        "@types/node": "^22.13.1",
+        "typescript": "^5.7.3",
+        "vite": "^6.1.0"
     },
     "author": "seliaagency@gmail.com",
     "repository": {
