@@ -56,3 +56,7 @@ bundles). Copycat Selia bundles sell at 250 to 270 SAR.
 
 - Push `master` to GitHub (the portal publishes from it) and confirm the branch in the bundle page.
 - Bundle installation: public, not beta (current portal setting).
+- The default template's hero is a video pair from cdn.selia-tech.com: 4.2 MB desktop and 3.3 MB phone. Only
+  the one for the visitor's screen downloads.
+- Template products point at the Selia preview store. On product pages merchants' own landing product is
+  used automatically; on promotion pages they must pick a product in the product card settings.

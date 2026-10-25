@@ -2,7 +2,7 @@ import { html, LitElement, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { getConfig, isRtl, resolveText, t, unwrapValue } from "../../utils/config";
-import { ctaAction, fetchProduct, landingProductId, money, openCheckout, syncCheckoutQuantity } from "../../utils/landing";
+import { ctaAction, fetchProduct, isLandingPage, landingProductId, money, openCheckout, pageMode, syncCheckoutQuantity } from "../../utils/landing";
 import { baseCss, injectStyles } from "../../utils/styles";
 
 // Port of the Selia theme's mini product card (mini-product-details), with the page's own checkout as the buy action
@@ -189,8 +189,11 @@ export default class ProductHero extends LitElement {
     }
 
     if (!this.product) {
+      const promotion = !isLandingPage() || pageMode() === "promotion";
       return html`<section class="slp-block slp-section slp-mp"><div class="slp-container"><p class="slp-mp__empty">
-        ${t({ ar: "اختر منتج الصفحة من إعدادات صفحة الهبوط لعرضه هنا", en: "Choose the page product in the landing page settings to show it here" })}
+        ${promotion
+          ? t({ ar: "اختر المنتج من إعدادات هذا القسم لعرضه هنا", en: "Choose a product in this section's settings to show it here" })
+          : t({ ar: "اختر منتج الصفحة من إعدادات صفحة الهبوط لعرضه هنا", en: "Choose the page product in the landing page settings to show it here" })}
       </p></div></section>`;
     }
 

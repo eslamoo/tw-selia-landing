@@ -1,14 +1,14 @@
-import { LitElement as q, nothing as l, html as i } from "lit";
-import { property as z, state as f } from "lit/decorators.js";
+import { LitElement as q, nothing as o, html as i } from "lit";
+import { property as z, state as g } from "lit/decorators.js";
 import { unsafeHTML as v } from "lit/directives/unsafe-html.js";
-import { i as y, c as S, a as $, r as b, t as p, u as w, b as C } from "./styles-D8vrM0Wa.js";
-import { f as N, l as P, c as k, o as j, s as M, m as x } from "./landing-DR_8ywsQ.js";
-var A = Object.defineProperty, u = (o, e, t, s) => {
-  for (var r = void 0, a = o.length - 1, n; a >= 0; a--)
-    (n = o[a]) && (r = n(e, t, r) || r);
-  return r && A(e, t, r), r;
+import { i as y, c as S, a as $, r as f, t as p, u as w, b as C } from "./styles-D8vrM0Wa.js";
+import { f as N, l as P, c as k, o as M, s as j, m as x, i as L, p as A } from "./landing-BYqcrX_B.js";
+var B = Object.defineProperty, _ = (l, e, t, r) => {
+  for (var s = void 0, a = l.length - 1, n; a >= 0; a--)
+    (n = l[a]) && (s = n(e, t, s) || s);
+  return s && B(e, t, s), s;
 };
-const B = `
+const I = `
 .slp-mp { background: var(--slp-mp-bg, transparent); }
 .slp-mp__card { display: flex; flex-direction: column; width: 100%; max-width: 40rem; margin-inline: auto; overflow: hidden; border: 1px solid var(--slp-mp-border, #eee); border-radius: 1rem; background: #fff; }
 .slp-mp__main { position: relative; aspect-ratio: var(--slp-mp-ratio, 1 / 1); overflow: hidden; background: #fff; }
@@ -49,10 +49,10 @@ const B = `
 .slp-mp__skel { border-radius: .375rem; background: rgb(0 0 0 / 6%); }
 .slp-mp__empty { max-width: 40rem; margin-inline: auto; padding: 2rem; border: 1px dashed #d4d4d8; border-radius: 1rem; text-align: center; color: #71717a; }
 @media (prefers-reduced-motion: reduce) { .slp-mp__marquee ul { animation: none; } }
-`, L = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.165 512.165" aria-hidden="true"><path d="m437.476 320.656c-.004-.05-.007-.101-.011-.15-1.541-21.368-5.481-39.513-12.39-57.037-.093-.265-.193-.528-.302-.79-.395-.951-39.225-95.684-21.044-147.746 1.641-4.697.845-9.901-2.123-13.894s-7.716-6.249-12.691-6.037c-1.333.058-28.492 1.565-57.3 26.911-25.213-52.021-29.194-107.287-29.235-107.89-.341-5.227-3.383-9.896-8.026-12.32-4.644-2.425-10.213-2.249-14.697.457-39.788 24.034-70.525 53.365-91.356 87.18-16.82 27.302-27.192 57.459-30.829 89.634-2.184 19.327-1.665 37.002-.054 51.85.746 6.879-6.125 12.051-12.529 9.432l-38.613-15.797c-2.632-1.077-5.512-1.525-8.32-1.073-5.912.952-10.518 5.194-12.095 10.682-3.504 12.189-6.128 23.455-8.023 34.441-6.596 38.261-3.897 77.447 7.802 113.325 11.762 36.068 32.059 67.129 58.697 89.824 31.481 26.822 69.604 40.477 111.176 40.477 22.939 0 46.93-4.158 71.431-12.557 38.865-13.321 69.645-39.707 89.011-76.303 16.095-30.419 23.739-66.863 21.521-102.619z" fill="#ff001e"/><path d="m296.687 260.081c-3.792-5.657-10.918-8.056-17.356-5.829-6.438 2.223-10.57 8.503-10.063 15.295 1.789 23.976-.608 94.475-33.954 103.618-28.387 7.787-43.529-5.362-45-6.726-3.681-4.013-9.084-5.533-14.39-4.261-5.342 1.285-9.38 5.573-10.805 10.879-.283 1.053-2.793 10.461-3.851 16.59-6.784 39.356 6.081 78.356 33.576 101.781 16.127 13.74 35.578 20.736 56.725 20.736 11.536 0 23.58-2.084 35.855-6.292 19.779-6.78 36.691-21.121 48.908-41.475 10.219-17.024 16.161-36.889 16.305-54.5.366-45.31-16.889-91.515-55.95-149.816z" fill="#ffeb00"/></svg>';
-function I(o) {
-  const e = o.toLocaleString("en-US");
-  return C() ? o === 1 ? "مرة واحدة" : o === 2 ? "مرتين" : `${e} ${o <= 10 ? "مرات" : "مرة"}` : `${e} ${o === 1 ? "time" : "times"}`;
+`, T = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.165 512.165" aria-hidden="true"><path d="m437.476 320.656c-.004-.05-.007-.101-.011-.15-1.541-21.368-5.481-39.513-12.39-57.037-.093-.265-.193-.528-.302-.79-.395-.951-39.225-95.684-21.044-147.746 1.641-4.697.845-9.901-2.123-13.894s-7.716-6.249-12.691-6.037c-1.333.058-28.492 1.565-57.3 26.911-25.213-52.021-29.194-107.287-29.235-107.89-.341-5.227-3.383-9.896-8.026-12.32-4.644-2.425-10.213-2.249-14.697.457-39.788 24.034-70.525 53.365-91.356 87.18-16.82 27.302-27.192 57.459-30.829 89.634-2.184 19.327-1.665 37.002-.054 51.85.746 6.879-6.125 12.051-12.529 9.432l-38.613-15.797c-2.632-1.077-5.512-1.525-8.32-1.073-5.912.952-10.518 5.194-12.095 10.682-3.504 12.189-6.128 23.455-8.023 34.441-6.596 38.261-3.897 77.447 7.802 113.325 11.762 36.068 32.059 67.129 58.697 89.824 31.481 26.822 69.604 40.477 111.176 40.477 22.939 0 46.93-4.158 71.431-12.557 38.865-13.321 69.645-39.707 89.011-76.303 16.095-30.419 23.739-66.863 21.521-102.619z" fill="#ff001e"/><path d="m296.687 260.081c-3.792-5.657-10.918-8.056-17.356-5.829-6.438 2.223-10.57 8.503-10.063 15.295 1.789 23.976-.608 94.475-33.954 103.618-28.387 7.787-43.529-5.362-45-6.726-3.681-4.013-9.084-5.533-14.39-4.261-5.342 1.285-9.38 5.573-10.805 10.879-.283 1.053-2.793 10.461-3.851 16.59-6.784 39.356 6.081 78.356 33.576 101.781 16.127 13.74 35.578 20.736 56.725 20.736 11.536 0 23.58-2.084 35.855-6.292 19.779-6.78 36.691-21.121 48.908-41.475 10.219-17.024 16.161-36.889 16.305-54.5.366-45.31-16.889-91.515-55.95-149.816z" fill="#ffeb00"/></svg>';
+function O(l) {
+  const e = l.toLocaleString("en-US");
+  return C() ? l === 1 ? "مرة واحدة" : l === 2 ? "مرتين" : `${e} ${l <= 10 ? "مرات" : "مرة"}` : `${e} ${l === 1 ? "time" : "times"}`;
 }
 class m extends q {
   constructor() {
@@ -62,62 +62,62 @@ class m extends q {
     return this;
   }
   async connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), y("slp-base", S), y("slp-product-hero", B), this.product = await N(P() || this.fieldProductId()), this.loading = !1;
+    super.connectedCallback(), this.classList.add("slp-host"), y("slp-base", S), y("slp-product-hero", I), this.product = await N(P() || this.fieldProductId()), this.loading = !1;
   }
   fieldProductId() {
-    const e = $(this.config).product, t = Array.isArray(e) ? e[0] : e, s = t && typeof t == "object" ? t.value ?? t.id : t;
-    return s ? String(s) : null;
+    const e = $(this.config).product, t = Array.isArray(e) ? e[0] : e, r = t && typeof t == "object" ? t.value ?? t.id : t;
+    return r ? String(r) : null;
   }
   images() {
-    var s;
-    const e = this.product, t = ((e == null ? void 0 : e.images) || []).filter((r) => (r == null ? void 0 : r.url) && (!r.type || r.type === "image")).map((r) => ({ url: r.url, alt: r.alt }));
-    return !t.length && ((s = e == null ? void 0 : e.image) != null && s.url) && t.push({ url: e.image.url, alt: e.image.alt }), t;
+    var r;
+    const e = this.product, t = ((e == null ? void 0 : e.images) || []).filter((s) => (s == null ? void 0 : s.url) && (!s.type || s.type === "image")).map((s) => ({ url: s.url, alt: s.alt }));
+    return !t.length && ((r = e == null ? void 0 : e.image) != null && r.url) && t.push({ url: e.image.url, alt: e.image.alt }), t;
   }
   onBuy(e) {
     var t;
-    k(((t = this.product) == null ? void 0 : t.url) || "").kind === "checkout" && (e.preventDefault(), j(this.product, this.quantity), M(this.quantity));
+    k(((t = this.product) == null ? void 0 : t.url) || "").kind === "checkout" && (e.preventDefault(), M(this.product, this.quantity), j(this.quantity));
   }
   renderTitle(e) {
-    const t = b(e.title), s = b(e.subtitle);
-    return !t && !s ? l : i`<div class="slp-title">${t ? i`<h2>${t}</h2>` : l}${s ? i`<p>${s}</p>` : l}</div>`;
+    const t = f(e.title), r = f(e.subtitle);
+    return !t && !r ? o : i`<div class="slp-title">${t ? i`<h2>${t}</h2>` : o}${r ? i`<p>${r}</p>` : o}</div>`;
   }
   renderMeta(e) {
     var c, d;
-    const t = this.product, s = e.show_sold !== !1 && (Number(e.sold_count) || Number(t.sold_quantity)) || 0, r = Number((c = t.rating) == null ? void 0 : c.stars) || 0, a = r || (e.custom_rating ? Math.min(5, Number(e.rating_value) || 0) : 0), n = r ? Number((d = t.rating) == null ? void 0 : d.count) || 0 : Number(e.rating_count) || 0;
-    return !s && !a ? l : i`<div class="slp-mp__meta">
-      ${s ? i`<span class="slp-mp__sold">${v(L)}<span>${p({ ar: "مباع", en: "Sold" })} ${I(s)}</span></span>` : l}
+    const t = this.product, r = e.show_sold !== !1 && (Number(e.sold_count) || Number(t.sold_quantity)) || 0, s = Number((c = t.rating) == null ? void 0 : c.stars) || 0, a = s || (e.custom_rating ? Math.min(5, Number(e.rating_value) || 0) : 0), n = s ? Number((d = t.rating) == null ? void 0 : d.count) || 0 : Number(e.rating_count) || 0;
+    return !r && !a ? o : i`<div class="slp-mp__meta">
+      ${r ? i`<span class="slp-mp__sold">${v(T)}<span>${p({ ar: "مباع", en: "Sold" })} ${O(r)}</span></span>` : o}
       ${a ? i`<span class="slp-mp__rating" aria-label="${a}/5">
-            ${[1, 2, 3, 4, 5].map((_) => i`<i class="sicon-star2 ${_ <= Math.round(a) ? "is-on" : ""}"></i>`)}
-            ${n ? i`<span>(${n.toLocaleString("en-US")} ${p({ ar: "تقييم", en: "reviews" })})</span>` : l}
-          </span>` : l}
+            ${[1, 2, 3, 4, 5].map((h) => i`<i class="sicon-star2 ${h <= Math.round(a) ? "is-on" : ""}"></i>`)}
+            ${n ? i`<span>(${n.toLocaleString("en-US")} ${p({ ar: "تقييم", en: "reviews" })})</span>` : o}
+          </span>` : o}
     </div>`;
   }
   renderPrice() {
-    const e = this.product, t = Number(e.is_on_sale ? e.sale_price : e.starting_price || e.price) || 0, s = Number(e.regular_price) || 0, r = !!e.is_on_sale && s > t, a = r ? Math.round((s - t) / s * 100) : 0;
-    return i`<div class="slp-mp__price${r ? " is-on-sale" : ""}">
+    const e = this.product, t = Number(e.is_on_sale ? e.sale_price : e.starting_price || e.price) || 0, r = Number(e.regular_price) || 0, s = !!e.is_on_sale && r > t, a = s ? Math.round((r - t) / r * 100) : 0;
+    return i`<div class="slp-mp__price${s ? " is-on-sale" : ""}">
       <span class="slp-mp__total">${v(x(t))}</span>
-      ${r ? i`<span class="slp-mp__before">${v(x(s))}</span>` : l}
-      ${a ? i`<span class="slp-mp__save">${p({ ar: "وفر", en: "Save" })} ${a}%</span>` : l}
+      ${s ? i`<span class="slp-mp__before">${v(x(r))}</span>` : o}
+      ${a ? i`<span class="slp-mp__save">${p({ ar: "وفر", en: "Save" })} ${a}%</span>` : o}
     </div>`;
   }
   renderActions(e) {
     const t = this.product;
     if (t.status === "out" || t.is_out_of_stock)
       return i`<p class="slp-mp__out">${p({ ar: "نفدت الكمية", en: "Out of stock" })}</p>`;
-    const s = k(t.url || "");
-    if (s.kind === "none") return l;
-    const r = b(e.btn_text) || p({ ar: "اشترِ الآن", en: "Buy now" }), a = Number(t.max_quantity) || 99;
+    const r = k(t.url || "");
+    if (r.kind === "none") return o;
+    const s = f(e.btn_text) || p({ ar: "اشترِ الآن", en: "Buy now" }), a = Number(t.max_quantity) || 99;
     return i`<div class="slp-mp__actions">
-      ${e.show_quantity !== !1 && s.kind === "checkout" ? i`<div class="slp-mp__qty" role="group" aria-label=${p({ ar: "الكمية", en: "Quantity" })}>
+      ${e.show_quantity !== !1 && r.kind === "checkout" ? i`<div class="slp-mp__qty" role="group" aria-label=${p({ ar: "الكمية", en: "Quantity" })}>
             <button type="button" aria-label="+" ?disabled=${this.quantity >= a} @click=${() => this.quantity = Math.min(a, this.quantity + 1)}>+</button>
             <output>${this.quantity}</output>
             <button type="button" aria-label="-" ?disabled=${this.quantity <= 1} @click=${() => this.quantity = Math.max(1, this.quantity - 1)}>−</button>
-          </div>` : l}
-      <a class="slp-btn slp-mp__buy" href=${s.kind === "link" ? s.url : "#"} @click=${this.onBuy}>${r}</a>
+          </div>` : o}
+      <a class="slp-btn slp-mp__buy" href=${r.kind === "link" ? r.url : "#"} @click=${this.onBuy}>${s}</a>
     </div>`;
   }
   render() {
-    const e = $(this.config), s = [
+    const e = $(this.config), r = [
       `--slp-mp-ratio:${{ portrait: "3 / 4", landscape: "4 / 3" }[String(w(e.media_aspect))] || "1 / 1"}`,
       `--slp-mp-fit:${w(e.media_fit) === "contain" ? "contain" : "cover"}`,
       e.bg_color ? `--slp-mp-bg:${e.bg_color}` : "",
@@ -128,36 +128,38 @@ class m extends q {
       `--slp-mp-mq-color:${e.marquee_color || "#ffffff"}`
     ].filter(Boolean).join(";");
     if (this.loading)
-      return i`<section class="slp-block slp-section slp-mp" style=${s}><div class="slp-container">
+      return i`<section class="slp-block slp-section slp-mp" style=${r}><div class="slp-container">
         ${this.renderTitle(e)}
         <div class="slp-mp__card"><div class="slp-mp__main slp-mp__skel"></div>
           <div class="slp-mp__info"><div class="slp-mp__skel" style="height:1.125rem;width:70%;margin-top:.5rem"></div>
           <div class="slp-mp__skel" style="height:1.25rem;width:45%;margin-top:.75rem"></div>
           <div class="slp-mp__skel" style="height:2.75rem;margin-top:1rem"></div></div></div>
       </div></section>`;
-    if (!this.product)
+    if (!this.product) {
+      const u = !L() || A() === "promotion";
       return i`<section class="slp-block slp-section slp-mp"><div class="slp-container"><p class="slp-mp__empty">
-        ${p({ ar: "اختر منتج الصفحة من إعدادات صفحة الهبوط لعرضه هنا", en: "Choose the page product in the landing page settings to show it here" })}
+        ${u ? p({ ar: "اختر المنتج من إعدادات هذا القسم لعرضه هنا", en: "Choose a product in this section's settings to show it here" }) : p({ ar: "اختر منتج الصفحة من إعدادات صفحة الهبوط لعرضه هنا", en: "Choose the page product in the landing page settings to show it here" })}
       </p></div></section>`;
-    const r = this.product, a = this.images(), n = a[this.active] || a[0], c = b(e.marquee_text), d = e.show_subtitle !== !1 ? r.subtitle : "", _ = e.show_description ? String(r.description || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : "";
-    return i`<section class="slp-block slp-section slp-mp" style=${s}>
+    }
+    const s = this.product, a = this.images(), n = a[this.active] || a[0], c = f(e.marquee_text), d = e.show_subtitle !== !1 ? s.subtitle : "", h = e.show_description ? String(s.description || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : "";
+    return i`<section class="slp-block slp-section slp-mp" style=${r}>
       <div class="slp-container">
         ${this.renderTitle(e)}
         <article class="slp-mp__card">
           <div class="slp-mp__media">
-            <div class="slp-mp__main">${n ? i`<img src=${n.url} alt=${n.alt || r.name} fetchpriority="high" />` : l}</div>
-            ${e.show_thumbs !== !1 && a.length > 1 ? i`<div class="slp-mp__thumbs">${a.map((g, h) => i`<button type="button"
-                  class="slp-mp__thumb ${h === this.active ? "is-active" : ""}" aria-label=${g.alt || r.name}
-                  @click=${() => this.active = h}><img src=${g.url} alt="" loading="lazy" /></button>`)}</div>` : l}
+            <div class="slp-mp__main">${n ? i`<img src=${n.url} alt=${n.alt || s.name} fetchpriority="high" />` : o}</div>
+            ${e.show_thumbs !== !1 && a.length > 1 ? i`<div class="slp-mp__thumbs">${a.map((u, b) => i`<button type="button"
+                  class="slp-mp__thumb ${b === this.active ? "is-active" : ""}" aria-label=${u.alt || s.name}
+                  @click=${() => this.active = b}><img src=${u.url} alt="" loading="lazy" /></button>`)}</div>` : o}
           </div>
-          ${c ? i`<div class="slp-mp__marquee"><ul>${Array.from({ length: 12 }, (g, h) => i`<li aria-hidden=${h ? "true" : "false"}>
-                <span>${c}</span><i class=${e.marquee_icon || "sicon-star"}></i></li>`)}</ul></div>` : l}
+          ${c ? i`<div class="slp-mp__marquee"><ul>${Array.from({ length: 12 }, (u, b) => i`<li aria-hidden=${b ? "true" : "false"}>
+                <span>${c}</span><i class=${e.marquee_icon || "sicon-star"}></i></li>`)}</ul></div>` : o}
           <div class="slp-mp__info">
             ${this.renderMeta(e)}
-            <h3 class="slp-mp__name">${r.name}</h3>
-            ${d ? i`<p class="slp-mp__subtitle">${d}</p>` : l}
+            <h3 class="slp-mp__name">${s.name}</h3>
+            ${d ? i`<p class="slp-mp__subtitle">${d}</p>` : o}
             ${this.renderPrice()}
-            ${_ ? i`<p class="slp-mp__desc">${_}</p>` : l}
+            ${h ? i`<p class="slp-mp__desc">${h}</p>` : o}
             ${this.renderActions(e)}
           </div>
         </article>
@@ -165,20 +167,20 @@ class m extends q {
     </section>`;
   }
 }
-u([
+_([
   z({ type: Object })
 ], m.prototype, "config");
-u([
-  f()
+_([
+  g()
 ], m.prototype, "product");
-u([
-  f()
+_([
+  g()
 ], m.prototype, "loading");
-u([
-  f()
+_([
+  g()
 ], m.prototype, "active");
-u([
-  f()
+_([
+  g()
 ], m.prototype, "quantity");
 typeof m < "u" && m.registerSallaComponent("salla-product-hero");
 export {

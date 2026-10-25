@@ -355,7 +355,10 @@ const applyValues = (component, values = {}) => {
   return copy;
 };
 // Editor previews live in public/assets/previews and are served from the content-addressed preview CDN
-const PREVIEW_ID = JSON.parse(fs.readFileSync(`${ROOT}/.salla-preview.json`, "utf8")).id;
+// .salla-preview.json is local only; a fresh clone falls back to the bundle's published preview
+const PREVIEW_ID = fs.existsSync(`${ROOT}/.salla-preview.json`)
+  ? JSON.parse(fs.readFileSync(`${ROOT}/.salla-preview.json`, "utf8")).id
+  : process.env.TW_PREVIEW_ID || "eh7svsy3mkb6";
 const previewUrl = (name) => {
   const file = `${ROOT}/public/assets/previews/${name}.jpg`;
   const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
