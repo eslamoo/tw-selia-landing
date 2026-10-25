@@ -12,16 +12,16 @@ Everything the Partners Portal asks for in "Complete publication", plus what is 
 **AR (short):** صفحة هبوط مستوحاة من عناصر ثيم سيليا الشهير
 
 **AR (long):**
-صفحة هبوط جاهزة بعناصر ثيم سيليا: سلايدر متقدم يدعم الفيديو، بطاقة منتج بالشراء السريع، شريط إعلاني متحرك، وسائل الدفع المتحركة، مميزات، بانرات، شبكة صور، آراء العملاء، والأسئلة الشائعة.
+صفحة هبوط جاهزة بعناصر ثيم سيليا: رأس صفحة بشعار متجرك، سلايدر متقدم يدعم الفيديو، بطاقة منتج بالشراء السريع، شريط إعلاني متحرك، وسائل الدفع المتحركة، مميزات، بانرات، شبكة صور، آراء العملاء، والأسئلة الشائعة.
 في صفحة المنتج يفتح كل زر الشراء السريع مباشرة، وتنتقل الكمية المختارة معه. وفي صفحة العروض توجّه الأزرار عميلك للرابط الذي تحدده.
-قالبين جاهزين: صفحة منتج لعباية، وصفحة عروض لمتجر أزياء. كل نص قابل للتعديل بالعربي والإنجليزي، والألوان تتبع ألوان متجرك، والتصميم مناسب للجوال.
+قالبين جاهزين: صفحة منتج لعباية، وصفحة عروض لمتجر أزياء بالوضع الداكن. كل عنصر يدعم الوضع الفاتح والداكن، وكل نص قابل للتعديل بالعربي والإنجليزي، والألوان تتبع ألوان متجرك، والتصميم مناسب للجوال.
 
 **EN (short):** A landing page inspired by the components of the popular Selia theme
 
 **EN (long):**
-A ready landing page built from Selia theme sections: an advanced slider with video support, a product card with quick buy, an animated text bar, animated payment methods, features, banners, an images grid, customer reviews and FAQ.
+A ready landing page built from Selia theme sections: a header with your store logo, an advanced slider with video support, a product card with quick buy, an animated text bar, animated payment methods, features, banners, an images grid, customer reviews and FAQ.
 On product pages every button opens the page's quick checkout, and the chosen quantity goes with it. On promotion pages the buttons send shoppers to the link you set.
-Two ready templates: an abaya product page and a fashion offers page. Every text is editable in Arabic and English, colors follow your store, and every section works on phones.
+Two ready templates: an abaya product page and a dark fashion offers page. Every section supports light and dark schemes, every text is editable in Arabic and English, colors follow your store, and every section works on phones.
 
 ## Screenshots (upload in this order)
 
@@ -31,7 +31,7 @@ Two ready templates: an abaya product page and a fashion offers page. Every text
 | `02-product-quick-buy.jpg` | بطاقة منتج بالشراء السريع | Product card with quick buy | صور المنتج، السعر، الكمية وزر الشراء في بطاقة واحدة مرتبطة بدفع صفحة الهبوط | Product images, price, quantity and a buy button, tied to the landing page checkout |
 | `03-offers-template.jpg` | قالب جاهز لصفحات العروض | A ready template for offer pages | سلايدر صور، بانرات العروض وشبكة الأقسام لصفحة عروض متكاملة | Image slider, offer banners and a category grid for a complete offers page |
 | `04-trust-sections.jpg` | عناصر تبني الثقة | Sections that build trust | المميزات، آراء العملاء والأسئلة الشائعة لإقناع عميلك قبل الشراء | Features, customer reviews and FAQ that answer shoppers before they buy |
-| `05-two-templates.jpg` | قالبين جاهزين | Two ready templates | ابدأ بقالب صفحة منتج أو قالب صفحة عروض وعدّل كل محتواه | Start from a product page or an offers page template and edit everything |
+| `05-two-templates.jpg` | قالبين بالوضع الفاتح والداكن | Two templates, light and dark | ابدأ بقالب صفحة منتج أو صفحة عروض، واختر الوضع الفاتح أو الداكن لكل عنصر | Start from a product page or an offers page, with a light or dark scheme for every section |
 | `06-mobile-first.jpg` | مصممة للجوال أولاً | Designed for phones first | كل عنصر يتكيف مع شاشة الجوال ومع تخطيطات الدفع في صفحة الهبوط | Every section adapts to phone screens and to the landing page checkout layouts |
 
 Icon: `icon-512.png` (also `icon-250.png`).
@@ -44,16 +44,15 @@ Icon: `icon-512.png` (also `icon-250.png`).
 | Support website | https://selia-tech.com/contact/ |
 | Support phone | +20 103 735 0539 (the WhatsApp number in the selia-tech.com footer) |
 | Live chat | https://wa.me/201037350539 |
-| Documentation link | https://selia-tech.com/selia-theme/docs/landing-pages/selia-landing-page (once `help-article.html` is published, see below) |
+| Documentation link | https://selia-tech.com/selia-landing |
 | Support service | WhatsApp and email support |
 
-The help article is ready in `help-article.html` (HTML, the format the Selia docs admin uses). Publishing it
-adds a "صفحات الهبوط" category (`landing-pages`) and the article `selia-landing-page` to selia-tech.com docs.
+The help page is https://selia-tech.com/selia-landing (selia-platform `apps/web/pages/selia-landing.tsx`,
+not linked from the site navigation). `help-article.html` keeps the same content as plain HTML.
 
 ## Price
 
-OPEN. The publish page allows 250 to 5,000 SAR (the review rules say 100 SAR minimum for public
-bundles). Copycat Selia bundles sell at 250 to 270 SAR.
+250 SAR (one-time).
 
 ## Before submitting
 

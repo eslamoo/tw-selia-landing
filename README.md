@@ -11,9 +11,10 @@ A Salla landing page bundle built from the Selia theme's sections. It is a Compo
 
 | Section | Folder | Notes |
 |---|---|---|
+| Page header | `page-header` | Store logo (or a custom one), dark-mode logo, optional sticky |
 | Animated text bar | `animated-text` | Looping offer text with an icon |
 | Advanced slider | `advanced-slider` | Image or MP4 slides, separate phone media, fade or slide |
-| Product card with quick buy | `product-hero` | Port of Selia's mini product card |
+| Product card with quick buy | `product-hero` | Port of Selia's mini product card, swipeable images |
 | Animated payment methods | `animated-payments` | The store's enabled payment methods, or custom logos |
 | Features | `features` | Icon or image cards |
 | Double banner | `double-banner` | Display only |
@@ -33,6 +34,9 @@ A Salla landing page bundle built from the Selia theme's sections. It is a Compo
 - Promotion pages: there is no fast checkout, so calls to action follow the page's main button link.
   The product card shows the product picked in its own settings.
 - Banners never link away, so shoppers stay on the page.
+- Every content section has a color scheme setting: light, dark, or auto (follows the visitor's device).
+  Landing pages have no Selia dark mode setting, so this is per section. In dark mode a header without a
+  dark logo shows the store logo in white.
 - Sections are light DOM, size themselves by their container (the fixed sidebar layout gives them 2/3
   of the width), and use the store colors and font (`--color-primary`, `--font-main`).
 - Outside a real landing page (demo, template previews), a product missing from the current store is
@@ -57,6 +61,7 @@ python3 -m http.server 5191 --bind 127.0.0.1
 - `harness/landing.html?template=fashion-offers&mode=promotion`
 - `layout=side-drawer` checks the drawer path, `layout=none` drops the fast checkout stand-in
 - `harness/mobile.html?...` shows the same page in a 390px frame
+- `scheme=light|dark|auto` forces a color scheme on every section
 
 The harness loads the store settings, Twilight and the bundles core from the CDN, and logs the
 `open-checkout-drawer` event, the quantity handed to the checkout and the `Buy Now` analytics event.

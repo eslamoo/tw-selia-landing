@@ -91,20 +91,20 @@ save(c, "01-abaya-template")
 
 # 2: product card with quick buy
 c = backdrop()
-browser(c, crop_css(t1d, 2, 0, 870, 1440, 980), 150, 120, 1260)
-phone(c, crop_css(t1m, 3, 0, 730, 390, 844), 1430, 150, 360)
+browser(c, crop_css(t1d, 2, 0, 950, 1440, 980), 150, 120, 1260)
+phone(c, crop_css(t1m, 3, 0, 810, 390, 844), 1430, 150, 360)
 save(c, "02-product-quick-buy")
 
 # 3: offers template
 c = backdrop()
 browser(c, crop_css(t2d, 2, 0, 0, 1440, 980), 510, 120, 1260)
-phone(c, crop_css(t2m, 3, 0, 940, 390, 844), 130, 150, 360)
+phone(c, crop_css(t2m, 3, 0, 1020, 390, 844), 130, 150, 360)
 save(c, "03-offers-template")
 
 # 4: trust sections
 c = backdrop()
-browser(c, crop_css(t1d, 2, 0, 3140, 1440, 790), 510, 180, 1260)
-phone(c, crop_css(t1m, 3, 0, 1800, 390, 844), 130, 150, 360)
+browser(c, crop_css(t1d, 2, 0, 3220, 1440, 790), 510, 180, 1260)
+phone(c, crop_css(t1m, 3, 0, 1880, 390, 844), 130, 150, 360)
 save(c, "04-trust-sections")
 
 # 5: the two templates side by side
@@ -116,6 +116,6 @@ save(c, "05-two-templates")
 
 # 6: three phones
 c = backdrop()
-for i, (src, y) in enumerate([(t2m, 0), (t1m, 730), (t2m, 940)]):
+for i, (src, y) in enumerate([(t2m, 0), (t1m, 810), (t2m, 1020)]):
     phone(c, crop_css(src, 3, 0, y, 390, 844), 420 + i * 400, 140, 360)
 save(c, "06-mobile-first")
