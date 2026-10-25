@@ -27,7 +27,7 @@ mobile() { # name template mode frame-height
 
 section() { # component template mode window-height
   "$CH" $FLAGS --window-size=1440,$4 --screenshot="$OUT/section-$1.png" \
-    "$BASE/landing.html?mode=$3&layout=none&clean=1&template=$2&vh=900&only=$1" >/dev/null 2>&1
+    "$BASE/landing.html?mode=$3&layout=none&clean=1&template=$2&vh=900&only=$1&scheme=light" >/dev/null 2>&1
   trim "$OUT/section-$1.png"
 }
 
@@ -36,6 +36,7 @@ desktop t2 fashion-offers promotion 5600
 mobile t1 abaya-elegance product 4400
 mobile t2 fashion-offers promotion 4800
 
+section page-header abaya-elegance product 300
 section animated-text abaya-elegance product 300
 section advanced-slider fashion-offers promotion 1000
 section product-hero abaya-elegance product 1400

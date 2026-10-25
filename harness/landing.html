@@ -65,6 +65,8 @@
     const only = params.get("only");
     for (const component of tpl.components.filter((c) => !only || c.name === only)) {
       const values = Object.fromEntries((component.fields || []).filter((f) => f.type !== "static").map((f) => [f.id, f.value]));
+      // ?scheme=light|dark|auto overrides every section's color scheme
+      if (params.get("scheme") && "color_scheme" in values) values.color_scheme = [{ value: params.get("scheme") }];
       const wrapper = { component: values, key: component.key, path: "bundle-component", component_name: component.name, bundle_id: "78394996" };
       const el = document.createElement("salla-custom-component");
       el.setAttribute("component-name", component.name);
