@@ -1,6 +1,6 @@
 {
     "name": {
-        "ar": "\u0635\u0641\u062d\u0629 \u0647\u0628\u0648\u0637 \u0633\u064a\u0644\u064a\u0627",
+        "ar": "صفحة هبوط سيليا",
         "en": "tw-selia-landing"
     },
     "description": {
@@ -10,5 +10,8 @@
     "author_email": "seliaagency@gmail.com",
     "support_url": "https://selia-tech.com",
     "repository": "https://github.com/eslamoo/tw-selia-landing",
-    "components": []
+    "components": [],
+    "features": [
+        "landing-page-templates"
+    ]
 }
