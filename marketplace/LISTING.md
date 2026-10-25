@@ -40,12 +40,15 @@ Icon: `icon-512.png` (also `icon-250.png`).
 
 | Field | Value |
 |---|---|
-| Support email | seliaagency@gmail.com |
-| Support website | https://selia-tech.com |
-| Support phone | OPEN: needs a number |
-| Live chat | OPEN: WhatsApp or Telegram link |
-| Documentation link | OPEN: a help article that explains the bundle |
-| Support service | OPEN: e.g. business hours |
+| Support email | support@selia-tech.com (the address selia-tech.com already shows) |
+| Support website | https://selia-tech.com/contact/ |
+| Support phone | +20 103 735 0539 (the WhatsApp number in the selia-tech.com footer) |
+| Live chat | https://wa.me/201037350539 |
+| Documentation link | https://selia-tech.com/selia-theme/docs/landing-pages/selia-landing-page (once `help-article.html` is published, see below) |
+| Support service | WhatsApp and email support |
+
+The help article is ready in `help-article.html` (HTML, the format the Selia docs admin uses). Publishing it
+adds a "صفحات الهبوط" category (`landing-pages`) and the article `selia-landing-page` to selia-tech.com docs.
 
 ## Price
 
