@@ -1,12 +1,12 @@
-import { LitElement as d, nothing as n, html as r } from "lit";
+import { LitElement as d, nothing as a, html as r } from "lit";
 import { property as m } from "lit/decorators.js";
-import { i as p, c as _, a as f, r as c } from "./styles-D8vrM0Wa.js";
-var b = Object.defineProperty, u = (t, l, s, o) => {
+import { i as p, c as _, a as f, r as c, s as b } from "./styles-CSVj0pVk.js";
+var h = Object.defineProperty, u = (t, l, s, o) => {
   for (var i = void 0, e = t.length - 1, g; e >= 0; e--)
     (g = t[e]) && (i = g(l, s, i) || i);
-  return i && b(l, s, i), i;
+  return i && h(l, s, i), i;
 };
-const h = `
+const v = `
 .slp-ig__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
 .slp-ig__cell { position: relative; overflow: hidden; min-height: 11rem; }
 .slp-ig__cell--1 { grid-column: span 2; min-height: 15rem; }
@@ -29,29 +29,30 @@ const h = `
 @container (min-width: 768px) { .slp-ig__label { font-size: 1.75rem; } }
 @media (prefers-reduced-motion: reduce) { .slp-ig__cell img { transition: none; } }
 `;
-class a extends d {
+class n extends d {
   createRenderRoot() {
     return this;
   }
   connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), p("slp-base", _), p("slp-images-grid", h);
+    super.connectedCallback(), this.classList.add("slp-host"), p("slp-base", _), p("slp-images-grid", v);
   }
   render() {
     const l = f(this.config), s = [1, 2, 3, 4, 5].map((e) => ({ n: e, src: l[`image_${e}`], label: c(l[`title_${e}`]) }));
-    if (!s.some((e) => e.src)) return n;
+    if (!s.some((e) => e.src)) return a;
     const o = c(l.title), i = [
       "slp-block slp-section slp-ig",
+      b(l),
       l.rounded !== !1 ? "slp-ig--rounded" : "",
       l.overlay !== !1 ? "slp-ig--overlay" : "",
       l.bottom_titles ? "slp-ig--bottom" : ""
     ].filter(Boolean).join(" ");
     return r`<section class=${i} style="--slp-ig-color:${l.titles_color || "#ffffff"}">
       <div class="slp-container">
-        ${o ? r`<div class="slp-title"><h2>${o}</h2></div>` : n}
+        ${o ? r`<div class="slp-title"><h2>${o}</h2></div>` : a}
         <div class="slp-ig__grid">
           ${s.filter((e) => e.src).map((e) => r`<div class="slp-ig__cell slp-ig__cell--${e.n}">
             <img src=${e.src} alt=${e.label} loading="lazy" />
-            ${e.label ? r`<h3 class="slp-ig__label">${e.label}</h3>` : n}
+            ${e.label ? r`<h3 class="slp-ig__label">${e.label}</h3>` : a}
           </div>`)}
         </div>
       </div>
@@ -60,8 +61,8 @@ class a extends d {
 }
 u([
   m({ type: Object })
-], a.prototype, "config");
-typeof a < "u" && a.registerSallaComponent("salla-images-grid");
+], n.prototype, "config");
+typeof n < "u" && n.registerSallaComponent("salla-images-grid");
 export {
-  a as default
+  n as default
 };

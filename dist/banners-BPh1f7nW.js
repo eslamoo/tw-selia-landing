@@ -1,6 +1,6 @@
-import { nothing as r, html as i } from "lit";
-import { d as a } from "./styles-D8vrM0Wa.js";
-const m = `
+import { nothing as a, html as i } from "lit";
+import { d as r, s as p } from "./styles-CSVj0pVk.js";
+const b = `
 .slp-bn__row { display: flex; gap: .75rem; }
 @container (min-width: 768px) { .slp-bn__row { gap: 1rem; } }
 @container (max-width: 639px) { .slp-bn--stack .slp-bn__row { flex-direction: column; } }
@@ -12,11 +12,12 @@ const m = `
 .slp-bn--full .slp-container { max-width: none; padding-inline: 0; }
 @media (prefers-reduced-motion: reduce) { .slp-bn__item img { transition: none; } }
 `;
-function b(n, l) {
-  const t = a() === "en", s = l.map((e) => t && n[`${e}_en`] || n[e]).filter(Boolean);
-  if (!s.length) return r;
+function c(n, l) {
+  const t = r() === "en", s = l.map((e) => t && n[`${e}_en`] || n[e]).filter(Boolean);
+  if (!s.length) return a;
   const o = [
     "slp-block slp-section slp-bn",
+    p(n),
     n.rounded !== !1 ? "slp-bn--rounded" : "",
     n.stack_mobile !== !1 ? "slp-bn--stack" : "",
     n.full_width ? "slp-bn--full" : "",
@@ -29,6 +30,6 @@ function b(n, l) {
   </section>`;
 }
 export {
-  m as b,
-  b as r
+  b,
+  c as r
 };
