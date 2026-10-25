@@ -16,7 +16,7 @@
             "icon": "sicon-megaphone",
             "name": "animated-text",
             "key": "18f83576-ba12-4914-8cce-d8587818b093",
-            "image": "https://eslamoo.github.io/selia-videos/banners-slider.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/09d125a1d71ee44babc2df4700df3be43c4a70b1bbf4bcfbac8dce49ccfc817d/previews/animated-text.jpg",
             "props": {
                 "min-height": "44px"
             },
@@ -101,7 +101,7 @@
             "icon": "sicon-image-carousel",
             "name": "advanced-slider",
             "key": "5d309060-1e70-4d50-bafb-5dcf25c2c27d",
-            "image": "https://eslamoo.github.io/selia-videos/advanced-slider.jpeg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/419c391c4b4d1e4cb70f1733e31e272749b28e83dfc83aa8dc3c927418b136b8/previews/advanced-slider.jpg",
             "props": {
                 "min-height": "420px"
             },
@@ -451,7 +451,7 @@
             "icon": "sicon-shopping-bag",
             "name": "product-hero",
             "key": "8ef2d927-0bc3-48e6-863c-f10a3063327e",
-            "image": "https://cdn.selia-tech.com/images/mini-product-details.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/7aa96483872e66b0fae93fcf33622f3d0d4d4f1fa21cff9b553793d6be6a0d46/previews/product-hero.jpg",
             "props": {
                 "min-height": "640px"
             },
@@ -832,7 +832,7 @@
             "icon": "sicon-credit-card",
             "name": "animated-payments",
             "key": "55bf5609-2043-49ee-ac2e-6c3328e98875",
-            "image": "https://eslamoo.github.io/selia-videos/animated-brands.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/8d2b74c22fb6c72b062884e5fc8fa360da055d4b2da7b0cb30609e210cbe1d90/previews/animated-payments.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -980,7 +980,7 @@
             "icon": "sicon-award-ribbon",
             "name": "features",
             "key": "019e0007-a645-4977-b8da-629adc837433",
-            "image": "https://eslamoo.github.io/selia-videos/enhanced-feat.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/bb077e4b3fb7636d31479d91d225cd08d678a360d2e11a2261c714d138bc75f2/previews/features.jpg",
             "props": {
                 "min-height": "220px"
             },
@@ -1163,7 +1163,7 @@
             "icon": "sicon-layout-grid-rearrange",
             "name": "double-banner",
             "key": "e1639f60-7d0f-4739-aa02-e1022a4b43d3",
-            "image": "https://eslamoo.github.io/selia-videos/double-banner.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9efe48bd5a143cb4f46422f2f776b217b0d2c3ce815432f863ab13003e5f138f/previews/double-banner.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1259,7 +1259,7 @@
             "icon": "sicon-layout-grid",
             "name": "three-banners",
             "key": "fa4e4cfb-1280-4d0d-b449-5f0f0a97c940",
-            "image": "https://eslamoo.github.io/selia-videos/three-banners.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/de1f778cefcb5cdbf359746e793941abd8425a3ea714dc96c8a73a80784d6926/previews/three-banners.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1375,7 +1375,7 @@
             "icon": "sicon-image",
             "name": "images-grid",
             "key": "a0a73bfb-65ee-4db4-80ae-a82e556d9a2c",
-            "image": "https://eslamoo.github.io/selia-videos/images-grid.jpeg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/cd5e9d6884fd676c17ed7b06202bd8feffef2865cbec9027cc39c623cc08789a/previews/images-grid.jpg",
             "props": {
                 "min-height": "520px"
             },
@@ -1583,7 +1583,7 @@
             "icon": "sicon-chat-bubbles",
             "name": "custom-reviews",
             "key": "8a3aab65-04c1-4c21-8a28-cd077242551a",
-            "image": "https://eslamoo.github.io/selia-videos/testim.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/a0bd2a9f8636328009a5fc47dea0773ac4980e6984012bffaacf596c45248e73/previews/custom-reviews.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -1779,7 +1779,7 @@
             "icon": "sicon-help-circle",
             "name": "faq",
             "key": "33827d3f-ee1f-4f87-8994-d126dd4319cd",
-            "image": "https://eslamoo.github.io/selia-videos/faq.png",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/044524cce2876298d1b852fb084ac01713b41a3db824ac2221603106cb6df470/previews/faq.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -1938,16 +1938,18 @@
             "path": "templates.abaya-elegance",
             "category_id": "814202285",
             "primary_color": "",
-            "thumbnail": "",
-            "is_default": true
+            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/2b8dafdbea10f539129c4fbe169cd26764fd0fabe9825a6e9bedc5f48d013142/templates-thumbs/abaya-elegance.jpg",
+            "is_default": true,
+            "public_preview_url": "https://salla.design/preview/s/eh7svsy3mkb6/abaya-elegance"
         },
         {
             "id": "9c1e47b2-5d3a-4f8e-b6c0-2a7d9e4f1b58",
             "path": "templates.fashion-offers",
             "category_id": "814202285",
             "primary_color": "",
-            "thumbnail": "",
-            "is_default": false
+            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/f36e976f927168579ca9fe47fbe38a0f11236d361b2d47eaaff835734a433f82/templates-thumbs/fashion-offers.jpg",
+            "is_default": false,
+            "public_preview_url": "https://salla.design/preview/s/eh7svsy3mkb6/fashion-offers"
         }
     ]
 }
