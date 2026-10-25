@@ -16,6 +16,8 @@
   </style>
 </head>
 <body>
+  <!-- Starts the icon font download before any section renders, so captures never show placeholder boxes -->
+  <i class="sicon-star2" aria-hidden="true" style="position:absolute;opacity:0;pointer-events:none"></i>
   <main id="page" class="flex flex-col min-h-screen"></main>
   <pre id="harness-log"></pre>
   <script type="module" src="https://cdn.salla.network/js/twilight/latest/twilight.esm.js"></script>
@@ -27,6 +29,11 @@
     const storeId = params.get("store") || "1886435134";
     const productId = params.get("product") || "1287502680";
     const logEl = document.getElementById("harness-log");
+    // ?clean=1 hides the log bar for screenshots
+    if (params.get("clean")) {
+      logEl.style.display = "none";
+      document.head.insertAdjacentHTML("beforeend", "<style>#__dt-salla-panel-host{display:none!important}</style>");
+    }
     const log = (...args) => { logEl.textContent += args.map((a) => typeof a === "string" ? a : JSON.stringify(a)).join(" ") + "\n"; console.log("[harness]", ...args); };
     window.harnessLog = [];
 
@@ -54,7 +61,9 @@
     // The renderer passes the whole component wrapper as `config`, with raw field values
     const tpl = await fetch(`/templates/${template}.json`).then((r) => r.json());
     const page = document.getElementById("page");
-    for (const component of tpl.components) {
+    // ?only=<component> renders a single section, for component preview images
+    const only = params.get("only");
+    for (const component of tpl.components.filter((c) => !only || c.name === only)) {
       const values = Object.fromEntries((component.fields || []).filter((f) => f.type !== "static").map((f) => [f.id, f.value]));
       const wrapper = { component: values, key: component.key, path: "bundle-component", component_name: component.name, bundle_id: "78394996" };
       const el = document.createElement("salla-custom-component");
@@ -82,6 +91,16 @@
     if (analytics) {
       const track = analytics.track.bind(analytics);
       analytics.track = (event, props) => { window.harnessLog.push(`track:${event}`); log(`analytics: ${event}`, props); return track(event, props); };
+    }
+
+    // ?vh=900 pins viewport-height sections to that screen height, for full-page captures in a tall window
+    const screenVh = Number(params.get("vh"));
+    if (screenVh) {
+      const pin = () => document.querySelectorAll(".slp-sl").forEach((el) => {
+        el.style.cssText = el.style.cssText.replace(/(-?\d+(?:\.\d+)?)vh/g, (_, n) => `${(Number(n) * screenVh) / 100}px`);
+      });
+      const timer = setInterval(pin, 200);
+      setTimeout(() => clearInterval(timer), 15000);
     }
 
     // Load the bundles core last, like the renderer's lazy injectTwilightBundlesAssets()
