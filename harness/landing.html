@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing page harness</title>
+  <!-- Same bootstrap as theme-landing-page: lit from an import map, Twilight, the bundles core and Tailwind's reset -->
+  <script type="importmap">{ "imports": { "lit": "https://esm.run/lit", "lit/": "https://esm.run/lit/" } }</script>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="stylesheet" href="https://cdn.salla.network/fonts/sallaicons.css" />
+  <link rel="stylesheet" href="https://cdn.salla.network/fonts/pingarlt.css" />
+  <style>
+    body { font-family: var(--font-main, "PingARLT"), sans-serif; }
+    #harness-log { position: fixed; bottom: 0; inset-inline: 0; z-index: 99; max-height: 30vh; overflow: auto; margin: 0; padding: .5rem 1rem; background: #111; color: #9ef09e; font: 12px/1.5 monospace; direction: ltr; }
+    .s-block--fast-checkout { margin: 2rem auto; max-width: 40rem; padding: 1.5rem; border: 2px dashed #999; border-radius: 1rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <main id="page" class="flex flex-col min-h-screen"></main>
+  <pre id="harness-log"></pre>
+  <script type="module" src="https://cdn.salla.network/js/twilight/latest/twilight.esm.js"></script>
+  <script type="module">
+    const params = new URLSearchParams(location.search);
+    const template = params.get("template") || "abaya-elegance";
+    const mode = params.get("mode") || "product";
+    const layout = params.get("layout") || "inline-block";
+    const storeId = params.get("store") || "1886435134";
+    const productId = params.get("product") || "1287502680";
+    const logEl = document.getElementById("harness-log");
+    const log = (...args) => { logEl.textContent += args.map((a) => typeof a === "string" ? a : JSON.stringify(a)).join(" ") + "\n"; console.log("[harness]", ...args); };
+    window.harnessLog = [];
+
+    // Fast-checkout stand-in with the hooks the bundle relies on
+    window.addEventListener("open-checkout-drawer", () => { window.harnessLog.push("open-checkout-drawer"); log("event: open-checkout-drawer"); });
+
+    const waitFor = (test) => new Promise((resolve) => { const t = setInterval(() => { if (test()) { clearInterval(t); resolve(); } }, 50); });
+    await waitFor(() => window.Salla);
+    const settings = (await fetch("https://api.salla.dev/store/v1/store/settings", { headers: { "store-identifier": storeId } }).then((r) => r.json())).data;
+    Salla.init({ ...settings, debug: false });
+    await Salla.onReady();
+    Salla.config.set("page.is_landing_page", true);
+    Salla.config.set("theme.settings", {
+      page_status: "active",
+      page_for_product: [{ value: mode }],
+      product: { value: mode === "product" ? [productId] : [] },
+      main_btn_text: "تسوق العروض",
+      main_btn_url: "https://theme.selia-tech.com/ar/offers",
+    });
+    const { primary, reverse_text } = Salla.config.get("theme.color") || {};
+    document.documentElement.style.setProperty("--color-primary", primary);
+    document.documentElement.style.setProperty("--color-primary-reverse", reverse_text);
+    log(`store ${storeId} | mode ${mode} | layout ${layout} | template ${template}`);
+
+    // The renderer passes the whole component wrapper as `config`, with raw field values
+    const tpl = await fetch(`/templates/${template}.json`).then((r) => r.json());
+    const page = document.getElementById("page");
+    for (const component of tpl.components) {
+      const values = Object.fromEntries((component.fields || []).filter((f) => f.type !== "static").map((f) => [f.id, f.value]));
+      const wrapper = { component: values, key: component.key, path: "bundle-component", component_name: component.name, bundle_id: "78394996" };
+      const el = document.createElement("salla-custom-component");
+      el.setAttribute("component-name", component.name);
+      el.setAttribute("bundle-id", "78394996");
+      el.setAttribute("assets", `/dist/${component.name}.js`);
+      el.setAttribute("config", JSON.stringify(wrapper));
+      page.appendChild(el);
+    }
+
+    if (mode === "product" && layout !== "none") {
+      const checkout = document.createElement("div");
+      checkout.className = "s-block s-block--fast-checkout";
+      checkout.dataset.layout = layout;
+      checkout.innerHTML = '<p>fast-checkout</p><salla-quantity-input value="1"></salla-quantity-input>';
+      page.appendChild(checkout);
+      checkout.querySelector("salla-quantity-input").addEventListener("change", (e) => {
+        const value = e.detail ?? e.target.value;
+        window.harnessLog.push(`quantity:${value}`);
+        log(`fast-checkout quantity changed to ${value}`);
+      });
+    }
+
+    const analytics = Salla.analytics;
+    if (analytics) {
+      const track = analytics.track.bind(analytics);
+      analytics.track = (event, props) => { window.harnessLog.push(`track:${event}`); log(`analytics: ${event}`, props); return track(event, props); };
+    }
+
+    // Load the bundles core last, like the renderer's lazy injectTwilightBundlesAssets()
+    const core = document.createElement("script");
+    core.type = "module";
+    core.src = "https://cdn.assets.salla.network/prod/@salla.sa/twilight-bundles/latest/twilight-bundles.js";
+    document.head.appendChild(core);
+  </script>
+</body>
+</html>
