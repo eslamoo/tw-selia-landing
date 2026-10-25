@@ -12,11 +12,177 @@
     "repository": "https://github.com/eslamoo/tw-selia-landing",
     "components": [
         {
+            "title": "رأس الصفحة",
+            "icon": "sicon-store",
+            "name": "page-header",
+            "key": "a2d7715d-3dd2-408e-bc65-5f13dc54c081",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/da7dcc0b54c52f7478f2b63960707cf4cd16bd26d7cff358e5384fdcdbc11635/previews/page-header.jpg",
+            "props": {
+                "min-height": "80px"
+            },
+            "fields": [
+                {
+                    "id": "logo",
+                    "type": "string",
+                    "format": "image",
+                    "label": "شعار مخصص",
+                    "icon": "sicon-image",
+                    "required": false,
+                    "description": "اتركه فارغاً لاستخدام شعار متجرك",
+                    "value": ""
+                },
+                {
+                    "id": "logo_dark",
+                    "type": "string",
+                    "format": "image",
+                    "label": "شعار الوضع الداكن",
+                    "icon": "sicon-image",
+                    "required": false,
+                    "description": "اختياري، وبدونه يظهر شعارك باللون الأبيض في الوضع الداكن",
+                    "value": ""
+                },
+                {
+                    "id": "logo_height",
+                    "type": "number",
+                    "format": "number",
+                    "inputType": "number",
+                    "label": "ارتفاع الشعار (px)",
+                    "icon": "sicon-calculator",
+                    "required": false,
+                    "description": null,
+                    "minimum": 24,
+                    "maximum": 140,
+                    "value": 56
+                },
+                {
+                    "id": "align",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "مكان الشعار",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": null,
+                    "options": [
+                        {
+                            "label": "الوسط",
+                            "value": "center",
+                            "key": "center"
+                        },
+                        {
+                            "label": "البداية",
+                            "value": "start",
+                            "key": "start"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "الوسط",
+                            "value": "center",
+                            "key": "center"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "الوسط",
+                            "value": "center",
+                            "key": "center"
+                        }
+                    ]
+                },
+                {
+                    "id": "sticky",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "تثبيت الرأس أعلى الصفحة",
+                    "icon": "sicon-toggle-off",
+                    "required": false,
+                    "description": null,
+                    "value": false,
+                    "selected": false
+                },
+                {
+                    "id": "show_shadow",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "ظل أسفل الرأس",
+                    "icon": "sicon-toggle-off",
+                    "required": false,
+                    "description": null,
+                    "value": true,
+                    "selected": true
+                },
+                {
+                    "id": "link_to_store",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "الشعار يفتح المتجر",
+                    "icon": "sicon-toggle-off",
+                    "required": false,
+                    "description": "اتركه مغلقاً ليبقى عميلك في صفحة الهبوط",
+                    "value": false,
+                    "selected": false
+                },
+                {
+                    "id": "bg_color",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون الخلفية",
+                    "icon": "sicon-format-fill",
+                    "required": false,
+                    "description": "اتركه فارغاً لاستخدام لون الوضع المختار",
+                    "value": ""
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "title": "شريط إعلاني متحرك",
             "icon": "sicon-megaphone",
             "name": "animated-text",
             "key": "18f83576-ba12-4914-8cce-d8587818b093",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/09d125a1d71ee44babc2df4700df3be43c4a70b1bbf4bcfbac8dce49ccfc817d/previews/animated-text.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/d11e8d855e1401a71229d5d13929c95669fa7e5ca015b4ce3d5fa085a2d7e903/previews/animated-text.jpg",
             "props": {
                 "min-height": "44px"
             },
@@ -451,7 +617,7 @@
             "icon": "sicon-shopping-bag",
             "name": "product-hero",
             "key": "8ef2d927-0bc3-48e6-863c-f10a3063327e",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/7aa96483872e66b0fae93fcf33622f3d0d4d4f1fa21cff9b553793d6be6a0d46/previews/product-hero.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/d9245e1ac28fa25528096362422adeae8c4ec240acb46659a6c07acd79d16d6d/previews/product-hero.jpg",
             "props": {
                 "min-height": "640px"
             },
@@ -823,7 +989,48 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#ffffff"
+                    "value": ""
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -832,7 +1039,7 @@
             "icon": "sicon-credit-card",
             "name": "animated-payments",
             "key": "55bf5609-2043-49ee-ac2e-6c3328e98875",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/8d2b74c22fb6c72b062884e5fc8fa360da055d4b2da7b0cb30609e210cbe1d90/previews/animated-payments.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/10eb5a92b5c87b50d41b82658a0a7882a854b0edd84ce1fb7330b28643c0b30c/previews/animated-payments.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -960,7 +1167,7 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#f4f4f5"
+                    "value": ""
                 },
                 {
                     "id": "bg_color",
@@ -971,7 +1178,48 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#ffffff"
+                    "value": ""
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -980,7 +1228,7 @@
             "icon": "sicon-award-ribbon",
             "name": "features",
             "key": "019e0007-a645-4977-b8da-629adc837433",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/bb077e4b3fb7636d31479d91d225cd08d678a360d2e11a2261c714d138bc75f2/previews/features.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/e37ddec0e6ddd091d5bc5152af88e273e4a13c0fab0c6385e3e8cbf33f393e82/previews/features.jpg",
             "props": {
                 "min-height": "220px"
             },
@@ -1154,7 +1402,48 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#ffffff"
+                    "value": ""
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -1251,6 +1540,47 @@
                     "description": "يقص الصور بنسبة 4:3 لتتساوى",
                     "value": false,
                     "selected": false
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -1367,6 +1697,47 @@
                     "description": "يقص الصور بنسبة 4:3 لتتساوى",
                     "value": true,
                     "selected": true
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -1575,6 +1946,47 @@
                     "description": null,
                     "value": true,
                     "selected": true
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -1583,7 +1995,7 @@
             "icon": "sicon-chat-bubbles",
             "name": "custom-reviews",
             "key": "8a3aab65-04c1-4c21-8a28-cd077242551a",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/a0bd2a9f8636328009a5fc47dea0773ac4980e6984012bffaacf596c45248e73/previews/custom-reviews.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/e8b1e8fa834aefcfb8bee7144550aef4379b559987d83ffff9a736d9c3025260/previews/custom-reviews.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -1759,7 +2171,7 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#ffffff"
+                    "value": ""
                 },
                 {
                     "id": "bg_color",
@@ -1770,7 +2182,48 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#f8f8f8"
+                    "value": ""
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         },
@@ -1779,7 +2232,7 @@
             "icon": "sicon-help-circle",
             "name": "faq",
             "key": "33827d3f-ee1f-4f87-8994-d126dd4319cd",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/044524cce2876298d1b852fb084ac01713b41a3db824ac2221603106cb6df470/previews/faq.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c027cea29302352df4d223c11dfb1c140df7fe08cf9a30f4c6d287b29adee0e8/previews/faq.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -1924,7 +2377,48 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#ffffff"
+                    "value": ""
+                },
+                {
+                    "id": "color_scheme",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "source": "Manual",
+                    "label": "وضع الألوان",
+                    "icon": "sicon-list",
+                    "required": false,
+                    "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+                    "options": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        },
+                        {
+                            "label": "داكن",
+                            "value": "dark",
+                            "key": "dark"
+                        },
+                        {
+                            "label": "حسب جهاز الزائر",
+                            "value": "auto",
+                            "key": "auto"
+                        }
+                    ],
+                    "selected": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "label": "فاتح",
+                            "value": "light",
+                            "key": "light"
+                        }
+                    ]
                 }
             ]
         }
@@ -1938,7 +2432,7 @@
             "path": "templates.abaya-elegance",
             "category_id": "814202285",
             "primary_color": "",
-            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/2b8dafdbea10f539129c4fbe169cd26764fd0fabe9825a6e9bedc5f48d013142/templates-thumbs/abaya-elegance.jpg",
+            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/0e32858eb57b7c1d8c21d2191d1c9ba35b981b77a3c173002c380e650158a3e9/templates-thumbs/abaya-elegance.jpg",
             "is_default": true,
             "public_preview_url": "https://salla.design/preview/s/eh7svsy3mkb6/abaya-elegance"
         },
@@ -1947,7 +2441,7 @@
             "path": "templates.fashion-offers",
             "category_id": "814202285",
             "primary_color": "",
-            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/f36e976f927168579ca9fe47fbe38a0f11236d361b2d47eaaff835734a433f82/templates-thumbs/fashion-offers.jpg",
+            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/578f0b820bf06631c0a1afecccae47e6642a95363cfdcb003423da21740ad78b/templates-thumbs/fashion-offers.jpg",
             "is_default": false,
             "public_preview_url": "https://salla.design/preview/s/eh7svsy3mkb6/fashion-offers"
         }

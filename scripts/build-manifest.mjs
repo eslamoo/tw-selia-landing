@@ -22,10 +22,30 @@ const drop = (id, label, options, selected, desc = null) => {
 const products = (id, label, desc) => ({ id, type: "items", format: "dropdown-list", source: "products", label, icon: "sicon-box", placeholder: "البحث في قائمة المنتجات...", required: false, description: desc, options: [], selected: [], value: [], searchable: true, multichoice: false });
 const collection = (id, itemLabel, fields, value, min, max) => ({ id, type: "collection", format: "collection", required: true, minLength: min, maxLength: max, item_label: itemLabel, fields: fields.map((f) => ({ ...f, id: `${id}.${f.id}` })), value: value.map((row) => Object.fromEntries(Object.entries(row).map(([k, v]) => [`${id}.${k}`, v]))) });
 const line = (id) => ({ id, type: "static", format: "line" });
+const scheme = () => drop("color_scheme", "وضع الألوان", [["light", "فاتح"], ["dark", "داكن"], ["auto", "حسب جهاز الزائر"]], "light", "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل");
 
 const PREVIEW = "https://eslamoo.github.io/selia-videos";
 
 const components = [
+  {
+    title: "رأس الصفحة",
+    icon: "sicon-store",
+    name: "page-header",
+    key: "a2d7715d-3dd2-408e-bc65-5f13dc54c081",
+    image: "",
+    props: { "min-height": "80px" },
+    fields: [
+      image("logo", "شعار مخصص", "", "اتركه فارغاً لاستخدام شعار متجرك"),
+      image("logo_dark", "شعار الوضع الداكن", "", "اختياري، وبدونه يظهر شعارك باللون الأبيض في الوضع الداكن"),
+      num("logo_height", "ارتفاع الشعار (px)", 56, 24, 140),
+      drop("align", "مكان الشعار", [["center", "الوسط"], ["start", "البداية"]], "center"),
+      sw("sticky", "تثبيت الرأس أعلى الصفحة", false),
+      sw("show_shadow", "ظل أسفل الرأس", true),
+      sw("link_to_store", "الشعار يفتح المتجر", false, "اتركه مغلقاً ليبقى عميلك في صفحة الهبوط"),
+      color("bg_color", "لون الخلفية", "", "اتركه فارغاً لاستخدام لون الوضع المختار"),
+      scheme(),
+    ],
+  },
   {
     title: "شريط إعلاني متحرك",
     icon: "sicon-megaphone",
@@ -97,7 +117,7 @@ const components = [
       sw("show_thumbs", "إظهار الصور المصغرة", true),
       sw("show_subtitle", "إظهار العنوان الفرعي للمنتج", true),
       sw("show_description", "إظهار وصف المنتج", false),
-      color("border_color", "لون إطار البطاقة", "#eeeeee"),
+      color("border_color", "لون إطار البطاقة", ""),
       line("ph-line-2"),
       sw("show_sold", "إظهار عدد المبيعات", true),
       num("sold_count", "عدد المبيعات المعروض", 0, 0, 1000000, "اتركه 0 لعرض مبيعات المنتج الفعلية"),
@@ -109,7 +129,8 @@ const components = [
       icon("marquee_icon", "أيقونة النص المتحرك", "sicon-star"),
       color("marquee_bg", "خلفية النص المتحرك", "#111111"),
       color("marquee_color", "لون النص المتحرك", "#ffffff"),
-      color("bg_color", "لون خلفية القسم", "#ffffff"),
+      color("bg_color", "لون خلفية القسم", ""),
+      scheme(),
     ],
   },
   {
@@ -125,8 +146,9 @@ const components = [
       collection("logos", "شعار", [image("logo", "الشعار", ""), text("name", "الاسم", L("", ""))], [], 0, 20),
       sw("grayscale", "رمادي حتى المرور عليه", false),
       sw("second_row", "صف ثاني بعكس الاتجاه", false),
-      color("logos_bg", "خلفية الشعار", "#f4f4f5"),
-      color("bg_color", "لون خلفية القسم", "#ffffff"),
+      color("logos_bg", "خلفية الشعار", ""),
+      color("bg_color", "لون خلفية القسم", ""),
+      scheme(),
     ],
   },
   {
@@ -151,7 +173,8 @@ const components = [
         { icon: "sicon-headphones", image: "", title: L("دعم متواصل", "Ongoing support"), sub_title: L("فريقنا جاهز يساعدك", "Our team is here to help") },
       ], 1, 8),
       color("icon_bg", "خلفية الأيقونة", "", "اتركه فارغاً لاستخدام اللون الأساسي للمتجر"),
-      color("bg_color", "لون خلفية القسم", "#ffffff"),
+      color("bg_color", "لون خلفية القسم", ""),
+      scheme(),
     ],
   },
   {
@@ -170,6 +193,7 @@ const components = [
       sw("stack_mobile", "بانر تحت الآخر في الجوال", true),
       sw("full_width", "عرض كامل بدون هوامش", false),
       sw("equal_height", "توحيد ارتفاع البانرات", false, "يقص الصور بنسبة 4:3 لتتساوى"),
+      scheme(),
     ],
   },
   {
@@ -190,6 +214,7 @@ const components = [
       sw("stack_mobile", "بانر تحت الآخر في الجوال", true),
       sw("full_width", "عرض كامل بدون هوامش", false),
       sw("equal_height", "توحيد ارتفاع البانرات", true, "يقص الصور بنسبة 4:3 لتتساوى"),
+      scheme(),
     ],
   },
   {
@@ -206,6 +231,7 @@ const components = [
       sw("bottom_titles", "العناوين أسفل الصور", false),
       sw("overlay", "تدرج خفيف فوق الصور", true),
       sw("rounded", "حواف دائرية", true),
+      scheme(),
     ],
   },
   {
@@ -225,8 +251,9 @@ const components = [
         area("review", "الرأي", L("", "")),
       ], [], 1, 12),
       sw("autoplay", "تمرير تلقائي", true),
-      color("card_bg", "لون خلفية البطاقة", "#ffffff"),
-      color("bg_color", "لون خلفية القسم", "#f8f8f8"),
+      color("card_bg", "لون خلفية البطاقة", ""),
+      color("bg_color", "لون خلفية القسم", ""),
+      scheme(),
     ],
   },
   {
@@ -241,7 +268,8 @@ const components = [
       text("subtitle", "الوصف", L("", "")),
       collection("items", "سؤال", [text("question", "السؤال", L("", "")), area("answer", "الإجابة", L("", ""))], [], 1, 12),
       sw("two_columns", "عمودين على الشاشات الكبيرة", true),
-      color("bg_color", "لون خلفية القسم", "#ffffff"),
+      color("bg_color", "لون خلفية القسم", ""),
+      scheme(),
     ],
   },
 ];
@@ -276,6 +304,7 @@ const templates = [
     category_id: "814202285",
     is_default: true,
     values: {
+      "page-header": {},
       "animated-text": { text: L("عروضنا تصل إلى 40% وأكثر  |  شحن مجاني إلى جميع مناطق المملكة  |  ضمان ذهبي وإسترجاع سهل", "Offers up to 40% and more  |  Free shipping across the Kingdom  |  Gold guarantee and easy returns"), bg: "#000000", color: "#ffffff" },
       "advanced-slider": {
         height: 90, mobile_height: 80,
@@ -296,7 +325,7 @@ const templates = [
         ]),
       },
     },
-    order: ["animated-text", "advanced-slider", "product-hero", "animated-payments", "features", "double-banner", "custom-reviews", "faq"],
+    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "animated-payments", "features", "double-banner", "custom-reviews", "faq"],
   },
   {
     name: "fashion-offers",
@@ -304,6 +333,7 @@ const templates = [
     category_id: "814202285",
     is_default: false,
     values: {
+      "page-header": { color_scheme: sel("dark", "داكن"), sticky: true, logo_dark: "https://cdn.selia-tech.com/videos/theme-logo-pale.png" },
       "animated-text": { text: L("خصم 200 ريال لفترة محدودة جدا ✨ اغتنم الفرصة الآن 🔥", "200 SAR off for a very limited time ✨ Grab it now 🔥"), bg: "#000000", color: "#ffffff", speed: 26 },
       "advanced-slider": {
         height: 80, mobile_height: 70, effect: sel("slide", "انزلاق"),
@@ -313,20 +343,21 @@ const templates = [
           slide({ image: `${FB}/rpd3McDL77cALoEbtQXlvzoMTrH79ru4UpE22yHx.jpg`, title: L("عطور تدوم معك", "Fragrances that last"), desc: L("هدية مثالية لمن تحب", "The perfect gift"), btn_text: L("تسوق العروض", "Shop the offers"), outlined_btn: true, btn_color: "#ffffff", content_position: sel("end", "النهاية") }),
         ]),
       },
-      "double-banner": { first_image: `${FB}/ZjHsdgzca46oJqIwV4vTDK60zkL9OZrz9wHZnWcz.png`, second_image: `${FB}/pN2w71zXy3JiFDFGEBhpdmZPs1QalH4UcDWRnXgp.png` },
+      "double-banner": { first_image: `${FB}/ZjHsdgzca46oJqIwV4vTDK60zkL9OZrz9wHZnWcz.png`, second_image: `${FB}/pN2w71zXy3JiFDFGEBhpdmZPs1QalH4UcDWRnXgp.png`, color_scheme: sel("dark", "داكن") },
       "images-grid": {
-        title: L("تسوق حسب القسم", "Shop by category"),
+        title: L("تسوق حسب القسم", "Shop by category"), color_scheme: sel("dark", "داكن"),
         image_1: `${FB}/D7RY5Fy70MiaPRXs2w0dxgjQNUbmlvJMqTvtYQaa.jpg`, title_1: L("العطور", "Fragrances"),
         image_2: `${FB}/om8xhO8SrMVTBr9m3MwHFGdourdB8lOe1dYYiRal.webp`, title_2: L("أطفال", "Kids"),
         image_3: `${FB}/wrgpnKYN6tJbfuBbpwNxhXxW8VhP8UaouQHe660o.webp`, title_3: L("رجالي", "Men"),
         image_4: `${FB}/NClP8MP7C2ehudhNEMau7pkKXH8vYc8kTQR3JTMh.webp`, title_4: L("نسائي", "Women"),
         image_5: `${FB}/ATe90eiDARMzJ92hUex4GL2jecd38BhOOTKVTduZ.jpg`, title_5: L("مكياج", "Makeup"),
       },
-      "product-hero": { product: product(23847431, "عباية باللون الأسود بتداخل تفته وكريب"), title: L("منتج الأسبوع", "Product of the week"), subtitle: L("عرض محدود حتى نهاية الأسبوع", "Limited offer until the end of the week"), btn_text: L("تسوق الآن", "Shop now"), bg_color: "#faf7f2", border_color: "#d4a574", marquee_text: L("شحن مجاني لجميع المناطق", "Free shipping everywhere") },
-      "three-banners": { first_image: `${FB}/U5V59WvHHQNkDM4sRJr7m30E877mhzDvC87aydhh.jpg`, second_image: `${FB}/MluhG8XvJsZ8rraWCHrEPQZdZWDyaN3g2H3qvjM9.jpg`, third_image: `${FB}/bnXkCQWJnTKWqFCCsyezC9CstoBmSQqNj1u9kzgj.jpg` },
-      "animated-payments": { title: L("طرق دفع آمنة ومتعددة", "Secure payment options"), second_row: true, grayscale: true },
-      "custom-reviews": { title: L("آراء عملائنا", "What our customers say"), items: rows("items", DEMO_REVIEWS) },
+      "product-hero": { product: product(23847431, "عباية باللون الأسود بتداخل تفته وكريب"), title: L("منتج الأسبوع", "Product of the week"), subtitle: L("عرض محدود حتى نهاية الأسبوع", "Limited offer until the end of the week"), btn_text: L("تسوق الآن", "Shop now"), border_color: "#d4a574", color_scheme: sel("dark", "داكن"), marquee_text: L("شحن مجاني لجميع المناطق", "Free shipping everywhere") },
+      "three-banners": { color_scheme: sel("dark", "داكن"), first_image: `${FB}/U5V59WvHHQNkDM4sRJr7m30E877mhzDvC87aydhh.jpg`, second_image: `${FB}/MluhG8XvJsZ8rraWCHrEPQZdZWDyaN3g2H3qvjM9.jpg`, third_image: `${FB}/bnXkCQWJnTKWqFCCsyezC9CstoBmSQqNj1u9kzgj.jpg` },
+      "animated-payments": { title: L("طرق دفع آمنة ومتعددة", "Secure payment options"), second_row: true, grayscale: true, color_scheme: sel("dark", "داكن") },
+      "custom-reviews": { title: L("آراء عملائنا", "What our customers say"), items: rows("items", DEMO_REVIEWS), color_scheme: sel("dark", "داكن") },
       "faq": {
+        color_scheme: sel("dark", "داكن"),
         title: L("لديك سؤال؟ اجابته هنا 👇🏻", "Have a question? The answer is here 👇🏻"),
         subtitle: L("كل ما تريد معرفته عن الأزياء والموضة ✨", "Everything you want to know about fashion ✨"),
         items: rows("items", [
@@ -337,7 +368,7 @@ const templates = [
         ]),
       },
     },
-    order: ["animated-text", "advanced-slider", "double-banner", "images-grid", "product-hero", "three-banners", "animated-payments", "custom-reviews", "faq"],
+    order: ["animated-text", "page-header", "advanced-slider", "double-banner", "images-grid", "product-hero", "three-banners", "animated-payments", "custom-reviews", "faq"],
   },
 ];
 
@@ -361,6 +392,7 @@ const PREVIEW_ID = fs.existsSync(`${ROOT}/.salla-preview.json`)
   : process.env.TW_PREVIEW_ID || "eh7svsy3mkb6";
 const previewUrl = (name) => {
   const file = `${ROOT}/public/assets/previews/${name}.jpg`;
+  if (!fs.existsSync(file)) return "";
   const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
   return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/previews/${name}.jpg`;
 };

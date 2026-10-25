@@ -2,17 +2,16 @@ import { html, LitElement, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
 import { getCollectionItems, getConfig, resolveText, unwrapValue } from "../../utils/config";
 import { getSalla } from "../../utils/landing";
-import { baseCss, injectStyles } from "../../utils/styles";
+import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 
 const css = `
-.slp-pay { background: var(--slp-pay-bg, #fff); }
 .slp-pay__row { display: flex; overflow: hidden; direction: ltr; user-select: none; gap: 1rem; margin-block: .75rem;
   mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent); }
 .slp-pay__group { flex-shrink: 0; display: flex; align-items: center; gap: 1rem; animation: slp-pay-scroll var(--slp-pay-speed, 40s) linear infinite; }
 .slp-pay__row--reverse .slp-pay__group { animation-direction: reverse; }
 .slp-pay__row:hover .slp-pay__group { animation-play-state: paused; }
-.slp-pay__logo { display: flex; align-items: center; justify-content: center; width: 6.5rem; height: 4.25rem; padding: .75rem; border-radius: .75rem; background: var(--slp-pay-logo-bg, #f4f4f5); }
+.slp-pay__logo { display: flex; align-items: center; justify-content: center; width: 6.5rem; height: 4.25rem; padding: .75rem; border-radius: .75rem; background: var(--slp-pay-logo-bg, var(--slp-soft)); }
 .slp-pay__logo img { width: 100%; height: 100%; object-fit: contain; }
 .slp-pay--gray .slp-pay__logo img { filter: grayscale(1); transition: filter .3s ease; }
 .slp-pay--gray .slp-pay__logo:hover img { filter: none; }
@@ -65,8 +64,12 @@ export default class AnimatedPayments extends LitElement {
     const logos = this.logos(cfg);
     if (!logos.length) return nothing;
     const title = resolveText(cfg.title);
-    const style = `--slp-pay-bg:${cfg.bg_color || "#ffffff"};--slp-pay-logo-bg:${cfg.logos_bg || "#f4f4f5"};--slp-pay-speed:${Math.max(20, logos.length * 6)}s`;
-    return html`<section class="slp-block slp-section slp-pay${cfg.grayscale ? " slp-pay--gray" : ""}" style=${style}>
+    const style = [
+      cfg.bg_color ? `--slp-section-bg:${cfg.bg_color}` : "",
+      cfg.logos_bg ? `--slp-pay-logo-bg:${cfg.logos_bg}` : "",
+      `--slp-pay-speed:${Math.max(20, logos.length * 6)}s`,
+    ].filter(Boolean).join(";");
+    return html`<section class="slp-block slp-section slp-pay ${schemeClass(cfg)}${cfg.grayscale ? " slp-pay--gray" : ""}" style=${style}>
       <div class="slp-container">
         ${title ? html`<div class="slp-title"><h2>${title}</h2></div>` : nothing}
         ${this.row(logos)}

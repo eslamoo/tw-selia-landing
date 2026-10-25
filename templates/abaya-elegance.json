@@ -87,6 +87,172 @@
       ]
     },
     {
+      "title": "رأس الصفحة",
+      "icon": "sicon-store",
+      "name": "page-header",
+      "key": "a2d7715d-3dd2-408e-bc65-5f13dc54c081",
+      "image": "",
+      "props": {
+        "min-height": "80px"
+      },
+      "fields": [
+        {
+          "id": "logo",
+          "type": "string",
+          "format": "image",
+          "label": "شعار مخصص",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام شعار متجرك",
+          "value": ""
+        },
+        {
+          "id": "logo_dark",
+          "type": "string",
+          "format": "image",
+          "label": "شعار الوضع الداكن",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "اختياري، وبدونه يظهر شعارك باللون الأبيض في الوضع الداكن",
+          "value": ""
+        },
+        {
+          "id": "logo_height",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "ارتفاع الشعار (px)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 24,
+          "maximum": 140,
+          "value": 56
+        },
+        {
+          "id": "align",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "مكان الشعار",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "الوسط",
+              "value": "center",
+              "key": "center"
+            },
+            {
+              "label": "البداية",
+              "value": "start",
+              "key": "start"
+            }
+          ],
+          "selected": [
+            {
+              "label": "الوسط",
+              "value": "center",
+              "key": "center"
+            }
+          ],
+          "value": [
+            {
+              "label": "الوسط",
+              "value": "center",
+              "key": "center"
+            }
+          ]
+        },
+        {
+          "id": "sticky",
+          "type": "boolean",
+          "format": "switch",
+          "label": "تثبيت الرأس أعلى الصفحة",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "show_shadow",
+          "type": "boolean",
+          "format": "switch",
+          "label": "ظل أسفل الرأس",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "link_to_store",
+          "type": "boolean",
+          "format": "switch",
+          "label": "الشعار يفتح المتجر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "اتركه مغلقاً ليبقى عميلك في صفحة الهبوط",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون الخلفية",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام لون الوضع المختار",
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "سلايدر متقدم",
       "icon": "sicon-image-carousel",
       "name": "advanced-slider",
@@ -813,7 +979,48 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#ffffff"
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
         }
       ]
     },
@@ -950,7 +1157,7 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#f4f4f5"
+          "value": ""
         },
         {
           "id": "bg_color",
@@ -961,7 +1168,48 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#ffffff"
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
         }
       ]
     },
@@ -1144,7 +1392,48 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#ffffff"
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
         }
       ]
     },
@@ -1241,6 +1530,47 @@
           "description": "يقص الصور بنسبة 4:3 لتتساوى",
           "value": false,
           "selected": false
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
         }
       ]
     },
@@ -1425,7 +1755,7 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#ffffff"
+          "value": ""
         },
         {
           "id": "bg_color",
@@ -1436,7 +1766,48 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#f8f8f8"
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
         }
       ]
     },
@@ -1590,7 +1961,48 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": "#ffffff"
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
         }
       ]
     }

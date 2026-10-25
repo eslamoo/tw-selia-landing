@@ -1,5 +1,6 @@
 import { html, nothing } from "lit";
 import { getLocale } from "./config";
+import { schemeClass } from "./styles";
 
 export const bannersCss = `
 .slp-bn__row { display: flex; gap: .75rem; }
@@ -21,6 +22,7 @@ export function renderBanners(cfg: Record<string, any>, keys: string[]) {
   if (!images.length) return nothing;
   const classes = [
     "slp-block slp-section slp-bn",
+    schemeClass(cfg),
     cfg.rounded !== false ? "slp-bn--rounded" : "",
     cfg.stack_mobile !== false ? "slp-bn--stack" : "",
     cfg.full_width ? "slp-bn--full" : "",

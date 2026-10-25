@@ -1,7 +1,7 @@
 import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { getConfig, resolveText } from "../../utils/config";
-import { baseCss, injectStyles } from "../../utils/styles";
+import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 
 const css = `
 .slp-ig__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
@@ -48,6 +48,7 @@ export default class ImagesGrid extends LitElement {
     const title = resolveText(cfg.title);
     const classes = [
       "slp-block slp-section slp-ig",
+      schemeClass(cfg),
       cfg.rounded !== false ? "slp-ig--rounded" : "",
       cfg.overlay !== false ? "slp-ig--overlay" : "",
       cfg.bottom_titles ? "slp-ig--bottom" : "",

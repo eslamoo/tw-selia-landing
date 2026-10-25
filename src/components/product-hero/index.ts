@@ -3,17 +3,23 @@ import { property, state } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { getConfig, isRtl, resolveText, t, unwrapValue } from "../../utils/config";
 import { ctaAction, fetchProduct, isLandingPage, landingProductId, money, openCheckout, pageMode, syncCheckoutQuantity } from "../../utils/landing";
-import { baseCss, injectStyles } from "../../utils/styles";
+import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 
 // Port of the Selia theme's mini product card (mini-product-details), with the page's own checkout as the buy action
 const css = `
-.slp-mp { background: var(--slp-mp-bg, transparent); }
-.slp-mp__card { display: flex; flex-direction: column; width: 100%; max-width: 40rem; margin-inline: auto; overflow: hidden; border: 1px solid var(--slp-mp-border, #eee); border-radius: 1rem; background: #fff; }
-.slp-mp__main { position: relative; aspect-ratio: var(--slp-mp-ratio, 1 / 1); overflow: hidden; background: #fff; }
-.slp-mp__main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: var(--slp-mp-fit, cover); }
+.slp-mp__card { display: flex; flex-direction: column; width: 100%; max-width: 40rem; margin-inline: auto; overflow: hidden; border: 1px solid var(--slp-mp-border, var(--slp-border)); border-radius: 1rem; background: var(--slp-card); }
+.slp-mp__main { position: relative; aspect-ratio: var(--slp-mp-ratio, 1 / 1); overflow: hidden; background: var(--slp-card); }
+.slp-mp__track { position: absolute; inset: 0; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; }
+.slp-mp__track::-webkit-scrollbar { display: none; }
+.slp-mp__track.is-dragging { scroll-snap-type: none; cursor: grabbing; user-select: none; }
+.slp-mp__slide { position: relative; flex: 0 0 100%; scroll-snap-align: start; }
+.slp-mp__slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: var(--slp-mp-fit, cover); pointer-events: none; }
+.slp-mp__dots { position: absolute; bottom: .75rem; inset-inline: 0; display: flex; justify-content: center; gap: .375rem; pointer-events: none; }
+.slp-mp__dots span { width: .4rem; height: .4rem; border-radius: 999px; background: rgb(0 0 0 / 25%); transition: width .3s ease, background .3s ease; }
+.slp-mp__dots span.is-active { width: 1.1rem; background: var(--color-primary, #111); }
 .slp-mp__thumbs { display: flex; gap: .5rem; height: 5rem; margin: .75rem 1rem 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
 .slp-mp__thumbs::-webkit-scrollbar { display: none; }
-.slp-mp__thumb { flex: 0 0 5rem; height: 5rem; padding: 0; border: 2px solid transparent; border-radius: .5rem; overflow: hidden; background: #fff; cursor: pointer; }
+.slp-mp__thumb { flex: 0 0 5rem; height: 5rem; padding: 0; border: 2px solid transparent; border-radius: .5rem; overflow: hidden; background: var(--slp-card); cursor: pointer; }
 .slp-mp__thumb img { width: 100%; height: 100%; object-fit: var(--slp-mp-fit, cover); }
 .slp-mp__thumb.is-active { border-color: var(--color-primary, #111); }
 .slp-mp__marquee { overflow: hidden; background: var(--slp-mp-mq-bg, #111); color: var(--slp-mp-mq-color, #fff); direction: ltr; font-size: .8125rem; font-weight: 700; }
@@ -28,23 +34,23 @@ const css = `
 .slp-mp__sold svg { width: 1rem; height: 1rem; }
 .slp-mp__rating { display: inline-flex; align-items: center; gap: .125rem; margin-inline-start: auto; color: #d1d5db; white-space: nowrap; }
 .slp-mp__rating .is-on { color: #f5a524; }
-.slp-mp__rating span { margin-inline-start: .25rem; color: #6b7280; font-size: .75rem; }
-.slp-mp__name { margin-top: .5rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 1rem; line-height: 1.5rem; font-weight: 700; color: #111; }
-.slp-mp__subtitle { margin: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: .875rem; line-height: 1.5rem; color: #6b7280; }
+.slp-mp__rating span { margin-inline-start: .25rem; color: var(--slp-muted); font-size: .75rem; }
+.slp-mp__name { margin-top: .5rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 1rem; line-height: 1.5rem; font-weight: 700; color: var(--slp-text); }
+.slp-mp__subtitle { margin: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: .875rem; line-height: 1.5rem; color: var(--slp-muted); }
 .slp-mp__price { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; min-height: 2rem; margin-top: .5rem; }
-.slp-mp__total { font-size: 1.375rem; font-weight: 800; color: #111; }
+.slp-mp__total { font-size: 1.375rem; font-weight: 800; color: var(--slp-text); }
 .slp-mp__price.is-on-sale .slp-mp__total { color: #dc2626; }
-.slp-mp__before { font-size: .875rem; color: #6b7280; text-decoration: line-through; }
+.slp-mp__before { font-size: .875rem; color: var(--slp-muted); text-decoration: line-through; }
 .slp-mp__save { padding: .125rem .5rem; border-radius: .375rem; background: rgb(220 38 38 / 10%); color: #dc2626; font-size: .75rem; font-weight: 700; white-space: nowrap; }
-.slp-mp__desc { margin-top: .5rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: .8125rem; line-height: 1.375rem; color: #6b7280; }
+.slp-mp__desc { margin-top: .5rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: .8125rem; line-height: 1.375rem; color: var(--slp-muted); }
 .slp-mp__actions { display: flex; align-items: stretch; gap: .625rem; margin-top: auto; padding-top: .75rem; }
-.slp-mp__qty { flex: 0 0 auto; display: flex; align-items: center; height: 2.75rem; border: 1px solid rgb(0 0 0 / 10%); border-radius: .375rem; overflow: hidden; }
-.slp-mp__qty button { width: 2.5rem; height: 100%; border: 0; background: transparent; font-size: 1.25rem; line-height: 1; color: #111; cursor: pointer; }
+.slp-mp__qty { flex: 0 0 auto; display: flex; align-items: center; height: 2.75rem; border: 1px solid var(--slp-border); border-radius: .375rem; overflow: hidden; }
+.slp-mp__qty button { width: 2.5rem; height: 100%; border: 0; background: transparent; font-size: 1.25rem; line-height: 1; color: var(--slp-text); cursor: pointer; }
 .slp-mp__qty button:disabled { opacity: .35; cursor: default; }
 .slp-mp__qty output { min-width: 2rem; text-align: center; font-weight: 700; }
 .slp-mp__buy { flex: 1 1 auto; min-width: 0; min-height: 2.75rem; padding-block: .5rem; border-radius: .375rem; background: var(--slp-mp-btn-bg, var(--color-primary, #111)); color: var(--slp-mp-btn-color, var(--color-primary-reverse, #fff)); }
 .slp-mp__out { margin-top: .5rem; color: #dc2626; font-weight: 700; }
-.slp-mp__skel { border-radius: .375rem; background: rgb(0 0 0 / 6%); }
+.slp-mp__skel { border-radius: .375rem; background: var(--slp-soft); }
 .slp-mp__empty { max-width: 40rem; margin-inline: auto; padding: 2rem; border: 1px dashed #d4d4d8; border-radius: 1rem; text-align: center; color: #71717a; }
 @media (prefers-reduced-motion: reduce) { .slp-mp__marquee ul { animation: none; } }
 `;
@@ -68,6 +74,7 @@ export default class ProductHero extends LitElement {
   @state() private loading = true;
   @state() private active = 0;
   @state() private quantity = 1;
+  private drag?: { x: number; left: number; moved: boolean };
 
   protected createRenderRoot() {
     return this;
@@ -96,6 +103,53 @@ export default class ProductHero extends LitElement {
       .map((img: any) => ({ url: img.url, alt: img.alt }));
     if (!list.length && p?.image?.url) list.push({ url: p.image.url, alt: p.image.alt });
     return list;
+  }
+
+  private track(): HTMLElement | null {
+    return this.querySelector(".slp-mp__track");
+  }
+
+  // RTL tracks scroll to negative offsets, so positions are compared by magnitude
+  private goTo(index: number, smooth = true) {
+    const track = this.track();
+    if (!track) return;
+    const dir = getComputedStyle(track).direction === "rtl" ? -1 : 1;
+    track.scrollTo({ left: index * track.clientWidth * dir, behavior: smooth ? "smooth" : "auto" });
+    this.active = index;
+  }
+
+  private onScroll() {
+    const track = this.track();
+    if (!track || !track.clientWidth) return;
+    const index = Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
+    if (index !== this.active) this.active = index;
+  }
+
+  // Touch swipes scroll natively; mice drag the track
+  private onPointerDown(e: PointerEvent) {
+    if (e.pointerType !== "mouse") return;
+    const track = this.track();
+    if (!track) return;
+    this.drag = { x: e.clientX, left: track.scrollLeft, moved: false };
+    track.classList.add("is-dragging");
+    track.setPointerCapture(e.pointerId);
+  }
+
+  private onPointerMove(e: PointerEvent) {
+    const track = this.track();
+    if (!this.drag || !track) return;
+    const dx = e.clientX - this.drag.x;
+    if (Math.abs(dx) > 3) this.drag.moved = true;
+    track.scrollLeft = this.drag.left - dx;
+  }
+
+  private onPointerUp() {
+    const track = this.track();
+    if (!this.drag || !track) return;
+    track.classList.remove("is-dragging");
+    this.drag = undefined;
+    const index = Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
+    this.goTo(Math.min(Math.max(index, 0), this.images().length - 1));
   }
 
   private onBuy(e: Event) {
@@ -170,7 +224,7 @@ export default class ProductHero extends LitElement {
     const style = [
       `--slp-mp-ratio:${ratio}`,
       `--slp-mp-fit:${unwrapValue(cfg.media_fit) === "contain" ? "contain" : "cover"}`,
-      cfg.bg_color ? `--slp-mp-bg:${cfg.bg_color}` : "",
+      cfg.bg_color ? `--slp-section-bg:${cfg.bg_color}` : "",
       cfg.border_color ? `--slp-mp-border:${cfg.border_color}` : "",
       cfg.btn_bg ? `--slp-mp-btn-bg:${cfg.btn_bg}` : "",
       cfg.btn_color ? `--slp-mp-btn-color:${cfg.btn_color}` : "",
@@ -179,7 +233,7 @@ export default class ProductHero extends LitElement {
     ].filter(Boolean).join(";");
 
     if (this.loading) {
-      return html`<section class="slp-block slp-section slp-mp" style=${style}><div class="slp-container">
+      return html`<section class="slp-block slp-section slp-mp ${schemeClass(cfg)}" style=${style}><div class="slp-container">
         ${this.renderTitle(cfg)}
         <div class="slp-mp__card"><div class="slp-mp__main slp-mp__skel"></div>
           <div class="slp-mp__info"><div class="slp-mp__skel" style="height:1.125rem;width:70%;margin-top:.5rem"></div>
@@ -190,7 +244,7 @@ export default class ProductHero extends LitElement {
 
     if (!this.product) {
       const promotion = !isLandingPage() || pageMode() === "promotion";
-      return html`<section class="slp-block slp-section slp-mp"><div class="slp-container"><p class="slp-mp__empty">
+      return html`<section class="slp-block slp-section slp-mp ${schemeClass(cfg)}"><div class="slp-container"><p class="slp-mp__empty">
         ${promotion
           ? t({ ar: "اختر المنتج من إعدادات هذا القسم لعرضه هنا", en: "Choose a product in this section's settings to show it here" })
           : t({ ar: "اختر منتج الصفحة من إعدادات صفحة الهبوط لعرضه هنا", en: "Choose the page product in the landing page settings to show it here" })}
@@ -199,21 +253,29 @@ export default class ProductHero extends LitElement {
 
     const p = this.product;
     const images = this.images();
-    const current = images[this.active] || images[0];
     const marquee = resolveText(cfg.marquee_text);
     const subtitle = cfg.show_subtitle !== false ? p.subtitle : "";
     const desc = cfg.show_description ? String(p.description || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : "";
 
-    return html`<section class="slp-block slp-section slp-mp" style=${style}>
+    return html`<section class="slp-block slp-section slp-mp ${schemeClass(cfg)}" style=${style}>
       <div class="slp-container">
         ${this.renderTitle(cfg)}
         <article class="slp-mp__card">
           <div class="slp-mp__media">
-            <div class="slp-mp__main">${current ? html`<img src=${current.url} alt=${current.alt || p.name} fetchpriority="high" />` : nothing}</div>
+            <div class="slp-mp__main">
+              <div class="slp-mp__track" @scroll=${this.onScroll} @pointerdown=${this.onPointerDown}
+                @pointermove=${this.onPointerMove} @pointerup=${this.onPointerUp} @pointercancel=${this.onPointerUp}>
+                ${images.map((img, i) => html`<div class="slp-mp__slide"><img src=${img.url} alt=${img.alt || p.name}
+                  loading=${i ? "lazy" : "eager"} fetchpriority=${i ? "auto" : "high"} draggable="false" /></div>`)}
+              </div>
+              ${images.length > 1 && cfg.show_thumbs === false
+                ? html`<div class="slp-mp__dots">${images.map((_, i) => html`<span class=${i === this.active ? "is-active" : ""}></span>`)}</div>`
+                : nothing}
+            </div>
             ${cfg.show_thumbs !== false && images.length > 1
               ? html`<div class="slp-mp__thumbs">${images.map((img, i) => html`<button type="button"
                   class="slp-mp__thumb ${i === this.active ? "is-active" : ""}" aria-label=${img.alt || p.name}
-                  @click=${() => (this.active = i)}><img src=${img.url} alt="" loading="lazy" /></button>`)}</div>`
+                  @click=${() => this.goTo(i)}><img src=${img.url} alt="" loading="lazy" /></button>`)}</div>`
               : nothing}
           </div>
           ${marquee
