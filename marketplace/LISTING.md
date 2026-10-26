@@ -25,16 +25,17 @@ Two ready templates, each built around one product and using every section, with
 
 ## Screenshots (upload in this order)
 
-Device mockups, 1600x1200 (the size the Partners Portal requires), no added text or logos.
+Realistic iPhone and MacBook frames on the Selia dark background, 1600x1200 (the size the Partners Portal
+requires), under 200 KB, no added text or logos. Built by `scripts/make-marketplace.sh`.
 
 | File | Title AR | Title EN | Description AR | Description EN |
 |---|---|---|---|---|
 | `01-abaya-template.jpg` | قالب صفحة عباية | An abaya page template | فيديو بعرض الشاشة مع رأس شفاف وشريط إعلاني مثل ثيم سيليا | A full width video with a transparent header and an announcement bar, as in the Selia theme |
-| `02-product-quick-buy.jpg` | بطاقة منتج بالشراء السريع | Product card with quick buy | صور المنتج، السعر، الكمية وزر الشراء في بطاقة واحدة مرتبطة بدفع صفحة الهبوط | Product images, price, quantity and a buy button, tied to the landing page checkout |
-| `03-perfume-template.jpg` | قالب صفحة عطر بالوضع الداكن | A perfume page template in dark mode | قالب جاهز لعطر واحد بسلايدر صور وبطاقة منتج ومميزات | A ready page for one perfume with an image slider, product card and features |
+| `02-perfume-template.jpg` | قالب صفحة عطر بالوضع الداكن | A perfume page template in dark mode | قالب جاهز لعطر واحد بسلايدر صور وبطاقة منتج ومميزات | A ready page for one perfume with an image slider, product card and features |
+| `03-abaya-sections.jpg` | بطاقة منتج بالشراء السريع | Product card with quick buy | صور المنتج والسعر والكمية وزر الشراء، مرتبطة بدفع صفحة الهبوط | Product images, price, quantity and a buy button, tied to the landing page checkout |
 | `04-light-dark.jpg` | الوضع الفاتح والداكن | Light and dark mode | عميلك يبدّل الصفحة كاملة بزر في الرأس، ويتذكر اختياره | Shoppers switch the whole page from the header, and the choice is remembered |
-| `05-banners.jpg` | بانرات جاهزة لمنتجك | Ready banners for your product | بانر مزدوج وبانر ثلاثي وشبكة صور مصممة لمنتج كل قالب، بنسخة عربية وإنجليزية | Double and triple banners and an image grid designed for each template's product, in Arabic and English |
-| `06-mobile-first.jpg` | مصممة للجوال أولاً | Designed for phones first | كل عنصر يتكيف مع شاشة الجوال ومع تخطيطات الدفع في صفحة الهبوط | Every section adapts to phone screens and to the landing page checkout layouts |
+| `05-banners.jpg` | بانرات جاهزة لمنتجك | Ready banners for your product | بانر مزدوج وبانر ثلاثي وشبكة صور لمنتج كل قالب، بالعربي والإنجليزي | Double and triple banners and an image grid for each template's product, in Arabic and English |
+| `06-perfume-sections.jpg` | أشكال عناوين ثيم سيليا | Selia's section title styles | 17 شكل لعناوين الأقسام من ثيم سيليا، مع آراء العملاء والأسئلة الشائعة | 17 section title styles from the Selia theme, with customer reviews and FAQ |
 
 Icon: `icon-512.png` (also `icon-250.png`).
 
@@ -58,7 +59,7 @@ not linked from the site navigation). `help-article.html` keeps the same content
 
 ## Before submitting
 
-- Push `master` to GitHub (the portal publishes from it) and confirm the branch in the bundle page.
+- Confirm the `master` branch in the bundle page (the portal publishes from it).
 - Bundle installation: public, not beta (current portal setting).
 - The default template's hero is a video pair from cdn.selia-tech.com: 4.2 MB desktop and 3.3 MB phone. Only
   the one for the visitor's screen downloads.

@@ -85,8 +85,9 @@ The harness loads the store settings, Twilight and the bundles core from the CDN
    files in `templates/`, keeping the thumbnail and preview URLs that `tw-preview` saved.
 2. `pnpm build && pnpm exec tw-preview` publishes the public preview (`salla login` first).
 3. With the harness served, `scripts/capture.sh <dir>` renders full pages and one image per section.
-4. `scripts/make-marketplace.sh <dir>` builds the listing screenshots: CSS device mockups
-   (`scripts/mockups/scene.html`) around crops of those captures, rendered by headless Chrome at 2x.
+4. `scripts/make-marketplace.sh <dir>` builds the listing screenshots: realistic iPhone and MacBook frames
+   drawn in CSS (`scripts/mockups/scene.html`) around crops of those captures, rendered by headless Chrome
+   at 2x. Crop offsets are where each section starts in the capture.
    `python3 scripts/make-icon.py marketplace/icon-512.png marketplace/icon-250.png` builds the icon.
 5. `scripts/make-banners.sh` renders the template banners and the perfume grid shots
    (`scripts/banners/banner.html`) into `public/assets/banners`, in Arabic and English, from the preview

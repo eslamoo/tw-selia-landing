@@ -1,101 +1,134 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8" />
-<title>Marketplace mockups</title>
-<!-- Rendered by scripts/make-marketplace.sh at 1600x1200 (the Partners Portal size), scale 2. ?scene=1..6, screens from ./screens -->
+<title>Listing mockups</title>
+<!-- Rendered by scripts/make-marketplace.sh. ?scene=1..6, page crops from ./screens -->
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1600px; height: 1200px; overflow: hidden; }
-  .stage { position: relative; width: 1600px; height: 1200px; overflow: hidden; perspective: 2600px; }
+  body { position: relative; background: radial-gradient(85% 70% at 50% 40%, #2c2e2e 0%, #1c1e1e 55%, #111212 100%); }
+  .floor { position: absolute; left: 10%; right: 10%; bottom: 40px; height: 160px; border-radius: 50%; background: radial-gradient(closest-side, rgb(198 139 71 / 12%), rgb(198 139 71 / 0%)); }
+  .dev { position: absolute; }
+  .shadow { filter: drop-shadow(0 50px 60px rgb(0 0 0 / 55%)) drop-shadow(0 10px 16px rgb(0 0 0 / 35%)); }
 
-  /* Backdrops */
-  .light { background: radial-gradient(900px 620px at 24% 18%, #fffaf3 0%, rgb(255 250 243 / 0%) 70%), linear-gradient(165deg, #f6eee3 0%, #ead9c4 100%); }
-  .dark { background: radial-gradient(760px 560px at 62% 46%, rgb(212 165 116 / 30%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(160deg, #1d1915 0%, #0c0a09 100%); }
-  .split { background: linear-gradient(90deg, #f3e9dc 0%, #ead9c4 50%, #191512 50%, #0c0a09 100%); }
-  .blend { background: radial-gradient(700px 500px at 50% 60%, rgb(212 165 116 / 26%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(115deg, #f2e7d8 0%, #e3cfb5 42%, #2a231d 58%, #0d0b0a 100%); }
-  .floor { position: absolute; inset: auto 0 0 0; height: 280px; }
-  .light .floor, .blend .floor { background: linear-gradient(180deg, rgb(201 170 132 / 0%) 0%, rgb(201 170 132 / 22%) 100%); }
-  .dark .floor { background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 35%) 100%); }
-  .arch { position: absolute; border-radius: 999px 999px 0 0; }
-  .light .arch.fill { background: rgb(255 255 255 / 38%); }
-  .arch.line { border: 2px solid rgb(212 165 116 / 45%); border-bottom: 0; }
-  .dark .arch.line, .split .arch.line.on-dark { border-color: rgb(212 165 116 / 28%); }
-  .grain { position: absolute; inset: 0; opacity: .07; mix-blend-mode: multiply; pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
-  .dark .grain { mix-blend-mode: screen; opacity: .05; }
+  /* iPhone: a front face with the titanium sides drawn as strips around the outline */
+  .ph { position: relative; transform-style: preserve-3d; }
+  .ph-edge { position: absolute; background: linear-gradient(90deg, rgb(255 255 255 / 45%) 0 6%, rgb(255 255 255 / 0%) 18% 82%, rgb(255 255 255 / 35%) 94% 100%), hsl(240 3% var(--l)); }
+  .ph-run { background: linear-gradient(90deg, rgb(255 255 255 / 45%) 0 6%, rgb(255 255 255 / 0%) 18% 82%, rgb(255 255 255 / 35%) 94% 100%), linear-gradient(180deg, rgb(0 0 0 / 30%), rgb(255 255 255 / 16%) 50%, rgb(0 0 0 / 30%)), hsl(240 3% var(--l)); }
+  .ph-face { position: absolute; inset: 0; border-radius: var(--r); background: linear-gradient(140deg, #a4a4aa 0%, #4a4a4e 14%, #2a2a2d 45%, #3c3c40 75%, #b0b0b6 100%); }
+  .ph-glass { position: absolute; inset: var(--ring); border-radius: calc(var(--r) - var(--ring)); background: #040404; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 8%); }
+  .ph-screen { position: absolute; inset: var(--bez); overflow: hidden; border-radius: calc(var(--r) - var(--ring) - var(--bez) * .85); background: #fff; }
+  .ph-sb { position: relative; height: var(--sb); background: var(--sbg, #fff); }
+  .ph-page { position: absolute; left: 0; right: 0; top: var(--sb); bottom: 0; background-size: 100% auto; background-position: 0 0; background-repeat: no-repeat; }
+  .ph-island { position: absolute; left: 50%; top: calc(var(--sw) * .026); width: calc(var(--sw) * .31); height: calc(var(--sw) * .09); transform: translateX(-50%); border-radius: 999px; background: #000; }
+  .ph-icons { position: absolute; top: calc(var(--sb) * .4); right: calc(var(--sw) * .07); display: flex; align-items: flex-end; gap: calc(var(--sw) * .012); }
+  .ph-icons b { display: block; background: var(--sfg, #000); }
+  .ph-glare { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(118deg, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 3%) 34%, rgb(255 255 255 / 0%) 34.2%); pointer-events: none; }
+  .ph-side { position: absolute; top: 0; height: 100%; transform-style: preserve-3d; }
+  .ph-btn { position: absolute; border-radius: 3px; background: linear-gradient(90deg, #2a2a2d, #8c8c92 45%, #3a3a3e); }
 
-  /* Laptop */
-  .mac { position: absolute; width: var(--w); transform-style: preserve-3d; }
-  .mac-lid { position: relative; padding: calc(var(--w) * .021) calc(var(--w) * .021) calc(var(--w) * .03); border-radius: calc(var(--w) * .027) calc(var(--w) * .027) calc(var(--w) * .006) calc(var(--w) * .006);
-    background: #0a0a0b; box-shadow: 0 0 0 calc(var(--w) * .0016) #a7a9ae, inset 0 0 0 calc(var(--w) * .0022) #2a2a2d; }
-  .mac-screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: calc(var(--w) * .004); background: #000; }
-  .mac-screen img, .phone-screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .mac-screen::after, .phone-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(118deg, rgb(255 255 255 / 9%) 0%, rgb(255 255 255 / 2%) 38%, rgb(255 255 255 / 0%) 39%); pointer-events: none; }
-  .mac-cam { position: absolute; top: 0; left: 50%; width: calc(var(--w) * .085); height: calc(var(--w) * .021); transform: translateX(-50%); }
-  .mac-cam::after { content: ""; position: absolute; left: 50%; top: 42%; width: calc(var(--w) * .0055); height: calc(var(--w) * .0055); border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle at 35% 35%, #3a4a5e, #0c0f14 70%); }
-  .mac-base { position: relative; width: 112%; margin-left: -6%; height: calc(var(--w) * .026);
-    border-radius: 0 0 calc(var(--w) * .03) calc(var(--w) * .03) / 0 0 calc(var(--w) * .016) calc(var(--w) * .016);
-    background: linear-gradient(180deg, #f2f3f5 0%, #d4d6da 30%, #b4b7bc 70%, #8f9297 100%); box-shadow: inset 0 1px 0 #fff; }
-  .mac-base::before { content: ""; position: absolute; top: 0; left: 50%; width: 15%; height: 42%; transform: translateX(-50%); border-radius: 0 0 calc(var(--w) * .012) calc(var(--w) * .012); background: linear-gradient(180deg, #a6a9ae, #d3d5d9); }
-  .mac-shadow { position: absolute; left: -4%; right: -4%; bottom: calc(var(--w) * -.03); height: calc(var(--w) * .05); border-radius: 50%; background: radial-gradient(closest-side, rgb(30 20 10 / 45%), rgb(30 20 10 / 0%)); filter: blur(6px); }
-
-  /* Phone */
-  .phone { position: absolute; width: var(--pw); padding: calc(var(--pw) * .034); border-radius: calc(var(--pw) * .17); background: #101012;
-    box-shadow: 0 0 0 calc(var(--pw) * .007) #8d9096, inset 0 0 0 calc(var(--pw) * .01) #2f3034, 0 50px 90px -40px rgb(20 12 4 / 60%), 0 20px 40px -25px rgb(20 12 4 / 45%); }
-  .phone-screen { position: relative; aspect-ratio: 390 / 844; overflow: hidden; padding-top: 12%; border-radius: calc(var(--pw) * .136); background: var(--sb, #000); }
-  .status { position: absolute; top: 0; inset-inline: 0; height: 12%; aspect-ratio: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 9% 0 10%; color: var(--sbc, #fff);
-    font: 600 calc(var(--pw) * .045) / 1 -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif; direction: ltr; }
-  .status .icons { display: flex; align-items: center; gap: calc(var(--pw) * .014); }
-  .bars { display: flex; align-items: flex-end; gap: calc(var(--pw) * .005); height: calc(var(--pw) * .03); }
-  .bars i { display: block; width: calc(var(--pw) * .008); border-radius: 1px; background: currentColor; }
-  .battery { position: relative; width: calc(var(--pw) * .068); height: calc(var(--pw) * .032); border: 1.5px solid currentColor; border-radius: calc(var(--pw) * .01); opacity: .9; }
-  .battery::before { content: ""; position: absolute; inset: 1.5px; right: 22%; border-radius: 2px; background: currentColor; }
-  .battery::after { content: ""; position: absolute; right: -4px; top: 30%; width: 2px; height: 40%; border-radius: 0 2px 2px 0; background: currentColor; }
-  .island { position: absolute; top: calc(var(--pw) * .062); left: 50%; width: 31%; height: calc(var(--pw) * .088); transform: translateX(-50%); border-radius: 999px; background: #050505; z-index: 2; }
-  .island::after { content: ""; position: absolute; right: 16%; top: 50%; width: calc(var(--pw) * .03); height: calc(var(--pw) * .03); border-radius: 50%; transform: translateY(-50%); background: radial-gradient(circle at 35% 35%, #2c3a4c, #07090c 70%); }
-  .key { position: absolute; width: calc(var(--pw) * .012); border-radius: 3px; background: linear-gradient(90deg, #6e7176, #b4b7bc); }
-  .key.l { left: calc(var(--pw) * -.017); } .key.r { right: calc(var(--pw) * -.017); }
+  /* MacBook Pro seen from the front, like Apple's product bezels */
+  .mb-lid { position: relative; border-radius: var(--lr) var(--lr) calc(var(--lr) * .3) calc(var(--lr) * .3); background: linear-gradient(180deg, #d9dadd, #b9bbbf); padding: var(--edge); }
+  .mb-glass { position: relative; height: 100%; border-radius: calc(var(--lr) - var(--edge)) calc(var(--lr) - var(--edge)) calc(var(--lr) * .2) calc(var(--lr) * .2); background: #050505; box-shadow: inset 0 0 0 1px rgb(255 255 255 / 6%); }
+  .mb-screen { position: absolute; overflow: hidden; background: #000; border-radius: calc(var(--lr) * .35) calc(var(--lr) * .35) 0 0; }
+  .mb-bar { height: var(--bar); background: #000; }
+  .mb-page { position: absolute; left: 0; right: 0; top: var(--bar); bottom: 0; background-size: 100% auto; background-repeat: no-repeat; }
+  .mb-notch { position: absolute; left: 50%; transform: translateX(-50%); background: #050505; border-radius: 0 0 calc(var(--bar) * .45) calc(var(--bar) * .45); }
+  .mb-cam { position: absolute; left: 50%; top: 32%; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #2a3340, #0a0c10 70%); }
+  .mb-glare { position: absolute; inset: 0; background: linear-gradient(115deg, rgb(255 255 255 / 7%) 0%, rgb(255 255 255 / 2%) 40%, rgb(255 255 255 / 0%) 40.2%); pointer-events: none; }
+  .mb-hinge { position: relative; margin: 0 auto; background: linear-gradient(180deg, #1a1a1c, #3a3b3e); }
+  .mb-base { position: relative; background: linear-gradient(180deg, #f1f2f4 0%, #c9cbcf 18%, #a9abb0 60%, #7f8186 100%); border-radius: 0 0 var(--br) var(--br); }
+  .mb-base::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: rgb(255 255 255 / 85%); }
+  .mb-scoop { position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: linear-gradient(180deg, #8e9095, #b9bbbf); }
 </style>
 </head>
 <body>
-<div class="stage" id="stage"></div>
+<div class="floor"></div>
+<div id="stage"></div>
+<script src="screens/colors.js"></script>
 <script>
-  const scene = Number(new URLSearchParams(location.search).get("scene") || 1);
-  const S = (name) => `screens/${name}.png`;
-  const mac = (shot, x, y, w, t = "") => `<div class="mac" style="--w:${w}px;left:${x}px;top:${y}px;transform:${t}">
-      <div class="mac-shadow"></div>
-      <div class="mac-lid"><div class="mac-screen"><img src="${S(shot)}" /></div><div class="mac-cam"></div></div>
-      <div class="mac-base"></div></div>`;
-  // Status bar color and glyph color follow the top of each screen, like a real phone
-  const BAR = { "m-abaya-top": ["#000", "#fff"], "m-abaya-product": ["#fff", "#111"], "m-abaya-product-dark": ["#1d1f1f", "#fff"],
-    "m-abaya-faq": ["#fff", "#111"], "m-perfume-banners": ["#1d1f1f", "#fff"], "m-perfume-top": ["#d4a574", "#111"], "m-perfume-product": ["#1d1f1f", "#fff"] };
-  const status = `<div class="status"><span></span><span class="icons"><span class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:100%"></i></span><span class="battery"></span></span></div>`;
-  const phone = (shot, x, y, w, t = "", z = 1) => `<div class="phone" style="--pw:${w}px;--sb:${BAR[shot][0]};--sbc:${BAR[shot][1]};left:${x}px;top:${y}px;transform:${t};z-index:${z}">
-      <span class="key l" style="top:22%;height:6%"></span><span class="key l" style="top:31%;height:9%"></span><span class="key l" style="top:42%;height:9%"></span><span class="key r" style="top:32%;height:14%"></span>
-      <div class="phone-screen">${status}<img src="${S(shot)}" /></div><div class="island"></div></div>`;
-  const arch = (cls, x, y, w, h) => `<div class="arch ${cls}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`;
-
-  const scenes = {
-    1: ["light", arch("fill", 400, 150, 760, 1050) + arch("line", 350, 100, 860, 1100) +
-        mac("d-abaya-top", 150, 260, 1020, "rotateY(9deg)") + phone("m-abaya-top", 1190, 310, 290, "rotateY(-10deg)", 2)],
-    2: ["light", arch("fill", 820, 150, 640, 1050) + arch("line", 770, 100, 740, 1100) +
-        mac("d-abaya-product", 560, 270, 960, "rotateY(-9deg)") + phone("m-abaya-product", 120, 230, 340, "rotateY(10deg)", 2)],
-    3: ["dark", arch("line", 640, 100, 860, 1100) +
-        mac("d-perfume-top", 430, 260, 1020, "rotateY(-9deg)") + phone("m-perfume-top", 120, 310, 290, "rotateY(10deg)", 2)],
-    4: ["split", arch("line", 170, 150, 520, 1050) + arch("line on-dark", 910, 150, 520, 1050) +
-        phone("m-abaya-product", 370, 180, 400, "rotateY(12deg)") + phone("m-abaya-product-dark", 830, 180, 400, "rotateY(-12deg)")],
-    5: ["light", arch("fill", 250, 150, 760, 1050) + arch("line", 200, 100, 860, 1100) +
-        mac("d-abaya-banners", 150, 260, 1020, "rotateY(9deg)") + phone("m-perfume-banners", 1190, 310, 290, "rotateY(-10deg)", 2)],
-    6: ["blend", arch("line", 500, 90, 600, 1110) +
-        phone("m-abaya-top", 150, 280, 320, "rotateY(18deg) rotateZ(-3deg)", 1) +
-        phone("m-perfume-product", 625, 190, 350, "translateZ(60px)", 3) +
-        phone("m-abaya-faq", 1130, 280, 320, "rotateY(-18deg) rotateZ(3deg)", 1)],
-  };
-  const [bg, html] = scenes[scene];
+  const q = new URLSearchParams(location.search);
+  const scene = Number(q.get("scene") || 1);
   const stage = document.getElementById("stage");
-  stage.className = `stage ${bg}`;
-  stage.innerHTML = `<div class="floor"></div>${html}<div class="grain"></div>`;
+
+  // iPhone 16 Pro proportions, black titanium
+  // A tiny tilt avoids a Chrome 3D sorting glitch at 2x when rotateX is exactly 0
+  function phone({ x, y, w, ry = 0, rx = 0.01, rz = 0, src }) {
+    const sbg = (window.SB || {})[src] || "#ffffff";
+    const dark = [1, 3, 5].reduce((a, i) => a + parseInt(sbg.slice(i, i + 2), 16), 0) < 384;
+    const h = w * 2.07, r = w * 0.165, t = w * 0.1, ring = w * 0.013, bez = w * 0.03;
+    const sw = w - 2 * (ring + bez), sb = sw * 0.13;
+    // Titanium sides: thin strips around the outline, straight runs plus 8 per rounded corner
+    const edges = [];
+    const strip = (px, py, phi, len, run) => {
+      const lit = 20 + 30 * Math.max(0, Math.cos(((phi - 225) * Math.PI) / 180));
+      edges.push(`<i class="ph-edge${run ? " ph-run" : ""}" style="left:${-t / 2}px;top:${-len / 2}px;width:${t}px;height:${len}px;--l:${lit}%;transform:translate3d(${px}px,${py}px,${-t / 2}px) rotateZ(${phi}deg) rotateY(90deg)"></i>`);
+    };
+    strip(0, h / 2, 180, h - 2 * r, true); strip(w, h / 2, 0, h - 2 * r, true);
+    strip(w / 2, 0, 270, w - 2 * r, true); strip(w / 2, h, 90, w - 2 * r, true);
+    const seg = 8, step = 90 / seg, segLen = 2 * r * Math.sin(((step / 2) * Math.PI) / 180) + 1;
+    for (const [cx, cy, a0] of [[r, r, 180], [w - r, r, 270], [w - r, h - r, 0], [r, h - r, 90]]) {
+      for (let k = 0; k < seg; k++) {
+        const phi = a0 + step * (k + 0.5), rad = (phi * Math.PI) / 180;
+        strip(cx + r * Math.cos(rad), cy + r * Math.sin(rad), phi, segLen, false);
+      }
+    }
+    const btn = (top, len) => `<i class="ph-btn" style="left:${t * 0.22}px;width:${t * 0.56}px;top:${h * top}px;height:${h * len}px"></i>`;
+    // Side planes stand at the left and right edges, facing out, and carry the buttons
+    const side = (left, buttons) => `<div class="ph-side" style="left:${left ? 0 : w}px;width:${t}px;transform-origin:0 50%;transform:rotateY(90deg) translateZ(${left ? -1.5 : 1.5}px)">${buttons}</div>`;
+    const icons = `<span class="ph-icons" style="--sfg:${dark ? "#fff" : "#000"}">
+      ${[0.35, 0.55, 0.75, 1].map((v) => `<b style="width:${sw * 0.008}px;height:${sw * 0.028 * v}px;border-radius:1px"></b>`).join("")}
+      <b style="width:${sw * 0.05}px;height:${sw * 0.024}px;margin-left:${sw * 0.012}px;border-radius:${sw * 0.007}px"></b></span>`;
+    return `<div class="dev shadow" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">
+      <div class="ph" style="width:${w}px;height:${h}px;--r:${r}px;--ring:${ring}px;--bez:${bez}px;--sw:${sw}px;--sb:${sb}px;--sbg:${sbg};transform:perspective(2600px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)">
+        ${edges.join("")}
+        ${side(true, btn(0.17, 0.045) + btn(0.245, 0.075) + btn(0.34, 0.075))}
+        ${side(false, btn(0.27, 0.11))}
+        <div class="ph-face"><div class="ph-glass"><div class="ph-screen">
+          <div class="ph-sb">${icons}</div><div class="ph-page" style="background-image:url('screens/${src}')"></div>
+          <div class="ph-island"></div><div class="ph-glare"></div>
+        </div></div></div>
+      </div></div>`;
+  }
+
+  // MacBook Pro 14 proportions: 3024x1964 screen with the notch row in black, silver body
+  function laptop({ x, y, w, src }) {
+    const edge = w * 0.004, side = w * 0.017, top = w * 0.022, bottom = w * 0.03;
+    const sw = w - 2 * (edge + side), shh = sw / 1.54, bar = sw * 0.022;
+    const lidH = shh + top + bottom + 2 * edge;
+    return `<div class="dev shadow" style="left:${x}px;top:${y}px;width:${w}px;--lr:${w * 0.02}px;--edge:${edge}px;--bar:${bar}px;--br:${w * 0.012}px">
+      <div class="mb-lid" style="height:${lidH}px"><div class="mb-glass">
+        <div class="mb-screen" style="left:${side}px;top:${top}px;width:${sw}px;height:${shh}px">
+          <div class="mb-bar"></div><div class="mb-page" style="background-image:url('screens/${src}')"></div><div class="mb-glare"></div>
+        </div>
+        <div class="mb-notch" style="top:${top}px;width:${sw * 0.1}px;height:${bar}px"><i class="mb-cam"></i></div>
+      </div></div>
+      <div class="mb-hinge" style="width:${w * 0.86}px;height:${w * 0.006}px"></div>
+      <div class="mb-base" style="width:${w * 1.04}px;margin-left:${-w * 0.02}px;height:${w * 0.017}px"><i class="mb-scoop" style="width:${w * 0.12}px;height:${w * 0.006}px"></i></div>
+    </div>`;
+  }
+
+  const S = {
+    // Abaya template: laptop and phone
+    1: [laptop({ x: 150, y: 215, w: 1100, src: "d-abaya-top.png" }), phone({ x: 1135, y: 395, w: 300, ry: -16, src: "m-abaya-top.png" })],
+    // Perfume template, mirrored
+    2: [laptop({ x: 350, y: 215, w: 1100, src: "d-perfume-top.png" }), phone({ x: 165, y: 395, w: 300, ry: 16, src: "m-perfume-top.png" })],
+    // Abaya sections on three phones
+    3: [phone({ x: 165, y: 175, w: 410, ry: 30, src: "m-abaya-product.png" }), phone({ x: 1025, y: 175, w: 410, ry: -30, src: "m-abaya-banners.png" }),
+        phone({ x: 580, y: 130, w: 440, src: "m-abaya-top.png" })],
+    // Light and dark mode
+    4: [phone({ x: 330, y: 150, w: 430, ry: 12, src: "m-abaya-product.png" }), phone({ x: 840, y: 150, w: 430, ry: -12, src: "m-abaya-product-dark.png" })],
+    // Banners on desktop and phone
+    5: [laptop({ x: 150, y: 215, w: 1100, src: "d-abaya-banners.png" }), phone({ x: 1135, y: 395, w: 300, ry: -16, src: "m-abaya-three.png" })],
+    // Perfume sections on three phones
+    6: [phone({ x: 165, y: 175, w: 410, ry: 30, src: "m-perfume-product.png" }), phone({ x: 1025, y: 175, w: 410, ry: -30, src: "m-perfume-reviews.png" }),
+        phone({ x: 580, y: 130, w: 440, src: "m-perfume-top.png" })],
+  };
+  stage.innerHTML = S[scene].join("");
+  Promise.all([...document.querySelectorAll("[style*=background-image]")].map((el) => new Promise((done) => {
+    const img = new Image(); img.onload = img.onerror = done; img.src = el.style.backgroundImage.slice(5, -2);
+  }))).then(() => (document.title = "ready"));
 </script>
 </body>
 </html>
