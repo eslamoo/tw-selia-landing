@@ -23,3 +23,7 @@ First release.
   template's product in Arabic and English.
 - Banners stack correctly on phones.
 - Arabic and English text for every merchant field, store colors and font, phone layouts.
+- Section titles use the Selia theme's 17 title styles plus a plain line, picked per section, with the
+  animated diamond (the Selia demo store's style) as default.
+- Each section has its own preview image in one neutral frame, served from cdn.selia-tech.com.
+- Section colors no longer fade from the visitor's system mode on load; the fade only runs on the switch.

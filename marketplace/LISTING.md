@@ -9,19 +9,26 @@ Everything the Partners Portal asks for in "Complete publication", plus what is 
 
 ## Description
 
+The portal has no description field for bundles: the description lives only in `twilight-bundle.json`, and a
+portal settings save (icon, name, support) rewrites it to null, so restore it after any portal save.
+
 **AR (short):** صفحة هبوط مستوحاة من عناصر ثيم سيليا الشهير
 
 **AR (long):**
-صفحة هبوط جاهزة بعناصر ثيم سيليا: رأس صفحة بشعار متجرك وزر الوضع الداكن، شريط إعلاني متحرك، سلايدر متقدم يدعم الفيديو، بطاقة منتج بالشراء السريع، وسائل الدفع المتحركة، مميزات، بانرات، شبكة صور، آراء العملاء، والأسئلة الشائعة.
-في صفحة المنتج يفتح كل زر الشراء السريع مباشرة، وتنتقل الكمية المختارة معه. وفي صفحة العروض توجّه الأزرار عميلك للرابط الذي تحدده.
-قالبين جاهزين، كل قالب يتكلم عن منتج واحد ويستخدم كل العناصر مع بانرات مصممة لمنتجه: صفحة عباية بالوضع الفاتح، وصفحة عطر بالوضع الداكن. عميلك يبدّل الصفحة كاملة بين الفاتح والداكن بزر في الرأس، وكل نص قابل للتعديل بالعربي والإنجليزي، والألوان تتبع ألوان متجرك، والتصميم مناسب للجوال.
+صفحة هبوط سيليا ✨ بنفس عناصر ثيم سيليا وتصميمه، لصفحات الهبوط في سلة.
+تضم 11 عنصر: رأس صفحة بشعار متجرك، شريط إعلاني متحرك، سلايدر متقدم يدعم الفيديو، منتج مفصل مع الشراء السريع، وسائل الدفع المتحركة، مميزات متقدمة، بانر مزدوج، بانر ثلاثي، شبكة صور، آراء العملاء، والأسئلة الشائعة.
+قالبين جاهزين للعبايات والعطور بكل العناصر مع بانرات مصممة لكل منتج، ودعم كامل للوضع الداكن والفاتح، ونفس أشكال عناوين ثيم سيليا.
+في صفحة المنتج تفتح الأزرار الشراء السريع مباشرة مع الكمية المختارة، وفي صفحة العروض توجّه للرابط الذي تحدده.
+كل النصوص قابلة للتعديل بالعربي والإنجليزي، والألوان تتبع ألوان متجرك، والتصميم متوافق مع الجوال.
 
 **EN (short):** A landing page inspired by the components of the popular Selia theme
 
 **EN (long):**
-A ready landing page built from Selia theme sections: a header with your store logo and a dark mode switch, an animated text bar, an advanced slider with video support, a product card with quick buy, animated payment methods, features, banners, an images grid, customer reviews and FAQ.
-On product pages every button opens the page's quick checkout, and the chosen quantity goes with it. On promotion pages the buttons send shoppers to the link you set.
-Two ready templates, each built around one product and using every section, with banners designed for that product: an abaya page in light mode and a perfume page in dark mode. Shoppers switch the whole page between light and dark from the header, every text is editable in Arabic and English, colors follow your store, and every section works on phones.
+Selia Landing Page ✨ brings the Selia theme's sections and design to Salla landing pages.
+11 sections: a header with your store logo, an animated text bar, an advanced slider with video support, product details with quick buy, animated payment methods, advanced features, double banner, three banners, images grid, customer reviews and FAQ.
+Two ready templates for abayas and perfumes using every section, with banners designed for each product, full dark and light mode support, and the same title styles as the Selia theme.
+On product pages the buttons open quick checkout with the chosen quantity; on promotion pages they go to the link you set.
+Every text is editable in Arabic and English, colors follow your store, and the design is mobile friendly.
 
 ## Screenshots (upload in this order)
 
