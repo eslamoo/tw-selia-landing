@@ -90,11 +90,14 @@ The harness loads the store settings, Twilight and the bundles core from the CDN
    `python3 scripts/make-icon.py marketplace/icon-512.png marketplace/icon-250.png` builds the icon.
 5. `scripts/make-banners.sh` renders the template banners and the perfume grid shots
    (`scripts/banners/banner.html`) into `public/assets/banners`, in Arabic and English, from the preview
-   store's product photos. Like the section previews, they are served from the preview CDN.
+   store's product photos. They are served from the preview CDN.
 6. Template thumbnails (`templates-thumbs/`) are the top 768x1195 of each full desktop capture. Run
    `RESET_THUMBS=1 node scripts/build-manifest.mjs` before `tw-preview` so it uploads new ones.
 
-Section editor images live in `public/assets/previews/`. They are served from the preview CDN, whose
-URLs are content addressed, so `build-manifest.mjs` computes them from each file's SHA-256.
+Section images (the `image` of each component, shown in the marketplace and the editor) live in
+`public/assets/previews/`. `scripts/make-section-images.sh <dir>` renders them from the section captures
+in one neutral frame (`scripts/sections/frame.html`). `scripts/upload-cdn.sh` uploads them to
+cdn.selia-tech.com (R2 bucket `selia-videos`, wrangler logged in) as `<name>-<sha256 prefix>.jpg`, the
+same URLs `build-manifest.mjs` writes, so a new render never hits a stale cache. Upload before pushing.
 
 Listing copy for the Partners Portal is in `marketplace/LISTING.md`.

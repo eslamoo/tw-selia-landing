@@ -26,7 +26,7 @@ mobile() { # name template frame-height [extra query]
 }
 
 section() { # component template window-height [extra query]
-  "$CH" $FLAGS --window-size=1440,$3 --screenshot="$OUT/section-$1.png" \
+  "$CH" $FLAGS --force-device-scale-factor=2 --window-size=1440,$3 --screenshot="$OUT/section-$1.png" \
     "$BASE/landing.html?mode=product&layout=none&clean=1&template=$2&vh=900&only=$1&scheme=light$4" >/dev/null 2>&1
   trim "$OUT/section-$1.png"
 }

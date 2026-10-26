@@ -297,7 +297,11 @@ const assetUrl = (rel) => {
   const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
   return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/${rel}`;
 };
-const previewUrl = (name) => assetUrl(`previews/${name}.jpg`);
+// Section previews are served from Selia's CDN under the names scripts/upload-cdn.sh uploads
+const previewUrl = (name) => {
+  const hash = crypto.createHash("sha256").update(fs.readFileSync(`${ROOT}/public/assets/previews/${name}.jpg`)).digest("hex");
+  return `https://cdn.selia-tech.com/images/selia-landing/${name}-${hash.slice(0, 8)}.jpg`;
+};
 const banner = (name) => assetUrl(`banners/${name}.jpg`);
 const banners = (prefix, slots) => Object.fromEntries(slots.flatMap(([field, name]) => [
   [field, banner(`${prefix}-${name}-ar`)], [`${field}_en`, banner(`${prefix}-${name}-en`)],

@@ -16,7 +16,7 @@
             "icon": "sicon-store",
             "name": "page-header",
             "key": "a2d7715d-3dd2-408e-bc65-5f13dc54c081",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/b2a45f91656f4eccdac410716f77a896cd19b361901a05a61c4aa3f4a43361fe/previews/page-header.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/page-header-e9bc4295.jpg",
             "props": {
                 "min-height": "80px"
             },
@@ -260,7 +260,7 @@
             "icon": "sicon-megaphone",
             "name": "animated-text",
             "key": "18f83576-ba12-4914-8cce-d8587818b093",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c80ef468f0a10dc7174a7aa6c8b0a16f326132ecfdbfefb1c3930781520ec822/previews/animated-text.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/animated-text-9ead04b3.jpg",
             "props": {
                 "min-height": "44px"
             },
@@ -345,7 +345,7 @@
             "icon": "sicon-image-carousel",
             "name": "advanced-slider",
             "key": "5d309060-1e70-4d50-bafb-5dcf25c2c27d",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/6ea367aafc1146d08f61bb486d8f9b839789522c34a0541fc1b5ca9b87af6afc/previews/advanced-slider.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/advanced-slider-4ca42a50.jpg",
             "props": {
                 "min-height": "420px"
             },
@@ -831,7 +831,7 @@
             "icon": "sicon-shopping-bag",
             "name": "product-hero",
             "key": "8ef2d927-0bc3-48e6-863c-f10a3063327e",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/1183540b056643d24a3ee9c26251c694e0ef699a783c87708059c309d91e9fed/previews/product-hero.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/product-hero-7f48826a.jpg",
             "props": {
                 "min-height": "640px"
             },
@@ -1241,7 +1241,7 @@
             "icon": "sicon-credit-card",
             "name": "animated-payments",
             "key": "55bf5609-2043-49ee-ac2e-6c3328e98875",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/f04ba7ae8811f324bc51329c1d16f489d720a60ce28dfe516f0e043ce781562d/previews/animated-payments.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/animated-payments-fb10776a.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1441,7 +1441,7 @@
             "icon": "sicon-award-ribbon",
             "name": "features",
             "key": "019e0007-a645-4977-b8da-629adc837433",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/7011f7fb6ce0dd1d30ead3965c9663f3f102585a29dd90c9b01434bf454d0299/previews/features.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/features-d009cceb.jpg",
             "props": {
                 "min-height": "220px"
             },
@@ -1665,7 +1665,7 @@
             "icon": "sicon-layout-grid-rearrange",
             "name": "double-banner",
             "key": "e1639f60-7d0f-4739-aa02-e1022a4b43d3",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/48f824bc5f4c20750566eced1b2e57d2a391c38546bd9d668e18f444e53cda24/previews/double-banner.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/double-banner-094f4048.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1802,7 +1802,7 @@
             "icon": "sicon-layout-grid",
             "name": "three-banners",
             "key": "fa4e4cfb-1280-4d0d-b449-5f0f0a97c940",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/a361f7d435ee0d3746aaff1d2cf19eb6e21a6fda7f95531103d8936e48fbcb95/previews/three-banners.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/three-banners-e4a5ffb0.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1959,7 +1959,7 @@
             "icon": "sicon-image",
             "name": "images-grid",
             "key": "a0a73bfb-65ee-4db4-80ae-a82e556d9a2c",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/e03c4558fd30e84073b94551beebd507346755af7717bba670673aa3f5b9c8b0/previews/images-grid.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/images-grid-2e4d548d.jpg",
             "props": {
                 "min-height": "520px"
             },
@@ -2208,7 +2208,7 @@
             "icon": "sicon-chat-bubbles",
             "name": "custom-reviews",
             "key": "8a3aab65-04c1-4c21-8a28-cd077242551a",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/96425ebff36e6efb833304da23cf7d1ac0b372422c9cb9c3e0878a787920eb3a/previews/custom-reviews.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/custom-reviews-c4b149e8.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -2396,7 +2396,7 @@
             "icon": "sicon-help-circle",
             "name": "faq",
             "key": "33827d3f-ee1f-4f87-8994-d126dd4319cd",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/2a9a5c3f260076df4258f67f219ad2781c9d04c48d08ede18af3138aae2d0fe7/previews/faq.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/faq-0dfdb02c.jpg",
             "props": {
                 "min-height": "300px"
             },
