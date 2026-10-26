@@ -16,7 +16,7 @@
             "icon": "sicon-store",
             "name": "page-header",
             "key": "a2d7715d-3dd2-408e-bc65-5f13dc54c081",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/page-header-d1be3e4f.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/page-header-8aac4e29.jpg",
             "props": {
                 "min-height": "80px"
             },
@@ -260,7 +260,7 @@
             "icon": "sicon-megaphone",
             "name": "animated-text",
             "key": "18f83576-ba12-4914-8cce-d8587818b093",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/animated-text-8171fc55.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/animated-text-9ead04b3.jpg",
             "props": {
                 "min-height": "44px"
             },
@@ -345,7 +345,7 @@
             "icon": "sicon-image-carousel",
             "name": "advanced-slider",
             "key": "5d309060-1e70-4d50-bafb-5dcf25c2c27d",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/advanced-slider-a6211a37.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/advanced-slider-c68d4536.jpg",
             "props": {
                 "min-height": "420px"
             },
@@ -831,7 +831,7 @@
             "icon": "sicon-shopping-bag",
             "name": "product-hero",
             "key": "8ef2d927-0bc3-48e6-863c-f10a3063327e",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/product-hero-bb2ac7f2.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/product-hero-eda71d2e.jpg",
             "props": {
                 "min-height": "640px"
             },
@@ -1578,7 +1578,7 @@
             "icon": "sicon-credit-card",
             "name": "animated-payments",
             "key": "55bf5609-2043-49ee-ac2e-6c3328e98875",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/animated-payments-d3317fb8.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/animated-payments-09249b75.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -2115,7 +2115,7 @@
             "icon": "sicon-award-ribbon",
             "name": "features",
             "key": "019e0007-a645-4977-b8da-629adc837433",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/features-a590da71.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/features-e0fe3ffe.jpg",
             "props": {
                 "min-height": "220px"
             },
@@ -2970,7 +2970,7 @@
             "icon": "sicon-image",
             "name": "images-grid",
             "key": "a0a73bfb-65ee-4db4-80ae-a82e556d9a2c",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/images-grid-dd313f33.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/images-grid-9aea3bc5.jpg",
             "props": {
                 "min-height": "520px"
             },
@@ -3556,7 +3556,7 @@
             "icon": "sicon-chat-bubbles",
             "name": "custom-reviews",
             "key": "8a3aab65-04c1-4c21-8a28-cd077242551a",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/custom-reviews-868bbcfb.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/custom-reviews-0786b604.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -4081,7 +4081,7 @@
             "icon": "sicon-help-circle",
             "name": "faq",
             "key": "33827d3f-ee1f-4f87-8994-d126dd4319cd",
-            "image": "https://cdn.selia-tech.com/images/selia-landing/faq-3d0a96b6.jpg",
+            "image": "https://cdn.selia-tech.com/images/selia-landing/faq-8f1c25e5.jpg",
             "props": {
                 "min-height": "300px"
             },

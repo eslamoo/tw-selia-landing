@@ -13,6 +13,7 @@ export function sectionTitle(cfg: Record<string, any>) {
 }
 
 // Ported from Selia's block-title-variants.scss: .htv--<name> is .slp-ts--<name>, .enhanced-title-border is .slp-title__deco
+// Moving parts also get their resting transform, so they stay centered when animations are off
 export const titleCss = `
 .slp-title { overflow-x: clip; }
 .slp-title__deco { display: block; margin: 15px auto 0; }
@@ -47,14 +48,14 @@ export const titleCss = `
 .slp-ts--lozenge h2::before { content: ""; position: absolute; z-index: -1; inset: 0; border: 1px solid var(--color-primary); border-radius: 64% 36% 58% 42% / 42% 54% 46% 58%; background: color-mix(in srgb, var(--color-primary) 8%, transparent); animation: slp-ts-morph 5s ease-in-out infinite; }
 .slp-ts--pulse-line .slp-title__deco { width: 120px; height: 3px; border-radius: 999px; background: var(--color-primary); transform-origin: center; animation: slp-ts-drawx 2.6s cubic-bezier(.16, 1, .3, 1) infinite; }
 .slp-ts--traveling-dot .slp-title__deco { position: relative; width: 130px; height: 2px; border-radius: 999px; background: color-mix(in srgb, var(--color-primary) 32%, transparent); }
-.slp-ts--traveling-dot .slp-title__deco::after { content: ""; position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--color-primary); animation: slp-ts-travel 2.8s cubic-bezier(.16, 1, .3, 1) infinite; }
+.slp-ts--traveling-dot .slp-title__deco::after { content: ""; position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--color-primary); transform: translate(6px, -50%); animation: slp-ts-travel 2.8s cubic-bezier(.16, 1, .3, 1) infinite; }
 .slp-ts--diamond .slp-title__deco { position: relative; width: 160px; height: 2px; background: linear-gradient(90deg, var(--color-primary) 0 40%, transparent 40% 60%, var(--color-primary) 60% 100%); }
-.slp-ts--diamond .slp-title__deco::before { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; background: var(--color-primary); animation: slp-ts-dia 3s ease-in-out infinite; }
+.slp-ts--diamond .slp-title__deco::before { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; background: var(--color-primary); transform: translate(-50%, -50%) rotate(45deg); animation: slp-ts-dia 3s ease-in-out infinite; }
 .slp-ts--dashes .slp-title__deco { position: relative; width: 130px; height: 8px; overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); mask: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); }
-.slp-ts--dashes .slp-title__deco::before { content: ""; position: absolute; top: 50%; left: 0; width: 200%; height: 3px; background: repeating-linear-gradient(90deg, var(--color-primary) 0 10px, transparent 10px 22px); animation: slp-ts-conveyor 1.6s linear infinite; }
+.slp-ts--dashes .slp-title__deco::before { content: ""; position: absolute; top: 50%; left: 0; width: 200%; height: 3px; background: repeating-linear-gradient(90deg, var(--color-primary) 0 10px, transparent 10px 22px); transform: translateY(-50%); animation: slp-ts-conveyor 1.6s linear infinite; }
 .slp-ts--wipe .slp-title__deco { width: 120px; height: 3px; border-radius: 999px; background: var(--color-primary); transform-origin: left; animation: slp-ts-wipe 3s cubic-bezier(.16, 1, .3, 1) infinite; }
 .slp-ts--sparkle .slp-title__deco { position: relative; height: 20px; width: 100%; margin-top: 0; }
-.slp-ts--sparkle .slp-title__deco::before { content: "\\2726"; position: absolute; left: 50%; top: 0; color: var(--color-primary); font-size: 14px; animation: slp-ts-float 2.6s ease-in-out infinite; }
+.slp-ts--sparkle .slp-title__deco::before { content: "\\2726"; position: absolute; left: 50%; top: 0; color: var(--color-primary); font-size: 14px; transform: translateX(-50%); animation: slp-ts-float 2.6s ease-in-out infinite; }
 .slp-ts--sparkle .slp-title__deco::after { content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 90px; height: 1px; background: linear-gradient(90deg, transparent, var(--color-primary), transparent); }
 .slp-ts--converge .slp-title__deco { position: relative; width: 160px; height: 2px; }
 .slp-ts--converge .slp-title__deco::before, .slp-ts--converge .slp-title__deco::after { content: ""; position: absolute; top: 0; width: 70px; height: 2px; border-radius: 999px; background: var(--color-primary); }
