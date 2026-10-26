@@ -7,7 +7,8 @@ A Salla landing page bundle built from the Selia theme's sections. It is a Compo
 - Public previews: https://salla.design/preview/s/eh7svsy3mkb6/abaya-elegance and
   https://salla.design/preview/s/eh7svsy3mkb6/perfume-signature
 - Templates: `abaya-elegance` (default, light) and `perfume-signature` (dark). Each sells one product, and
-  every section, from the slider to the FAQ, talks about that product.
+  every section, from the slider to the FAQ, talks about that product. Both use all 11 sections, with
+  banners designed for their product.
 
 ## Sections
 
@@ -17,7 +18,7 @@ A Salla landing page bundle built from the Selia theme's sections. It is a Compo
 | Animated text bar | `animated-text` | Selia's announcement bar: each copy slides by its own width, 7s by default |
 | Advanced slider | `advanced-slider` | Selia's advanced slider: image or MP4 slides, phone media, auto height, Ken Burns |
 | Product card with quick buy | `product-hero` | Port of Selia's mini product card, swipeable images |
-| Animated payment methods | `animated-payments` | The store's enabled payment methods, or custom logos |
+| Animated payment methods | `animated-payments` | Selia's animated brands cards with a reversed second row: store payment methods or custom logos |
 | Features | `features` | Icon or image cards |
 | Double banner | `double-banner` | Display only |
 | Three banners | `three-banners` | Display only, optional equal height |
@@ -87,7 +88,10 @@ The harness loads the store settings, Twilight and the bundles core from the CDN
 4. `scripts/make-marketplace.sh <dir>` builds the listing screenshots: CSS device mockups
    (`scripts/mockups/scene.html`) around crops of those captures, rendered by headless Chrome at 2x.
    `python3 scripts/make-icon.py marketplace/icon-512.png marketplace/icon-250.png` builds the icon.
-5. Template thumbnails (`templates-thumbs/`) are the top 768x1195 of each full desktop capture. Run
+5. `scripts/make-banners.sh` renders the template banners and the perfume grid shots
+   (`scripts/banners/banner.html`) into `public/assets/banners`, in Arabic and English, from the preview
+   store's product photos. Like the section previews, they are served from the preview CDN.
+6. Template thumbnails (`templates-thumbs/`) are the top 768x1195 of each full desktop capture. Run
    `RESET_THUMBS=1 node scripts/build-manifest.mjs` before `tw-preview` so it uploads new ones.
 
 Section editor images live in `public/assets/previews/`. They are served from the preview CDN, whose

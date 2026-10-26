@@ -16,4 +16,10 @@ First release.
   default mode per page and a per-section override.
 - Transparent header over the slider and a sticky header, as in the Selia theme.
 - The animated text bar and advanced slider match Selia's: speed, sizes, caption, button and overlay.
+- The product card's marquee moves at Selia's speed, with Selia's spacing under the thumbnails.
+- Animated payment methods use Selia's animated brands cards, with a reversed second row.
+- The sticky header turns frosted (blurred) while scrolling, as in Selia.
+- Both templates use every section, with double and triple banners and an image grid designed for each
+  template's product in Arabic and English.
+- Banners stack correctly on phones.
 - Arabic and English text for every merchant field, store colors and font, phone layouts.

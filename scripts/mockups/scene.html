@@ -69,7 +69,7 @@
       <div class="mac-base"></div></div>`;
   // Status bar color and glyph color follow the top of each screen, like a real phone
   const BAR = { "m-abaya-top": ["#000", "#fff"], "m-abaya-product": ["#fff", "#111"], "m-abaya-product-dark": ["#1d1f1f", "#fff"],
-    "m-abaya-grid": ["#fff", "#111"], "m-abaya-faq": ["#f8f8f8", "#111"], "m-perfume-top": ["#d4a574", "#111"], "m-perfume-product": ["#1d1f1f", "#fff"] };
+    "m-abaya-faq": ["#fff", "#111"], "m-perfume-banners": ["#1d1f1f", "#fff"], "m-perfume-top": ["#d4a574", "#111"], "m-perfume-product": ["#1d1f1f", "#fff"] };
   const status = `<div class="status"><span></span><span class="icons"><span class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:100%"></i></span><span class="battery"></span></span></div>`;
   const phone = (shot, x, y, w, t = "", z = 1) => `<div class="phone" style="--pw:${w}px;--sb:${BAR[shot][0]};--sbc:${BAR[shot][1]};left:${x}px;top:${y}px;transform:${t};z-index:${z}">
       <span class="key l" style="top:22%;height:6%"></span><span class="key l" style="top:31%;height:9%"></span><span class="key l" style="top:42%;height:9%"></span><span class="key r" style="top:32%;height:14%"></span>
@@ -86,11 +86,11 @@
     4: ["split", arch("line", 230, 120, 600, 980) + arch("line on-dark", 1090, 120, 600, 980) +
         phone("m-abaya-product", 560, 120, 380, "rotateY(12deg)") + phone("m-abaya-product-dark", 980, 120, 380, "rotateY(-12deg)")],
     5: ["light", arch("fill", 300, 90, 880, 1000) + arch("line", 250, 40, 980, 1060) +
-        mac("d-abaya-trust", 130, 190, 1200, "rotateY(9deg)") + phone("m-abaya-faq", 1410, 210, 330, "rotateY(-10deg)", 2)],
+        mac("d-abaya-banners", 130, 190, 1200, "rotateY(9deg)") + phone("m-perfume-banners", 1410, 210, 330, "rotateY(-10deg)", 2)],
     6: ["blend", arch("line", 610, 60, 700, 1020) +
         phone("m-abaya-top", 300, 190, 320, "rotateY(18deg) rotateZ(-3deg)", 1) +
         phone("m-perfume-product", 790, 110, 350, "translateZ(60px)", 3) +
-        phone("m-abaya-grid", 1300, 190, 320, "rotateY(-18deg) rotateZ(3deg)", 1)],
+        phone("m-abaya-faq", 1300, 190, 320, "rotateY(-18deg) rotateZ(3deg)", 1)],
   };
   const [bg, html] = scenes[scene];
   const stage = document.getElementById("stage");

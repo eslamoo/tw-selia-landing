@@ -24,17 +24,17 @@ phone() { crop "$CAP/$2-mobile.png" 1170 2391 3 $3 "$WORK/screens/$1.png"; }
 
 desk d-abaya-top t1 0
 desk d-abaya-product t1 790
-desk d-abaya-trust t1 2620
+desk d-abaya-banners t1 1940
 desk d-perfume-top t2 0
 phone m-abaya-top t1 0
 phone m-abaya-product t1 812
 phone m-abaya-product-dark t1-dark 812
-phone m-abaya-grid t1 1740
-phone m-abaya-faq t1 3900
+phone m-abaya-faq t1 5520
 phone m-perfume-top t2 0
 phone m-perfume-product t2 828
+phone m-perfume-banners t2 1690
 
-names=(01-abaya-template 02-product-quick-buy 03-perfume-template 04-light-dark 05-trust-sections 06-mobile-first)
+names=(01-abaya-template 02-product-quick-buy 03-perfume-template 04-light-dark 05-banners 06-mobile-first)
 for i in {1..6}; do
   "$CH" --headless=new --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=2 \
     --window-size=1920,1080 --virtual-time-budget=5000 --screenshot="$WORK/scene-$i.png" "file://$WORK/scene.html?scene=$i" >/dev/null 2>&1
