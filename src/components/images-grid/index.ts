@@ -2,6 +2,7 @@ import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { getConfig, resolveText } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
+import { sectionTitle } from "../../utils/title";
 
 const css = `
 .slp-ig__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
@@ -45,7 +46,6 @@ export default class ImagesGrid extends LitElement {
     const cfg = getConfig(this.config);
     const cells = [1, 2, 3, 4, 5].map((n) => ({ n, src: cfg[`image_${n}`], label: resolveText(cfg[`title_${n}`]) }));
     if (!cells.some((c) => c.src)) return nothing;
-    const title = resolveText(cfg.title);
     const classes = [
       "slp-block slp-section slp-ig",
       schemeClass(cfg),
@@ -55,7 +55,7 @@ export default class ImagesGrid extends LitElement {
     ].filter(Boolean).join(" ");
     return html`<section class=${classes} style="--slp-ig-color:${cfg.titles_color || "#ffffff"}">
       <div class="slp-container">
-        ${title ? html`<div class="slp-title"><h2>${title}</h2></div>` : nothing}
+        ${sectionTitle(cfg)}
         <div class="slp-ig__grid">
           ${cells.filter((c) => c.src).map((c) => html`<div class="slp-ig__cell slp-ig__cell--${c.n}">
             <img src=${c.src} alt=${c.label} loading="lazy" />

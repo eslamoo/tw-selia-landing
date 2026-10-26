@@ -8,6 +8,7 @@ export function injectStyles(id: string, css: string): void {
 }
 
 import { unwrapValue } from "./config";
+import { titleCss } from "./title";
 
 /** Section color scheme: follows the page mode by default, or stays light or dark. */
 export function schemeClass(cfg: Record<string, any>): string {
@@ -38,8 +39,8 @@ export const baseCss = `
 .slp-title { text-align: center; margin-bottom: 1.75rem; }
 .slp-title h2 { font-size: 1.75rem; line-height: 1.3; font-weight: 700; color: var(--slp-title-color, var(--slp-text)); }
 .slp-title p { margin-top: .5rem; font-size: 1rem; line-height: 1.7; color: var(--slp-subtitle-color, var(--slp-muted)); }
-.slp-title::after { content: ""; display: block; width: 5rem; height: 2px; margin: .75rem auto 0; border-radius: 2px; background: var(--color-primary, #111); }
 @container (min-width: 768px) { .slp-title h2 { font-size: 2.25rem; } }
+${titleCss}
 .slp-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3rem; padding: .75rem 1.75rem; border: 1px solid transparent; border-radius: var(--slp-radius, .5rem); font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.2; text-decoration: none; cursor: pointer; transition: transform .2s ease, opacity .2s ease, background-color .2s ease; }
 .slp-btn:hover { transform: translateY(-1px); opacity: .92; }
 .slp-btn:focus-visible { outline: 2px solid var(--color-primary, #111); outline-offset: 3px; }

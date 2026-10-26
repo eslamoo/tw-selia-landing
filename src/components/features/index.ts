@@ -2,6 +2,7 @@ import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { getCollectionItems, getConfig, resolveText } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
+import { sectionTitle } from "../../utils/title";
 
 const css = `
 .slp-ft__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -35,13 +36,11 @@ export default class Features extends LitElement {
     const cfg = getConfig(this.config);
     const items = getCollectionItems<Record<string, any>>(cfg.items, "items").filter((i) => resolveText(i.title));
     if (!items.length) return nothing;
-    const title = resolveText(cfg.title);
-    const subtitle = resolveText(cfg.subtitle);
     const cols = items.length > 3 ? 4 : items.length;
     const style = `--slp-ft-cols:${cols};${cfg.bg_color ? `--slp-section-bg:${cfg.bg_color};` : ""}${cfg.icon_bg ? `--slp-ft-icon-bg:${cfg.icon_bg}` : ""}`;
     return html`<section class="slp-block slp-section slp-ft ${schemeClass(cfg)}" style=${style}>
       <div class="slp-container">
-        ${title || subtitle ? html`<div class="slp-title">${title ? html`<h2>${title}</h2>` : nothing}${subtitle ? html`<p>${subtitle}</p>` : nothing}</div>` : nothing}
+        ${sectionTitle(cfg)}
         <div class="slp-ft__grid">
           ${items.map((item) => html`<div class="slp-ft__item">
             ${item.image

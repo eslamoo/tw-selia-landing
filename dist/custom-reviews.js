@@ -1,10 +1,10 @@
-import { LitElement as u, nothing as o, html as a } from "lit";
-import { property as b } from "lit/decorators.js";
-import { i as v, c as h, a as m, g, r as n, s as x, t as _ } from "./styles-Czqp750h.js";
-var y = Object.defineProperty, w = (p, e, i, r) => {
-  for (var t = void 0, s = p.length - 1, l; s >= 0; s--)
-    (l = p[s]) && (t = l(e, i, t) || t);
-  return t && y(e, i, t), t;
+import { LitElement as f, nothing as p, html as l } from "lit";
+import { property as u } from "lit/decorators.js";
+import { i as d, c as b, a as v, g as h, r as n, s as g, d as x, t as m } from "./styles-BJy9RHCh.js";
+var y = Object.defineProperty, w = (o, r, t, e) => {
+  for (var s = void 0, a = o.length - 1, i; a >= 0; a--)
+    (i = o[a]) && (s = i(r, t, s) || s);
+  return s && y(r, t, s), s;
 };
 const $ = `
 .slp-rv.slp-section { background: var(--slp-section-bg, var(--slp-surface-2)); }
@@ -24,62 +24,60 @@ const $ = `
 .slp-rv__nav { display: flex; justify-content: center; gap: .5rem; margin-top: .5rem; }
 .slp-rv__nav button { width: 2.5rem; height: 2.5rem; border: 1px solid var(--slp-border); border-radius: 999px; background: var(--slp-card); color: var(--slp-text); cursor: pointer; font-size: 1rem; }
 `;
-class d extends u {
+class c extends f {
   createRenderRoot() {
     return this;
   }
   connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), v("slp-base", h), v("slp-custom-reviews", $), m(this.config).autoplay !== !1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && (this.timer = window.setInterval(() => this.step(1, !0), 5e3));
+    super.connectedCallback(), this.classList.add("slp-host"), d("slp-base", b), d("slp-custom-reviews", $), v(this.config).autoplay !== !1 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && (this.timer = window.setInterval(() => this.step(1, !0), 5e3));
   }
   disconnectedCallback() {
     super.disconnectedCallback(), window.clearInterval(this.timer);
   }
-  step(e, i = !1) {
-    const r = this.querySelector(".slp-rv__track"), t = r == null ? void 0 : r.querySelector(".slp-rv__card");
-    if (!r || !t) return;
-    const s = (t.offsetWidth + 16) * e * (getComputedStyle(r).direction === "rtl" ? -1 : 1), l = r.scrollWidth - r.clientWidth, c = Math.abs(r.scrollLeft) >= l - 4;
-    i && c ? r.scrollTo({ left: 0 }) : r.scrollBy({ left: s });
+  step(r, t = !1) {
+    const e = this.querySelector(".slp-rv__track"), s = e == null ? void 0 : e.querySelector(".slp-rv__card");
+    if (!e || !s) return;
+    const a = (s.offsetWidth + 16) * r * (getComputedStyle(e).direction === "rtl" ? -1 : 1), i = e.scrollWidth - e.clientWidth, _ = Math.abs(e.scrollLeft) >= i - 4;
+    t && _ ? e.scrollTo({ left: 0 }) : e.scrollBy({ left: a });
   }
-  initials(e) {
-    return e.trim().charAt(0);
+  initials(r) {
+    return r.trim().charAt(0);
   }
   render() {
-    const e = m(this.config), i = g(e.items, "items").filter((s) => n(s.review));
-    if (!i.length) return o;
-    const r = n(e.title), t = n(e.subtitle);
-    return a`<section class="slp-block slp-section slp-rv ${x(e)}" style="${e.bg_color ? `--slp-section-bg:${e.bg_color};` : ""}${e.card_bg ? `--slp-rv-card:${e.card_bg}` : ""}">
+    const r = v(this.config), t = h(r.items, "items").filter((e) => n(e.review));
+    return t.length ? l`<section class="slp-block slp-section slp-rv ${g(r)}" style="${r.bg_color ? `--slp-section-bg:${r.bg_color};` : ""}${r.card_bg ? `--slp-rv-card:${r.card_bg}` : ""}">
       <div class="slp-container">
-        ${r || t ? a`<div class="slp-title">${r ? a`<h2>${r}</h2>` : o}${t ? a`<p>${t}</p>` : o}</div>` : o}
+        ${x(r)}
         <div class="slp-rv__track" @pointerdown=${() => window.clearInterval(this.timer)}>
-          ${i.map((s) => {
-      const l = n(s.name), c = Math.min(Math.max(Number(s.rate) || 5, 1), 5);
-      return a`<article class="slp-rv__card">
+          ${t.map((e) => {
+      const s = n(e.name), a = Math.min(Math.max(Number(e.rate) || 5, 1), 5);
+      return l`<article class="slp-rv__card">
               <i class="slp-rv__quote sicon-quote"></i>
-              <p class="slp-rv__text">${n(s.review)}</p>
+              <p class="slp-rv__text">${n(e.review)}</p>
               <div class="slp-rv__author">
-                ${s.image ? a`<img class="slp-rv__avatar" src=${s.image} alt=${l} loading="lazy" />` : a`<span class="slp-rv__avatar slp-rv__initials" aria-hidden="true">${this.initials(l)}</span>`}
+                ${e.image ? l`<img class="slp-rv__avatar" src=${e.image} alt=${s} loading="lazy" />` : l`<span class="slp-rv__avatar slp-rv__initials" aria-hidden="true">${this.initials(s)}</span>`}
                 <div>
-                  <h3 class="slp-rv__name">${l}</h3>
-                  <div class="slp-rv__stars" aria-label="${c}/5">
-                    ${[1, 2, 3, 4, 5].map((f) => a`<i class="sicon-star2 ${f <= c ? "is-on" : ""}"></i>`)}
+                  <h3 class="slp-rv__name">${s}</h3>
+                  <div class="slp-rv__stars" aria-label="${a}/5">
+                    ${[1, 2, 3, 4, 5].map((i) => l`<i class="sicon-star2 ${i <= a ? "is-on" : ""}"></i>`)}
                   </div>
                 </div>
               </div>
             </article>`;
     })}
         </div>
-        ${i.length > 1 ? a`<div class="slp-rv__nav">
-              <button type="button" aria-label=${_({ ar: "السابق", en: "Previous" })} @click=${() => this.step(-1)}><i class="sicon-keyboard_arrow_right"></i></button>
-              <button type="button" aria-label=${_({ ar: "التالي", en: "Next" })} @click=${() => this.step(1)}><i class="sicon-keyboard_arrow_left"></i></button>
-            </div>` : o}
+        ${t.length > 1 ? l`<div class="slp-rv__nav">
+              <button type="button" aria-label=${m({ ar: "السابق", en: "Previous" })} @click=${() => this.step(-1)}><i class="sicon-keyboard_arrow_right"></i></button>
+              <button type="button" aria-label=${m({ ar: "التالي", en: "Next" })} @click=${() => this.step(1)}><i class="sicon-keyboard_arrow_left"></i></button>
+            </div>` : p}
       </div>
-    </section>`;
+    </section>` : p;
   }
 }
 w([
-  b({ type: Object })
-], d.prototype, "config");
-typeof d < "u" && d.registerSallaComponent("salla-custom-reviews");
+  u({ type: Object })
+], c.prototype, "config");
+typeof c < "u" && c.registerSallaComponent("salla-custom-reviews");
 export {
-  d as default
+  c as default
 };

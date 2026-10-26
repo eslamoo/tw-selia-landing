@@ -1,12 +1,12 @@
-import { LitElement as _, nothing as p, html as o } from "lit";
-import { property as g, state as u } from "lit/decorators.js";
-import { i as f, c as h, a as q, g as v, r as n, s as b } from "./styles-Czqp750h.js";
-var $ = Object.defineProperty, m = (c, e, i, l) => {
-  for (var s = void 0, r = c.length - 1, t; r >= 0; r--)
-    (t = c[r]) && (s = t(e, i, s) || s);
-  return s && $(e, i, s), s;
+import { LitElement as f, nothing as m, html as p } from "lit";
+import { property as _, state as g } from "lit/decorators.js";
+import { i as d, c as u, a as q, g as h, r as n, s as v, d as b } from "./styles-BJy9RHCh.js";
+var y = Object.defineProperty, c = (i, t, r, o) => {
+  for (var e = void 0, s = i.length - 1, l; s >= 0; s--)
+    (l = i[s]) && (e = l(t, r, e) || e);
+  return e && y(t, r, e), e;
 };
-const y = `
+const w = `
 .slp-faq__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: .875rem; align-items: start; }
 @container (min-width: 768px) { .slp-faq--two .slp-faq__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; } }
 .slp-faq__item { border: 1px solid var(--slp-border); border-radius: .875rem; background: var(--slp-card); overflow: hidden; }
@@ -19,7 +19,7 @@ const y = `
 .slp-faq__a p { padding: 0 1.25rem 1.125rem; font-size: .9375rem; line-height: 1.85; color: var(--slp-muted); white-space: pre-line; }
 @media (prefers-reduced-motion: reduce) { .slp-faq__a, .slp-faq__q i { transition: none; } }
 `;
-class d extends _ {
+class a extends f {
   constructor() {
     super(...arguments), this.open = 0, this.uid = `slp-faq-${Math.random().toString(36).slice(2, 8)}`;
   }
@@ -27,35 +27,35 @@ class d extends _ {
     return this;
   }
   connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), f("slp-base", h), f("slp-faq", y);
+    super.connectedCallback(), this.classList.add("slp-host"), d("slp-base", u), d("slp-faq", w);
   }
   render() {
-    const e = q(this.config), i = v(e.items, "items").filter((t) => n(t.question));
-    if (!i.length) return p;
-    const l = n(e.title), s = n(e.subtitle), r = this.uid;
-    return o`<section class="slp-block slp-section slp-faq ${b(e)}${e.two_columns !== !1 ? " slp-faq--two" : ""}" style="${e.bg_color ? `--slp-section-bg:${e.bg_color}` : ""}">
+    const t = q(this.config), r = h(t.items, "items").filter((e) => n(e.question));
+    if (!r.length) return m;
+    const o = this.uid;
+    return p`<section class="slp-block slp-section slp-faq ${v(t)}${t.two_columns !== !1 ? " slp-faq--two" : ""}" style="${t.bg_color ? `--slp-section-bg:${t.bg_color}` : ""}">
       <div class="slp-container">
-        ${l || s ? o`<div class="slp-title">${l ? o`<h2>${l}</h2>` : p}${s ? o`<p>${s}</p>` : p}</div>` : p}
+        ${b(t)}
         <div class="slp-faq__grid">
-          ${i.map((t, a) => o`<div class="slp-faq__item ${this.open === a ? "is-open" : ""}">
-            <button type="button" class="slp-faq__q" aria-expanded=${this.open === a ? "true" : "false"} aria-controls="${r}-${a}"
-              @click=${() => this.open = this.open === a ? -1 : a}>
-              <span>${n(t.question)}</span><i class="sicon-keyboard_arrow_down"></i>
+          ${r.map((e, s) => p`<div class="slp-faq__item ${this.open === s ? "is-open" : ""}">
+            <button type="button" class="slp-faq__q" aria-expanded=${this.open === s ? "true" : "false"} aria-controls="${o}-${s}"
+              @click=${() => this.open = this.open === s ? -1 : s}>
+              <span>${n(e.question)}</span><i class="sicon-keyboard_arrow_down"></i>
             </button>
-            <div class="slp-faq__a" id="${r}-${a}" role="region"><div><p>${n(t.answer)}</p></div></div>
+            <div class="slp-faq__a" id="${o}-${s}" role="region"><div><p>${n(e.answer)}</p></div></div>
           </div>`)}
         </div>
       </div>
     </section>`;
   }
 }
-m([
-  g({ type: Object })
-], d.prototype, "config");
-m([
-  u()
-], d.prototype, "open");
-typeof d < "u" && d.registerSallaComponent("salla-faq");
+c([
+  _({ type: Object })
+], a.prototype, "config");
+c([
+  g()
+], a.prototype, "open");
+typeof a < "u" && a.registerSallaComponent("salla-faq");
 export {
-  d as default
+  a as default
 };

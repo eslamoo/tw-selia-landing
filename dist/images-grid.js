@@ -1,12 +1,12 @@
-import { LitElement as d, nothing as a, html as r } from "lit";
-import { property as m } from "lit/decorators.js";
-import { i as p, c as _, a as f, r as c, s as b } from "./styles-Czqp750h.js";
-var h = Object.defineProperty, u = (t, l, s, o) => {
-  for (var i = void 0, e = t.length - 1, g; e >= 0; e--)
-    (g = t[e]) && (i = g(l, s, i) || i);
-  return i && h(l, s, i), i;
+import { LitElement as c, nothing as g, html as t } from "lit";
+import { property as d } from "lit/decorators.js";
+import { i as p, c as m, a as _, r as f, s as b, d as u } from "./styles-BJy9RHCh.js";
+var h = Object.defineProperty, v = (s, l, i, a) => {
+  for (var e = void 0, r = s.length - 1, n; r >= 0; r--)
+    (n = s[r]) && (e = n(l, i, e) || e);
+  return e && h(l, i, e), e;
 };
-const v = `
+const w = `
 .slp-ig__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
 .slp-ig__cell { position: relative; overflow: hidden; min-height: 11rem; }
 .slp-ig__cell--1 { grid-column: span 2; min-height: 15rem; }
@@ -29,40 +29,40 @@ const v = `
 @container (min-width: 768px) { .slp-ig__label { font-size: 1.75rem; } }
 @media (prefers-reduced-motion: reduce) { .slp-ig__cell img { transition: none; } }
 `;
-class n extends d {
+class o extends c {
   createRenderRoot() {
     return this;
   }
   connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), p("slp-base", _), p("slp-images-grid", v);
+    super.connectedCallback(), this.classList.add("slp-host"), p("slp-base", m), p("slp-images-grid", w);
   }
   render() {
-    const l = f(this.config), s = [1, 2, 3, 4, 5].map((e) => ({ n: e, src: l[`image_${e}`], label: c(l[`title_${e}`]) }));
-    if (!s.some((e) => e.src)) return a;
-    const o = c(l.title), i = [
+    const l = _(this.config), i = [1, 2, 3, 4, 5].map((e) => ({ n: e, src: l[`image_${e}`], label: f(l[`title_${e}`]) }));
+    if (!i.some((e) => e.src)) return g;
+    const a = [
       "slp-block slp-section slp-ig",
       b(l),
       l.rounded !== !1 ? "slp-ig--rounded" : "",
       l.overlay !== !1 ? "slp-ig--overlay" : "",
       l.bottom_titles ? "slp-ig--bottom" : ""
     ].filter(Boolean).join(" ");
-    return r`<section class=${i} style="--slp-ig-color:${l.titles_color || "#ffffff"}">
+    return t`<section class=${a} style="--slp-ig-color:${l.titles_color || "#ffffff"}">
       <div class="slp-container">
-        ${o ? r`<div class="slp-title"><h2>${o}</h2></div>` : a}
+        ${u(l)}
         <div class="slp-ig__grid">
-          ${s.filter((e) => e.src).map((e) => r`<div class="slp-ig__cell slp-ig__cell--${e.n}">
+          ${i.filter((e) => e.src).map((e) => t`<div class="slp-ig__cell slp-ig__cell--${e.n}">
             <img src=${e.src} alt=${e.label} loading="lazy" />
-            ${e.label ? r`<h3 class="slp-ig__label">${e.label}</h3>` : a}
+            ${e.label ? t`<h3 class="slp-ig__label">${e.label}</h3>` : g}
           </div>`)}
         </div>
       </div>
     </section>`;
   }
 }
-u([
-  m({ type: Object })
-], n.prototype, "config");
-typeof n < "u" && n.registerSallaComponent("salla-images-grid");
+v([
+  d({ type: Object })
+], o.prototype, "config");
+typeof o < "u" && o.registerSallaComponent("salla-images-grid");
 export {
-  n as default
+  o as default
 };

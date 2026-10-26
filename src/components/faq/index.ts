@@ -2,6 +2,7 @@ import { html, LitElement, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
 import { getCollectionItems, getConfig, resolveText } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
+import { sectionTitle } from "../../utils/title";
 
 const css = `
 .slp-faq__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: .875rem; align-items: start; }
@@ -37,12 +38,10 @@ export default class Faq extends LitElement {
     const cfg = getConfig(this.config);
     const items = getCollectionItems<Record<string, any>>(cfg.items, "items").filter((i) => resolveText(i.question));
     if (!items.length) return nothing;
-    const title = resolveText(cfg.title);
-    const subtitle = resolveText(cfg.subtitle);
     const id = this.uid;
     return html`<section class="slp-block slp-section slp-faq ${schemeClass(cfg)}${cfg.two_columns !== false ? " slp-faq--two" : ""}" style="${cfg.bg_color ? `--slp-section-bg:${cfg.bg_color}` : ""}">
       <div class="slp-container">
-        ${title || subtitle ? html`<div class="slp-title">${title ? html`<h2>${title}</h2>` : nothing}${subtitle ? html`<p>${subtitle}</p>` : nothing}</div>` : nothing}
+        ${sectionTitle(cfg)}
         <div class="slp-faq__grid">
           ${items.map((item, i) => html`<div class="slp-faq__item ${this.open === i ? "is-open" : ""}">
             <button type="button" class="slp-faq__q" aria-expanded=${this.open === i ? "true" : "false"} aria-controls="${id}-${i}"

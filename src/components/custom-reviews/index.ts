@@ -2,6 +2,7 @@ import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { getCollectionItems, getConfig, resolveText, t } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
+import { sectionTitle } from "../../utils/title";
 
 const css = `
 .slp-rv.slp-section { background: var(--slp-section-bg, var(--slp-surface-2)); }
@@ -66,11 +67,9 @@ export default class CustomReviews extends LitElement {
     const cfg = getConfig(this.config);
     const items = getCollectionItems<Review>(cfg.items, "items").filter((r) => resolveText(r.review));
     if (!items.length) return nothing;
-    const title = resolveText(cfg.title);
-    const subtitle = resolveText(cfg.subtitle);
     return html`<section class="slp-block slp-section slp-rv ${schemeClass(cfg)}" style="${cfg.bg_color ? `--slp-section-bg:${cfg.bg_color};` : ""}${cfg.card_bg ? `--slp-rv-card:${cfg.card_bg}` : ""}">
       <div class="slp-container">
-        ${title || subtitle ? html`<div class="slp-title">${title ? html`<h2>${title}</h2>` : nothing}${subtitle ? html`<p>${subtitle}</p>` : nothing}</div>` : nothing}
+        ${sectionTitle(cfg)}
         <div class="slp-rv__track" @pointerdown=${() => window.clearInterval(this.timer)}>
           ${items.map((r) => {
             const name = resolveText(r.name);

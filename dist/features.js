@@ -1,12 +1,12 @@
-import { LitElement as d, nothing as o, html as r } from "lit";
-import { property as g } from "lit/decorators.js";
-import { i as m, c as _, a as h, g as b, r as l, s as u } from "./styles-Czqp750h.js";
-var v = Object.defineProperty, x = (p, e, i, a) => {
-  for (var t = void 0, n = p.length - 1, c; n >= 0; n--)
-    (c = p[n]) && (t = c(e, i, t) || t);
-  return t && v(e, i, t), t;
+import { LitElement as m, nothing as c, html as i } from "lit";
+import { property as d } from "lit/decorators.js";
+import { i as p, c as g, a as _, g as h, r as o, s as b, d as u } from "./styles-BJy9RHCh.js";
+var v = Object.defineProperty, x = (l, t, r, f) => {
+  for (var s = void 0, e = l.length - 1, n; e >= 0; e--)
+    (n = l[e]) && (s = n(t, r, s) || s);
+  return s && v(t, r, s), s;
 };
-const $ = `
+const y = `
 .slp-ft__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 @container (min-width: 768px) { .slp-ft__grid { grid-template-columns: repeat(var(--slp-ft-cols, 4), minmax(0, 1fr)); gap: 1.5rem; } }
 .slp-ft__item { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: .625rem; padding: 1.5rem 1rem; border: 1px solid var(--slp-border); border-radius: 1rem; background: var(--slp-card); text-align: center; transition: transform .3s ease, box-shadow .3s ease; }
@@ -19,25 +19,25 @@ const $ = `
 .slp-ft__item p { font-size: .875rem; line-height: 1.7; color: var(--slp-muted); }
 @media (prefers-reduced-motion: reduce) { .slp-ft__item, .slp-ft__item::after { transition: none; } }
 `;
-class f extends d {
+class a extends m {
   createRenderRoot() {
     return this;
   }
   connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), m("slp-base", _), m("slp-features", $);
+    super.connectedCallback(), this.classList.add("slp-host"), p("slp-base", g), p("slp-features", y);
   }
   render() {
-    const e = h(this.config), i = b(e.items, "items").filter((s) => l(s.title));
-    if (!i.length) return o;
-    const a = l(e.title), t = l(e.subtitle), c = `--slp-ft-cols:${i.length > 3 ? 4 : i.length};${e.bg_color ? `--slp-section-bg:${e.bg_color};` : ""}${e.icon_bg ? `--slp-ft-icon-bg:${e.icon_bg}` : ""}`;
-    return r`<section class="slp-block slp-section slp-ft ${u(e)}" style=${c}>
+    const t = _(this.config), r = h(t.items, "items").filter((e) => o(e.title));
+    if (!r.length) return c;
+    const s = `--slp-ft-cols:${r.length > 3 ? 4 : r.length};${t.bg_color ? `--slp-section-bg:${t.bg_color};` : ""}${t.icon_bg ? `--slp-ft-icon-bg:${t.icon_bg}` : ""}`;
+    return i`<section class="slp-block slp-section slp-ft ${b(t)}" style=${s}>
       <div class="slp-container">
-        ${a || t ? r`<div class="slp-title">${a ? r`<h2>${a}</h2>` : o}${t ? r`<p>${t}</p>` : o}</div>` : o}
+        ${u(t)}
         <div class="slp-ft__grid">
-          ${i.map((s) => r`<div class="slp-ft__item">
-            ${s.image ? r`<img class="slp-ft__img" src=${s.image} alt="" loading="lazy" />` : r`<span class="slp-ft__icon"><i class=${s.icon || "sicon-star2"}></i></span>`}
-            <h3>${l(s.title)}</h3>
-            ${l(s.sub_title) ? r`<p>${l(s.sub_title)}</p>` : o}
+          ${r.map((e) => i`<div class="slp-ft__item">
+            ${e.image ? i`<img class="slp-ft__img" src=${e.image} alt="" loading="lazy" />` : i`<span class="slp-ft__icon"><i class=${e.icon || "sicon-star2"}></i></span>`}
+            <h3>${o(e.title)}</h3>
+            ${o(e.sub_title) ? i`<p>${o(e.sub_title)}</p>` : c}
           </div>`)}
         </div>
       </div>
@@ -45,9 +45,9 @@ class f extends d {
   }
 }
 x([
-  g({ type: Object })
-], f.prototype, "config");
-typeof f < "u" && f.registerSallaComponent("salla-features");
+  d({ type: Object })
+], a.prototype, "config");
+typeof a < "u" && a.registerSallaComponent("salla-features");
 export {
-  f as default
+  a as default
 };

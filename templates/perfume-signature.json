@@ -933,6 +933,343 @@
           }
         },
         {
+          "id": "title_style",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل العنوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها",
+          "options": [
+            {
+              "label": "الكلاسيكي (دائرة وخطين)",
+              "value": "classic",
+              "key": "classic"
+            },
+            {
+              "label": "خطوط جانبية",
+              "value": "side-lines",
+              "key": "side-lines"
+            },
+            {
+              "label": "توقيع يدوي",
+              "value": "signature",
+              "key": "signature"
+            },
+            {
+              "label": "تظليل العنوان",
+              "value": "highlight",
+              "key": "highlight"
+            },
+            {
+              "label": "خط متدرج",
+              "value": "underline-offset",
+              "key": "underline-offset"
+            },
+            {
+              "label": "خلفية متوهجة (متحرك)",
+              "value": "glow-badge",
+              "key": "glow-badge"
+            },
+            {
+              "label": "إطار نابض (متحرك)",
+              "value": "frame",
+              "key": "frame"
+            },
+            {
+              "label": "عنوان متوهج (متحرك)",
+              "value": "shimmer",
+              "key": "shimmer"
+            },
+            {
+              "label": "نجوم (متحرك)",
+              "value": "constellation",
+              "key": "constellation"
+            },
+            {
+              "label": "كبسولة (متحرك)",
+              "value": "lozenge",
+              "key": "lozenge"
+            },
+            {
+              "label": "خط ممتد (متحرك)",
+              "value": "pulse-line",
+              "key": "pulse-line"
+            },
+            {
+              "label": "خط مع نقطة متحركة (متحرك)",
+              "value": "traveling-dot",
+              "key": "traveling-dot"
+            },
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            },
+            {
+              "label": "خط متقطع (متحرك)",
+              "value": "dashes",
+              "key": "dashes"
+            },
+            {
+              "label": "سطر (متحرك)",
+              "value": "wipe",
+              "key": "wipe"
+            },
+            {
+              "label": "ومضة عائمة (متحرك)",
+              "value": "sparkle",
+              "key": "sparkle"
+            },
+            {
+              "label": "خط مقسوم (متحرك)",
+              "value": "converge",
+              "key": "converge"
+            },
+            {
+              "label": "خط بسيط",
+              "value": "basic",
+              "key": "basic"
+            }
+          ],
+          "selected": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ],
+          "value": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_classic",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/classic.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "classic"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_side_lines",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/side-lines.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "side-lines"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_signature",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/signature.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "signature"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_highlight",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/highlight.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "highlight"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_underline_offset",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/underline-offset.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "underline-offset"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_glow_badge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/glow-badge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "glow-badge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_frame",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/frame.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "frame"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_shimmer",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/shimmer.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "shimmer"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_constellation",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/constellation.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "constellation"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_lozenge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/lozenge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "lozenge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_pulse_line",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/pulse-line.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "pulse-line"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_traveling_dot",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/traveling-dot.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "traveling-dot"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_diamond",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/diamond.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_dashes",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/dashes.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "dashes"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_wipe",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/wipe.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "wipe"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_sparkle",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/sparkle.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "sparkle"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_converge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/converge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "converge"
+            }
+          ]
+        },
+        {
           "id": "btn_text",
           "type": "string",
           "format": "text",
@@ -1464,6 +1801,343 @@
           }
         },
         {
+          "id": "title_style",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل العنوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها",
+          "options": [
+            {
+              "label": "الكلاسيكي (دائرة وخطين)",
+              "value": "classic",
+              "key": "classic"
+            },
+            {
+              "label": "خطوط جانبية",
+              "value": "side-lines",
+              "key": "side-lines"
+            },
+            {
+              "label": "توقيع يدوي",
+              "value": "signature",
+              "key": "signature"
+            },
+            {
+              "label": "تظليل العنوان",
+              "value": "highlight",
+              "key": "highlight"
+            },
+            {
+              "label": "خط متدرج",
+              "value": "underline-offset",
+              "key": "underline-offset"
+            },
+            {
+              "label": "خلفية متوهجة (متحرك)",
+              "value": "glow-badge",
+              "key": "glow-badge"
+            },
+            {
+              "label": "إطار نابض (متحرك)",
+              "value": "frame",
+              "key": "frame"
+            },
+            {
+              "label": "عنوان متوهج (متحرك)",
+              "value": "shimmer",
+              "key": "shimmer"
+            },
+            {
+              "label": "نجوم (متحرك)",
+              "value": "constellation",
+              "key": "constellation"
+            },
+            {
+              "label": "كبسولة (متحرك)",
+              "value": "lozenge",
+              "key": "lozenge"
+            },
+            {
+              "label": "خط ممتد (متحرك)",
+              "value": "pulse-line",
+              "key": "pulse-line"
+            },
+            {
+              "label": "خط مع نقطة متحركة (متحرك)",
+              "value": "traveling-dot",
+              "key": "traveling-dot"
+            },
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            },
+            {
+              "label": "خط متقطع (متحرك)",
+              "value": "dashes",
+              "key": "dashes"
+            },
+            {
+              "label": "سطر (متحرك)",
+              "value": "wipe",
+              "key": "wipe"
+            },
+            {
+              "label": "ومضة عائمة (متحرك)",
+              "value": "sparkle",
+              "key": "sparkle"
+            },
+            {
+              "label": "خط مقسوم (متحرك)",
+              "value": "converge",
+              "key": "converge"
+            },
+            {
+              "label": "خط بسيط",
+              "value": "basic",
+              "key": "basic"
+            }
+          ],
+          "selected": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ],
+          "value": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_classic",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/classic.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "classic"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_side_lines",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/side-lines.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "side-lines"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_signature",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/signature.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "signature"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_highlight",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/highlight.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "highlight"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_underline_offset",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/underline-offset.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "underline-offset"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_glow_badge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/glow-badge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "glow-badge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_frame",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/frame.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "frame"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_shimmer",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/shimmer.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "shimmer"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_constellation",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/constellation.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "constellation"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_lozenge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/lozenge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "lozenge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_pulse_line",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/pulse-line.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "pulse-line"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_traveling_dot",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/traveling-dot.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "traveling-dot"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_diamond",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/diamond.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_dashes",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/dashes.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "dashes"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_wipe",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/wipe.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "wipe"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_sparkle",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/sparkle.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "sparkle"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_converge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/converge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "converge"
+            }
+          ]
+        },
+        {
           "id": "items",
           "type": "collection",
           "format": "collection",
@@ -1669,6 +2343,343 @@
             "ar": "العطر عن قرب",
             "en": "A closer look"
           }
+        },
+        {
+          "id": "title_style",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل العنوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها",
+          "options": [
+            {
+              "label": "الكلاسيكي (دائرة وخطين)",
+              "value": "classic",
+              "key": "classic"
+            },
+            {
+              "label": "خطوط جانبية",
+              "value": "side-lines",
+              "key": "side-lines"
+            },
+            {
+              "label": "توقيع يدوي",
+              "value": "signature",
+              "key": "signature"
+            },
+            {
+              "label": "تظليل العنوان",
+              "value": "highlight",
+              "key": "highlight"
+            },
+            {
+              "label": "خط متدرج",
+              "value": "underline-offset",
+              "key": "underline-offset"
+            },
+            {
+              "label": "خلفية متوهجة (متحرك)",
+              "value": "glow-badge",
+              "key": "glow-badge"
+            },
+            {
+              "label": "إطار نابض (متحرك)",
+              "value": "frame",
+              "key": "frame"
+            },
+            {
+              "label": "عنوان متوهج (متحرك)",
+              "value": "shimmer",
+              "key": "shimmer"
+            },
+            {
+              "label": "نجوم (متحرك)",
+              "value": "constellation",
+              "key": "constellation"
+            },
+            {
+              "label": "كبسولة (متحرك)",
+              "value": "lozenge",
+              "key": "lozenge"
+            },
+            {
+              "label": "خط ممتد (متحرك)",
+              "value": "pulse-line",
+              "key": "pulse-line"
+            },
+            {
+              "label": "خط مع نقطة متحركة (متحرك)",
+              "value": "traveling-dot",
+              "key": "traveling-dot"
+            },
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            },
+            {
+              "label": "خط متقطع (متحرك)",
+              "value": "dashes",
+              "key": "dashes"
+            },
+            {
+              "label": "سطر (متحرك)",
+              "value": "wipe",
+              "key": "wipe"
+            },
+            {
+              "label": "ومضة عائمة (متحرك)",
+              "value": "sparkle",
+              "key": "sparkle"
+            },
+            {
+              "label": "خط مقسوم (متحرك)",
+              "value": "converge",
+              "key": "converge"
+            },
+            {
+              "label": "خط بسيط",
+              "value": "basic",
+              "key": "basic"
+            }
+          ],
+          "selected": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ],
+          "value": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_classic",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/classic.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "classic"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_side_lines",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/side-lines.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "side-lines"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_signature",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/signature.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "signature"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_highlight",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/highlight.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "highlight"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_underline_offset",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/underline-offset.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "underline-offset"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_glow_badge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/glow-badge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "glow-badge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_frame",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/frame.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "frame"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_shimmer",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/shimmer.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "shimmer"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_constellation",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/constellation.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "constellation"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_lozenge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/lozenge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "lozenge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_pulse_line",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/pulse-line.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "pulse-line"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_traveling_dot",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/traveling-dot.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "traveling-dot"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_diamond",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/diamond.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_dashes",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/dashes.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "dashes"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_wipe",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/wipe.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "wipe"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_sparkle",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/sparkle.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "sparkle"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_converge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/converge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "converge"
+            }
+          ]
         },
         {
           "id": "image_1",
@@ -2077,6 +3088,343 @@
           }
         },
         {
+          "id": "title_style",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل العنوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها",
+          "options": [
+            {
+              "label": "الكلاسيكي (دائرة وخطين)",
+              "value": "classic",
+              "key": "classic"
+            },
+            {
+              "label": "خطوط جانبية",
+              "value": "side-lines",
+              "key": "side-lines"
+            },
+            {
+              "label": "توقيع يدوي",
+              "value": "signature",
+              "key": "signature"
+            },
+            {
+              "label": "تظليل العنوان",
+              "value": "highlight",
+              "key": "highlight"
+            },
+            {
+              "label": "خط متدرج",
+              "value": "underline-offset",
+              "key": "underline-offset"
+            },
+            {
+              "label": "خلفية متوهجة (متحرك)",
+              "value": "glow-badge",
+              "key": "glow-badge"
+            },
+            {
+              "label": "إطار نابض (متحرك)",
+              "value": "frame",
+              "key": "frame"
+            },
+            {
+              "label": "عنوان متوهج (متحرك)",
+              "value": "shimmer",
+              "key": "shimmer"
+            },
+            {
+              "label": "نجوم (متحرك)",
+              "value": "constellation",
+              "key": "constellation"
+            },
+            {
+              "label": "كبسولة (متحرك)",
+              "value": "lozenge",
+              "key": "lozenge"
+            },
+            {
+              "label": "خط ممتد (متحرك)",
+              "value": "pulse-line",
+              "key": "pulse-line"
+            },
+            {
+              "label": "خط مع نقطة متحركة (متحرك)",
+              "value": "traveling-dot",
+              "key": "traveling-dot"
+            },
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            },
+            {
+              "label": "خط متقطع (متحرك)",
+              "value": "dashes",
+              "key": "dashes"
+            },
+            {
+              "label": "سطر (متحرك)",
+              "value": "wipe",
+              "key": "wipe"
+            },
+            {
+              "label": "ومضة عائمة (متحرك)",
+              "value": "sparkle",
+              "key": "sparkle"
+            },
+            {
+              "label": "خط مقسوم (متحرك)",
+              "value": "converge",
+              "key": "converge"
+            },
+            {
+              "label": "خط بسيط",
+              "value": "basic",
+              "key": "basic"
+            }
+          ],
+          "selected": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ],
+          "value": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_classic",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/classic.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "classic"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_side_lines",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/side-lines.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "side-lines"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_signature",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/signature.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "signature"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_highlight",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/highlight.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "highlight"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_underline_offset",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/underline-offset.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "underline-offset"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_glow_badge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/glow-badge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "glow-badge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_frame",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/frame.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "frame"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_shimmer",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/shimmer.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "shimmer"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_constellation",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/constellation.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "constellation"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_lozenge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/lozenge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "lozenge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_pulse_line",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/pulse-line.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "pulse-line"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_traveling_dot",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/traveling-dot.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "traveling-dot"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_diamond",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/diamond.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_dashes",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/dashes.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "dashes"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_wipe",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/wipe.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "wipe"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_sparkle",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/sparkle.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "sparkle"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_converge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/converge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "converge"
+            }
+          ]
+        },
+        {
           "id": "source",
           "type": "items",
           "format": "dropdown-list",
@@ -2292,6 +3640,343 @@
             "ar": "",
             "en": ""
           }
+        },
+        {
+          "id": "title_style",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل العنوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها",
+          "options": [
+            {
+              "label": "الكلاسيكي (دائرة وخطين)",
+              "value": "classic",
+              "key": "classic"
+            },
+            {
+              "label": "خطوط جانبية",
+              "value": "side-lines",
+              "key": "side-lines"
+            },
+            {
+              "label": "توقيع يدوي",
+              "value": "signature",
+              "key": "signature"
+            },
+            {
+              "label": "تظليل العنوان",
+              "value": "highlight",
+              "key": "highlight"
+            },
+            {
+              "label": "خط متدرج",
+              "value": "underline-offset",
+              "key": "underline-offset"
+            },
+            {
+              "label": "خلفية متوهجة (متحرك)",
+              "value": "glow-badge",
+              "key": "glow-badge"
+            },
+            {
+              "label": "إطار نابض (متحرك)",
+              "value": "frame",
+              "key": "frame"
+            },
+            {
+              "label": "عنوان متوهج (متحرك)",
+              "value": "shimmer",
+              "key": "shimmer"
+            },
+            {
+              "label": "نجوم (متحرك)",
+              "value": "constellation",
+              "key": "constellation"
+            },
+            {
+              "label": "كبسولة (متحرك)",
+              "value": "lozenge",
+              "key": "lozenge"
+            },
+            {
+              "label": "خط ممتد (متحرك)",
+              "value": "pulse-line",
+              "key": "pulse-line"
+            },
+            {
+              "label": "خط مع نقطة متحركة (متحرك)",
+              "value": "traveling-dot",
+              "key": "traveling-dot"
+            },
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            },
+            {
+              "label": "خط متقطع (متحرك)",
+              "value": "dashes",
+              "key": "dashes"
+            },
+            {
+              "label": "سطر (متحرك)",
+              "value": "wipe",
+              "key": "wipe"
+            },
+            {
+              "label": "ومضة عائمة (متحرك)",
+              "value": "sparkle",
+              "key": "sparkle"
+            },
+            {
+              "label": "خط مقسوم (متحرك)",
+              "value": "converge",
+              "key": "converge"
+            },
+            {
+              "label": "خط بسيط",
+              "value": "basic",
+              "key": "basic"
+            }
+          ],
+          "selected": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ],
+          "value": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_classic",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/classic.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "classic"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_side_lines",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/side-lines.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "side-lines"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_signature",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/signature.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "signature"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_highlight",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/highlight.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "highlight"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_underline_offset",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/underline-offset.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "underline-offset"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_glow_badge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/glow-badge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "glow-badge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_frame",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/frame.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "frame"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_shimmer",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/shimmer.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "shimmer"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_constellation",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/constellation.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "constellation"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_lozenge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/lozenge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "lozenge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_pulse_line",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/pulse-line.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "pulse-line"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_traveling_dot",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/traveling-dot.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "traveling-dot"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_diamond",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/diamond.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_dashes",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/dashes.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "dashes"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_wipe",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/wipe.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "wipe"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_sparkle",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/sparkle.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "sparkle"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_converge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/converge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "converge"
+            }
+          ]
         },
         {
           "id": "items",
@@ -2529,6 +4214,343 @@
             "ar": "",
             "en": ""
           }
+        },
+        {
+          "id": "title_style",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل العنوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها",
+          "options": [
+            {
+              "label": "الكلاسيكي (دائرة وخطين)",
+              "value": "classic",
+              "key": "classic"
+            },
+            {
+              "label": "خطوط جانبية",
+              "value": "side-lines",
+              "key": "side-lines"
+            },
+            {
+              "label": "توقيع يدوي",
+              "value": "signature",
+              "key": "signature"
+            },
+            {
+              "label": "تظليل العنوان",
+              "value": "highlight",
+              "key": "highlight"
+            },
+            {
+              "label": "خط متدرج",
+              "value": "underline-offset",
+              "key": "underline-offset"
+            },
+            {
+              "label": "خلفية متوهجة (متحرك)",
+              "value": "glow-badge",
+              "key": "glow-badge"
+            },
+            {
+              "label": "إطار نابض (متحرك)",
+              "value": "frame",
+              "key": "frame"
+            },
+            {
+              "label": "عنوان متوهج (متحرك)",
+              "value": "shimmer",
+              "key": "shimmer"
+            },
+            {
+              "label": "نجوم (متحرك)",
+              "value": "constellation",
+              "key": "constellation"
+            },
+            {
+              "label": "كبسولة (متحرك)",
+              "value": "lozenge",
+              "key": "lozenge"
+            },
+            {
+              "label": "خط ممتد (متحرك)",
+              "value": "pulse-line",
+              "key": "pulse-line"
+            },
+            {
+              "label": "خط مع نقطة متحركة (متحرك)",
+              "value": "traveling-dot",
+              "key": "traveling-dot"
+            },
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            },
+            {
+              "label": "خط متقطع (متحرك)",
+              "value": "dashes",
+              "key": "dashes"
+            },
+            {
+              "label": "سطر (متحرك)",
+              "value": "wipe",
+              "key": "wipe"
+            },
+            {
+              "label": "ومضة عائمة (متحرك)",
+              "value": "sparkle",
+              "key": "sparkle"
+            },
+            {
+              "label": "خط مقسوم (متحرك)",
+              "value": "converge",
+              "key": "converge"
+            },
+            {
+              "label": "خط بسيط",
+              "value": "basic",
+              "key": "basic"
+            }
+          ],
+          "selected": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ],
+          "value": [
+            {
+              "label": "كلاسيكي متحرك (متحرك)",
+              "value": "diamond",
+              "key": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_classic",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/classic.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "classic"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_side_lines",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/side-lines.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "side-lines"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_signature",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/signature.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "signature"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_highlight",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/highlight.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "highlight"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_underline_offset",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/underline-offset.png'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "underline-offset"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_glow_badge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/glow-badge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "glow-badge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_frame",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/frame.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "frame"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_shimmer",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/shimmer.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "shimmer"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_constellation",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/constellation.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "constellation"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_lozenge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/lozenge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "lozenge"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_pulse_line",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/pulse-line.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "pulse-line"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_traveling_dot",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/traveling-dot.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "traveling-dot"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_diamond",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/diamond.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "diamond"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_dashes",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/dashes.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "dashes"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_wipe",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/wipe.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "wipe"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_sparkle",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/sparkle.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "sparkle"
+            }
+          ]
+        },
+        {
+          "id": "title_style_preview_converge",
+          "type": "static",
+          "format": "description",
+          "value": "<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/converge.gif'></div>",
+          "conditions": [
+            {
+              "id": "title_style",
+              "operation": "=",
+              "value": "converge"
+            }
+          ]
         },
         {
           "id": "items",

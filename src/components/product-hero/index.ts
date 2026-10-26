@@ -4,6 +4,7 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { getConfig, isRtl, resolveText, t, unwrapValue } from "../../utils/config";
 import { ctaAction, fetchProduct, isLandingPage, landingProductId, money, openCheckout, pageMode, syncCheckoutQuantity } from "../../utils/landing";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
+import { sectionTitle } from "../../utils/title";
 
 // Port of the Selia theme's mini product card (mini-product-details), with the page's own checkout as the buy action
 const css = `
@@ -163,13 +164,6 @@ export default class ProductHero extends LitElement {
     syncCheckoutQuantity(this.quantity);
   }
 
-  private renderTitle(cfg: Record<string, any>) {
-    const title = resolveText(cfg.title);
-    const subtitle = resolveText(cfg.subtitle);
-    if (!title && !subtitle) return nothing;
-    return html`<div class="slp-title">${title ? html`<h2>${title}</h2>` : nothing}${subtitle ? html`<p>${subtitle}</p>` : nothing}</div>`;
-  }
-
   private renderMeta(cfg: Record<string, any>) {
     const p = this.product;
     const sold = cfg.show_sold !== false ? Number(cfg.sold_count) || Number(p.sold_quantity) || 0 : 0;
@@ -238,7 +232,7 @@ export default class ProductHero extends LitElement {
 
     if (this.loading) {
       return html`<section class="slp-block slp-section slp-mp ${schemeClass(cfg)}" style=${style}><div class="slp-container">
-        ${this.renderTitle(cfg)}
+        ${sectionTitle(cfg)}
         <div class="slp-mp__card"><div class="slp-mp__main slp-mp__skel"></div>
           <div class="slp-mp__info"><div class="slp-mp__skel" style="height:1.125rem;width:70%;margin-top:.5rem"></div>
           <div class="slp-mp__skel" style="height:1.25rem;width:45%;margin-top:.75rem"></div>
@@ -263,7 +257,7 @@ export default class ProductHero extends LitElement {
 
     return html`<section class="slp-block slp-section slp-mp ${schemeClass(cfg)}" style=${style}>
       <div class="slp-container">
-        ${this.renderTitle(cfg)}
+        ${sectionTitle(cfg)}
         <article class="slp-mp__card">
           <div class="slp-mp__media">
             <div class="slp-mp__main">

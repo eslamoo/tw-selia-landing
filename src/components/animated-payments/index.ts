@@ -3,6 +3,7 @@ import { property, state } from "lit/decorators.js";
 import { getCollectionItems, getConfig, resolveText, unwrapValue } from "../../utils/config";
 import { getSalla } from "../../utils/landing";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
+import { sectionTitle } from "../../utils/title";
 
 // Selia's animated brands block: square cards, faded edges, a 60s loop and an optional reversed second row
 const css = `
@@ -67,14 +68,13 @@ export default class AnimatedPayments extends LitElement {
     const cfg = getConfig(this.config);
     const logos = this.logos(cfg);
     if (!logos.length) return nothing;
-    const title = resolveText(cfg.title);
     const style = [
       cfg.bg_color ? `--slp-section-bg:${cfg.bg_color}` : "",
       cfg.logos_bg ? `--slp-pay-logo-bg:${cfg.logos_bg}` : "",
     ].filter(Boolean).join(";");
     return html`<section class="slp-block slp-section slp-pay ${schemeClass(cfg)}${cfg.grayscale ? " slp-pay--gray" : ""}${cfg.bigger_logos ? " slp-pay--big" : ""}" style=${style}>
       <div class="slp-container">
-        ${title ? html`<div class="slp-title"><h2>${title}</h2></div>` : nothing}
+        ${sectionTitle(cfg)}
         ${this.row(logos)}
         ${cfg.second_row !== false ? this.row(logos, true) : nothing}
       </div>

@@ -23,6 +23,23 @@ const products = (id, label, desc) => ({ id, type: "items", format: "dropdown-li
 const collection = (id, itemLabel, fields, value, min, max) => ({ id, type: "collection", format: "collection", required: true, minLength: min, maxLength: max, item_label: itemLabel, fields: fields.map((f) => ({ ...f, id: `${id}.${f.id}` })), value: value.map((row) => Object.fromEntries(Object.entries(row).map(([k, v]) => [`${id}.${k}`, v]))) });
 const line = (id) => ({ id, type: "static", format: "line" });
 const scheme = () => drop("color_scheme", "وضع الألوان", [["auto", "حسب وضع الصفحة"], ["light", "فاتح دائماً"], ["dark", "داكن دائماً"]], "auto", "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة");
+// Selia's block title styles, in the theme's order, plus the plain line. Diamond is the Selia demo store's style.
+const TITLE_STYLES = [
+  ["classic", "الكلاسيكي (دائرة وخطين)", "png"], ["side-lines", "خطوط جانبية", "png"], ["signature", "توقيع يدوي", "png"],
+  ["highlight", "تظليل العنوان", "png"], ["underline-offset", "خط متدرج", "png"], ["glow-badge", "خلفية متوهجة (متحرك)", "gif"],
+  ["frame", "إطار نابض (متحرك)", "gif"], ["shimmer", "عنوان متوهج (متحرك)", "gif"], ["constellation", "نجوم (متحرك)", "gif"],
+  ["lozenge", "كبسولة (متحرك)", "gif"], ["pulse-line", "خط ممتد (متحرك)", "gif"], ["traveling-dot", "خط مع نقطة متحركة (متحرك)", "gif"],
+  ["diamond", "كلاسيكي متحرك (متحرك)", "gif"], ["dashes", "خط متقطع (متحرك)", "gif"], ["wipe", "سطر (متحرك)", "gif"],
+  ["sparkle", "ومضة عائمة (متحرك)", "gif"], ["converge", "خط مقسوم (متحرك)", "gif"], ["basic", "خط بسيط", ""],
+];
+const titleStyle = () => [
+  drop("title_style", "شكل العنوان", TITLE_STYLES.map(([v, l]) => [v, l]), "diamond", "نفس أشكال عناوين ثيم سيليا، والأشكال المكتوب جنبها (متحرك) تتحرك لحالها"),
+  ...TITLE_STYLES.filter(([, , ext]) => ext).map(([v, , ext]) => ({
+    id: `title_style_preview_${v.replace(/-/g, "_")}`, type: "static", format: "description",
+    value: `<div style='padding-top:10px;margin-bottom:20px;border:1px solid #ebebeb;border-radius:8px;text-align:center;overflow:hidden'><img class='w-full' style='transform:scale(1.5);transform-origin:center' src='https://cdn.selia-tech.com/title-variants/${v}.${ext}'></div>`,
+    conditions: [{ id: "title_style", operation: "=", value: v }],
+  })),
+];
 
 const PREVIEW = "https://eslamoo.github.io/selia-videos";
 
@@ -118,6 +135,7 @@ const components = [
       products("product", "المنتج في صفحات العروض", "صفحة المنتج تعرض منتجها تلقائياً ويفتح الزر الشراء السريع. هذا الاختيار يُستخدم في صفحات العروض فقط"),
       text("title", "عنوان القسم", L("", "")),
       text("subtitle", "وصف القسم", L("", "")),
+      ...titleStyle(),
       text("btn_text", "نص زر الشراء", L("اشترِ الآن", "Buy now")),
       sw("show_quantity", "إظهار الكمية", true, "الكمية المختارة تنتقل للشراء السريع"),
       color("btn_bg", "لون خلفية الزر", "", "اتركه فارغاً لاستخدام اللون الأساسي للمتجر"),
@@ -153,6 +171,7 @@ const components = [
     props: { "min-height": "160px" },
     fields: [
       text("title", "العنوان", L("طرق دفع آمنة ومتعددة", "Secure payment options")),
+      ...titleStyle(),
       drop("source", "مصدر الشعارات", [["store", "وسائل الدفع المفعلة في المتجر"], ["custom", "شعارات مخصصة"]], "store"),
       collection("logos", "شعار", [image("logo", "الشعار", ""), text("name", "الاسم", L("", ""))], [], 0, 20),
       sw("grayscale", "رمادي حتى المرور عليه", false),
@@ -173,6 +192,7 @@ const components = [
     fields: [
       text("title", "العنوان", L("", "")),
       text("subtitle", "الوصف", L("", "")),
+      ...titleStyle(),
       collection("items", "ميزة", [
         icon("icon", "الأيقونة", "sicon-shipping-fast"),
         image("image", "صورة بدل الأيقونة", ""),
@@ -238,6 +258,7 @@ const components = [
     props: { "min-height": "520px" },
     fields: [
       text("title", "العنوان", L("", "")),
+      ...titleStyle(),
       ...[1, 2, 3, 4, 5].flatMap((n) => [image(`image_${n}`, `الصورة ${n}`, ""), text(`title_${n}`, `عنوان الصورة ${n}`, L("", ""))]),
       color("titles_color", "لون العناوين", "#ffffff"),
       sw("bottom_titles", "العناوين أسفل الصور", false),
@@ -256,6 +277,7 @@ const components = [
     fields: [
       text("title", "العنوان", L("آراء عملائنا", "What our customers say")),
       text("subtitle", "الوصف", L("", "")),
+      ...titleStyle(),
       collection("items", "رأي", [
         text("name", "اسم العميل", L("", "")),
         image("image", "صورة العميل", "", "اختياري، تظهر الأحرف الأولى عند عدم رفع صورة"),
@@ -278,6 +300,7 @@ const components = [
     fields: [
       text("title", "العنوان", L("لديك سؤال؟", "Have a question?")),
       text("subtitle", "الوصف", L("", "")),
+      ...titleStyle(),
       collection("items", "سؤال", [text("question", "السؤال", L("", "")), area("answer", "الإجابة", L("", ""))], [], 1, 12),
       sw("two_columns", "عمودين على الشاشات الكبيرة", true),
       color("bg_color", "لون خلفية القسم", ""),
