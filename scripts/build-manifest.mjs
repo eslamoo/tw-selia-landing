@@ -419,8 +419,6 @@ const templates = [
   },
 ];
 
-// Component defaults mirror the default template so a freshly added section already looks finished
-const def = templates[0].values;
 const applyValues = (component, values = {}) => {
   const copy = structuredClone(component);
   for (const field of copy.fields || []) {
@@ -443,8 +441,8 @@ const previewUrl = (name) => {
   const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
   return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/previews/${name}.jpg`;
 };
-// A header added on its own should not float over whatever section follows it
-const finalComponents = components.map((c) => ({ ...applyValues(c, c.name === "page-header" ? {} : def[c.name] || {}), image: previewUrl(c.name) }));
+// A freshly added section keeps the generic schema defaults; template copy is about one product
+const finalComponents = components.map((c) => ({ ...structuredClone(c), image: previewUrl(c.name) }));
 
 const file = `${ROOT}/twilight-bundle.json`;
 const bundle = JSON.parse(fs.readFileSync(file, "utf8"));

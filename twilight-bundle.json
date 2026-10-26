@@ -278,8 +278,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "شحن مجاني لعباية الكلوش الملكية إلى جميع مناطق المملكة ✨",
-                        "en": "Free shipping on the royal cloche abaya across the Kingdom ✨"
+                        "ar": "شحن مجاني لجميع مناطق المملكة ✨",
+                        "en": "Free shipping across the Kingdom ✨"
                     }
                 },
                 {
@@ -779,11 +779,11 @@
                     ],
                     "value": [
                         {
-                            "slides.is_video": true,
+                            "slides.is_video": false,
                             "slides.image": "",
                             "slides.mobile_image": "",
-                            "slides.video_url": "https://cdn.selia-tech.com/videos/video-2026-06-14T22-42-34-275Z-6r6yoi.mp4",
-                            "slides.video_url_mobile": "https://cdn.selia-tech.com/videos/video-2026-06-14T22-43-57-118Z-daqn6z.mp4",
+                            "slides.video_url": "",
+                            "slides.video_url_mobile": "",
                             "slides.object_fit": [
                                 {
                                     "label": "تغطية كاملة",
@@ -847,20 +847,8 @@
                     "required": false,
                     "description": "صفحة المنتج تعرض منتجها تلقائياً ويفتح الزر الشراء السريع. هذا الاختيار يُستخدم في صفحات العروض فقط",
                     "options": [],
-                    "selected": [
-                        {
-                            "label": "عباية باللون الأسود موديل كلوش بقماش ملكي وتطريز شك فاخر",
-                            "value": 1287502680,
-                            "key": "1287502680"
-                        }
-                    ],
-                    "value": [
-                        {
-                            "label": "عباية باللون الأسود موديل كلوش بقماش ملكي وتطريز شك فاخر",
-                            "value": 1287502680,
-                            "key": "1287502680"
-                        }
-                    ],
+                    "selected": [],
+                    "value": [],
                     "searchable": true,
                     "multichoice": false
                 },
@@ -877,8 +865,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "عباية الكلوش الملكية",
-                        "en": "The royal cloche abaya"
+                        "ar": "",
+                        "en": ""
                     }
                 },
                 {
@@ -894,8 +882,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "قماش ملكي ينسدل بنعومة، وتطريز شك فاخر على الأكمام",
-                        "en": "Royal fabric that falls softly, with fine bead embroidery on the sleeves"
+                        "ar": "",
+                        "en": ""
                     }
                 },
                 {
@@ -911,8 +899,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "اطلبيها الآن",
-                        "en": "Order now"
+                        "ar": "اشترِ الآن",
+                        "en": "Buy now"
                     }
                 },
                 {
@@ -1072,7 +1060,7 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#d4a574"
+                    "value": ""
                 },
                 {
                     "id": "ph-line-2",
@@ -1158,8 +1146,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "قماش ملكي ✦ تطريز شك فاخر ✦ قصة كلوش واسعة",
-                        "en": "Royal fabric ✦ Fine bead embroidery ✦ Wide cloche cut"
+                        "ar": "",
+                        "en": ""
                     }
                 },
                 {
@@ -1181,7 +1169,7 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": "#000000"
+                    "value": "#111111"
                 },
                 {
                     "id": "marquee_color",
@@ -1271,8 +1259,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "ادفعي بالطريقة اللي تناسبك",
-                        "en": "Pay the way that suits you"
+                        "ar": "طرق دفع آمنة ومتعددة",
+                        "en": "Secure payment options"
                     }
                 },
                 {
@@ -1460,8 +1448,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "ليش عباية الكلوش الملكية؟",
-                        "en": "Why the royal cloche abaya?"
+                        "ar": "",
+                        "en": ""
                     }
                 },
                 {
@@ -1547,51 +1535,51 @@
                     ],
                     "value": [
                         {
-                            "items.icon": "sicon-fabric-swatch",
-                            "items.image": "",
-                            "items.title": {
-                                "ar": "قماش ملكي",
-                                "en": "Royal fabric"
-                            },
-                            "items.sub_title": {
-                                "ar": "خامة ناعمة تنسدل بأناقة وتريحك طول اليوم",
-                                "en": "A soft fabric that falls gracefully and stays comfortable all day"
-                            }
-                        },
-                        {
-                            "items.icon": "sicon-flower-stem",
-                            "items.image": "",
-                            "items.title": {
-                                "ar": "تطريز شك فاخر",
-                                "en": "Fine bead embroidery"
-                            },
-                            "items.sub_title": {
-                                "ar": "تفاصيل مشغولة بعناية على الأكمام",
-                                "en": "Carefully worked details on the sleeves"
-                            }
-                        },
-                        {
                             "items.icon": "sicon-shipping-fast",
                             "items.image": "",
                             "items.title": {
-                                "ar": "شحن مجاني",
-                                "en": "Free shipping"
+                                "ar": "توصيل سريع",
+                                "en": "Fast delivery"
                             },
                             "items.sub_title": {
-                                "ar": "نوصلها لباب بيتك في كل مناطق المملكة",
-                                "en": "Delivered to your door anywhere in the Kingdom"
+                                "ar": "نوصل طلبك لباب بيتك بأسرع وقت",
+                                "en": "Delivered to your door, fast"
+                            }
+                        },
+                        {
+                            "items.icon": "sicon-wallet",
+                            "items.image": "",
+                            "items.title": {
+                                "ar": "دفع آمن",
+                                "en": "Secure payment"
+                            },
+                            "items.sub_title": {
+                                "ar": "وسائل دفع موثوقة ومتعددة",
+                                "en": "Trusted payment options"
                             }
                         },
                         {
                             "items.icon": "sicon-rotate",
                             "items.image": "",
                             "items.title": {
-                                "ar": "استبدال سهل",
-                                "en": "Easy exchange"
+                                "ar": "استرجاع سهل",
+                                "en": "Easy returns"
                             },
                             "items.sub_title": {
-                                "ar": "استبدال أو استرجاع خلال 7 أيام من الاستلام",
-                                "en": "Exchange or return within 7 days of delivery"
+                                "ar": "نستبدل أو نسترجع بدون تعقيد",
+                                "en": "Hassle free returns"
+                            }
+                        },
+                        {
+                            "items.icon": "sicon-headphones",
+                            "items.image": "",
+                            "items.title": {
+                                "ar": "دعم متواصل",
+                                "en": "Ongoing support"
+                            },
+                            "items.sub_title": {
+                                "ar": "فريقنا جاهز يساعدك",
+                                "en": "Our team is here to help"
                             }
                         }
                     ]
@@ -1978,8 +1966,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "تفاصيل العباية",
-                        "en": "The abaya in detail"
+                        "ar": "",
+                        "en": ""
                     }
                 },
                 {
@@ -1990,7 +1978,7 @@
                     "icon": "sicon-image",
                     "required": false,
                     "description": null,
-                    "value": "https://cdn.salla.sa/gzRDg/products/kXM5IFalDSoAebmtgsNdJ9jITtUJTsKzFjYEolbT.jpg"
+                    "value": ""
                 },
                 {
                     "id": "title_1",
@@ -2017,7 +2005,7 @@
                     "icon": "sicon-image",
                     "required": false,
                     "description": null,
-                    "value": "https://cdn.salla.sa/gzRDg/products/mzUxwSTjCJKXYa3Mm0WMHbXC07gtcyRB4Q2U3cUO.jpg"
+                    "value": ""
                 },
                 {
                     "id": "title_2",
@@ -2044,7 +2032,7 @@
                     "icon": "sicon-image",
                     "required": false,
                     "description": null,
-                    "value": "https://cdn.salla.sa/gzRDg/products/zubWcZ7SBRWbQfxGsmfiYtRKaYnMVkVKTVkXw8Iu.jpg"
+                    "value": ""
                 },
                 {
                     "id": "title_3",
@@ -2071,7 +2059,7 @@
                     "icon": "sicon-image",
                     "required": false,
                     "description": null,
-                    "value": "https://cdn.salla.sa/gzRDg/products/EH06n5OfsLU8tVlTJDY9voBu9uvHXaYnZ2Gazfao.jpg"
+                    "value": ""
                 },
                 {
                     "id": "title_4",
@@ -2098,7 +2086,7 @@
                     "icon": "sicon-image",
                     "required": false,
                     "description": null,
-                    "value": "https://cdn.salla.sa/gzRDg/products/cGHtP4V7duXpTzEqxK8Qgz3PDofxKBZ8WzgWbO92.jpg"
+                    "value": ""
                 },
                 {
                     "id": "title_5",
@@ -2147,8 +2135,8 @@
                     "icon": "sicon-toggle-off",
                     "required": false,
                     "description": null,
-                    "value": false,
-                    "selected": false
+                    "value": true,
+                    "selected": true
                 },
                 {
                     "id": "rounded",
@@ -2227,8 +2215,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "آراء عميلاتنا في العباية",
-                        "en": "What customers say about the abaya"
+                        "ar": "آراء عملائنا",
+                        "en": "What our customers say"
                     }
                 },
                 {
@@ -2314,56 +2302,7 @@
                             }
                         }
                     ],
-                    "value": [
-                        {
-                            "items.name": {
-                                "ar": "نورة",
-                                "en": "Noura"
-                            },
-                            "items.image": "",
-                            "items.rate": 5,
-                            "items.review": {
-                                "ar": "القماش ناعم وثقيل والتطريز أجمل من الصور، والمقاس مضبوط",
-                                "en": "The fabric is soft and rich, the embroidery is even nicer than the photos, and the size is right"
-                            }
-                        },
-                        {
-                            "items.name": {
-                                "ar": "سارة",
-                                "en": "Sara"
-                            },
-                            "items.image": "",
-                            "items.rate": 5,
-                            "items.review": {
-                                "ar": "قصة الكلوش واسعة ومريحة، لبستها في مناسبة وسألوني عنها كثير",
-                                "en": "The cloche cut is wide and comfortable. I wore it to an event and got asked about it a lot"
-                            }
-                        },
-                        {
-                            "items.name": {
-                                "ar": "ريم",
-                                "en": "Reem"
-                            },
-                            "items.image": "",
-                            "items.rate": 5,
-                            "items.review": {
-                                "ar": "وصلتني بسرعة وبتغليف مرتب، والشك ثابت وما تحرك",
-                                "en": "It arrived quickly and neatly packed, and the beading stayed in place"
-                            }
-                        },
-                        {
-                            "items.name": {
-                                "ar": "هيفاء",
-                                "en": "Haifa"
-                            },
-                            "items.image": "",
-                            "items.rate": 5,
-                            "items.review": {
-                                "ar": "ثاني عباية آخذها منكم، والجودة نفسها كل مرة",
-                                "en": "My second abaya from you, and the quality is the same every time"
-                            }
-                        }
-                    ]
+                    "value": []
                 },
                 {
                     "id": "autoplay",
@@ -2464,8 +2403,8 @@
                     "minLength": 0,
                     "maxLength": 200,
                     "value": {
-                        "ar": "أسئلة عن العباية",
-                        "en": "Questions about the abaya"
+                        "ar": "لديك سؤال؟",
+                        "en": "Have a question?"
                     }
                 },
                 {
@@ -2528,58 +2467,7 @@
                             }
                         }
                     ],
-                    "value": [
-                        {
-                            "items.question": {
-                                "ar": "كيف أختار المقاس المناسب؟",
-                                "en": "How do I pick the right size?"
-                            },
-                            "items.answer": {
-                                "ar": "اختاري مقاسك المعتاد، وتواصلي معنا قبل الطلب إذا احتجتِ مساعدة في الطول أو العرض.",
-                                "en": "Pick your usual size, and contact us before ordering if you need help with the length or width."
-                            }
-                        },
-                        {
-                            "items.question": {
-                                "ar": "كيف أعتني بالتطريز؟",
-                                "en": "How do I care for the embroidery?"
-                            },
-                            "items.answer": {
-                                "ar": "ننصح بالتنظيف الجاف أو الغسيل اليدوي بماء بارد، وكي العباية من الداخل.",
-                                "en": "We recommend dry cleaning or a cold hand wash, and ironing the abaya inside out."
-                            }
-                        },
-                        {
-                            "items.question": {
-                                "ar": "هل أقدر أستبدل أو أسترجع؟",
-                                "en": "Can I exchange or return it?"
-                            },
-                            "items.answer": {
-                                "ar": "نعم، خلال 7 أيام من الاستلام بشرط أن تكون العباية بحالتها الأصلية.",
-                                "en": "Yes, within 7 days of delivery as long as the abaya is in its original condition."
-                            }
-                        },
-                        {
-                            "items.question": {
-                                "ar": "متى يوصلني الطلب؟",
-                                "en": "When will my order arrive?"
-                            },
-                            "items.answer": {
-                                "ar": "نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك.",
-                                "en": "We prepare your order within one business day, and it usually arrives in 2 to 5 business days depending on your city."
-                            }
-                        },
-                        {
-                            "items.question": {
-                                "ar": "ما طرق الدفع المتاحة؟",
-                                "en": "Which payment methods can I use?"
-                            },
-                            "items.answer": {
-                                "ar": "مدى، فيزا وماستركارد، Apple Pay، والدفع عند الاستلام.",
-                                "en": "mada, Visa and Mastercard, Apple Pay, and cash on delivery."
-                            }
-                        }
-                    ]
+                    "value": []
                 },
                 {
                     "id": "two_columns",
