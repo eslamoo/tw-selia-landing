@@ -45,6 +45,9 @@ export function mainButton(): { text: string; url: string } {
 
 // Template demo products live in Selia's preview store; the demo and public preview pages run on another store.
 const PREVIEW_STORE_ID = "1886435134";
+// That store's logos; the demo store's own logo is Salla's
+export const PREVIEW_STORE_LOGO = "https://cdn.files.salla.network/theme/1886435134/c09fe18e-8c22-412e-b07b-c3df22c79c52.png";
+export const PREVIEW_STORE_LOGO_DARK = "https://cdn.files.salla.network/homepage/1886435134/2a7f35f4-dfb6-467c-95d8-cfc3f86898b0.webp";
 const DETAILS_WITH = ["images", "rating", "sold_quantity"];
 
 // Plain fetch: Salla's API helper pops an error notice when a demo product is missing from the current store.

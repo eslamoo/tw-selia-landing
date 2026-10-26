@@ -12,6 +12,8 @@
   <style>
     body { font-family: var(--font-main, "PingARLT"), sans-serif; }
     #harness-log { position: fixed; bottom: 0; inset-inline: 0; z-index: 99; max-height: 30vh; overflow: auto; margin: 0; padding: .5rem 1rem; background: #111; color: #9ef09e; font: 12px/1.5 monospace; direction: ltr; }
+    .component-card { min-height: 60px; position: relative; }
+    .components-grid { overflow: hidden; }
     .s-block--fast-checkout { margin: 2rem auto; max-width: 40rem; padding: 1.5rem; border: 2px dashed #999; border-radius: 1rem; text-align: center; }
   </style>
 </head>
@@ -45,7 +47,8 @@
     const settings = (await fetch("https://api.salla.dev/store/v1/store/settings", { headers: { "store-identifier": storeId } }).then((r) => r.json())).data;
     Salla.init({ ...settings, debug: false });
     await Salla.onReady();
-    Salla.config.set("page.is_landing_page", true);
+    // ?landing=0 runs the sections the way the demo and template previews do
+    if (params.get("landing") !== "0") Salla.config.set("page.is_landing_page", true);
     Salla.config.set("theme.settings", {
       page_status: "active",
       page_for_product: [{ value: mode }],
@@ -59,7 +62,12 @@
     log(`store ${storeId} | mode ${mode} | layout ${layout} | template ${template}`);
 
     // The renderer passes the whole component wrapper as `config`, with raw field values
-    const tpl = await fetch(`/templates/${template}.json`).then((r) => r.json());
+    const tpl = await fetch(template.endsWith(".json") ? template : `/templates/${template}.json`).then((r) => r.json());
+    // ?pagemode=light|dark starts the page as if the shopper had used the header's switch
+    const header = tpl.components.find((c) => c.name === "page-header");
+    const base = header?.fields.find((f) => f.id === "default_mode")?.value?.[0]?.value || "light";
+    if (params.get("pagemode")) localStorage.setItem("slp-mode", JSON.stringify({ mode: params.get("pagemode"), base }));
+    else localStorage.removeItem("slp-mode");
     const page = document.getElementById("page");
     // ?only=<component> renders a single section, for component preview images
     const only = params.get("only");
@@ -73,7 +81,16 @@
       el.setAttribute("bundle-id", "78394996");
       el.setAttribute("assets", `/dist/${component.name}.js`);
       el.setAttribute("config", JSON.stringify(wrapper));
-      page.appendChild(el);
+      // ?cards=1 wraps each section the way the demo editor and salla.design previews do
+      if (params.get("cards")) {
+        page.classList.add("components-grid");
+        const card = document.createElement("div");
+        card.className = "component-card";
+        card.appendChild(el);
+        page.appendChild(card);
+      } else {
+        page.appendChild(el);
+      }
     }
 
     if (mode === "product" && layout !== "none") {
@@ -103,6 +120,19 @@
       });
       const timer = setInterval(pin, 200);
       setTimeout(() => clearInterval(timer), 15000);
+    }
+
+    // ?offsets=1 records each section's top and height on <body data-offsets>, for cropping captures
+    if (params.get("offsets")) {
+      setTimeout(() => {
+        const out = {};
+        document.querySelectorAll(".slp-host").forEach((el) => {
+          const name = el.tagName.toLowerCase().replace(/^salla-/, "").replace(/-[a-z0-9]{6}$/, "");
+          const box = el.getBoundingClientRect();
+          out[name] = [Math.round(box.top + window.scrollY), Math.round(box.height)];
+        });
+        document.body.dataset.offsets = JSON.stringify(out);
+      }, 9000);
     }
 
     // Load the bundles core last, like the renderer's lazy injectTwilightBundlesAssets()

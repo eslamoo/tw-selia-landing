@@ -9,29 +9,31 @@ export function injectStyles(id: string, css: string): void {
 
 import { unwrapValue } from "./config";
 
-/** Section color scheme: light (default), dark, or auto to follow the visitor's device setting. */
+/** Section color scheme: follows the page mode by default, or stays light or dark. */
 export function schemeClass(cfg: Record<string, any>): string {
-  const scheme = String(unwrapValue(cfg.color_scheme) || "light");
-  return scheme === "dark" ? "slp-dark" : scheme === "auto" ? "slp-auto" : "";
+  const scheme = String(unwrapValue(cfg.color_scheme) || "auto");
+  return scheme === "dark" ? "slp-dark" : scheme === "light" ? "" : "slp-auto";
 }
 
-const DARK_TOKENS = `--slp-surface: #0f0f12; --slp-surface-2: #141418; --slp-card: #1b1b20; --slp-soft: #26262c;
-  --slp-text: #f4f4f5; --slp-muted: #a1a1aa; --slp-border: rgb(255 255 255 / 12%);`;
+// Selia's dark mode colors (store_bg_dark, store_bg_secondary_dark, store_text_color_secondary_dark)
+const DARK_TOKENS = `--slp-surface: #1d1f1f; --slp-surface-2: #0e0f0f; --slp-card: #262828; --slp-soft: #2f3131; --slp-header: #0e0f0f;
+  --slp-text: #fff; --slp-muted: #ccc; --slp-border: rgb(255 255 255 / 10%);`;
 
 /** Shared section frame: the host element is the size container, and blocks never rely on the page's CSS reset. */
 export const baseCss = `
 .slp-host { display: block; width: 100%; min-width: 0; container-type: inline-size; }
-.slp-block { --slp-surface: #fff; --slp-surface-2: #f8f8f8; --slp-card: #fff; --slp-soft: #f4f4f5;
+.component-card:has(> .slp-host:not(:empty)) { min-height: 0; }
+.slp-block { --slp-surface: #fff; --slp-surface-2: #f8f8f8; --slp-card: #fff; --slp-soft: #f4f4f5; --slp-header: #fff;
   --slp-text: #111; --slp-muted: #6b7280; --slp-border: #e5e7eb;
   display: block; width: 100%; box-sizing: border-box; font-family: var(--font-main, inherit); color: var(--slp-text); }
-.slp-block.slp-dark { ${DARK_TOKENS} }
-@media (prefers-color-scheme: dark) { .slp-block.slp-auto { ${DARK_TOKENS} } }
+.slp-block.slp-dark, html.slp-mode-dark .slp-block.slp-auto { ${DARK_TOKENS} }
+@media (prefers-color-scheme: dark) { html:not(.slp-mode-light) .slp-block.slp-auto { ${DARK_TOKENS} } }
 .slp-block *, .slp-block *::before, .slp-block *::after { box-sizing: border-box; }
 .slp-block img, .slp-block video { display: block; max-width: 100%; }
 .slp-block h2, .slp-block h3, .slp-block p, .slp-block ul { margin: 0; padding: 0; }
 .slp-block ul { list-style: none; }
 .slp-container { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1rem; }
-.slp-section { padding-block: 2.5rem; background: var(--slp-section-bg, var(--slp-surface)); }
+.slp-section { padding-block: 2.5rem; background: var(--slp-section-bg, var(--slp-surface)); transition: background-color .3s ease; }
 @container (min-width: 768px) { .slp-section { padding-block: 3.5rem; } }
 .slp-title { text-align: center; margin-bottom: 1.75rem; }
 .slp-title h2 { font-size: 1.75rem; line-height: 1.3; font-weight: 700; color: var(--slp-title-color, var(--slp-text)); }

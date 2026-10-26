@@ -1,0 +1,67 @@
+{
+  "id": "editor-previews",
+  "components": [
+    {
+      "name": "double-banner",
+      "fields": [
+        {
+          "id": "first_image",
+          "value": "https://cdn.salla.sa/gzRDg/products/mzUxwSTjCJKXYa3Mm0WMHbXC07gtcyRB4Q2U3cUO.jpg"
+        },
+        {
+          "id": "second_image",
+          "value": "https://cdn.salla.sa/gzRDg/products/kXM5IFalDSoAebmtgsNdJ9jITtUJTsKzFjYEolbT.jpg"
+        },
+        {
+          "id": "rounded",
+          "value": true
+        },
+        {
+          "id": "equal_height",
+          "value": false
+        },
+        {
+          "id": "color_scheme",
+          "value": [
+            {
+              "value": "light"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "three-banners",
+      "fields": [
+        {
+          "id": "first_image",
+          "value": "https://cdn.salla.sa/gzRDg/products/cGHtP4V7duXpTzEqxK8Qgz3PDofxKBZ8WzgWbO92.jpg"
+        },
+        {
+          "id": "second_image",
+          "value": "https://cdn.salla.sa/gzRDg/products/mzUxwSTjCJKXYa3Mm0WMHbXC07gtcyRB4Q2U3cUO.jpg"
+        },
+        {
+          "id": "third_image",
+          "value": "https://cdn.salla.sa/gzRDg/products/zubWcZ7SBRWbQfxGsmfiYtRKaYnMVkVKTVkXw8Iu.jpg"
+        },
+        {
+          "id": "rounded",
+          "value": true
+        },
+        {
+          "id": "equal_height",
+          "value": false
+        },
+        {
+          "id": "color_scheme",
+          "value": [
+            {
+              "value": "light"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

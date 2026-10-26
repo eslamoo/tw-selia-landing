@@ -1,18 +1,25 @@
 import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
-import { getConfig, resolveText } from "../../utils/config";
+import { getConfig, isRtl, resolveText } from "../../utils/config";
 import { baseCss, injectStyles } from "../../utils/styles";
 
+// Selia's announcement bar: every copy slides by its own width, so the speed holds for any text length
 const css = `
-.slp-at { overflow: hidden; background: var(--slp-at-bg, #111); color: var(--slp-at-color, #fff); direction: ltr; }
-.slp-at__track { display: flex; width: max-content; animation: slp-at-scroll var(--slp-at-speed, 30s) linear infinite; }
-.slp-at--reverse .slp-at__track { animation-direction: reverse; }
-.slp-at:hover .slp-at__track { animation-play-state: paused; }
-.slp-at__item { display: flex; align-items: center; gap: 1.25rem; padding: .8rem 1.25rem; font-size: .9375rem; font-weight: 700; line-height: 1.4; white-space: nowrap; direction: rtl; }
-.slp-at__item i { font-size: .8125rem; opacity: .85; }
-@keyframes slp-at-scroll { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .slp-at__track { animation: none; } }
+.slp-at { overflow: hidden; padding-block: 5px; background: var(--slp-at-bg, #111); color: var(--slp-at-color, #fff); }
+.slp-at .slp-at__list { display: flex; margin: 0; padding: 5px 0; list-style: none; white-space: nowrap; }
+.slp-at__item { flex: none; display: flex; align-items: center; font-size: 15px; font-weight: 400; line-height: 26px;
+  animation: slp-at-ltr var(--slp-at-speed, 7s) linear infinite; }
+.slp-at--rtl .slp-at__item { animation-name: slp-at-rtl; }
+.slp-at--reverse .slp-at__item { animation-direction: reverse; }
+.slp-at__list:hover .slp-at__item { animation-play-state: paused; }
+.slp-at__text { padding: 0 15px; }
+.slp-at__item i { font-size: 12px; opacity: .85; }
+@keyframes slp-at-ltr { to { transform: translateX(-100%); } }
+@keyframes slp-at-rtl { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .slp-at__item { animation: none; } }
 `;
+
+const COPIES = 14;
 
 export default class AnimatedText extends LitElement {
   @property({ type: Object }) config?: Record<string, any>;
@@ -32,16 +39,15 @@ export default class AnimatedText extends LitElement {
     const cfg = getConfig(this.config);
     const text = resolveText(cfg.text);
     if (!text) return nothing;
-    const speed = Math.min(Math.max(Number(cfg.speed) || 30, 8), 90);
+    const speed = Math.min(Math.max(Number(cfg.speed) || 7, 3), 60);
     const style = `--slp-at-bg:${cfg.bg || "#111111"};--slp-at-color:${cfg.color || "#ffffff"};--slp-at-speed:${speed}s`;
-    // Two identical halves so the -50% loop is seamless at any width
-    const copies = Array.from({ length: 16 }, (_, i) => i);
-    return html`<div class="slp-block slp-at${cfg.reverse ? " slp-at--reverse" : ""}" style=${style} role="marquee" aria-label=${text}>
-      <div class="slp-at__track">
-        ${copies.map((i) => html`<div class="slp-at__item" aria-hidden=${i ? "true" : "false"}>
-          <span>${text}</span>${cfg.icon ? html`<i class=${cfg.icon}></i>` : nothing}
-        </div>`)}
-      </div>
+    const classes = ["slp-block slp-at", isRtl() ? "slp-at--rtl" : "", cfg.reverse ? "slp-at--reverse" : ""].filter(Boolean).join(" ");
+    return html`<div class=${classes} style=${style}>
+      <ul class="slp-at__list">
+        ${Array.from({ length: COPIES }, (_, i) => html`<li class="slp-at__item" aria-hidden=${i ? "true" : "false"}>
+          <span class="slp-at__text">${text}</span>${cfg.icon ? html`<i class=${cfg.icon}></i>` : nothing}
+        </li>`)}
+      </ul>
     </div>`;
   }
 }
