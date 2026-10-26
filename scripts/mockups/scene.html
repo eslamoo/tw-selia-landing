@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8" />
 <title>Marketplace mockups</title>
-<!-- Rendered by scripts/make-marketplace.sh at 1920x1080, scale 2. ?scene=1..6, screens from ./screens -->
+<!-- Rendered by scripts/make-marketplace.sh at 1600x1200 (the Partners Portal size), scale 2. ?scene=1..6, screens from ./screens -->
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1920px; height: 1080px; overflow: hidden; }
-  .stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; perspective: 2600px; }
+  html, body { width: 1600px; height: 1200px; overflow: hidden; }
+  .stage { position: relative; width: 1600px; height: 1200px; overflow: hidden; perspective: 2600px; }
 
   /* Backdrops */
   .light { background: radial-gradient(900px 620px at 24% 18%, #fffaf3 0%, rgb(255 250 243 / 0%) 70%), linear-gradient(165deg, #f6eee3 0%, #ead9c4 100%); }
   .dark { background: radial-gradient(760px 560px at 62% 46%, rgb(212 165 116 / 30%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(160deg, #1d1915 0%, #0c0a09 100%); }
   .split { background: linear-gradient(90deg, #f3e9dc 0%, #ead9c4 50%, #191512 50%, #0c0a09 100%); }
   .blend { background: radial-gradient(700px 500px at 50% 60%, rgb(212 165 116 / 26%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(115deg, #f2e7d8 0%, #e3cfb5 42%, #2a231d 58%, #0d0b0a 100%); }
-  .floor { position: absolute; inset: auto 0 0 0; height: 230px; }
+  .floor { position: absolute; inset: auto 0 0 0; height: 280px; }
   .light .floor, .blend .floor { background: linear-gradient(180deg, rgb(201 170 132 / 0%) 0%, rgb(201 170 132 / 22%) 100%); }
   .dark .floor { background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 35%) 100%); }
   .arch { position: absolute; border-radius: 999px 999px 0 0; }
@@ -77,20 +77,20 @@
   const arch = (cls, x, y, w, h) => `<div class="arch ${cls}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`;
 
   const scenes = {
-    1: ["light", arch("fill", 520, 90, 880, 1000) + arch("line", 470, 40, 980, 1060) +
-        mac("d-abaya-top", 150, 190, 1200, "rotateY(9deg)") + phone("m-abaya-top", 1400, 210, 330, "rotateY(-10deg)", 2)],
-    2: ["light", arch("fill", 1040, 110, 760, 980) + arch("line", 990, 60, 860, 1040) +
-        mac("d-abaya-product", 700, 200, 1080, "rotateY(-9deg)") + phone("m-abaya-product", 200, 150, 360, "rotateY(10deg)", 2)],
-    3: ["dark", arch("line", 760, 40, 980, 1060) +
-        mac("d-perfume-top", 600, 190, 1200, "rotateY(-9deg)") + phone("m-perfume-top", 180, 210, 330, "rotateY(10deg)", 2)],
-    4: ["split", arch("line", 230, 120, 600, 980) + arch("line on-dark", 1090, 120, 600, 980) +
-        phone("m-abaya-product", 560, 120, 380, "rotateY(12deg)") + phone("m-abaya-product-dark", 980, 120, 380, "rotateY(-12deg)")],
-    5: ["light", arch("fill", 300, 90, 880, 1000) + arch("line", 250, 40, 980, 1060) +
-        mac("d-abaya-banners", 130, 190, 1200, "rotateY(9deg)") + phone("m-perfume-banners", 1410, 210, 330, "rotateY(-10deg)", 2)],
-    6: ["blend", arch("line", 610, 60, 700, 1020) +
-        phone("m-abaya-top", 300, 190, 320, "rotateY(18deg) rotateZ(-3deg)", 1) +
-        phone("m-perfume-product", 790, 110, 350, "translateZ(60px)", 3) +
-        phone("m-abaya-faq", 1300, 190, 320, "rotateY(-18deg) rotateZ(3deg)", 1)],
+    1: ["light", arch("fill", 400, 150, 760, 1050) + arch("line", 350, 100, 860, 1100) +
+        mac("d-abaya-top", 150, 260, 1020, "rotateY(9deg)") + phone("m-abaya-top", 1190, 310, 290, "rotateY(-10deg)", 2)],
+    2: ["light", arch("fill", 820, 150, 640, 1050) + arch("line", 770, 100, 740, 1100) +
+        mac("d-abaya-product", 560, 270, 960, "rotateY(-9deg)") + phone("m-abaya-product", 120, 230, 340, "rotateY(10deg)", 2)],
+    3: ["dark", arch("line", 640, 100, 860, 1100) +
+        mac("d-perfume-top", 430, 260, 1020, "rotateY(-9deg)") + phone("m-perfume-top", 120, 310, 290, "rotateY(10deg)", 2)],
+    4: ["split", arch("line", 170, 150, 520, 1050) + arch("line on-dark", 910, 150, 520, 1050) +
+        phone("m-abaya-product", 370, 180, 400, "rotateY(12deg)") + phone("m-abaya-product-dark", 830, 180, 400, "rotateY(-12deg)")],
+    5: ["light", arch("fill", 250, 150, 760, 1050) + arch("line", 200, 100, 860, 1100) +
+        mac("d-abaya-banners", 150, 260, 1020, "rotateY(9deg)") + phone("m-perfume-banners", 1190, 310, 290, "rotateY(-10deg)", 2)],
+    6: ["blend", arch("line", 500, 90, 600, 1110) +
+        phone("m-abaya-top", 150, 280, 320, "rotateY(18deg) rotateZ(-3deg)", 1) +
+        phone("m-perfume-product", 625, 190, 350, "translateZ(60px)", 3) +
+        phone("m-abaya-faq", 1130, 280, 320, "rotateY(-18deg) rotateZ(3deg)", 1)],
   };
   const [bg, html] = scenes[scene];
   const stage = document.getElementById("stage");

@@ -37,7 +37,7 @@ phone m-perfume-banners t2 1690
 names=(01-abaya-template 02-product-quick-buy 03-perfume-template 04-light-dark 05-banners 06-mobile-first)
 for i in {1..6}; do
   "$CH" --headless=new --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=2 \
-    --window-size=1920,1080 --virtual-time-budget=5000 --screenshot="$WORK/scene-$i.png" "file://$WORK/scene.html?scene=$i" >/dev/null 2>&1
-  magick "$WORK/scene-$i.png" -resize 1920x1080 -strip -quality 90 "$OUT/${names[$i]}.jpg"
+    --window-size=1600,1200 --virtual-time-budget=5000 --screenshot="$WORK/scene-$i.png" "file://$WORK/scene.html?scene=$i" >/dev/null 2>&1
+  magick "$WORK/scene-$i.png" -resize 1600x1200 -strip -quality 90 "$OUT/${names[$i]}.jpg"
   echo "$OUT/${names[$i]}.jpg"
 done

@@ -25,7 +25,7 @@ Two ready templates, each built around one product and using every section, with
 
 ## Screenshots (upload in this order)
 
-Device mockups, 1920x1080, no added text or logos.
+Device mockups, 1600x1200 (the size the Partners Portal requires), no added text or logos.
 
 | File | Title AR | Title EN | Description AR | Description EN |
 |---|---|---|---|---|
