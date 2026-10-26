@@ -70,7 +70,7 @@
   // Status bar color and glyph color follow the top of each screen, like a real phone
   const BAR = { "m-abaya-top": ["#000", "#fff"], "m-abaya-product": ["#fff", "#111"], "m-abaya-product-dark": ["#1d1f1f", "#fff"],
     "m-abaya-grid": ["#fff", "#111"], "m-abaya-faq": ["#f8f8f8", "#111"], "m-perfume-top": ["#d4a574", "#111"], "m-perfume-product": ["#1d1f1f", "#fff"] };
-  const status = `<div class="status"><span>9:41</span><span class="icons"><span class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:100%"></i></span><span class="battery"></span></span></div>`;
+  const status = `<div class="status"><span></span><span class="icons"><span class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:100%"></i></span><span class="battery"></span></span></div>`;
   const phone = (shot, x, y, w, t = "", z = 1) => `<div class="phone" style="--pw:${w}px;--sb:${BAR[shot][0]};--sbc:${BAR[shot][1]};left:${x}px;top:${y}px;transform:${t};z-index:${z}">
       <span class="key l" style="top:22%;height:6%"></span><span class="key l" style="top:31%;height:9%"></span><span class="key l" style="top:42%;height:9%"></span><span class="key r" style="top:32%;height:14%"></span>
       <div class="phone-screen">${status}<img src="${S(shot)}" /></div><div class="island"></div></div>`;
