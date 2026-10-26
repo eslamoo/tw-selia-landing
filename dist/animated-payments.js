@@ -1,27 +1,30 @@
-import { LitElement as d, html as n, nothing as p } from "lit";
-import { property as y, state as f } from "lit/decorators.js";
-import { i as g, c as _, u, g as h, r as c, a as v, s as b } from "./styles-Czqp750h.js";
-import { g as $ } from "./landing-BqmPvx7F.js";
-var w = Object.defineProperty, m = (l, e, s, r) => {
-  for (var t = void 0, a = l.length - 1, o; a >= 0; a--)
-    (o = l[a]) && (t = o(e, s, t) || t);
-  return t && w(e, s, t), t;
+import { LitElement as m, html as r, nothing as n } from "lit";
+import { property as d, state as _ } from "lit/decorators.js";
+import { i as g, c as h, u as f, g as u, r as c, a as v, s as b } from "./styles-Czqp750h.js";
+import { g as x } from "./landing-BqmPvx7F.js";
+var w = Object.defineProperty, y = (i, s, e, o) => {
+  for (var a = void 0, t = i.length - 1, l; t >= 0; t--)
+    (l = i[t]) && (a = l(s, e, a) || a);
+  return a && w(s, e, a), a;
 };
-const k = `
-.slp-pay__row { display: flex; overflow: hidden; direction: ltr; user-select: none; gap: 1rem; margin-block: .75rem;
-  mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent); }
-.slp-pay__group { flex-shrink: 0; display: flex; align-items: center; gap: 1rem; animation: slp-pay-scroll var(--slp-pay-speed, 40s) linear infinite; }
-.slp-pay__row--reverse .slp-pay__group { animation-direction: reverse; }
+const $ = `
+.slp-pay { --slp-pay-gap: calc(clamp(10rem, 1rem + 40vmin, 30rem) / 14); }
+.slp-pay__row { display: flex; overflow: hidden; direction: ltr; user-select: none; margin: 15px 0; gap: var(--slp-pay-gap);
+  mask-image: linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+  -webkit-mask-image: linear-gradient(to right, hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0)); }
+.slp-pay__group { flex-shrink: 0; display: flex; align-items: center; gap: var(--slp-pay-gap); animation: slp-pay-scroll 60s linear infinite; }
+.slp-pay__row--reverse .slp-pay__group { animation-direction: reverse; animation-delay: -3s; }
 .slp-pay__row:hover .slp-pay__group { animation-play-state: paused; }
-.slp-pay__logo { display: flex; align-items: center; justify-content: center; width: 6.5rem; height: 4.25rem; padding: .75rem; border-radius: .75rem; background: var(--slp-pay-logo-bg, #f4f4f5); }
-.slp-pay__logo img { width: 100%; height: 100%; object-fit: contain; }
+.slp-pay__logo { flex: none; border-radius: 10px; background: var(--slp-pay-logo-bg, #eeeeee); }
+.slp-pay__logo img { display: block; width: 100px; height: 100px; padding: 10px; object-fit: contain; transition: all .3s; }
+.slp-pay--big .slp-pay__logo img { width: 130px; height: 130px; }
+@container (max-width: 991px) { .slp-pay__logo img { width: 70px; height: 70px; } .slp-pay--big .slp-pay__logo img { width: 90px; height: 90px; } }
 .slp-pay--gray .slp-pay__logo img { filter: grayscale(1); transition: filter .3s ease; }
-.slp-pay--gray .slp-pay__logo:hover img { filter: none; }
-@keyframes slp-pay-scroll { to { transform: translateX(calc(-100% - 1rem)); } }
-@media (prefers-reduced-motion: reduce) { .slp-pay__group { animation: none; } }
+.slp-pay--gray .slp-pay__group:hover .slp-pay__logo img { filter: grayscale(0); }
+@keyframes slp-pay-scroll { to { transform: translateX(calc(-100% - var(--slp-pay-gap))); } }
+@media (prefers-reduced-motion: reduce) { .slp-pay__group { animation-play-state: paused; } }
 `;
-class i extends d {
+class p extends m {
   constructor() {
     super(...arguments), this.storeLogos = [];
   }
@@ -29,47 +32,46 @@ class i extends d {
     return this;
   }
   async connectedCallback() {
-    var r, t;
-    super.connectedCallback(), this.classList.add("slp-host"), g("slp-base", _), g("slp-animated-payments", k);
-    const e = $();
-    await ((r = e == null ? void 0 : e.onReady) == null ? void 0 : r.call(e));
-    const s = ((t = e == null ? void 0 : e.config) == null ? void 0 : t.get("store.settings.payments")) || [];
-    this.storeLogos = s.map((a) => ({ src: e.url.cdn(`images/payment/${a}_mini.png`, 116, 116), name: a }));
+    var o, a;
+    super.connectedCallback(), this.classList.add("slp-host"), g("slp-base", h), g("slp-animated-payments", $);
+    const s = x();
+    await ((o = s == null ? void 0 : s.onReady) == null ? void 0 : o.call(s));
+    const e = ((a = s == null ? void 0 : s.config) == null ? void 0 : a.get("store.settings.payments")) || [];
+    this.storeLogos = e.map((t) => ({ src: s.url.cdn(`images/payment/${t}_mini.png`, 116, 116), name: t }));
   }
-  logos(e) {
-    return u(e.source) === "custom" ? h(e.logos, "logos").filter((s) => s.logo).map((s) => ({ src: s.logo, name: c(s.name) })) : this.storeLogos;
+  logos(s) {
+    return f(s.source) === "custom" ? u(s.logos, "logos").filter((e) => e.logo).map((e) => ({ src: e.logo, name: c(e.name) })) : this.storeLogos;
   }
-  row(e, s = !1) {
-    const r = Math.max(2, Math.ceil(12 / e.length)), t = (a) => n`<div class="slp-pay__group" aria-hidden=${a ? "true" : "false"}>
-      ${Array.from({ length: r }).flatMap(() => e).map((o) => n`<div class="slp-pay__logo">
-        <img src=${o.src} alt=${a ? "" : o.name} loading="lazy" /></div>`)}
+  row(s, e = !1) {
+    const o = Math.max(2, Math.ceil(12 / s.length)), a = (t) => r`<div class="slp-pay__group" aria-hidden=${t ? "true" : "false"}>
+      ${Array.from({ length: o }).flatMap(() => s).map((l) => r`<div class="slp-pay__logo">
+        <img src=${l.src} alt=${t ? "" : l.name} loading="lazy" /></div>`)}
     </div>`;
-    return n`<div class="slp-pay__row${s ? " slp-pay__row--reverse" : ""}">${t(!1)}${t(!0)}</div>`;
+    return r`<div class="slp-pay__row${e ? " slp-pay__row--reverse" : ""}">${a(!1)}${a(!0)}</div>`;
   }
   render() {
-    const e = v(this.config), s = this.logos(e);
-    if (!s.length) return p;
-    const r = c(e.title), t = [
-      e.bg_color ? `--slp-section-bg:${e.bg_color}` : "",
-      e.logos_bg ? `--slp-pay-logo-bg:${e.logos_bg}` : "",
-      `--slp-pay-speed:${Math.max(20, s.length * 6)}s`
+    const s = v(this.config), e = this.logos(s);
+    if (!e.length) return n;
+    const o = c(s.title), a = [
+      s.bg_color ? `--slp-section-bg:${s.bg_color}` : "",
+      s.logos_bg ? `--slp-pay-logo-bg:${s.logos_bg}` : ""
     ].filter(Boolean).join(";");
-    return n`<section class="slp-block slp-section slp-pay ${b(e)}${e.grayscale ? " slp-pay--gray" : ""}" style=${t}>
+    return r`<section class="slp-block slp-section slp-pay ${b(s)}${s.grayscale ? " slp-pay--gray" : ""}${s.bigger_logos ? " slp-pay--big" : ""}" style=${a}>
       <div class="slp-container">
-        ${r ? n`<div class="slp-title"><h2>${r}</h2></div>` : p}
-        ${this.row(s)}
-        ${e.second_row ? this.row(s, !0) : p}
+        ${o ? r`<div class="slp-title"><h2>${o}</h2></div>` : n}
+        ${this.row(e)}
+        ${s.second_row !== !1 ? this.row(e, !0) : n}
       </div>
     </section>`;
   }
 }
-m([
-  y({ type: Object })
-], i.prototype, "config");
-m([
-  f()
-], i.prototype, "storeLogos");
-typeof i < "u" && i.registerSallaComponent("salla-animated-payments");
+y([
+  d({ type: Object })
+], p.prototype, "config");
+y([
+  _()
+], p.prototype, "storeLogos");
+typeof p < "u" && p.registerSallaComponent("salla-animated-payments");
 export {
-  i as default
+  p as default
 };

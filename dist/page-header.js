@@ -1,4 +1,4 @@
-import { LitElement as b, html as l, nothing as u } from "lit";
+import { LitElement as y, html as l, nothing as u } from "lit";
 import { property as x, state as g } from "lit/decorators.js";
 import { a as n, i as f, c as v, u as p, t as w, s as $ } from "./styles-Czqp750h.js";
 import { i as E, P as M, a as z, g as C } from "./landing-BqmPvx7F.js";
@@ -7,7 +7,7 @@ var L = Object.defineProperty, c = (i, s, e, o) => {
     (d = i[r]) && (t = d(s, e, t) || t);
   return t && L(s, e, t), t;
 };
-const _ = "slp-mode", y = (i) => `
+const _ = "slp-mode", b = (i) => `
 ${i} .slp-hd__logo--light.has-dark { display: none; }
 ${i} .slp-hd__logo--dark { display: block; }
 ${i} .slp-hd__logo--light:not(.has-dark) { filter: brightness(0) invert(1); }
@@ -15,6 +15,9 @@ ${i} .slp-hd__toggle { color: #fff; }`, O = `
 .slp-hd { background: var(--slp-section-bg, var(--slp-header)); transition: background-color .3s ease, box-shadow .3s ease; }
 .slp-hd--shadow { box-shadow: 0 1px 0 var(--slp-border), 0 8px 24px -18px rgb(0 0 0 / 35%); }
 .slp-hd--trans:not(.is-solid) { background: transparent; box-shadow: none; }
+/* Pinned while scrolling: Selia's frosted header */
+.slp-hd.is-solid { background: color-mix(in srgb, var(--slp-section-bg, var(--slp-header)) 72%, transparent); box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); }
 /* Previews clip the section list with overflow: hidden, which blocks sticky; clip does not */
 .components-grid:has(.slp-hd--sticky) { overflow: clip; }
 .slp-hd__inner { position: relative; display: flex; align-items: center; justify-content: center; max-width: 1440px; margin-inline: auto; padding: .75rem 10px; min-height: calc(var(--slp-hd-logo, 60px) + 1.5rem); }
@@ -42,17 +45,17 @@ ${i} .slp-hd__toggle { color: #fff; }`, O = `
   .slp-hd__toggle.is-dark .sun-beams { transition-duration: .15s; transform: rotateZ(-25deg); }
   .slp-hd__toggle.is-dark .moon > circle { transition-duration: .5s; transition-delay: .25s; }
 }
-${[".slp-hd.slp-dark", "html.slp-mode-dark .slp-hd.slp-auto", ".slp-hd.slp-hd--trans:not(.is-solid)"].map(y).join("")}
-@media (prefers-color-scheme: dark) { ${y("html:not(.slp-mode-light) .slp-hd.slp-auto")} }
+${[".slp-hd.slp-dark", "html.slp-mode-dark .slp-hd.slp-auto", ".slp-hd.slp-hd--trans:not(.is-solid)"].map(b).join("")}
+@media (prefers-color-scheme: dark) { ${b("html:not(.slp-mode-light) .slp-hd.slp-auto")} }
 `;
 let R = 0;
 function I() {
   return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 }
-class a extends b {
+class a extends y {
   constructor() {
     super(...arguments), this.store = { logo: "", name: "", url: "" }, this.mode = "light", this.solid = !1, this.maskId = `slp-moon-${++R}`, this.modeKey = "", this.onScroll = () => {
-      const s = n(this.config), e = !!(s.transparent && s.sticky) && this.getBoundingClientRect().top <= 1 && I() > 1;
+      const e = !!n(this.config).sticky && this.getBoundingClientRect().top <= 1 && I() > 1;
       e !== this.solid && (this.solid = e);
     };
   }

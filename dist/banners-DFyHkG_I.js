@@ -3,7 +3,7 @@ import { d as r, s as p } from "./styles-Czqp750h.js";
 const b = `
 .slp-bn__row { display: flex; gap: .75rem; }
 @container (min-width: 768px) { .slp-bn__row { gap: 1rem; } }
-@container (max-width: 639px) { .slp-bn--stack .slp-bn__row { flex-direction: column; } }
+@container (max-width: 639px) { .slp-bn--stack .slp-bn__row { flex-direction: column; } .slp-bn--stack .slp-bn__item { flex: none; } }
 .slp-bn__item { flex: 1 1 0; min-width: 0; overflow: hidden; }
 .slp-bn--rounded .slp-bn__item { border-radius: 1rem; }
 .slp-bn__item img { width: 100%; height: auto; transition: transform .6s ease; }
@@ -12,7 +12,7 @@ const b = `
 .slp-bn--full .slp-container { max-width: none; padding-inline: 0; }
 @media (prefers-reduced-motion: reduce) { .slp-bn__item img { transition: none; } }
 `;
-function c(n, l) {
+function _(n, l) {
   const t = r() === "en", s = l.map((e) => t && n[`${e}_en`] || n[e]).filter(Boolean);
   if (!s.length) return a;
   const o = [
@@ -31,5 +31,5 @@ function c(n, l) {
 }
 export {
   b,
-  c as r
+  _ as r
 };
