@@ -15,7 +15,9 @@ ${scope} .slp-hd__logo--light:not(.has-dark) { filter: brightness(0) invert(1); 
 ${scope} .slp-hd__toggle { color: #fff; }`;
 
 const css = `
-.slp-hd { background: var(--slp-section-bg, var(--slp-header)); transition: background-color .3s ease, box-shadow .3s ease; }
+.slp-hd { background: var(--slp-section-bg, var(--slp-header)); }
+/* Colors only fade once the page mode is set, so the first paint never fades from the visitor's system mode */
+html.slp-mode-ready .slp-hd { transition: background-color .3s ease, box-shadow .3s ease; }
 .slp-hd--shadow { box-shadow: 0 1px 0 var(--slp-border), 0 8px 24px -18px rgb(0 0 0 / 35%); }
 .slp-hd--trans:not(.is-solid) { background: transparent; box-shadow: none; }
 /* Pinned while scrolling: Selia's frosted header */
@@ -97,7 +99,7 @@ export default class PageHeader extends LitElement {
     this.resizer?.disconnect();
     this.unframe();
     this.modeKey = "";
-    document.documentElement.classList.remove("slp-mode-dark", "slp-mode-light");
+    document.documentElement.classList.remove("slp-mode-dark", "slp-mode-light", "slp-mode-ready");
   }
 
   protected willUpdate() {
@@ -137,6 +139,7 @@ export default class PageHeader extends LitElement {
     this.mode = mode;
     document.documentElement.classList.toggle("slp-mode-dark", mode === "dark");
     document.documentElement.classList.toggle("slp-mode-light", mode === "light");
+    requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("slp-mode-ready")));
   }
 
   private toggleMode() {

@@ -1,18 +1,20 @@
-import { LitElement as y, html as l, nothing as u } from "lit";
+import { LitElement as k, html as l, nothing as u } from "lit";
 import { property as x, state as g } from "lit/decorators.js";
-import { a as n, i as f, c as v, u as p, t as w, s as $ } from "./styles-mnx-lBt0.js";
-import { i as E, P as M, a as z, g as C } from "./landing-BqmPvx7F.js";
+import { a as n, i as f, c as v, u as p, t as w, s as $ } from "./styles-C_EATfst.js";
+import { i as E, P as C, a as M, g as z } from "./landing-BqmPvx7F.js";
 var L = Object.defineProperty, c = (i, s, e, o) => {
   for (var t = void 0, r = i.length - 1, d; r >= 0; r--)
     (d = i[r]) && (t = d(s, e, t) || t);
   return t && L(s, e, t), t;
 };
-const _ = "slp-mode", b = (i) => `
+const _ = "slp-mode", y = (i) => `
 ${i} .slp-hd__logo--light.has-dark { display: none; }
 ${i} .slp-hd__logo--dark { display: block; }
 ${i} .slp-hd__logo--light:not(.has-dark) { filter: brightness(0) invert(1); }
 ${i} .slp-hd__toggle { color: #fff; }`, O = `
-.slp-hd { background: var(--slp-section-bg, var(--slp-header)); transition: background-color .3s ease, box-shadow .3s ease; }
+.slp-hd { background: var(--slp-section-bg, var(--slp-header)); }
+/* Colors only fade once the page mode is set, so the first paint never fades from the visitor's system mode */
+html.slp-mode-ready .slp-hd { transition: background-color .3s ease, box-shadow .3s ease; }
 .slp-hd--shadow { box-shadow: 0 1px 0 var(--slp-border), 0 8px 24px -18px rgb(0 0 0 / 35%); }
 .slp-hd--trans:not(.is-solid) { background: transparent; box-shadow: none; }
 /* Pinned while scrolling: Selia's frosted header */
@@ -45,14 +47,14 @@ ${i} .slp-hd__toggle { color: #fff; }`, O = `
   .slp-hd__toggle.is-dark .sun-beams { transition-duration: .15s; transform: rotateZ(-25deg); }
   .slp-hd__toggle.is-dark .moon > circle { transition-duration: .5s; transition-delay: .25s; }
 }
-${[".slp-hd.slp-dark", "html.slp-mode-dark .slp-hd.slp-auto", ".slp-hd.slp-hd--trans:not(.is-solid)"].map(b).join("")}
-@media (prefers-color-scheme: dark) { ${b("html:not(.slp-mode-light) .slp-hd.slp-auto")} }
+${[".slp-hd.slp-dark", "html.slp-mode-dark .slp-hd.slp-auto", ".slp-hd.slp-hd--trans:not(.is-solid)"].map(y).join("")}
+@media (prefers-color-scheme: dark) { ${y("html:not(.slp-mode-light) .slp-hd.slp-auto")} }
 `;
 let R = 0;
 function I() {
   return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 }
-class a extends y {
+class a extends k {
   constructor() {
     super(...arguments), this.store = { logo: "", name: "", url: "" }, this.mode = "light", this.solid = !1, this.maskId = `slp-moon-${++R}`, this.modeKey = "", this.onScroll = () => {
       const e = !!n(this.config).sticky && this.getBoundingClientRect().top <= 1 && I() > 1;
@@ -65,7 +67,7 @@ class a extends y {
   async connectedCallback() {
     var e, o, t, r;
     super.connectedCallback(), this.classList.add("slp-host"), f("slp-base", v), f("slp-page-header", O), document.addEventListener("scroll", this.onScroll, { capture: !0, passive: !0 }), this.resizer = new ResizeObserver(() => this.frame()), this.resizer.observe(this), this.requestUpdate();
-    const s = C();
+    const s = z();
     await ((e = s == null ? void 0 : s.onReady) == null ? void 0 : e.call(s)), this.store = {
       logo: ((o = s == null ? void 0 : s.config) == null ? void 0 : o.get("store.logo")) || "",
       name: ((t = s == null ? void 0 : s.config) == null ? void 0 : t.get("store.name")) || "",
@@ -74,7 +76,7 @@ class a extends y {
   }
   disconnectedCallback() {
     var s;
-    super.disconnectedCallback(), document.removeEventListener("scroll", this.onScroll, { capture: !0 }), (s = this.resizer) == null || s.disconnect(), this.unframe(), this.modeKey = "", document.documentElement.classList.remove("slp-mode-dark", "slp-mode-light");
+    super.disconnectedCallback(), document.removeEventListener("scroll", this.onScroll, { capture: !0 }), (s = this.resizer) == null || s.disconnect(), this.unframe(), this.modeKey = "", document.documentElement.classList.remove("slp-mode-dark", "slp-mode-light", "slp-mode-ready");
   }
   willUpdate() {
     const s = n(this.config), e = `${p(s.default_mode) || "light"}|${s.show_mode_toggle !== !1}`;
@@ -98,7 +100,7 @@ class a extends y {
     return s === "system" ? window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" : s === "dark" ? "dark" : "light";
   }
   applyMode(s) {
-    this.mode = s, document.documentElement.classList.toggle("slp-mode-dark", s === "dark"), document.documentElement.classList.toggle("slp-mode-light", s === "light");
+    this.mode = s, document.documentElement.classList.toggle("slp-mode-dark", s === "dark"), document.documentElement.classList.toggle("slp-mode-light", s === "light"), requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("slp-mode-ready")));
   }
   toggleMode() {
     const s = this.mode === "dark" ? "light" : "dark";
@@ -138,7 +140,7 @@ class a extends y {
     </button>`;
   }
   render() {
-    const s = n(this.config), e = !s.logo && !E(), o = s.logo || (e ? M : this.store.logo), t = s.logo_dark || (e ? z : ""), r = Math.min(Math.max(Number(s.logo_height) || 60, 24), 140), d = [
+    const s = n(this.config), e = !s.logo && !E(), o = s.logo || (e ? C : this.store.logo), t = s.logo_dark || (e ? M : ""), r = Math.min(Math.max(Number(s.logo_height) || 60, 24), 140), d = [
       "slp-block slp-hd",
       $(s),
       p(s.align) === "start" ? "slp-hd--start" : "",
@@ -146,9 +148,9 @@ class a extends y {
       s.transparent ? "slp-hd--trans" : "",
       s.sticky ? "slp-hd--sticky" : "",
       this.solid ? "is-solid" : ""
-    ].filter(Boolean).join(" "), k = `--slp-hd-logo:${r}px;${s.bg_color ? `--slp-section-bg:${s.bg_color}` : ""}`, h = this.store.name || "", m = o ? l`<img class="slp-hd__logo slp-hd__logo--light${t ? " has-dark" : ""}" src=${o} alt=${h} />
+    ].filter(Boolean).join(" "), b = `--slp-hd-logo:${r}px;${s.bg_color ? `--slp-section-bg:${s.bg_color}` : ""}`, h = this.store.name || "", m = o ? l`<img class="slp-hd__logo slp-hd__logo--light${t ? " has-dark" : ""}" src=${o} alt=${h} />
           ${t ? l`<img class="slp-hd__logo slp-hd__logo--dark" src=${t} alt=${h} />` : u}` : l`<span class="slp-hd__name">${h}</span>`;
-    return l`<header class=${d} style=${k}>
+    return l`<header class=${d} style=${b}>
       <div class="slp-hd__inner">
         ${s.link_to_store && this.store.url ? l`<a class="slp-hd__link" href=${this.store.url}>${m}</a>` : m}
         ${s.show_mode_toggle !== !1 ? this.toggle() : u}

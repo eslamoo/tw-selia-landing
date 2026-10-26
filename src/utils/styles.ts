@@ -34,7 +34,8 @@ export const baseCss = `
 .slp-block h2, .slp-block h3, .slp-block p, .slp-block ul { margin: 0; padding: 0; }
 .slp-block ul { list-style: none; }
 .slp-container { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1rem; }
-.slp-section { padding-block: 2.5rem; background: var(--slp-section-bg, var(--slp-surface)); transition: background-color .3s ease; }
+.slp-section { padding-block: 2.5rem; background: var(--slp-section-bg, var(--slp-surface)); }
+html.slp-mode-ready .slp-section { transition: background-color .3s ease; }
 @container (min-width: 768px) { .slp-section { padding-block: 3.5rem; } }
 .slp-title { text-align: center; margin-bottom: 1.75rem; }
 .slp-title h2 { font-size: 1.75rem; line-height: 1.3; font-weight: 700; color: var(--slp-title-color, var(--slp-text)); }
