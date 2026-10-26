@@ -69,9 +69,9 @@
     if (params.get("pagemode")) localStorage.setItem("slp-mode", JSON.stringify({ mode: params.get("pagemode"), base }));
     else localStorage.removeItem("slp-mode");
     const page = document.getElementById("page");
-    // ?only=<component> renders a single section, for component preview images
-    const only = params.get("only");
-    for (const component of tpl.components.filter((c) => !only || c.name === only)) {
+    // ?only=<component>[,<component>] renders only those sections, for component preview images
+    const only = params.get("only")?.split(",");
+    for (const component of tpl.components.filter((c) => !only || only.includes(c.name))) {
       const values = Object.fromEntries((component.fields || []).filter((f) => f.type !== "static").map((f) => [f.id, f.value]));
       // ?scheme=light|dark|auto overrides every section's color scheme
       if (params.get("scheme") && "color_scheme" in values) values.color_scheme = [{ value: params.get("scheme") }];

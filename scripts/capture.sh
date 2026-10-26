@@ -25,9 +25,9 @@ mobile() { # name template frame-height [extra query]
   trim "$OUT/$1-mobile.png"
 }
 
-section() { # component template window-height [extra query]
+section() { # component template window-height [extra query] [sections to render, default the component]
   "$CH" $FLAGS --force-device-scale-factor=2 --window-size=1440,$3 --screenshot="$OUT/section-$1.png" \
-    "$BASE/landing.html?mode=product&layout=none&clean=1&template=$2&vh=900&only=$1&scheme=light$4" >/dev/null 2>&1
+    "$BASE/landing.html?mode=product&layout=none&clean=1&template=$2&vh=900&only=${5:-$1}&scheme=light$4" >/dev/null 2>&1
   trim "$OUT/section-$1.png"
 }
 
@@ -41,9 +41,10 @@ mobile t1 abaya-elegance 7400 "$ABAYA"
 mobile t1-dark abaya-elegance 7400 "$ABAYA&pagemode=dark"
 mobile t2 perfume-signature 7400 "$PERFUME"
 
-section page-header perfume-signature 300 "$PERFUME&landing=0"
+# The header and the slider are shown together: the transparent header over the abaya video
+section page-header abaya-elegance 380 "$ABAYA" page-header,advanced-slider
 section animated-text abaya-elegance 300 "$ABAYA"
-section advanced-slider perfume-signature 1000 "$PERFUME"
+section advanced-slider abaya-elegance 1000 "$ABAYA" page-header,advanced-slider
 section product-hero abaya-elegance 1400 "$ABAYA"
 section animated-payments abaya-elegance 500 "$ABAYA"
 section features abaya-elegance 600 "$ABAYA"

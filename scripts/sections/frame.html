@@ -37,9 +37,9 @@
   img.onload = () => {
     let s = W / img.naturalWidth, x = 0, y, html = "";
     const h = () => img.naturalHeight * s;
-    if (name === "page-header") { y = 0; html = hero(h(), 400) + next(h() + 400); }
+    // The header and slider captures show the transparent header over the slider, so they sit at the top
+    if (name === "page-header" || name === "advanced-slider") { y = 0; html = next(h()); }
     else if (name === "animated-text") { y = 58; html = header(0) + hero(y + h(), 380) + next(y + h() + 380); }
-    else if (name === "advanced-slider") { y = H - h(); html = header(0); }
     else if (h() > H) { s = H / img.naturalHeight; x = (W - img.naturalWidth * s) / 2; y = 0; }
     else { y = Math.round(Math.min(150, (H - h()) / 2)); html = prev(y) + next(y + h()); }
     v.innerHTML = html + `<img class="shot" src="${img.src}" style="left:${x}px;top:${y}px;width:${img.naturalWidth * s}px" />`;
