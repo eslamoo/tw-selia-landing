@@ -11,7 +11,7 @@ const css = `
 .slp-pay__group { flex-shrink: 0; display: flex; align-items: center; gap: 1rem; animation: slp-pay-scroll var(--slp-pay-speed, 40s) linear infinite; }
 .slp-pay__row--reverse .slp-pay__group { animation-direction: reverse; }
 .slp-pay__row:hover .slp-pay__group { animation-play-state: paused; }
-.slp-pay__logo { display: flex; align-items: center; justify-content: center; width: 6.5rem; height: 4.25rem; padding: .75rem; border-radius: .75rem; background: var(--slp-pay-logo-bg, var(--slp-soft)); }
+.slp-pay__logo { display: flex; align-items: center; justify-content: center; width: 6.5rem; height: 4.25rem; padding: .75rem; border-radius: .75rem; background: var(--slp-pay-logo-bg, #f4f4f5); }
 .slp-pay__logo img { width: 100%; height: 100%; object-fit: contain; }
 .slp-pay--gray .slp-pay__logo img { filter: grayscale(1); transition: filter .3s ease; }
 .slp-pay--gray .slp-pay__logo:hover img { filter: none; }
