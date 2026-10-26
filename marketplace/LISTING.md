@@ -26,29 +26,30 @@ Two ready templates, each built around one product and using every section, with
 ## Screenshots (upload in this order)
 
 Realistic iPhone and MacBook frames on the Selia dark background, 1600x1200 (the size the Partners Portal
-requires), under 200 KB, no added text or logos. Built by `scripts/make-marketplace.sh`.
+requires), under 200 KB, no added text or logos. Built by `scripts/make-marketplace.sh`. Titles are at most 30
+characters and descriptions at most 100, in the Selia theme listing's voice.
 
 | File | Title AR | Title EN | Description AR | Description EN |
 |---|---|---|---|---|
-| `01-abaya-template.jpg` | قالب صفحة عباية | An abaya page template | فيديو بعرض الشاشة مع رأس شفاف وشريط إعلاني مثل ثيم سيليا | A full width video with a transparent header and an announcement bar, as in the Selia theme |
-| `02-perfume-template.jpg` | قالب صفحة عطر بالوضع الداكن | A perfume page template in dark mode | قالب جاهز لعطر واحد بسلايدر صور وبطاقة منتج ومميزات | A ready page for one perfume with an image slider, product card and features |
-| `03-abaya-sections.jpg` | بطاقة منتج بالشراء السريع | Product card with quick buy | صور المنتج والسعر والكمية وزر الشراء، مرتبطة بدفع صفحة الهبوط | Product images, price, quantity and a buy button, tied to the landing page checkout |
-| `04-light-dark.jpg` | الوضع الفاتح والداكن | Light and dark mode | عميلك يبدّل الصفحة كاملة بزر في الرأس، ويتذكر اختياره | Shoppers switch the whole page from the header, and the choice is remembered |
-| `05-banners.jpg` | بانرات جاهزة لمنتجك | Ready banners for your product | بانر مزدوج وبانر ثلاثي وشبكة صور لمنتج كل قالب، بالعربي والإنجليزي | Double and triple banners and an image grid for each template's product, in Arabic and English |
-| `06-perfume-sections.jpg` | أشكال عناوين ثيم سيليا | Selia's section title styles | 17 شكل لعناوين الأقسام من ثيم سيليا، مع آراء العملاء والأسئلة الشائعة | 17 section title styles from the Selia theme, with customer reviews and FAQ |
+| `01-abaya-template.jpg` | صفحة هبوط سيليا | Selia Landing Page | استمتع بتصميم صفحة الهبوط ✨ | Enjoy designing your landing page ✨ |
+| `02-perfume-template.jpg` | قوالب جاهزة لمنتجك | Ready templates | قالبين جاهزين للعبايات والعطور بكل عناصر سيليا مع بانرات مصممة لكل منتج | Two ready templates for abayas and perfumes with every Selia section and banners for each product |
+| `03-abaya-sections.jpg` | منتج مفصل مع الشراء السريع | Product details with quick buy | اعرض منتجك بكل تفاصيله مع اختيار الكمية وزر الشراء السريع | Show your product in full detail with a quantity picker and a quick buy button |
+| `04-light-dark.jpg` | خاصية الوضع الداكن | Dark mode | دعم كامل لزر التنقل بين الوضع الداكن والفاتح | Full support for switching between dark and light mode |
+| `05-banners.jpg` | بانرات وشبكة صور | Banners and image grid | يمكنك عرض بانر مزدوج وثلاثي وشبكة صور، مع نسخة عربية وإنجليزية لكل بانر | Show double and triple banners and an image grid, with an Arabic and English version of each banner |
+| `06-perfume-sections.jpg` | أشكال عناوين ثيم سيليا | Selia title styles | اختر شكل عنوان كل قسم من نفس أشكال عناوين ثيم سيليا | Pick each section's title style from the same styles as the Selia theme |
 
-Icon: `icon-512.png` (also `icon-250.png`).
+Icon: `icon.png`, the same سيليا THEME logo the Selia theme uses in the portal.
 
 ## Support details
 
 | Field | Value |
 |---|---|
-| Support email | support@selia-tech.com (the address selia-tech.com already shows) |
-| Support website | https://selia-tech.com/contact/ |
-| Support phone | +20 103 735 0539 (the WhatsApp number in the selia-tech.com footer) |
+| Support email | support@selia-tech.com (same as the Selia theme) |
+| Support website | https://selia-tech.com/ (same as the Selia theme) |
+| Support phone | 201037350539 (same as the Selia theme) |
 | Live chat | https://wa.me/201037350539 |
 | Documentation link | https://selia-tech.com/selia-landing |
-| Support service | WhatsApp and email support |
+| Support service | left empty, as in the Selia theme |
 
 The help page is https://selia-tech.com/selia-landing (selia-platform `apps/web/pages/selia-landing.tsx`,
 not linked from the site navigation). `help-article.html` keeps the same content as plain HTML.
