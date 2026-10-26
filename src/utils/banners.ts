@@ -5,7 +5,7 @@ import { schemeClass } from "./styles";
 export const bannersCss = `
 .slp-bn__row { display: flex; gap: .75rem; }
 @container (min-width: 768px) { .slp-bn__row { gap: 1rem; } }
-@container (max-width: 639px) { .slp-bn--stack .slp-bn__row { flex-direction: column; } }
+@container (max-width: 639px) { .slp-bn--stack .slp-bn__row { flex-direction: column; } .slp-bn--stack .slp-bn__item { flex: none; } }
 .slp-bn__item { flex: 1 1 0; min-width: 0; overflow: hidden; }
 .slp-bn--rounded .slp-bn__item { border-radius: 1rem; }
 .slp-bn__item img { width: 100%; height: auto; transition: transform .6s ease; }
