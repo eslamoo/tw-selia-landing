@@ -12,40 +12,45 @@ mkdir -p "$OUT"
 
 trim() { magick "$1" -define trim:edges=south -fuzz 1% -trim +repage "$1"; }
 
-desktop() { # name template mode window-height
-  "$CH" $FLAGS --force-device-scale-factor=2 --window-size=1440,$4 --screenshot="$OUT/$1-desktop.png" \
-    "$BASE/landing.html?mode=$3&layout=none&clean=1&template=$2&vh=900" >/dev/null 2>&1
+desktop() { # name template window-height [extra query]
+  "$CH" $FLAGS --force-device-scale-factor=2 --window-size=1440,$3 --screenshot="$OUT/$1-desktop.png" \
+    "$BASE/landing.html?mode=product&layout=none&clean=1&template=$2&vh=900$4" >/dev/null 2>&1
   trim "$OUT/$1-desktop.png"
 }
 
-mobile() { # name template mode frame-height
-  "$CH" $FLAGS --force-device-scale-factor=3 --window-size=800,$4 --screenshot="$OUT/$1-mobile.png" \
-    "$BASE/mobile.html?bare=1&h=$4&mode=$3&layout=none&clean=1&template=$2&vh=844" >/dev/null 2>&1
+mobile() { # name template frame-height [extra query]
+  "$CH" $FLAGS --force-device-scale-factor=3 --window-size=800,$3 --screenshot="$OUT/$1-mobile.png" \
+    "$BASE/mobile.html?bare=1&h=$3&mode=product&layout=none&clean=1&template=$2&vh=844$4" >/dev/null 2>&1
   magick "$OUT/$1-mobile.png" -crop 1170x+0+0 +repage "$OUT/$1-mobile.png"
   trim "$OUT/$1-mobile.png"
 }
 
-section() { # component template mode window-height
-  "$CH" $FLAGS --window-size=1440,$4 --screenshot="$OUT/section-$1.png" \
-    "$BASE/landing.html?mode=$3&layout=none&clean=1&template=$2&vh=900&only=$1&scheme=light" >/dev/null 2>&1
+section() { # component template window-height [extra query]
+  "$CH" $FLAGS --window-size=1440,$3 --screenshot="$OUT/section-$1.png" \
+    "$BASE/landing.html?mode=product&layout=none&clean=1&template=$2&vh=900&only=$1&scheme=light$4" >/dev/null 2>&1
   trim "$OUT/section-$1.png"
 }
 
-desktop t1 abaya-elegance product 4600
-desktop t2 fashion-offers promotion 5600
-mobile t1 abaya-elegance product 4400
-mobile t2 fashion-offers promotion 4800
+ABAYA="&product=1287502680"
+PERFUME="&product=623859566"
+desktop t1 abaya-elegance 5200 "$ABAYA"
+desktop t1-dark abaya-elegance 5200 "$ABAYA&pagemode=dark"
+desktop t2 perfume-signature 4600 "$PERFUME"
+desktop t2-light perfume-signature 4600 "$PERFUME&pagemode=light"
+mobile t1 abaya-elegance 5200 "$ABAYA"
+mobile t1-dark abaya-elegance 5200 "$ABAYA&pagemode=dark"
+mobile t2 perfume-signature 4800 "$PERFUME"
 
-section page-header abaya-elegance product 300
-section animated-text abaya-elegance product 300
-section advanced-slider fashion-offers promotion 1000
-section product-hero abaya-elegance product 1400
-section animated-payments abaya-elegance product 500
-section features abaya-elegance product 600
-section double-banner fashion-offers promotion 500
-section three-banners fashion-offers promotion 700
-section images-grid fashion-offers promotion 900
-section custom-reviews abaya-elegance product 700
-section faq abaya-elegance product 700
+section page-header perfume-signature 300 "$PERFUME&landing=0"
+section animated-text abaya-elegance 300 "$ABAYA"
+section advanced-slider perfume-signature 1000 "$PERFUME"
+section product-hero abaya-elegance 1400 "$ABAYA"
+section animated-payments abaya-elegance 500 "$ABAYA"
+section features abaya-elegance 600 "$ABAYA"
+section images-grid abaya-elegance 900 "$ABAYA"
+section custom-reviews abaya-elegance 700 "$ABAYA"
+section faq abaya-elegance 800 "$ABAYA"
+section double-banner /harness/previews.json 500
+section three-banners /harness/previews.json 700
 
 ls -1 "$OUT"

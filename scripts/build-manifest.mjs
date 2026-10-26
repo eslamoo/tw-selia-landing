@@ -22,7 +22,7 @@ const drop = (id, label, options, selected, desc = null) => {
 const products = (id, label, desc) => ({ id, type: "items", format: "dropdown-list", source: "products", label, icon: "sicon-box", placeholder: "البحث في قائمة المنتجات...", required: false, description: desc, options: [], selected: [], value: [], searchable: true, multichoice: false });
 const collection = (id, itemLabel, fields, value, min, max) => ({ id, type: "collection", format: "collection", required: true, minLength: min, maxLength: max, item_label: itemLabel, fields: fields.map((f) => ({ ...f, id: `${id}.${f.id}` })), value: value.map((row) => Object.fromEntries(Object.entries(row).map(([k, v]) => [`${id}.${k}`, v]))) });
 const line = (id) => ({ id, type: "static", format: "line" });
-const scheme = () => drop("color_scheme", "وضع الألوان", [["light", "فاتح"], ["dark", "داكن"], ["auto", "حسب جهاز الزائر"]], "light", "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل");
+const scheme = () => drop("color_scheme", "وضع الألوان", [["auto", "حسب وضع الصفحة"], ["light", "فاتح دائماً"], ["dark", "داكن دائماً"]], "auto", "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة");
 
 const PREVIEW = "https://eslamoo.github.io/selia-videos";
 
@@ -36,13 +36,19 @@ const components = [
     props: { "min-height": "80px" },
     fields: [
       image("logo", "شعار مخصص", "", "اتركه فارغاً لاستخدام شعار متجرك"),
-      image("logo_dark", "شعار الوضع الداكن", "", "اختياري، وبدونه يظهر شعارك باللون الأبيض في الوضع الداكن"),
-      num("logo_height", "ارتفاع الشعار (px)", 56, 24, 140),
+      image("logo_dark", "شعار الوضع الداكن", "", "يظهر في الوضع الداكن وفوق السلايدر في الرأس الشفاف، وبدونه يظهر شعارك باللون الأبيض"),
+      num("logo_height", "ارتفاع الشعار (px)", 60, 24, 140),
       drop("align", "مكان الشعار", [["center", "الوسط"], ["start", "البداية"]], "center"),
-      sw("sticky", "تثبيت الرأس أعلى الصفحة", false),
+      line("hd-line-1"),
+      sw("transparent", "رأس شفاف فوق السلايدر", false, "يدمج الرأس مع السلايدر الذي بعده مباشرة كما في ثيم سيليا"),
+      sw("sticky", "تثبيت الرأس أعلى الصفحة عند التمرير", false, "مع الرأس الشفاف تظهر خلفية الرأس عند التمرير"),
       sw("show_shadow", "ظل أسفل الرأس", true),
+      line("hd-line-2"),
+      sw("show_mode_toggle", "زر التبديل بين الوضع الفاتح والداكن", true, "يبدل كل عناصر الصفحة المضبوطة على حسب وضع الصفحة، ويتذكر اختيار العميل"),
+      drop("default_mode", "الوضع الافتراضي للصفحة", [["light", "فاتح"], ["dark", "داكن"], ["system", "حسب جهاز الزائر"]], "light"),
+      line("hd-line-3"),
       sw("link_to_store", "الشعار يفتح المتجر", false, "اتركه مغلقاً ليبقى عميلك في صفحة الهبوط"),
-      color("bg_color", "لون الخلفية", "", "اتركه فارغاً لاستخدام لون الوضع المختار"),
+      color("bg_color", "لون الخلفية", "", "اتركه فارغاً لاستخدام لون الوضع الحالي"),
       scheme(),
     ],
   },
@@ -54,11 +60,11 @@ const components = [
     image: `${PREVIEW}/banners-slider.png`,
     props: { "min-height": "44px" },
     fields: [
-      text("text", "النص", L("شحن مجاني لجميع مناطق المملكة | ضمان استرجاع سهل", "Free shipping across the Kingdom | Easy returns")),
-      icon("icon", "أيقونة بين التكرارات", "sicon-star2"),
-      color("bg", "لون الخلفية", "#111111"),
+      text("text", "النص", L("شحن مجاني لجميع مناطق المملكة ✨", "Free shipping across the Kingdom ✨")),
+      icon("icon", "أيقونة بين التكرارات (اختياري)", ""),
+      color("bg", "لون الخلفية", "#000000"),
       color("color", "لون النص", "#ffffff"),
-      num("speed", "مدة الدورة (ثانية)", 30, 8, 90, "كلما زاد الرقم كانت الحركة أبطأ"),
+      num("speed", "مدة مرور النص مرة واحدة (ثانية)", 7, 3, 60, "7 ثوانٍ مثل ثيم سيليا، وكلما زاد الرقم كانت الحركة أبطأ"),
       sw("reverse", "عكس اتجاه الحركة", false),
     ],
   },
@@ -70,29 +76,34 @@ const components = [
     image: `${PREVIEW}/advanced-slider.jpeg`,
     props: { "min-height": "420px" },
     fields: [
-      num("height", "ارتفاع السلايدر على الكمبيوتر (vh)", 85, 30, 100, "نسبة من ارتفاع الشاشة"),
-      num("mobile_height", "ارتفاع السلايدر على الجوال (vh)", 75, 30, 100),
+      sw("auto_height", "ارتفاع تلقائي حسب الصورة أو الفيديو", true, "عند إيقافه يُستخدم الارتفاع المحدد بالأسفل"),
+      num("height", "ارتفاع السلايدر على الكمبيوتر (vh)", 100, 30, 100, "نسبة من ارتفاع الشاشة"),
+      num("mobile_height", "ارتفاع السلايدر على الجوال (vh)", 100, 30, 100),
       drop("effect", "تأثير الانتقال", [["fade", "تلاشي"], ["slide", "انزلاق"]], "fade"),
-      num("delay", "مدة عرض الشريحة (ثانية)", 6, 2, 20),
+      num("delay", "مدة عرض الشريحة (ثانية)", 5, 2, 20),
+      num("speed", "مدة الانتقال بين الشرائح (ثانية)", 2, 1, 5),
       sw("show_arrows", "إظهار أسهم التنقل", true),
       sw("show_dots", "إظهار نقاط التنقل", true),
-      sw("overlay", "تعتيم خفيف فوق الصورة", true, "يحسن قراءة النصوص فوق الصور الفاتحة"),
+      sw("overlay", "طبقة داكنة خفيفة أعلى السلايدر", true, "توضح الشعار والنصوص فوق الصور الفاتحة"),
+      sw("ken_burns", "حركة تكبير هادئة على الصور", true),
       collection("slides", "شريحة", [
         sw("is_video", "الشريحة فيديو", false),
         image("image", "صورة الكمبيوتر", "", "المقاس المقترح 1920×1080"),
         image("mobile_image", "صورة الجوال", "", "المقاس المقترح 800×1200"),
         url("video_url", "رابط فيديو الكمبيوتر (MP4)", ""),
         url("video_url_mobile", "رابط فيديو الجوال (MP4)", ""),
+        drop("object_fit", "طريقة عرض الصورة أو الفيديو", [["cover", "تغطية كاملة"], ["contain", "إظهار كامل"]], "cover"),
+        drop("object_position", "اتجاه الصورة أو الفيديو", [["center", "الوسط"], ["top", "أعلى"], ["bottom", "أسفل"], ["right", "يمين"], ["left", "يسار"]], "center"),
         text("title", "العنوان", L("", "")),
         text("desc", "الوصف", L("", "")),
         text("btn_text", "نص الزر", L("", ""), { desc: "الزر يفتح الشراء السريع في صفحة المنتج، ورابط الزر الرئيسي في صفحة العروض" }),
         color("btn_bg", "لون خلفية الزر", "#111111"),
         color("btn_color", "لون نص الزر", "#ffffff"),
         sw("outlined_btn", "زر بإطار فقط", false),
-        drop("content_position", "مكان المحتوى", [["start", "البداية"], ["center", "الوسط"], ["end", "النهاية"]], "center"),
+        drop("content_position", "مكان النصوص", [["right", "يمين"], ["center", "الوسط"], ["left", "يسار"]], "center"),
         color("text_color", "لون النصوص", "#ffffff"),
       ], [
-        { is_video: false, image: "", mobile_image: "", video_url: "", video_url_mobile: "", title: L("الأناقة تبدأ من هنا", "Elegance starts here"), desc: L("تصاميم راقية بخامات فاخرة", "Refined designs in premium fabrics"), btn_text: L("اطلبيها الآن", "Order now"), btn_bg: "#d4a574", btn_color: "#ffffff", outlined_btn: false, content_position: [opt("center", "الوسط")], text_color: "#ffffff" },
+        { is_video: false, image: "", mobile_image: "", video_url: "", video_url_mobile: "", object_fit: [opt("cover", "تغطية كاملة")], object_position: [opt("center", "الوسط")], title: L("", ""), desc: L("", ""), btn_text: L("", ""), btn_bg: "#111111", btn_color: "#ffffff", outlined_btn: false, content_position: [opt("center", "الوسط")], text_color: "#ffffff" },
       ], 1, 6),
     ],
   },
@@ -280,23 +291,15 @@ const VID = "https://cdn.selia-tech.com/videos";
 const sel = (value, label) => [opt(value, label)];
 const product = (id, label) => [{ label, value: id, key: String(id) }];
 const rows = (prefix, list) => list.map((row) => Object.fromEntries(Object.entries(row).map(([k, v]) => [`${prefix}.${k}`, v])));
-const slide = (o) => ({ is_video: false, image: "", mobile_image: "", video_url: "", video_url_mobile: "", title: L("", ""), desc: L("", ""), btn_text: L("", ""), btn_bg: "#d4a574", btn_color: "#ffffff", outlined_btn: false, content_position: sel("center", "الوسط"), text_color: "#ffffff", ...o });
-const review = (name, review, rate = 5) => ({ name: L(name, name), image: "", rate, review: L(review, review) });
-const faq = (q, a) => ({ question: L(q, q), answer: L(a, a) });
+const slide = (o) => ({ is_video: false, image: "", mobile_image: "", video_url: "", video_url_mobile: "", object_fit: sel("cover", "تغطية كاملة"), object_position: sel("center", "الوسط"), title: L("", ""), desc: L("", ""), btn_text: L("", ""), btn_bg: "#111111", btn_color: "#ffffff", outlined_btn: false, content_position: sel("center", "الوسط"), text_color: "#ffffff", ...o });
+const review = (name, review, rate = 5) => ({ name, image: "", rate, review });
+const faq = (question, answer) => ({ question, answer });
+const feature = (icon, title, sub_title) => ({ icon, image: "", title, sub_title });
+const DELIVERY = faq(L("متى يوصلني الطلب؟", "When will my order arrive?"), L("نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك.", "We prepare your order within one business day, and it usually arrives in 2 to 5 business days depending on your city."));
+const PAYMENT = faq(L("ما طرق الدفع المتاحة؟", "Which payment methods can I use?"), L("مدى، فيزا وماستركارد، Apple Pay، والدفع عند الاستلام.", "mada, Visa and Mastercard, Apple Pay, and cash on delivery."));
 
-const DEMO_FEATURES = [
-  { icon: "sicon-shipping-fast", image: `${FB}/AA34phzHjmgiIGmap8MvqjvN7ebUEG5bAojXI6sR.gif`, title: L("توصيل سريع ومجاني", "Fast free delivery"), sub_title: L("نقدم خدمة توصيل سريعة ومجانية لجميع عملائنا.", "Fast, free delivery for every customer.") },
-  { icon: "sicon-cash-register", image: `${FB}/jZd2JpzPL1z1w2enfZVHzw4vi7EkSqMGHHuZJkQr.gif`, title: L("ضمان استعادة الأموال", "Money back guarantee"), sub_title: L("نحن ملتزمون بتقديم أعلى مستوى من الجودة والرضا لعملائنا.", "Committed to quality and your satisfaction.") },
-  { icon: "sicon-award-ribbon", image: `${FB}/fMSd48QhJPaVrsnbArAMxa1fo4htg5KcMHoXoMth.gif`, title: L("برامج الولاء", "Loyalty rewards"), sub_title: L("كعميل في متجرنا، ستستفيد من برامج الولاء الجذابة والتخفيضات الحصرية.", "Exclusive rewards and discounts for our customers.") },
-  { icon: "sicon-headphones", image: `${FB}/QkjRIggHkh2wTGDhI6Ixc0C8twh9UFnsUy19JLru.gif`, title: L("دعم فني على مدار الساعة", "Support around the clock"), sub_title: L("بفضل الدعم التقني القوي ستتمتع بتجربة تسوق مثيرة وفريدة من نوعها", "Reliable support for a smooth shopping experience.") },
-];
-const DEMO_REVIEWS = [
-  review("سارة الأحمد", "متجر رائع لن يكون آخر تعامل معكم، المنتجات ممتازة والتوصيل سريع"),
-  review("خالد العتيبي", "متجر رائع أشكركم على جودة المنتجات والتغليف الممتاز"),
-  review("نورة السبيعي", "تجربة جيدة ومتجر ممتاز وتجاوب سريع ما شاء الله أنصحكم وبقوة"),
-  review("محمد الحربي", "متجر جميل وسريعين في التوصيل والتغليف وصلني تمام الحمدلله"),
-];
-
+// Each template sells one product from the Selia preview store, and every section talks about that product
+const ABAYA = "https://cdn.salla.sa/gzRDg/products";
 const templates = [
   {
     name: "abaya-elegance",
@@ -304,71 +307,115 @@ const templates = [
     category_id: "814202285",
     is_default: true,
     values: {
-      "page-header": {},
-      "animated-text": { text: L("عروضنا تصل إلى 40% وأكثر  |  شحن مجاني إلى جميع مناطق المملكة  |  ضمان ذهبي وإسترجاع سهل", "Offers up to 40% and more  |  Free shipping across the Kingdom  |  Gold guarantee and easy returns"), bg: "#000000", color: "#ffffff" },
+      "animated-text": { text: L("شحن مجاني لعباية الكلوش الملكية إلى جميع مناطق المملكة ✨", "Free shipping on the royal cloche abaya across the Kingdom ✨"), bg: "#000000", color: "#ffffff" },
+      "page-header": { transparent: true, sticky: true, show_mode_toggle: true, default_mode: sel("light", "فاتح") },
       "advanced-slider": {
-        height: 90, mobile_height: 80,
-        slides: rows("slides", [slide({ is_video: true, video_url: `${VID}/video-2026-06-14T22-42-34-275Z-6r6yoi.mp4`, video_url_mobile: `${VID}/video-2026-06-14T22-43-57-118Z-daqn6z.mp4`, title: L("الأناقة تبدأ من هنا", "Elegance starts here"), desc: L("تمتعي بمظهر استثنائي مع عباياتنا العصرية والراقية", "Stand out in our modern, refined abayas"), btn_text: L("اطلبيها الآن", "Order now") })]),
+        auto_height: true,
+        // The clip pans across black and white abayas, so like the Selia store it runs without a caption
+        slides: rows("slides", [slide({ is_video: true, video_url: `${VID}/video-2026-06-14T22-42-34-275Z-6r6yoi.mp4`, video_url_mobile: `${VID}/video-2026-06-14T22-43-57-118Z-daqn6z.mp4` })]),
       },
-      "product-hero": { product: product(1287502680, "عباية باللون الأسود موديل كلوش"), title: L("عباية الموسم", "Abaya of the season"), subtitle: L("قماش ملكي وتطريز شك فاخر", "Royal fabric with fine hand embroidery"), btn_text: L("اطلبيها الآن", "Order now"), media_aspect: sel("square", "مربع"), border_color: "#d4a574", marquee_text: L("ضمان الجودة", "Quality guaranteed"), marquee_bg: "#000000" },
-      "animated-payments": { title: L("ادفعي بالطريقة اللي تناسبك", "Pay the way that suits you") },
-      "features": { items: rows("items", DEMO_FEATURES) },
-      "double-banner": { first_image: `${FB}/IOqbTDw5ZRO3FUNl2YE198OWACvIF9aKiHwrQj7m.png` },
-      "custom-reviews": { title: L("آراء عميلاتنا", "What our customers say"), items: rows("items", DEMO_REVIEWS) },
-      "faq": {
-        title: L("لديك سؤال؟ اجابته هنا", "Have a question? Find the answer here"),
+      "product-hero": {
+        product: product(1287502680, "عباية باللون الأسود موديل كلوش بقماش ملكي وتطريز شك فاخر"),
+        title: L("عباية الكلوش الملكية", "The royal cloche abaya"), subtitle: L("قماش ملكي ينسدل بنعومة، وتطريز شك فاخر على الأكمام", "Royal fabric that falls softly, with fine bead embroidery on the sleeves"),
+        btn_text: L("اطلبيها الآن", "Order now"), border_color: "#d4a574",
+        marquee_text: L("قماش ملكي ✦ تطريز شك فاخر ✦ قصة كلوش واسعة", "Royal fabric ✦ Fine bead embroidery ✦ Wide cloche cut"), marquee_bg: "#000000",
+      },
+      "images-grid": {
+        title: L("تفاصيل العباية", "The abaya in detail"),
+        image_1: `${ABAYA}/kXM5IFalDSoAebmtgsNdJ9jITtUJTsKzFjYEolbT.jpg`,
+        image_2: `${ABAYA}/mzUxwSTjCJKXYa3Mm0WMHbXC07gtcyRB4Q2U3cUO.jpg`,
+        image_3: `${ABAYA}/zubWcZ7SBRWbQfxGsmfiYtRKaYnMVkVKTVkXw8Iu.jpg`,
+        image_4: `${ABAYA}/EH06n5OfsLU8tVlTJDY9voBu9uvHXaYnZ2Gazfao.jpg`,
+        image_5: `${ABAYA}/cGHtP4V7duXpTzEqxK8Qgz3PDofxKBZ8WzgWbO92.jpg`,
+        overlay: false,
+      },
+      "features": {
+        title: L("ليش عباية الكلوش الملكية؟", "Why the royal cloche abaya?"),
         items: rows("items", [
-          faq("كم يستغرق توصيل الطلب؟", "نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك."),
-          faq("كيف أختار المقاس المناسب؟", "اختاري مقاسك المعتاد، وتواصلي معنا قبل الطلب إذا احتجتِ مساعدة في الطول أو العرض."),
-          faq("هل يمكنني الاستبدال أو الاسترجاع؟", "نعم، يمكنك طلب الاستبدال أو الاسترجاع خلال 7 أيام من الاستلام بشرط أن تكون العباية بحالتها الأصلية."),
-          faq("ما طرق الدفع المتاحة؟", "مدى، فيزا وماستركارد، Apple Pay، والدفع عند الاستلام."),
+          feature("sicon-fabric-swatch", L("قماش ملكي", "Royal fabric"), L("خامة ناعمة تنسدل بأناقة وتريحك طول اليوم", "A soft fabric that falls gracefully and stays comfortable all day")),
+          feature("sicon-flower-stem", L("تطريز شك فاخر", "Fine bead embroidery"), L("تفاصيل مشغولة بعناية على الأكمام", "Carefully worked details on the sleeves")),
+          feature("sicon-shipping-fast", L("شحن مجاني", "Free shipping"), L("نوصلها لباب بيتك في كل مناطق المملكة", "Delivered to your door anywhere in the Kingdom")),
+          feature("sicon-rotate", L("استبدال سهل", "Easy exchange"), L("استبدال أو استرجاع خلال 7 أيام من الاستلام", "Exchange or return within 7 days of delivery")),
+        ]),
+      },
+      "animated-payments": { title: L("ادفعي بالطريقة اللي تناسبك", "Pay the way that suits you") },
+      "custom-reviews": {
+        title: L("آراء عميلاتنا في العباية", "What customers say about the abaya"),
+        items: rows("items", [
+          review(L("نورة", "Noura"), L("القماش ناعم وثقيل والتطريز أجمل من الصور، والمقاس مضبوط", "The fabric is soft and rich, the embroidery is even nicer than the photos, and the size is right")),
+          review(L("سارة", "Sara"), L("قصة الكلوش واسعة ومريحة، لبستها في مناسبة وسألوني عنها كثير", "The cloche cut is wide and comfortable. I wore it to an event and got asked about it a lot")),
+          review(L("ريم", "Reem"), L("وصلتني بسرعة وبتغليف مرتب، والشك ثابت وما تحرك", "It arrived quickly and neatly packed, and the beading stayed in place")),
+          review(L("هيفاء", "Haifa"), L("ثاني عباية آخذها منكم، والجودة نفسها كل مرة", "My second abaya from you, and the quality is the same every time")),
+        ]),
+      },
+      "faq": {
+        title: L("أسئلة عن العباية", "Questions about the abaya"),
+        items: rows("items", [
+          faq(L("كيف أختار المقاس المناسب؟", "How do I pick the right size?"), L("اختاري مقاسك المعتاد، وتواصلي معنا قبل الطلب إذا احتجتِ مساعدة في الطول أو العرض.", "Pick your usual size, and contact us before ordering if you need help with the length or width.")),
+          faq(L("كيف أعتني بالتطريز؟", "How do I care for the embroidery?"), L("ننصح بالتنظيف الجاف أو الغسيل اليدوي بماء بارد، وكي العباية من الداخل.", "We recommend dry cleaning or a cold hand wash, and ironing the abaya inside out.")),
+          faq(L("هل أقدر أستبدل أو أسترجع؟", "Can I exchange or return it?"), L("نعم، خلال 7 أيام من الاستلام بشرط أن تكون العباية بحالتها الأصلية.", "Yes, within 7 days of delivery as long as the abaya is in its original condition.")),
+          DELIVERY,
+          PAYMENT,
         ]),
       },
     },
-    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "animated-payments", "features", "double-banner", "custom-reviews", "faq"],
+    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "images-grid", "features", "animated-payments", "custom-reviews", "faq"],
   },
   {
-    name: "fashion-offers",
-    id: "9c1e47b2-5d3a-4f8e-b6c0-2a7d9e4f1b58",
-    category_id: "814202285",
+    name: "perfume-signature",
+    id: "7b2e9d14-6c3a-4f81-a5d0-3e8c1f6b9a27",
+    category_id: "665151403",
     is_default: false,
     values: {
-      "page-header": { color_scheme: sel("dark", "داكن"), sticky: true, logo_dark: "https://cdn.selia-tech.com/videos/theme-logo-pale.png" },
-      "animated-text": { text: L("خصم 200 ريال لفترة محدودة جدا ✨ اغتنم الفرصة الآن 🔥", "200 SAR off for a very limited time ✨ Grab it now 🔥"), bg: "#000000", color: "#ffffff", speed: 26 },
+      "animated-text": { text: L("تغليف هدية مجاني مع كل طلب للعطر ✨", "Free gift wrapping with every order of this perfume ✨"), bg: "#d4a574", color: "#111111" },
+      "page-header": { sticky: true, show_mode_toggle: true, default_mode: sel("dark", "داكن") },
       "advanced-slider": {
-        height: 80, mobile_height: 70, effect: sel("slide", "انزلاق"),
+        auto_height: false, height: 90, mobile_height: 80, effect: sel("fade", "تلاشي"), ken_burns: true,
         slides: rows("slides", [
-          slide({ image: `${FB}/A6y0uGUUTk05cEw6lV1Od8kBi3Wxl8oG1TXRYKsF.jpg`, title: L("تشكيلة الموسم الجديد", "The new season collection"), desc: L("قطع مختارة بعناية لكل الأذواق", "Carefully picked pieces for every taste"), btn_text: L("تسوق العروض", "Shop the offers"), btn_bg: "#ffffff", btn_color: "#111111", content_position: sel("start", "البداية") }),
-          slide({ image: `${FB}/wmxnJ14rCGYAO2eOWNWvWSQ55vz9smoDDPMBf5wh.jpg`, title: L("أناقة الرجل العصري", "Modern menswear"), desc: L("خصومات تصل إلى 40%", "Up to 40% off"), btn_text: L("تسوق العروض", "Shop the offers"), btn_bg: "#d4a574", btn_color: "#ffffff" }),
-          slide({ image: `${FB}/rpd3McDL77cALoEbtQXlvzoMTrH79ru4UpE22yHx.jpg`, title: L("عطور تدوم معك", "Fragrances that last"), desc: L("هدية مثالية لمن تحب", "The perfect gift"), btn_text: L("تسوق العروض", "Shop the offers"), outlined_btn: true, btn_color: "#ffffff", content_position: sel("end", "النهاية") }),
+          // On phones "left" keeps the plain white sleeve behind the text; desktop crops vertically, so it is unaffected
+          slide({ image: `${FB}/kkAsLOTMFJd8tgQ98H0aOcUvadPxZTvsLtPFYSOH.jpg`, object_position: sel("left", "يسار"),
+            title: L("عطر يشبه حضورك", "A scent that feels like you"), desc: L("نفحات دافئة تبقى معك من الصباح إلى المساء", "Warm notes that stay with you from morning to night"),
+            btn_text: L("اطلبه الآن", "Order now"), btn_bg: "#111111", btn_color: "#ffffff", content_position: sel("right", "يمين"), text_color: "#111111" }),
+          slide({ image: `${FB}/D7RY5Fy70MiaPRXs2w0dxgjQNUbmlvJMqTvtYQaa.jpg` }),
         ]),
       },
-      "double-banner": { first_image: `${FB}/ZjHsdgzca46oJqIwV4vTDK60zkL9OZrz9wHZnWcz.png`, second_image: `${FB}/pN2w71zXy3JiFDFGEBhpdmZPs1QalH4UcDWRnXgp.png`, color_scheme: sel("dark", "داكن") },
-      "images-grid": {
-        title: L("تسوق حسب القسم", "Shop by category"), color_scheme: sel("dark", "داكن"),
-        image_1: `${FB}/D7RY5Fy70MiaPRXs2w0dxgjQNUbmlvJMqTvtYQaa.jpg`, title_1: L("العطور", "Fragrances"),
-        image_2: `${FB}/om8xhO8SrMVTBr9m3MwHFGdourdB8lOe1dYYiRal.webp`, title_2: L("أطفال", "Kids"),
-        image_3: `${FB}/wrgpnKYN6tJbfuBbpwNxhXxW8VhP8UaouQHe660o.webp`, title_3: L("رجالي", "Men"),
-        image_4: `${FB}/NClP8MP7C2ehudhNEMau7pkKXH8vYc8kTQR3JTMh.webp`, title_4: L("نسائي", "Women"),
-        image_5: `${FB}/ATe90eiDARMzJ92hUex4GL2jecd38BhOOTKVTduZ.jpg`, title_5: L("مكياج", "Makeup"),
+      "product-hero": {
+        product: product(623859566, "اف سان لوران ليبر- او دي بريفيوم انتنس- 50 مل"),
+        title: L("العطر اللي يكمل إطلالتك", "The scent that completes your look"), subtitle: L("نفحات دافئة بثبات طويل، في زجاجة تليق بالإهداء", "Warm notes that last, in a bottle made for gifting"),
+        btn_text: L("اطلبه الآن", "Order now"), border_color: "#d4a574",
+        marquee_text: L("ثبات طويل ✦ تغليف هدية ✦ شحن مجاني", "Long lasting ✦ Gift wrapped ✦ Free shipping"), marquee_bg: "#d4a574", marquee_color: "#111111",
       },
-      "product-hero": { product: product(23847431, "عباية باللون الأسود بتداخل تفته وكريب"), title: L("منتج الأسبوع", "Product of the week"), subtitle: L("عرض محدود حتى نهاية الأسبوع", "Limited offer until the end of the week"), btn_text: L("تسوق الآن", "Shop now"), border_color: "#d4a574", color_scheme: sel("dark", "داكن"), marquee_text: L("شحن مجاني لجميع المناطق", "Free shipping everywhere") },
-      "three-banners": { color_scheme: sel("dark", "داكن"), first_image: `${FB}/U5V59WvHHQNkDM4sRJr7m30E877mhzDvC87aydhh.jpg`, second_image: `${FB}/MluhG8XvJsZ8rraWCHrEPQZdZWDyaN3g2H3qvjM9.jpg`, third_image: `${FB}/bnXkCQWJnTKWqFCCsyezC9CstoBmSQqNj1u9kzgj.jpg` },
-      "animated-payments": { title: L("طرق دفع آمنة ومتعددة", "Secure payment options"), second_row: true, grayscale: true, color_scheme: sel("dark", "داكن") },
-      "custom-reviews": { title: L("آراء عملائنا", "What our customers say"), items: rows("items", DEMO_REVIEWS), color_scheme: sel("dark", "داكن") },
-      "faq": {
-        color_scheme: sel("dark", "داكن"),
-        title: L("لديك سؤال؟ اجابته هنا 👇🏻", "Have a question? The answer is here 👇🏻"),
-        subtitle: L("كل ما تريد معرفته عن الأزياء والموضة ✨", "Everything you want to know about fashion ✨"),
+      "features": {
+        title: L("ليش هذا العطر؟", "Why this perfume?"),
         items: rows("items", [
-          faq("ما هي المواد الرئيسية المستخدمة في صناعة الملابس؟", "المواد الشائعة المستخدمة في صناعة الملابس تشمل القطن، والصوف، والحرير، والنايلون، والبوليستر، والجلد، والجينز، والمزيد. تختلف المواد تبعًا لنوع الملابس واستخداماتها"),
-          faq("ما هي اتجاهات الموضة؟", "اتجاهات الموضة هي الأساليب والتصاميم التي تكون شائعة ومشهورة في فترة زمنية معينة. تتغير اتجاهات الموضة بشكل دوري وتستند إلى تأثيرات متعددة مثل الثقافة والسياق الاجتماعي والتكنولوجي"),
-          faq("كيف يمكن للأفراد تحقيق مظهر أنيق دون إنفاق الكثير من المال؟", "يمكن للأفراد تحقيق مظهر أنيق بشراء قطع أساسية ذات جودة عالية وتنسيقها بشكل جيد. يمكن أيضًا البحث عن العروض والتخفيضات واستخدام ملحقات واكسسوارات لتحسين مظهرهم دون إنفاق الكثير من المال"),
-          faq("كيف يمكن متابعة أحدث صيحات الموضة؟", "يمكن متابعة أحدث صيحات الموضة عبر البحث على الإنترنت، ومتابعة مواقع ومدونات الموضة، ومتابعة حسابات وسائل التواصل الاجتماعي للمصممين والمدونين والمؤثرين في عالم الأزياء"),
+          feature("sicon-time", L("ثبات يدوم", "Lasts all day"), L("رشة الصباح تبقى معك لآخر اليوم", "One morning spray stays with you all day")),
+          feature("sicon-shield-check", L("أصلي ومضمون", "Authentic"), L("عطر أصلي بضمان المتجر", "An authentic perfume backed by the store")),
+          feature("sicon-gift", L("تغليف هدية", "Gift wrapping"), L("يوصلك مغلفاً وجاهزاً للإهداء", "Arrives wrapped and ready to give")),
+          feature("sicon-shipping-fast", L("شحن مجاني", "Free shipping"), L("لجميع مناطق المملكة", "Anywhere in the Kingdom")),
+        ]),
+      },
+      "animated-payments": { title: L("ادفع بالطريقة اللي تناسبك", "Pay the way that suits you") },
+      "custom-reviews": {
+        title: L("آراء عملائنا في العطر", "What customers say about the perfume"),
+        items: rows("items", [
+          review(L("عبدالله", "Abdullah"), L("ثباته ممتاز، أرشه الصبح ويبقى معي لآخر اليوم", "Great longevity. I spray it in the morning and it lasts until the evening")),
+          review(L("مها", "Maha"), L("ريحته دافية وفخمة، ووصلني مغلف كهدية بشكل مرتب", "A warm, rich scent, and it arrived neatly gift wrapped")),
+          review(L("فهد", "Fahad"), L("طلبته هدية لزوجتي وعجبها كثير، والتوصيل كان سريع", "I ordered it as a gift for my wife and she loved it. Delivery was quick")),
+          review(L("لمى", "Lama"), L("فوحانه واضح بدون ما يكون مزعج، من أجمل العطور اللي جربتها", "It projects well without being too much. One of the best I have tried")),
+        ]),
+      },
+      "faq": {
+        title: L("أسئلة عن العطر", "Questions about the perfume"),
+        items: rows("items", [
+          faq(L("هل العطر أصلي؟", "Is the perfume authentic?"), L("نعم، العطر أصلي ومضمون، ونستبدله لك إذا وصلك بحالة غير سليمة.", "Yes, it is authentic and guaranteed, and we replace it if it arrives damaged.")),
+          faq(L("كم يدوم العطر؟", "How long does it last?"), L("يختلف الثبات حسب نوع البشرة والجو، ويبقى أطول على الملابس.", "Longevity depends on your skin and the weather, and it lasts longer on clothes.")),
+          faq(L("هل يوصل مغلفاً كهدية؟", "Does it come gift wrapped?"), L("نعم، نغلف كل طلب كهدية بدون تكلفة إضافية.", "Yes, every order is gift wrapped at no extra cost.")),
+          DELIVERY,
+          PAYMENT,
         ]),
       },
     },
-    order: ["animated-text", "page-header", "advanced-slider", "double-banner", "images-grid", "product-hero", "three-banners", "animated-payments", "custom-reviews", "faq"],
+    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "features", "animated-payments", "custom-reviews", "faq"],
   },
 ];
 
@@ -396,7 +443,8 @@ const previewUrl = (name) => {
   const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
   return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/previews/${name}.jpg`;
 };
-const finalComponents = components.map((c) => ({ ...applyValues(c, def[c.name] || {}), image: previewUrl(c.name) }));
+// A header added on its own should not float over whatever section follows it
+const finalComponents = components.map((c) => ({ ...applyValues(c, c.name === "page-header" ? {} : def[c.name] || {}), image: previewUrl(c.name) }));
 
 const file = `${ROOT}/twilight-bundle.json`;
 const bundle = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -407,7 +455,8 @@ bundle.templates = templates.map((t) => ({
   path: `templates.${t.name}`,
   category_id: t.category_id,
   primary_color: "",
-  thumbnail: previous.get(`templates.${t.name}`)?.thumbnail || `templates-thumbs/${t.name}.jpg`,
+  // RESET_THUMBS=1 points back at the local thumbnails so tw-preview uploads the new ones
+  thumbnail: (!process.env.RESET_THUMBS && previous.get(`templates.${t.name}`)?.thumbnail) || `templates-thumbs/${t.name}.jpg`,
   is_default: t.is_default,
   ...(previous.get(`templates.${t.name}`)?.public_preview_url ? { public_preview_url: previous.get(`templates.${t.name}`).public_preview_url } : {}),
 }));

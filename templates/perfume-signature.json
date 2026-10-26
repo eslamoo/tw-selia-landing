@@ -1,0 +1,2141 @@
+{
+  "id": "7b2e9d14-6c3a-4f81-a5d0-3e8c1f6b9a27",
+  "components": [
+    {
+      "title": "شريط إعلاني متحرك",
+      "icon": "sicon-megaphone",
+      "name": "animated-text",
+      "key": "18f83576-ba12-4914-8cce-d8587818b093",
+      "image": "https://eslamoo.github.io/selia-videos/banners-slider.png",
+      "props": {
+        "min-height": "44px"
+      },
+      "fields": [
+        {
+          "id": "text",
+          "type": "string",
+          "format": "text",
+          "label": "النص",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "تغليف هدية مجاني مع كل طلب للعطر ✨",
+            "en": "Free gift wrapping with every order of this perfume ✨"
+          }
+        },
+        {
+          "id": "icon",
+          "type": "string",
+          "format": "icon",
+          "label": "أيقونة بين التكرارات (اختياري)",
+          "icon": "sicon-star2",
+          "required": false,
+          "class": "form--inline",
+          "value": ""
+        },
+        {
+          "id": "bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون الخلفية",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#d4a574"
+        },
+        {
+          "id": "color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون النص",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#111111"
+        },
+        {
+          "id": "speed",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "مدة مرور النص مرة واحدة (ثانية)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": "7 ثوانٍ مثل ثيم سيليا، وكلما زاد الرقم كانت الحركة أبطأ",
+          "minimum": 3,
+          "maximum": 60,
+          "value": 7
+        },
+        {
+          "id": "reverse",
+          "type": "boolean",
+          "format": "switch",
+          "label": "عكس اتجاه الحركة",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        }
+      ]
+    },
+    {
+      "title": "رأس الصفحة",
+      "icon": "sicon-store",
+      "name": "page-header",
+      "key": "a2d7715d-3dd2-408e-bc65-5f13dc54c081",
+      "image": "",
+      "props": {
+        "min-height": "80px"
+      },
+      "fields": [
+        {
+          "id": "logo",
+          "type": "string",
+          "format": "image",
+          "label": "شعار مخصص",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام شعار متجرك",
+          "value": ""
+        },
+        {
+          "id": "logo_dark",
+          "type": "string",
+          "format": "image",
+          "label": "شعار الوضع الداكن",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "يظهر في الوضع الداكن وفوق السلايدر في الرأس الشفاف، وبدونه يظهر شعارك باللون الأبيض",
+          "value": ""
+        },
+        {
+          "id": "logo_height",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "ارتفاع الشعار (px)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 24,
+          "maximum": 140,
+          "value": 60
+        },
+        {
+          "id": "align",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "مكان الشعار",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "الوسط",
+              "value": "center",
+              "key": "center"
+            },
+            {
+              "label": "البداية",
+              "value": "start",
+              "key": "start"
+            }
+          ],
+          "selected": [
+            {
+              "label": "الوسط",
+              "value": "center",
+              "key": "center"
+            }
+          ],
+          "value": [
+            {
+              "label": "الوسط",
+              "value": "center",
+              "key": "center"
+            }
+          ]
+        },
+        {
+          "id": "hd-line-1",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "transparent",
+          "type": "boolean",
+          "format": "switch",
+          "label": "رأس شفاف فوق السلايدر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يدمج الرأس مع السلايدر الذي بعده مباشرة كما في ثيم سيليا",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "sticky",
+          "type": "boolean",
+          "format": "switch",
+          "label": "تثبيت الرأس أعلى الصفحة عند التمرير",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "مع الرأس الشفاف تظهر خلفية الرأس عند التمرير",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "show_shadow",
+          "type": "boolean",
+          "format": "switch",
+          "label": "ظل أسفل الرأس",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "hd-line-2",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "show_mode_toggle",
+          "type": "boolean",
+          "format": "switch",
+          "label": "زر التبديل بين الوضع الفاتح والداكن",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يبدل كل عناصر الصفحة المضبوطة على حسب وضع الصفحة، ويتذكر اختيار العميل",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "default_mode",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "الوضع الافتراضي للصفحة",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "system",
+              "key": "system"
+            }
+          ],
+          "selected": [
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "value": [
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            }
+          ]
+        },
+        {
+          "id": "hd-line-3",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "link_to_store",
+          "type": "boolean",
+          "format": "switch",
+          "label": "الشعار يفتح المتجر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "اتركه مغلقاً ليبقى عميلك في صفحة الهبوط",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون الخلفية",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام لون الوضع الحالي",
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "سلايدر متقدم",
+      "icon": "sicon-image-carousel",
+      "name": "advanced-slider",
+      "key": "5d309060-1e70-4d50-bafb-5dcf25c2c27d",
+      "image": "https://eslamoo.github.io/selia-videos/advanced-slider.jpeg",
+      "props": {
+        "min-height": "420px"
+      },
+      "fields": [
+        {
+          "id": "auto_height",
+          "type": "boolean",
+          "format": "switch",
+          "label": "ارتفاع تلقائي حسب الصورة أو الفيديو",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "عند إيقافه يُستخدم الارتفاع المحدد بالأسفل",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "height",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "ارتفاع السلايدر على الكمبيوتر (vh)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": "نسبة من ارتفاع الشاشة",
+          "minimum": 30,
+          "maximum": 100,
+          "value": 90
+        },
+        {
+          "id": "mobile_height",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "ارتفاع السلايدر على الجوال (vh)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 30,
+          "maximum": 100,
+          "value": 80
+        },
+        {
+          "id": "effect",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "تأثير الانتقال",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "تلاشي",
+              "value": "fade",
+              "key": "fade"
+            },
+            {
+              "label": "انزلاق",
+              "value": "slide",
+              "key": "slide"
+            }
+          ],
+          "selected": [
+            {
+              "label": "تلاشي",
+              "value": "fade",
+              "key": "fade"
+            }
+          ],
+          "value": [
+            {
+              "label": "تلاشي",
+              "value": "fade",
+              "key": "fade"
+            }
+          ]
+        },
+        {
+          "id": "delay",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "مدة عرض الشريحة (ثانية)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 2,
+          "maximum": 20,
+          "value": 5
+        },
+        {
+          "id": "speed",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "مدة الانتقال بين الشرائح (ثانية)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 1,
+          "maximum": 5,
+          "value": 2
+        },
+        {
+          "id": "show_arrows",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار أسهم التنقل",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "show_dots",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار نقاط التنقل",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "overlay",
+          "type": "boolean",
+          "format": "switch",
+          "label": "طبقة داكنة خفيفة أعلى السلايدر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "توضح الشعار والنصوص فوق الصور الفاتحة",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "ken_burns",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حركة تكبير هادئة على الصور",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "slides",
+          "type": "collection",
+          "format": "collection",
+          "required": true,
+          "minLength": 1,
+          "maxLength": 6,
+          "item_label": "شريحة",
+          "fields": [
+            {
+              "id": "slides.is_video",
+              "type": "boolean",
+              "format": "switch",
+              "label": "الشريحة فيديو",
+              "icon": "sicon-toggle-off",
+              "required": false,
+              "description": null,
+              "value": false,
+              "selected": false
+            },
+            {
+              "id": "slides.image",
+              "type": "string",
+              "format": "image",
+              "label": "صورة الكمبيوتر",
+              "icon": "sicon-image",
+              "required": false,
+              "description": "المقاس المقترح 1920×1080",
+              "value": ""
+            },
+            {
+              "id": "slides.mobile_image",
+              "type": "string",
+              "format": "image",
+              "label": "صورة الجوال",
+              "icon": "sicon-image",
+              "required": false,
+              "description": "المقاس المقترح 800×1200",
+              "value": ""
+            },
+            {
+              "id": "slides.video_url",
+              "type": "string",
+              "format": "url",
+              "label": "رابط فيديو الكمبيوتر (MP4)",
+              "icon": "sicon-link",
+              "required": false,
+              "description": null,
+              "value": ""
+            },
+            {
+              "id": "slides.video_url_mobile",
+              "type": "string",
+              "format": "url",
+              "label": "رابط فيديو الجوال (MP4)",
+              "icon": "sicon-link",
+              "required": false,
+              "description": null,
+              "value": ""
+            },
+            {
+              "id": "slides.object_fit",
+              "type": "items",
+              "format": "dropdown-list",
+              "source": "Manual",
+              "label": "طريقة عرض الصورة أو الفيديو",
+              "icon": "sicon-list",
+              "required": false,
+              "description": null,
+              "options": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                },
+                {
+                  "label": "إظهار كامل",
+                  "value": "contain",
+                  "key": "contain"
+                }
+              ],
+              "selected": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ],
+              "value": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ]
+            },
+            {
+              "id": "slides.object_position",
+              "type": "items",
+              "format": "dropdown-list",
+              "source": "Manual",
+              "label": "اتجاه الصورة أو الفيديو",
+              "icon": "sicon-list",
+              "required": false,
+              "description": null,
+              "options": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                },
+                {
+                  "label": "أعلى",
+                  "value": "top",
+                  "key": "top"
+                },
+                {
+                  "label": "أسفل",
+                  "value": "bottom",
+                  "key": "bottom"
+                },
+                {
+                  "label": "يمين",
+                  "value": "right",
+                  "key": "right"
+                },
+                {
+                  "label": "يسار",
+                  "value": "left",
+                  "key": "left"
+                }
+              ],
+              "selected": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ],
+              "value": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ]
+            },
+            {
+              "id": "slides.title",
+              "type": "string",
+              "format": "text",
+              "label": "العنوان",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "slides.desc",
+              "type": "string",
+              "format": "text",
+              "label": "الوصف",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "slides.btn_text",
+              "type": "string",
+              "format": "text",
+              "label": "نص الزر",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": "الزر يفتح الشراء السريع في صفحة المنتج، ورابط الزر الرئيسي في صفحة العروض",
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "slides.btn_bg",
+              "type": "string",
+              "format": "color",
+              "inputType": "color",
+              "label": "لون خلفية الزر",
+              "icon": "sicon-format-fill",
+              "required": false,
+              "description": null,
+              "value": "#111111"
+            },
+            {
+              "id": "slides.btn_color",
+              "type": "string",
+              "format": "color",
+              "inputType": "color",
+              "label": "لون نص الزر",
+              "icon": "sicon-format-fill",
+              "required": false,
+              "description": null,
+              "value": "#ffffff"
+            },
+            {
+              "id": "slides.outlined_btn",
+              "type": "boolean",
+              "format": "switch",
+              "label": "زر بإطار فقط",
+              "icon": "sicon-toggle-off",
+              "required": false,
+              "description": null,
+              "value": false,
+              "selected": false
+            },
+            {
+              "id": "slides.content_position",
+              "type": "items",
+              "format": "dropdown-list",
+              "source": "Manual",
+              "label": "مكان النصوص",
+              "icon": "sicon-list",
+              "required": false,
+              "description": null,
+              "options": [
+                {
+                  "label": "يمين",
+                  "value": "right",
+                  "key": "right"
+                },
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                },
+                {
+                  "label": "يسار",
+                  "value": "left",
+                  "key": "left"
+                }
+              ],
+              "selected": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ],
+              "value": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ]
+            },
+            {
+              "id": "slides.text_color",
+              "type": "string",
+              "format": "color",
+              "inputType": "color",
+              "label": "لون النصوص",
+              "icon": "sicon-format-fill",
+              "required": false,
+              "description": null,
+              "value": "#ffffff"
+            }
+          ],
+          "value": [
+            {
+              "slides.is_video": false,
+              "slides.image": "https://cdn.salla.sa/form-builder/kkAsLOTMFJd8tgQ98H0aOcUvadPxZTvsLtPFYSOH.jpg",
+              "slides.mobile_image": "",
+              "slides.video_url": "",
+              "slides.video_url_mobile": "",
+              "slides.object_fit": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ],
+              "slides.object_position": [
+                {
+                  "label": "يسار",
+                  "value": "left",
+                  "key": "left"
+                }
+              ],
+              "slides.title": {
+                "ar": "عطر يشبه حضورك",
+                "en": "A scent that feels like you"
+              },
+              "slides.desc": {
+                "ar": "نفحات دافئة تبقى معك من الصباح إلى المساء",
+                "en": "Warm notes that stay with you from morning to night"
+              },
+              "slides.btn_text": {
+                "ar": "اطلبه الآن",
+                "en": "Order now"
+              },
+              "slides.btn_bg": "#111111",
+              "slides.btn_color": "#ffffff",
+              "slides.outlined_btn": false,
+              "slides.content_position": [
+                {
+                  "label": "يمين",
+                  "value": "right",
+                  "key": "right"
+                }
+              ],
+              "slides.text_color": "#111111"
+            },
+            {
+              "slides.is_video": false,
+              "slides.image": "https://cdn.salla.sa/form-builder/D7RY5Fy70MiaPRXs2w0dxgjQNUbmlvJMqTvtYQaa.jpg",
+              "slides.mobile_image": "",
+              "slides.video_url": "",
+              "slides.video_url_mobile": "",
+              "slides.object_fit": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ],
+              "slides.object_position": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ],
+              "slides.title": {
+                "ar": "",
+                "en": ""
+              },
+              "slides.desc": {
+                "ar": "",
+                "en": ""
+              },
+              "slides.btn_text": {
+                "ar": "",
+                "en": ""
+              },
+              "slides.btn_bg": "#111111",
+              "slides.btn_color": "#ffffff",
+              "slides.outlined_btn": false,
+              "slides.content_position": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ],
+              "slides.text_color": "#ffffff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "منتج مفصل مع الشراء السريع",
+      "icon": "sicon-shopping-bag",
+      "name": "product-hero",
+      "key": "8ef2d927-0bc3-48e6-863c-f10a3063327e",
+      "image": "https://cdn.selia-tech.com/images/mini-product-details.png",
+      "props": {
+        "min-height": "640px"
+      },
+      "fields": [
+        {
+          "id": "product",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "products",
+          "label": "المنتج في صفحات العروض",
+          "icon": "sicon-box",
+          "placeholder": "البحث في قائمة المنتجات...",
+          "required": false,
+          "description": "صفحة المنتج تعرض منتجها تلقائياً ويفتح الزر الشراء السريع. هذا الاختيار يُستخدم في صفحات العروض فقط",
+          "options": [],
+          "selected": [
+            {
+              "label": "اف سان لوران ليبر- او دي بريفيوم انتنس- 50 مل",
+              "value": 623859566,
+              "key": "623859566"
+            }
+          ],
+          "value": [
+            {
+              "label": "اف سان لوران ليبر- او دي بريفيوم انتنس- 50 مل",
+              "value": 623859566,
+              "key": "623859566"
+            }
+          ],
+          "searchable": true,
+          "multichoice": false
+        },
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان القسم",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "العطر اللي يكمل إطلالتك",
+            "en": "The scent that completes your look"
+          }
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "text",
+          "label": "وصف القسم",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "نفحات دافئة بثبات طويل، في زجاجة تليق بالإهداء",
+            "en": "Warm notes that last, in a bottle made for gifting"
+          }
+        },
+        {
+          "id": "btn_text",
+          "type": "string",
+          "format": "text",
+          "label": "نص زر الشراء",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "اطلبه الآن",
+            "en": "Order now"
+          }
+        },
+        {
+          "id": "show_quantity",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار الكمية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "الكمية المختارة تنتقل للشراء السريع",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "btn_bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية الزر",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام اللون الأساسي للمتجر",
+          "value": ""
+        },
+        {
+          "id": "btn_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون نص الزر",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "ph-line-1",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "media_aspect",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "شكل الصورة",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "مربع",
+              "value": "square",
+              "key": "square"
+            },
+            {
+              "label": "طولي",
+              "value": "portrait",
+              "key": "portrait"
+            },
+            {
+              "label": "عرضي",
+              "value": "landscape",
+              "key": "landscape"
+            }
+          ],
+          "selected": [
+            {
+              "label": "مربع",
+              "value": "square",
+              "key": "square"
+            }
+          ],
+          "value": [
+            {
+              "label": "مربع",
+              "value": "square",
+              "key": "square"
+            }
+          ]
+        },
+        {
+          "id": "media_fit",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "ملاءمة الصورة",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "تغطية كاملة",
+              "value": "cover",
+              "key": "cover"
+            },
+            {
+              "label": "إظهار الصورة كاملة",
+              "value": "contain",
+              "key": "contain"
+            }
+          ],
+          "selected": [
+            {
+              "label": "تغطية كاملة",
+              "value": "cover",
+              "key": "cover"
+            }
+          ],
+          "value": [
+            {
+              "label": "تغطية كاملة",
+              "value": "cover",
+              "key": "cover"
+            }
+          ]
+        },
+        {
+          "id": "show_thumbs",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار الصور المصغرة",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "show_subtitle",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار العنوان الفرعي للمنتج",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "show_description",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار وصف المنتج",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "border_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون إطار البطاقة",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#d4a574"
+        },
+        {
+          "id": "ph-line-2",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "show_sold",
+          "type": "boolean",
+          "format": "switch",
+          "label": "إظهار عدد المبيعات",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "sold_count",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "عدد المبيعات المعروض",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": "اتركه 0 لعرض مبيعات المنتج الفعلية",
+          "minimum": 0,
+          "maximum": 1000000,
+          "value": 0
+        },
+        {
+          "id": "custom_rating",
+          "type": "boolean",
+          "format": "switch",
+          "label": "تقييم مخصص",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يظهر فقط إذا لم يكن للمنتج تقييمات",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "rating_value",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "التقييم من 5",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 1,
+          "maximum": 5,
+          "value": 5
+        },
+        {
+          "id": "rating_count",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "عدد التقييمات",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 0,
+          "maximum": 1000000,
+          "value": 0
+        },
+        {
+          "id": "ph-line-3",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "marquee_text",
+          "type": "string",
+          "format": "text",
+          "label": "نص متحرك تحت الصور",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "ثبات طويل ✦ تغليف هدية ✦ شحن مجاني",
+            "en": "Long lasting ✦ Gift wrapped ✦ Free shipping"
+          }
+        },
+        {
+          "id": "marquee_icon",
+          "type": "string",
+          "format": "icon",
+          "label": "أيقونة النص المتحرك",
+          "icon": "sicon-star2",
+          "required": false,
+          "class": "form--inline",
+          "value": "sicon-star"
+        },
+        {
+          "id": "marquee_bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "خلفية النص المتحرك",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#d4a574"
+        },
+        {
+          "id": "marquee_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون النص المتحرك",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#111111"
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية القسم",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "مميزات متقدمة",
+      "icon": "sicon-award-ribbon",
+      "name": "features",
+      "key": "019e0007-a645-4977-b8da-629adc837433",
+      "image": "https://eslamoo.github.io/selia-videos/enhanced-feat.png",
+      "props": {
+        "min-height": "220px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "ليش هذا العطر؟",
+            "en": "Why this perfume?"
+          }
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "text",
+          "label": "الوصف",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "required": true,
+          "minLength": 1,
+          "maxLength": 8,
+          "item_label": "ميزة",
+          "fields": [
+            {
+              "id": "items.icon",
+              "type": "string",
+              "format": "icon",
+              "label": "الأيقونة",
+              "icon": "sicon-star2",
+              "required": false,
+              "class": "form--inline",
+              "value": "sicon-shipping-fast"
+            },
+            {
+              "id": "items.image",
+              "type": "string",
+              "format": "image",
+              "label": "صورة بدل الأيقونة",
+              "icon": "sicon-image",
+              "required": false,
+              "description": null,
+              "value": ""
+            },
+            {
+              "id": "items.title",
+              "type": "string",
+              "format": "text",
+              "label": "العنوان",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "items.sub_title",
+              "type": "string",
+              "format": "text",
+              "label": "الوصف",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            }
+          ],
+          "value": [
+            {
+              "items.icon": "sicon-time",
+              "items.image": "",
+              "items.title": {
+                "ar": "ثبات يدوم",
+                "en": "Lasts all day"
+              },
+              "items.sub_title": {
+                "ar": "رشة الصباح تبقى معك لآخر اليوم",
+                "en": "One morning spray stays with you all day"
+              }
+            },
+            {
+              "items.icon": "sicon-shield-check",
+              "items.image": "",
+              "items.title": {
+                "ar": "أصلي ومضمون",
+                "en": "Authentic"
+              },
+              "items.sub_title": {
+                "ar": "عطر أصلي بضمان المتجر",
+                "en": "An authentic perfume backed by the store"
+              }
+            },
+            {
+              "items.icon": "sicon-gift",
+              "items.image": "",
+              "items.title": {
+                "ar": "تغليف هدية",
+                "en": "Gift wrapping"
+              },
+              "items.sub_title": {
+                "ar": "يوصلك مغلفاً وجاهزاً للإهداء",
+                "en": "Arrives wrapped and ready to give"
+              }
+            },
+            {
+              "items.icon": "sicon-shipping-fast",
+              "items.image": "",
+              "items.title": {
+                "ar": "شحن مجاني",
+                "en": "Free shipping"
+              },
+              "items.sub_title": {
+                "ar": "لجميع مناطق المملكة",
+                "en": "Anywhere in the Kingdom"
+              }
+            }
+          ]
+        },
+        {
+          "id": "icon_bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "خلفية الأيقونة",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام اللون الأساسي للمتجر",
+          "value": ""
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية القسم",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "وسائل الدفع المتحركة",
+      "icon": "sicon-credit-card",
+      "name": "animated-payments",
+      "key": "55bf5609-2043-49ee-ac2e-6c3328e98875",
+      "image": "https://eslamoo.github.io/selia-videos/animated-brands.png",
+      "props": {
+        "min-height": "160px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "ادفع بالطريقة اللي تناسبك",
+            "en": "Pay the way that suits you"
+          }
+        },
+        {
+          "id": "source",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "مصدر الشعارات",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "وسائل الدفع المفعلة في المتجر",
+              "value": "store",
+              "key": "store"
+            },
+            {
+              "label": "شعارات مخصصة",
+              "value": "custom",
+              "key": "custom"
+            }
+          ],
+          "selected": [
+            {
+              "label": "وسائل الدفع المفعلة في المتجر",
+              "value": "store",
+              "key": "store"
+            }
+          ],
+          "value": [
+            {
+              "label": "وسائل الدفع المفعلة في المتجر",
+              "value": "store",
+              "key": "store"
+            }
+          ]
+        },
+        {
+          "id": "logos",
+          "type": "collection",
+          "format": "collection",
+          "required": true,
+          "minLength": 0,
+          "maxLength": 20,
+          "item_label": "شعار",
+          "fields": [
+            {
+              "id": "logos.logo",
+              "type": "string",
+              "format": "image",
+              "label": "الشعار",
+              "icon": "sicon-image",
+              "required": false,
+              "description": null,
+              "value": ""
+            },
+            {
+              "id": "logos.name",
+              "type": "string",
+              "format": "text",
+              "label": "الاسم",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            }
+          ],
+          "value": []
+        },
+        {
+          "id": "grayscale",
+          "type": "boolean",
+          "format": "switch",
+          "label": "رمادي حتى المرور عليه",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "second_row",
+          "type": "boolean",
+          "format": "switch",
+          "label": "صف ثاني بعكس الاتجاه",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "logos_bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "خلفية الشعار",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية القسم",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "آراء العملاء",
+      "icon": "sicon-chat-bubbles",
+      "name": "custom-reviews",
+      "key": "8a3aab65-04c1-4c21-8a28-cd077242551a",
+      "image": "https://eslamoo.github.io/selia-videos/testim.png",
+      "props": {
+        "min-height": "300px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "آراء عملائنا في العطر",
+            "en": "What customers say about the perfume"
+          }
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "text",
+          "label": "الوصف",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "required": true,
+          "minLength": 1,
+          "maxLength": 12,
+          "item_label": "رأي",
+          "fields": [
+            {
+              "id": "items.name",
+              "type": "string",
+              "format": "text",
+              "label": "اسم العميل",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "items.image",
+              "type": "string",
+              "format": "image",
+              "label": "صورة العميل",
+              "icon": "sicon-image",
+              "required": false,
+              "description": "اختياري، تظهر الأحرف الأولى عند عدم رفع صورة",
+              "value": ""
+            },
+            {
+              "id": "items.rate",
+              "type": "number",
+              "format": "number",
+              "inputType": "number",
+              "label": "التقييم من 5",
+              "icon": "sicon-calculator",
+              "required": false,
+              "description": null,
+              "minimum": 1,
+              "maximum": 5,
+              "value": 5
+            },
+            {
+              "id": "items.review",
+              "type": "string",
+              "format": "textarea",
+              "label": "الرأي",
+              "icon": "sicon-paragraph",
+              "multilanguage": true,
+              "required": false,
+              "description": null,
+              "maxLength": 1000,
+              "rows": 3,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            }
+          ],
+          "value": [
+            {
+              "items.name": {
+                "ar": "عبدالله",
+                "en": "Abdullah"
+              },
+              "items.image": "",
+              "items.rate": 5,
+              "items.review": {
+                "ar": "ثباته ممتاز، أرشه الصبح ويبقى معي لآخر اليوم",
+                "en": "Great longevity. I spray it in the morning and it lasts until the evening"
+              }
+            },
+            {
+              "items.name": {
+                "ar": "مها",
+                "en": "Maha"
+              },
+              "items.image": "",
+              "items.rate": 5,
+              "items.review": {
+                "ar": "ريحته دافية وفخمة، ووصلني مغلف كهدية بشكل مرتب",
+                "en": "A warm, rich scent, and it arrived neatly gift wrapped"
+              }
+            },
+            {
+              "items.name": {
+                "ar": "فهد",
+                "en": "Fahad"
+              },
+              "items.image": "",
+              "items.rate": 5,
+              "items.review": {
+                "ar": "طلبته هدية لزوجتي وعجبها كثير، والتوصيل كان سريع",
+                "en": "I ordered it as a gift for my wife and she loved it. Delivery was quick"
+              }
+            },
+            {
+              "items.name": {
+                "ar": "لمى",
+                "en": "Lama"
+              },
+              "items.image": "",
+              "items.rate": 5,
+              "items.review": {
+                "ar": "فوحانه واضح بدون ما يكون مزعج، من أجمل العطور اللي جربتها",
+                "en": "It projects well without being too much. One of the best I have tried"
+              }
+            }
+          ]
+        },
+        {
+          "id": "autoplay",
+          "type": "boolean",
+          "format": "switch",
+          "label": "تمرير تلقائي",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "card_bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية البطاقة",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية القسم",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "الأسئلة الشائعة",
+      "icon": "sicon-help-circle",
+      "name": "faq",
+      "key": "33827d3f-ee1f-4f87-8994-d126dd4319cd",
+      "image": "https://eslamoo.github.io/selia-videos/faq.png",
+      "props": {
+        "min-height": "300px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "أسئلة عن العطر",
+            "en": "Questions about the perfume"
+          }
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "text",
+          "label": "الوصف",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "required": true,
+          "minLength": 1,
+          "maxLength": 12,
+          "item_label": "سؤال",
+          "fields": [
+            {
+              "id": "items.question",
+              "type": "string",
+              "format": "text",
+              "label": "السؤال",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "items.answer",
+              "type": "string",
+              "format": "textarea",
+              "label": "الإجابة",
+              "icon": "sicon-paragraph",
+              "multilanguage": true,
+              "required": false,
+              "description": null,
+              "maxLength": 1000,
+              "rows": 3,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            }
+          ],
+          "value": [
+            {
+              "items.question": {
+                "ar": "هل العطر أصلي؟",
+                "en": "Is the perfume authentic?"
+              },
+              "items.answer": {
+                "ar": "نعم، العطر أصلي ومضمون، ونستبدله لك إذا وصلك بحالة غير سليمة.",
+                "en": "Yes, it is authentic and guaranteed, and we replace it if it arrives damaged."
+              }
+            },
+            {
+              "items.question": {
+                "ar": "كم يدوم العطر؟",
+                "en": "How long does it last?"
+              },
+              "items.answer": {
+                "ar": "يختلف الثبات حسب نوع البشرة والجو، ويبقى أطول على الملابس.",
+                "en": "Longevity depends on your skin and the weather, and it lasts longer on clothes."
+              }
+            },
+            {
+              "items.question": {
+                "ar": "هل يوصل مغلفاً كهدية؟",
+                "en": "Does it come gift wrapped?"
+              },
+              "items.answer": {
+                "ar": "نعم، نغلف كل طلب كهدية بدون تكلفة إضافية.",
+                "en": "Yes, every order is gift wrapped at no extra cost."
+              }
+            },
+            {
+              "items.question": {
+                "ar": "متى يوصلني الطلب؟",
+                "en": "When will my order arrive?"
+              },
+              "items.answer": {
+                "ar": "نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك.",
+                "en": "We prepare your order within one business day, and it usually arrives in 2 to 5 business days depending on your city."
+              }
+            },
+            {
+              "items.question": {
+                "ar": "ما طرق الدفع المتاحة؟",
+                "en": "Which payment methods can I use?"
+              },
+              "items.answer": {
+                "ar": "مدى، فيزا وماستركارد، Apple Pay، والدفع عند الاستلام.",
+                "en": "mada, Visa and Mastercard, Apple Pay, and cash on delivery."
+              }
+            }
+          ]
+        },
+        {
+          "id": "two_columns",
+          "type": "boolean",
+          "format": "switch",
+          "label": "عمودين على الشاشات الكبيرة",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية القسم",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -24,19 +24,19 @@
           "minLength": 0,
           "maxLength": 200,
           "value": {
-            "ar": "عروضنا تصل إلى 40% وأكثر  |  شحن مجاني إلى جميع مناطق المملكة  |  ضمان ذهبي وإسترجاع سهل",
-            "en": "Offers up to 40% and more  |  Free shipping across the Kingdom  |  Gold guarantee and easy returns"
+            "ar": "شحن مجاني لعباية الكلوش الملكية إلى جميع مناطق المملكة ✨",
+            "en": "Free shipping on the royal cloche abaya across the Kingdom ✨"
           }
         },
         {
           "id": "icon",
           "type": "string",
           "format": "icon",
-          "label": "أيقونة بين التكرارات",
+          "label": "أيقونة بين التكرارات (اختياري)",
           "icon": "sicon-star2",
           "required": false,
           "class": "form--inline",
-          "value": "sicon-star2"
+          "value": ""
         },
         {
           "id": "bg",
@@ -65,13 +65,13 @@
           "type": "number",
           "format": "number",
           "inputType": "number",
-          "label": "مدة الدورة (ثانية)",
+          "label": "مدة مرور النص مرة واحدة (ثانية)",
           "icon": "sicon-calculator",
           "required": false,
-          "description": "كلما زاد الرقم كانت الحركة أبطأ",
-          "minimum": 8,
-          "maximum": 90,
-          "value": 30
+          "description": "7 ثوانٍ مثل ثيم سيليا، وكلما زاد الرقم كانت الحركة أبطأ",
+          "minimum": 3,
+          "maximum": 60,
+          "value": 7
         },
         {
           "id": "reverse",
@@ -113,7 +113,7 @@
           "label": "شعار الوضع الداكن",
           "icon": "sicon-image",
           "required": false,
-          "description": "اختياري، وبدونه يظهر شعارك باللون الأبيض في الوضع الداكن",
+          "description": "يظهر في الوضع الداكن وفوق السلايدر في الرأس الشفاف، وبدونه يظهر شعارك باللون الأبيض",
           "value": ""
         },
         {
@@ -127,7 +127,7 @@
           "description": null,
           "minimum": 24,
           "maximum": 140,
-          "value": 56
+          "value": 60
         },
         {
           "id": "align",
@@ -166,15 +166,31 @@
           ]
         },
         {
+          "id": "hd-line-1",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "transparent",
+          "type": "boolean",
+          "format": "switch",
+          "label": "رأس شفاف فوق السلايدر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يدمج الرأس مع السلايدر الذي بعده مباشرة كما في ثيم سيليا",
+          "value": true,
+          "selected": true
+        },
+        {
           "id": "sticky",
           "type": "boolean",
           "format": "switch",
-          "label": "تثبيت الرأس أعلى الصفحة",
+          "label": "تثبيت الرأس أعلى الصفحة عند التمرير",
           "icon": "sicon-toggle-off",
           "required": false,
-          "description": null,
-          "value": false,
-          "selected": false
+          "description": "مع الرأس الشفاف تظهر خلفية الرأس عند التمرير",
+          "value": true,
+          "selected": true
         },
         {
           "id": "show_shadow",
@@ -186,6 +202,68 @@
           "description": null,
           "value": true,
           "selected": true
+        },
+        {
+          "id": "hd-line-2",
+          "type": "static",
+          "format": "line"
+        },
+        {
+          "id": "show_mode_toggle",
+          "type": "boolean",
+          "format": "switch",
+          "label": "زر التبديل بين الوضع الفاتح والداكن",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يبدل كل عناصر الصفحة المضبوطة على حسب وضع الصفحة، ويتذكر اختيار العميل",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "default_mode",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "الوضع الافتراضي للصفحة",
+          "icon": "sicon-list",
+          "required": false,
+          "description": null,
+          "options": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن",
+              "value": "dark",
+              "key": "dark"
+            },
+            {
+              "label": "حسب جهاز الزائر",
+              "value": "system",
+              "key": "system"
+            }
+          ],
+          "selected": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ],
+          "value": [
+            {
+              "label": "فاتح",
+              "value": "light",
+              "key": "light"
+            }
+          ]
+        },
+        {
+          "id": "hd-line-3",
+          "type": "static",
+          "format": "line"
         },
         {
           "id": "link_to_store",
@@ -206,7 +284,7 @@
           "label": "لون الخلفية",
           "icon": "sicon-format-fill",
           "required": false,
-          "description": "اتركه فارغاً لاستخدام لون الوضع المختار",
+          "description": "اتركه فارغاً لاستخدام لون الوضع الحالي",
           "value": ""
         },
         {
@@ -217,36 +295,36 @@
           "label": "وضع الألوان",
           "icon": "sicon-list",
           "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
           "options": [
             {
-              "label": "فاتح",
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
               "value": "light",
               "key": "light"
             },
             {
-              "label": "داكن",
+              "label": "داكن دائماً",
               "value": "dark",
               "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
-              "value": "auto",
-              "key": "auto"
             }
           ],
           "selected": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ],
           "value": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ]
         }
@@ -263,6 +341,17 @@
       },
       "fields": [
         {
+          "id": "auto_height",
+          "type": "boolean",
+          "format": "switch",
+          "label": "ارتفاع تلقائي حسب الصورة أو الفيديو",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "عند إيقافه يُستخدم الارتفاع المحدد بالأسفل",
+          "value": true,
+          "selected": true
+        },
+        {
           "id": "height",
           "type": "number",
           "format": "number",
@@ -273,7 +362,7 @@
           "description": "نسبة من ارتفاع الشاشة",
           "minimum": 30,
           "maximum": 100,
-          "value": 90
+          "value": 100
         },
         {
           "id": "mobile_height",
@@ -286,7 +375,7 @@
           "description": null,
           "minimum": 30,
           "maximum": 100,
-          "value": 80
+          "value": 100
         },
         {
           "id": "effect",
@@ -335,7 +424,20 @@
           "description": null,
           "minimum": 2,
           "maximum": 20,
-          "value": 6
+          "value": 5
+        },
+        {
+          "id": "speed",
+          "type": "number",
+          "format": "number",
+          "inputType": "number",
+          "label": "مدة الانتقال بين الشرائح (ثانية)",
+          "icon": "sicon-calculator",
+          "required": false,
+          "description": null,
+          "minimum": 1,
+          "maximum": 5,
+          "value": 2
         },
         {
           "id": "show_arrows",
@@ -363,10 +465,21 @@
           "id": "overlay",
           "type": "boolean",
           "format": "switch",
-          "label": "تعتيم خفيف فوق الصورة",
+          "label": "طبقة داكنة خفيفة أعلى السلايدر",
           "icon": "sicon-toggle-off",
           "required": false,
-          "description": "يحسن قراءة النصوص فوق الصور الفاتحة",
+          "description": "توضح الشعار والنصوص فوق الصور الفاتحة",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "ken_burns",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حركة تكبير هادئة على الصور",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
           "value": true,
           "selected": true
         },
@@ -429,6 +542,93 @@
               "required": false,
               "description": null,
               "value": ""
+            },
+            {
+              "id": "slides.object_fit",
+              "type": "items",
+              "format": "dropdown-list",
+              "source": "Manual",
+              "label": "طريقة عرض الصورة أو الفيديو",
+              "icon": "sicon-list",
+              "required": false,
+              "description": null,
+              "options": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                },
+                {
+                  "label": "إظهار كامل",
+                  "value": "contain",
+                  "key": "contain"
+                }
+              ],
+              "selected": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ],
+              "value": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ]
+            },
+            {
+              "id": "slides.object_position",
+              "type": "items",
+              "format": "dropdown-list",
+              "source": "Manual",
+              "label": "اتجاه الصورة أو الفيديو",
+              "icon": "sicon-list",
+              "required": false,
+              "description": null,
+              "options": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                },
+                {
+                  "label": "أعلى",
+                  "value": "top",
+                  "key": "top"
+                },
+                {
+                  "label": "أسفل",
+                  "value": "bottom",
+                  "key": "bottom"
+                },
+                {
+                  "label": "يمين",
+                  "value": "right",
+                  "key": "right"
+                },
+                {
+                  "label": "يسار",
+                  "value": "left",
+                  "key": "left"
+                }
+              ],
+              "selected": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ],
+              "value": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ]
             },
             {
               "id": "slides.title",
@@ -519,15 +719,15 @@
               "type": "items",
               "format": "dropdown-list",
               "source": "Manual",
-              "label": "مكان المحتوى",
+              "label": "مكان النصوص",
               "icon": "sicon-list",
               "required": false,
               "description": null,
               "options": [
                 {
-                  "label": "البداية",
-                  "value": "start",
-                  "key": "start"
+                  "label": "يمين",
+                  "value": "right",
+                  "key": "right"
                 },
                 {
                   "label": "الوسط",
@@ -535,9 +735,9 @@
                   "key": "center"
                 },
                 {
-                  "label": "النهاية",
-                  "value": "end",
-                  "key": "end"
+                  "label": "يسار",
+                  "value": "left",
+                  "key": "left"
                 }
               ],
               "selected": [
@@ -574,19 +774,33 @@
               "slides.mobile_image": "",
               "slides.video_url": "https://cdn.selia-tech.com/videos/video-2026-06-14T22-42-34-275Z-6r6yoi.mp4",
               "slides.video_url_mobile": "https://cdn.selia-tech.com/videos/video-2026-06-14T22-43-57-118Z-daqn6z.mp4",
+              "slides.object_fit": [
+                {
+                  "label": "تغطية كاملة",
+                  "value": "cover",
+                  "key": "cover"
+                }
+              ],
+              "slides.object_position": [
+                {
+                  "label": "الوسط",
+                  "value": "center",
+                  "key": "center"
+                }
+              ],
               "slides.title": {
-                "ar": "الأناقة تبدأ من هنا",
-                "en": "Elegance starts here"
+                "ar": "",
+                "en": ""
               },
               "slides.desc": {
-                "ar": "تمتعي بمظهر استثنائي مع عباياتنا العصرية والراقية",
-                "en": "Stand out in our modern, refined abayas"
+                "ar": "",
+                "en": ""
               },
               "slides.btn_text": {
-                "ar": "اطلبيها الآن",
-                "en": "Order now"
+                "ar": "",
+                "en": ""
               },
-              "slides.btn_bg": "#d4a574",
+              "slides.btn_bg": "#111111",
               "slides.btn_color": "#ffffff",
               "slides.outlined_btn": false,
               "slides.content_position": [
@@ -625,14 +839,14 @@
           "options": [],
           "selected": [
             {
-              "label": "عباية باللون الأسود موديل كلوش",
+              "label": "عباية باللون الأسود موديل كلوش بقماش ملكي وتطريز شك فاخر",
               "value": 1287502680,
               "key": "1287502680"
             }
           ],
           "value": [
             {
-              "label": "عباية باللون الأسود موديل كلوش",
+              "label": "عباية باللون الأسود موديل كلوش بقماش ملكي وتطريز شك فاخر",
               "value": 1287502680,
               "key": "1287502680"
             }
@@ -653,8 +867,8 @@
           "minLength": 0,
           "maxLength": 200,
           "value": {
-            "ar": "عباية الموسم",
-            "en": "Abaya of the season"
+            "ar": "عباية الكلوش الملكية",
+            "en": "The royal cloche abaya"
           }
         },
         {
@@ -670,8 +884,8 @@
           "minLength": 0,
           "maxLength": 200,
           "value": {
-            "ar": "قماش ملكي وتطريز شك فاخر",
-            "en": "Royal fabric with fine hand embroidery"
+            "ar": "قماش ملكي ينسدل بنعومة، وتطريز شك فاخر على الأكمام",
+            "en": "Royal fabric that falls softly, with fine bead embroidery on the sleeves"
           }
         },
         {
@@ -934,8 +1148,8 @@
           "minLength": 0,
           "maxLength": 200,
           "value": {
-            "ar": "ضمان الجودة",
-            "en": "Quality guaranteed"
+            "ar": "قماش ملكي ✦ تطريز شك فاخر ✦ قصة كلوش واسعة",
+            "en": "Royal fabric ✦ Fine bead embroidery ✦ Wide cloche cut"
           }
         },
         {
@@ -989,36 +1203,509 @@
           "label": "وضع الألوان",
           "icon": "sicon-list",
           "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
           "options": [
             {
-              "label": "فاتح",
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
               "value": "light",
               "key": "light"
             },
             {
-              "label": "داكن",
+              "label": "داكن دائماً",
               "value": "dark",
               "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
-              "value": "auto",
-              "key": "auto"
             }
           ],
           "selected": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ],
           "value": [
             {
-              "label": "فاتح",
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "شبكة صور",
+      "icon": "sicon-image",
+      "name": "images-grid",
+      "key": "a0a73bfb-65ee-4db4-80ae-a82e556d9a2c",
+      "image": "https://eslamoo.github.io/selia-videos/images-grid.jpeg",
+      "props": {
+        "min-height": "520px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "تفاصيل العباية",
+            "en": "The abaya in detail"
+          }
+        },
+        {
+          "id": "image_1",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 1",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.salla.sa/gzRDg/products/kXM5IFalDSoAebmtgsNdJ9jITtUJTsKzFjYEolbT.jpg"
+        },
+        {
+          "id": "title_1",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 1",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_2",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 2",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.salla.sa/gzRDg/products/mzUxwSTjCJKXYa3Mm0WMHbXC07gtcyRB4Q2U3cUO.jpg"
+        },
+        {
+          "id": "title_2",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 2",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_3",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 3",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.salla.sa/gzRDg/products/zubWcZ7SBRWbQfxGsmfiYtRKaYnMVkVKTVkXw8Iu.jpg"
+        },
+        {
+          "id": "title_3",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 3",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_4",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 4",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.salla.sa/gzRDg/products/EH06n5OfsLU8tVlTJDY9voBu9uvHXaYnZ2Gazfao.jpg"
+        },
+        {
+          "id": "title_4",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 4",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_5",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 5",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.salla.sa/gzRDg/products/cGHtP4V7duXpTzEqxK8Qgz3PDofxKBZ8WzgWbO92.jpg"
+        },
+        {
+          "id": "title_5",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 5",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "titles_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون العناوين",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#ffffff"
+        },
+        {
+          "id": "bottom_titles",
+          "type": "boolean",
+          "format": "switch",
+          "label": "العناوين أسفل الصور",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "overlay",
+          "type": "boolean",
+          "format": "switch",
+          "label": "تدرج خفيف فوق الصور",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "rounded",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حواف دائرية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
               "value": "light",
               "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "مميزات متقدمة",
+      "icon": "sicon-award-ribbon",
+      "name": "features",
+      "key": "019e0007-a645-4977-b8da-629adc837433",
+      "image": "https://eslamoo.github.io/selia-videos/enhanced-feat.png",
+      "props": {
+        "min-height": "220px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "ليش عباية الكلوش الملكية؟",
+            "en": "Why the royal cloche abaya?"
+          }
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "text",
+          "label": "الوصف",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "items",
+          "type": "collection",
+          "format": "collection",
+          "required": true,
+          "minLength": 1,
+          "maxLength": 8,
+          "item_label": "ميزة",
+          "fields": [
+            {
+              "id": "items.icon",
+              "type": "string",
+              "format": "icon",
+              "label": "الأيقونة",
+              "icon": "sicon-star2",
+              "required": false,
+              "class": "form--inline",
+              "value": "sicon-shipping-fast"
+            },
+            {
+              "id": "items.image",
+              "type": "string",
+              "format": "image",
+              "label": "صورة بدل الأيقونة",
+              "icon": "sicon-image",
+              "required": false,
+              "description": null,
+              "value": ""
+            },
+            {
+              "id": "items.title",
+              "type": "string",
+              "format": "text",
+              "label": "العنوان",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            },
+            {
+              "id": "items.sub_title",
+              "type": "string",
+              "format": "text",
+              "label": "الوصف",
+              "icon": "sicon-format-text-alt",
+              "multilanguage": true,
+              "required": false,
+              "placeholder": null,
+              "description": null,
+              "minLength": 0,
+              "maxLength": 200,
+              "value": {
+                "ar": "",
+                "en": ""
+              }
+            }
+          ],
+          "value": [
+            {
+              "items.icon": "sicon-fabric-swatch",
+              "items.image": "",
+              "items.title": {
+                "ar": "قماش ملكي",
+                "en": "Royal fabric"
+              },
+              "items.sub_title": {
+                "ar": "خامة ناعمة تنسدل بأناقة وتريحك طول اليوم",
+                "en": "A soft fabric that falls gracefully and stays comfortable all day"
+              }
+            },
+            {
+              "items.icon": "sicon-flower-stem",
+              "items.image": "",
+              "items.title": {
+                "ar": "تطريز شك فاخر",
+                "en": "Fine bead embroidery"
+              },
+              "items.sub_title": {
+                "ar": "تفاصيل مشغولة بعناية على الأكمام",
+                "en": "Carefully worked details on the sleeves"
+              }
+            },
+            {
+              "items.icon": "sicon-shipping-fast",
+              "items.image": "",
+              "items.title": {
+                "ar": "شحن مجاني",
+                "en": "Free shipping"
+              },
+              "items.sub_title": {
+                "ar": "نوصلها لباب بيتك في كل مناطق المملكة",
+                "en": "Delivered to your door anywhere in the Kingdom"
+              }
+            },
+            {
+              "items.icon": "sicon-rotate",
+              "items.image": "",
+              "items.title": {
+                "ar": "استبدال سهل",
+                "en": "Easy exchange"
+              },
+              "items.sub_title": {
+                "ar": "استبدال أو استرجاع خلال 7 أيام من الاستلام",
+                "en": "Exchange or return within 7 days of delivery"
+              }
+            }
+          ]
+        },
+        {
+          "id": "icon_bg",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "خلفية الأيقونة",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": "اتركه فارغاً لاستخدام اللون الأساسي للمتجر",
+          "value": ""
+        },
+        {
+          "id": "bg_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون خلفية القسم",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": ""
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ]
         }
@@ -1178,397 +1865,36 @@
           "label": "وضع الألوان",
           "icon": "sicon-list",
           "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
           "options": [
             {
-              "label": "فاتح",
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
               "value": "light",
               "key": "light"
             },
             {
-              "label": "داكن",
+              "label": "داكن دائماً",
               "value": "dark",
               "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
-              "value": "auto",
-              "key": "auto"
             }
           ],
           "selected": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            }
-          ],
-          "value": [
-            {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "مميزات متقدمة",
-      "icon": "sicon-award-ribbon",
-      "name": "features",
-      "key": "019e0007-a645-4977-b8da-629adc837433",
-      "image": "https://eslamoo.github.io/selia-videos/enhanced-feat.png",
-      "props": {
-        "min-height": "220px"
-      },
-      "fields": [
-        {
-          "id": "title",
-          "type": "string",
-          "format": "text",
-          "label": "العنوان",
-          "icon": "sicon-format-text-alt",
-          "multilanguage": true,
-          "required": false,
-          "placeholder": null,
-          "description": null,
-          "minLength": 0,
-          "maxLength": 200,
-          "value": {
-            "ar": "",
-            "en": ""
-          }
-        },
-        {
-          "id": "subtitle",
-          "type": "string",
-          "format": "text",
-          "label": "الوصف",
-          "icon": "sicon-format-text-alt",
-          "multilanguage": true,
-          "required": false,
-          "placeholder": null,
-          "description": null,
-          "minLength": 0,
-          "maxLength": 200,
-          "value": {
-            "ar": "",
-            "en": ""
-          }
-        },
-        {
-          "id": "items",
-          "type": "collection",
-          "format": "collection",
-          "required": true,
-          "minLength": 1,
-          "maxLength": 8,
-          "item_label": "ميزة",
-          "fields": [
-            {
-              "id": "items.icon",
-              "type": "string",
-              "format": "icon",
-              "label": "الأيقونة",
-              "icon": "sicon-star2",
-              "required": false,
-              "class": "form--inline",
-              "value": "sicon-shipping-fast"
-            },
-            {
-              "id": "items.image",
-              "type": "string",
-              "format": "image",
-              "label": "صورة بدل الأيقونة",
-              "icon": "sicon-image",
-              "required": false,
-              "description": null,
-              "value": ""
-            },
-            {
-              "id": "items.title",
-              "type": "string",
-              "format": "text",
-              "label": "العنوان",
-              "icon": "sicon-format-text-alt",
-              "multilanguage": true,
-              "required": false,
-              "placeholder": null,
-              "description": null,
-              "minLength": 0,
-              "maxLength": 200,
-              "value": {
-                "ar": "",
-                "en": ""
-              }
-            },
-            {
-              "id": "items.sub_title",
-              "type": "string",
-              "format": "text",
-              "label": "الوصف",
-              "icon": "sicon-format-text-alt",
-              "multilanguage": true,
-              "required": false,
-              "placeholder": null,
-              "description": null,
-              "minLength": 0,
-              "maxLength": 200,
-              "value": {
-                "ar": "",
-                "en": ""
-              }
-            }
-          ],
-          "value": [
-            {
-              "items.icon": "sicon-shipping-fast",
-              "items.image": "https://cdn.salla.sa/form-builder/AA34phzHjmgiIGmap8MvqjvN7ebUEG5bAojXI6sR.gif",
-              "items.title": {
-                "ar": "توصيل سريع ومجاني",
-                "en": "Fast free delivery"
-              },
-              "items.sub_title": {
-                "ar": "نقدم خدمة توصيل سريعة ومجانية لجميع عملائنا.",
-                "en": "Fast, free delivery for every customer."
-              }
-            },
-            {
-              "items.icon": "sicon-cash-register",
-              "items.image": "https://cdn.salla.sa/form-builder/jZd2JpzPL1z1w2enfZVHzw4vi7EkSqMGHHuZJkQr.gif",
-              "items.title": {
-                "ar": "ضمان استعادة الأموال",
-                "en": "Money back guarantee"
-              },
-              "items.sub_title": {
-                "ar": "نحن ملتزمون بتقديم أعلى مستوى من الجودة والرضا لعملائنا.",
-                "en": "Committed to quality and your satisfaction."
-              }
-            },
-            {
-              "items.icon": "sicon-award-ribbon",
-              "items.image": "https://cdn.salla.sa/form-builder/fMSd48QhJPaVrsnbArAMxa1fo4htg5KcMHoXoMth.gif",
-              "items.title": {
-                "ar": "برامج الولاء",
-                "en": "Loyalty rewards"
-              },
-              "items.sub_title": {
-                "ar": "كعميل في متجرنا، ستستفيد من برامج الولاء الجذابة والتخفيضات الحصرية.",
-                "en": "Exclusive rewards and discounts for our customers."
-              }
-            },
-            {
-              "items.icon": "sicon-headphones",
-              "items.image": "https://cdn.salla.sa/form-builder/QkjRIggHkh2wTGDhI6Ixc0C8twh9UFnsUy19JLru.gif",
-              "items.title": {
-                "ar": "دعم فني على مدار الساعة",
-                "en": "Support around the clock"
-              },
-              "items.sub_title": {
-                "ar": "بفضل الدعم التقني القوي ستتمتع بتجربة تسوق مثيرة وفريدة من نوعها",
-                "en": "Reliable support for a smooth shopping experience."
-              }
-            }
-          ]
-        },
-        {
-          "id": "icon_bg",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "خلفية الأيقونة",
-          "icon": "sicon-format-fill",
-          "required": false,
-          "description": "اتركه فارغاً لاستخدام اللون الأساسي للمتجر",
-          "value": ""
-        },
-        {
-          "id": "bg_color",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون خلفية القسم",
-          "icon": "sicon-format-fill",
-          "required": false,
-          "description": null,
-          "value": ""
-        },
-        {
-          "id": "color_scheme",
-          "type": "items",
-          "format": "dropdown-list",
-          "source": "Manual",
-          "label": "وضع الألوان",
-          "icon": "sicon-list",
-          "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
-          "options": [
-            {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            },
-            {
-              "label": "داكن",
-              "value": "dark",
-              "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
+              "label": "حسب وضع الصفحة",
               "value": "auto",
               "key": "auto"
             }
           ],
-          "selected": [
-            {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            }
-          ],
           "value": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "بانر مزدوج",
-      "icon": "sicon-layout-grid-rearrange",
-      "name": "double-banner",
-      "key": "e1639f60-7d0f-4739-aa02-e1022a4b43d3",
-      "image": "https://eslamoo.github.io/selia-videos/double-banner.png",
-      "props": {
-        "min-height": "160px"
-      },
-      "fields": [
-        {
-          "id": "first_image",
-          "type": "string",
-          "format": "image",
-          "label": "البانر الأول",
-          "icon": "sicon-image",
-          "required": false,
-          "description": "المقاس المقترح 1280×322",
-          "value": "https://cdn.salla.sa/form-builder/IOqbTDw5ZRO3FUNl2YE198OWACvIF9aKiHwrQj7m.png"
-        },
-        {
-          "id": "first_image_en",
-          "type": "string",
-          "format": "image",
-          "label": "البانر الأول (إنجليزي)",
-          "icon": "sicon-image",
-          "required": false,
-          "description": "اختياري، يظهر لزوار النسخة الإنجليزية",
-          "value": ""
-        },
-        {
-          "id": "second_image",
-          "type": "string",
-          "format": "image",
-          "label": "البانر الثاني",
-          "icon": "sicon-image",
-          "required": false,
-          "description": null,
-          "value": ""
-        },
-        {
-          "id": "second_image_en",
-          "type": "string",
-          "format": "image",
-          "label": "البانر الثاني (إنجليزي)",
-          "icon": "sicon-image",
-          "required": false,
-          "description": null,
-          "value": ""
-        },
-        {
-          "id": "rounded",
-          "type": "boolean",
-          "format": "switch",
-          "label": "حواف دائرية",
-          "icon": "sicon-toggle-off",
-          "required": false,
-          "description": null,
-          "value": true,
-          "selected": true
-        },
-        {
-          "id": "stack_mobile",
-          "type": "boolean",
-          "format": "switch",
-          "label": "بانر تحت الآخر في الجوال",
-          "icon": "sicon-toggle-off",
-          "required": false,
-          "description": null,
-          "value": true,
-          "selected": true
-        },
-        {
-          "id": "full_width",
-          "type": "boolean",
-          "format": "switch",
-          "label": "عرض كامل بدون هوامش",
-          "icon": "sicon-toggle-off",
-          "required": false,
-          "description": null,
-          "value": false,
-          "selected": false
-        },
-        {
-          "id": "equal_height",
-          "type": "boolean",
-          "format": "switch",
-          "label": "توحيد ارتفاع البانرات",
-          "icon": "sicon-toggle-off",
-          "required": false,
-          "description": "يقص الصور بنسبة 4:3 لتتساوى",
-          "value": false,
-          "selected": false
-        },
-        {
-          "id": "color_scheme",
-          "type": "items",
-          "format": "dropdown-list",
-          "source": "Manual",
-          "label": "وضع الألوان",
-          "icon": "sicon-list",
-          "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
-          "options": [
-            {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            },
-            {
-              "label": "داكن",
-              "value": "dark",
-              "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
+              "label": "حسب وضع الصفحة",
               "value": "auto",
               "key": "auto"
-            }
-          ],
-          "selected": [
-            {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
-            }
-          ],
-          "value": [
-            {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
             }
           ]
         }
@@ -1597,8 +1923,8 @@
           "minLength": 0,
           "maxLength": 200,
           "value": {
-            "ar": "آراء عميلاتنا",
-            "en": "What our customers say"
+            "ar": "آراء عميلاتنا في العباية",
+            "en": "What customers say about the abaya"
           }
         },
         {
@@ -1687,50 +2013,50 @@
           "value": [
             {
               "items.name": {
-                "ar": "سارة الأحمد",
-                "en": "سارة الأحمد"
+                "ar": "نورة",
+                "en": "Noura"
               },
               "items.image": "",
               "items.rate": 5,
               "items.review": {
-                "ar": "متجر رائع لن يكون آخر تعامل معكم، المنتجات ممتازة والتوصيل سريع",
-                "en": "متجر رائع لن يكون آخر تعامل معكم، المنتجات ممتازة والتوصيل سريع"
+                "ar": "القماش ناعم وثقيل والتطريز أجمل من الصور، والمقاس مضبوط",
+                "en": "The fabric is soft and rich, the embroidery is even nicer than the photos, and the size is right"
               }
             },
             {
               "items.name": {
-                "ar": "خالد العتيبي",
-                "en": "خالد العتيبي"
+                "ar": "سارة",
+                "en": "Sara"
               },
               "items.image": "",
               "items.rate": 5,
               "items.review": {
-                "ar": "متجر رائع أشكركم على جودة المنتجات والتغليف الممتاز",
-                "en": "متجر رائع أشكركم على جودة المنتجات والتغليف الممتاز"
+                "ar": "قصة الكلوش واسعة ومريحة، لبستها في مناسبة وسألوني عنها كثير",
+                "en": "The cloche cut is wide and comfortable. I wore it to an event and got asked about it a lot"
               }
             },
             {
               "items.name": {
-                "ar": "نورة السبيعي",
-                "en": "نورة السبيعي"
+                "ar": "ريم",
+                "en": "Reem"
               },
               "items.image": "",
               "items.rate": 5,
               "items.review": {
-                "ar": "تجربة جيدة ومتجر ممتاز وتجاوب سريع ما شاء الله أنصحكم وبقوة",
-                "en": "تجربة جيدة ومتجر ممتاز وتجاوب سريع ما شاء الله أنصحكم وبقوة"
+                "ar": "وصلتني بسرعة وبتغليف مرتب، والشك ثابت وما تحرك",
+                "en": "It arrived quickly and neatly packed, and the beading stayed in place"
               }
             },
             {
               "items.name": {
-                "ar": "محمد الحربي",
-                "en": "محمد الحربي"
+                "ar": "هيفاء",
+                "en": "Haifa"
               },
               "items.image": "",
               "items.rate": 5,
               "items.review": {
-                "ar": "متجر جميل وسريعين في التوصيل والتغليف وصلني تمام الحمدلله",
-                "en": "متجر جميل وسريعين في التوصيل والتغليف وصلني تمام الحمدلله"
+                "ar": "ثاني عباية آخذها منكم، والجودة نفسها كل مرة",
+                "en": "My second abaya from you, and the quality is the same every time"
               }
             }
           ]
@@ -1776,36 +2102,36 @@
           "label": "وضع الألوان",
           "icon": "sicon-list",
           "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
           "options": [
             {
-              "label": "فاتح",
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
               "value": "light",
               "key": "light"
             },
             {
-              "label": "داكن",
+              "label": "داكن دائماً",
               "value": "dark",
               "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
-              "value": "auto",
-              "key": "auto"
             }
           ],
           "selected": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ],
           "value": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ]
         }
@@ -1834,8 +2160,8 @@
           "minLength": 0,
           "maxLength": 200,
           "value": {
-            "ar": "لديك سؤال؟ اجابته هنا",
-            "en": "Have a question? Find the answer here"
+            "ar": "أسئلة عن العباية",
+            "en": "Questions about the abaya"
           }
         },
         {
@@ -1901,42 +2227,52 @@
           "value": [
             {
               "items.question": {
-                "ar": "كم يستغرق توصيل الطلب؟",
-                "en": "كم يستغرق توصيل الطلب؟"
-              },
-              "items.answer": {
-                "ar": "نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك.",
-                "en": "نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك."
-              }
-            },
-            {
-              "items.question": {
                 "ar": "كيف أختار المقاس المناسب؟",
-                "en": "كيف أختار المقاس المناسب؟"
+                "en": "How do I pick the right size?"
               },
               "items.answer": {
                 "ar": "اختاري مقاسك المعتاد، وتواصلي معنا قبل الطلب إذا احتجتِ مساعدة في الطول أو العرض.",
-                "en": "اختاري مقاسك المعتاد، وتواصلي معنا قبل الطلب إذا احتجتِ مساعدة في الطول أو العرض."
+                "en": "Pick your usual size, and contact us before ordering if you need help with the length or width."
               }
             },
             {
               "items.question": {
-                "ar": "هل يمكنني الاستبدال أو الاسترجاع؟",
-                "en": "هل يمكنني الاستبدال أو الاسترجاع؟"
+                "ar": "كيف أعتني بالتطريز؟",
+                "en": "How do I care for the embroidery?"
               },
               "items.answer": {
-                "ar": "نعم، يمكنك طلب الاستبدال أو الاسترجاع خلال 7 أيام من الاستلام بشرط أن تكون العباية بحالتها الأصلية.",
-                "en": "نعم، يمكنك طلب الاستبدال أو الاسترجاع خلال 7 أيام من الاستلام بشرط أن تكون العباية بحالتها الأصلية."
+                "ar": "ننصح بالتنظيف الجاف أو الغسيل اليدوي بماء بارد، وكي العباية من الداخل.",
+                "en": "We recommend dry cleaning or a cold hand wash, and ironing the abaya inside out."
+              }
+            },
+            {
+              "items.question": {
+                "ar": "هل أقدر أستبدل أو أسترجع؟",
+                "en": "Can I exchange or return it?"
+              },
+              "items.answer": {
+                "ar": "نعم، خلال 7 أيام من الاستلام بشرط أن تكون العباية بحالتها الأصلية.",
+                "en": "Yes, within 7 days of delivery as long as the abaya is in its original condition."
+              }
+            },
+            {
+              "items.question": {
+                "ar": "متى يوصلني الطلب؟",
+                "en": "When will my order arrive?"
+              },
+              "items.answer": {
+                "ar": "نجهز طلبك خلال يوم عمل، ويصل عادة خلال 2 إلى 5 أيام عمل حسب مدينتك.",
+                "en": "We prepare your order within one business day, and it usually arrives in 2 to 5 business days depending on your city."
               }
             },
             {
               "items.question": {
                 "ar": "ما طرق الدفع المتاحة؟",
-                "en": "ما طرق الدفع المتاحة؟"
+                "en": "Which payment methods can I use?"
               },
               "items.answer": {
                 "ar": "مدى، فيزا وماستركارد، Apple Pay، والدفع عند الاستلام.",
-                "en": "مدى، فيزا وماستركارد، Apple Pay، والدفع عند الاستلام."
+                "en": "mada, Visa and Mastercard, Apple Pay, and cash on delivery."
               }
             }
           ]
@@ -1971,36 +2307,36 @@
           "label": "وضع الألوان",
           "icon": "sicon-list",
           "required": false,
-          "description": "حسب جهاز الزائر يتبع الوضع الليلي في جوال أو كمبيوتر العميل",
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
           "options": [
             {
-              "label": "فاتح",
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
               "value": "light",
               "key": "light"
             },
             {
-              "label": "داكن",
+              "label": "داكن دائماً",
               "value": "dark",
               "key": "dark"
-            },
-            {
-              "label": "حسب جهاز الزائر",
-              "value": "auto",
-              "key": "auto"
             }
           ],
           "selected": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ],
           "value": [
             {
-              "label": "فاتح",
-              "value": "light",
-              "key": "light"
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
             }
           ]
         }
