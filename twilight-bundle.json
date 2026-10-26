@@ -1,11 +1,11 @@
 {
     "name": {
         "ar": "صفحة هبوط سيليا",
-        "en": "Selia Landing Page"
+        "en": "tw-selia-landing"
     },
     "description": {
-        "ar": "صفحة هبوط مستوحاة من عناصر ثيم سيليا الشهير",
-        "en": "A landing page inspired by the components of the popular Selia theme"
+        "ar": null,
+        "en": null
     },
     "author_email": "seliaagency@gmail.com",
     "support_url": "https://selia-tech.com",
