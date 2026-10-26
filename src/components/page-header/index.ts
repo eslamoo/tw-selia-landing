@@ -18,6 +18,9 @@ const css = `
 .slp-hd { background: var(--slp-section-bg, var(--slp-header)); transition: background-color .3s ease, box-shadow .3s ease; }
 .slp-hd--shadow { box-shadow: 0 1px 0 var(--slp-border), 0 8px 24px -18px rgb(0 0 0 / 35%); }
 .slp-hd--trans:not(.is-solid) { background: transparent; box-shadow: none; }
+/* Pinned while scrolling: Selia's frosted header */
+.slp-hd.is-solid { background: color-mix(in srgb, var(--slp-section-bg, var(--slp-header)) 72%, transparent); box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); }
 /* Previews clip the section list with overflow: hidden, which blocks sticky; clip does not */
 .components-grid:has(.slp-hd--sticky) { overflow: clip; }
 .slp-hd__inner { position: relative; display: flex; align-items: center; justify-content: center; max-width: 1440px; margin-inline: auto; padding: .75rem 10px; min-height: calc(var(--slp-hd-logo, 60px) + 1.5rem); }
@@ -168,7 +171,7 @@ export default class PageHeader extends LitElement {
 
   private onScroll = () => {
     const cfg = getConfig(this.config);
-    const solid = Boolean(cfg.transparent && cfg.sticky) && this.getBoundingClientRect().top <= 1 && scrollTop() > 1;
+    const solid = Boolean(cfg.sticky) && this.getBoundingClientRect().top <= 1 && scrollTop() > 1;
     if (solid !== this.solid) this.solid = solid;
   };
 
