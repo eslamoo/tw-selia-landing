@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Template banners</title>
+<!-- Rendered by scripts/make-banners.sh. ?id=<banner>&lang=ar|en, product images from ./src -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=block" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow: hidden; }
+  body { font-family: "IBM Plex Sans Arabic", sans-serif; }
+  .b { position: relative; overflow: hidden; display: flex; align-items: center; }
+  .sand { background: radial-gradient(70% 90% at 30% 20%, #f7efe5 0%, rgb(247 239 229 / 0%) 70%), linear-gradient(160deg, #efe4d6 0%, #e2d2bf 100%); color: #1a1410; }
+  .sand-deep { background: radial-gradient(70% 90% at 70% 20%, #efe2d1 0%, rgb(239 226 209 / 0%) 70%), linear-gradient(160deg, #e3d3bf 0%, #cfb89c 100%); color: #1a1410; }
+  .night { background: radial-gradient(55% 75% at var(--gx, 28%) 55%, rgb(212 165 116 / 34%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(160deg, #1f1812 0%, #0c0a09 100%); color: #fff; }
+  .gold { background: radial-gradient(60% 80% at var(--gx, 30%) 40%, #f3d9b6 0%, rgb(243 217 182 / 0%) 70%), linear-gradient(160deg, #dcb88d 0%, #b9895a 100%); color: #1a1410; }
+  .arch { position: absolute; border: 2px solid rgb(185 138 78 / 45%); border-bottom: 0; border-radius: 999px 999px 0 0; }
+  .night .arch { border-color: rgb(212 165 116 / 30%); }
+  .copy { position: relative; z-index: 2; width: var(--cw, 52%); padding-inline: var(--pad, 7%); }
+  .eyebrow { display: inline-block; margin-bottom: .9em; font-size: var(--es, 22px); font-weight: 500; letter-spacing: 0; color: #9a7444; }
+  .night .eyebrow { color: #d4a574; }
+  h1 { font-size: var(--hs, 64px); line-height: 1.25; font-weight: 700; }
+  .line { width: 72px; height: 3px; margin: .55em 0 .6em; border-radius: 3px; background: #b98a4e; }
+  .night .line, .gold .line { background: currentColor; opacity: .55; }
+  .night .line { background: #d4a574; opacity: 1; }
+  p { font-size: var(--ps, 28px); line-height: 1.6; opacity: .78; }
+  .cut { position: absolute; bottom: 0; z-index: 1; height: var(--ih, 100%); width: auto; }
+  .sand .cut, .sand-deep .cut, .sand .photo { mix-blend-mode: multiply; }
+  .cut.mid { bottom: auto; top: 50%; transform: translateY(-50%); }
+  .glow { position: absolute; z-index: 0; border-radius: 50%; background: radial-gradient(closest-side, rgb(240 200 150 / 55%), rgb(240 200 150 / 0%)); }
+  .floor { position: absolute; z-index: 0; height: 3%; border-radius: 50%; background: radial-gradient(closest-side, rgb(0 0 0 / 45%), rgb(0 0 0 / 0%)); filter: blur(4px); }
+  .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shade { position: absolute; inset: 0; z-index: 1; }
+  .band { position: absolute; inset-inline: 0; bottom: 0; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding-inline: 7%; }
+  .reflect { position: absolute; z-index: 0; opacity: .18; transform: scaleY(-1); -webkit-mask-image: linear-gradient(to top, rgb(0 0 0 / 70%), transparent 45%); mask-image: linear-gradient(to top, rgb(0 0 0 / 70%), transparent 45%); }
+</style>
+</head>
+<body>
+<div id="b"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const id = q.get("id");
+  const lang = q.get("lang") || "ar";
+  const ar = lang === "ar";
+  document.documentElement.lang = lang;
+  document.documentElement.dir = ar ? "rtl" : "ltr";
+  const T = (a, e) => (ar ? a : e);
+  // Product images are on the end side: left in Arabic, right in English
+  const end = ar ? "left" : "right";
+  const img = (name) => `src/${name}`;
+  const copy = (eyebrow, title, text, vars = "") => `<div class="copy" style="${vars}">
+      ${eyebrow ? `<span class="eyebrow">${eyebrow}</span>` : ""}<h1>${title}</h1><div class="line"></div>${text ? `<p>${text}</p>` : ""}</div>`;
+  const split = (theme, w, h, eyebrow, title, text, cutout, opts = {}) => ({
+    w, h, cls: theme,
+    html: `${opts.arch ? `<div class="arch" style="${end}:${opts.arch[0]}px;top:${opts.arch[1]}px;width:${opts.arch[2]}px;height:${h}px"></div>` : ""}
+      ${opts.glow ? `<div class="glow" style="${end}:${opts.glow[0]}px;top:${opts.glow[1]}px;width:${opts.glow[2]}px;height:${opts.glow[2]}px"></div>` : ""}
+      ${opts.floor ? `<div class="floor" style="${end}:${opts.floor[0]}px;bottom:${opts.floor[1]}px;width:${opts.floor[2]}px"></div>` : ""}
+      <img class="cut${opts.mid ? " mid" : ""}" src="${img(cutout)}" style="${end}:${opts.x || 0}px;--ih:${opts.ih || "100%"};${opts.bottom ? `bottom:${opts.bottom}px` : ""}" />
+      ${copy(eyebrow, title, text, opts.copy || "")}`,
+  });
+
+  const B = {
+    // Abaya: double banner 1200x600, three banners 1200x900
+    "abaya-d1": split("sand", 1200, 600, T("عباية الكلوش الملكية", "The royal cloche abaya"), T("تطريز شك فاخر", "Fine bead embroidery"),
+      T("تفاصيل مشغولة بعناية على الأكمام", "Carefully worked details on the sleeves"), "abaya-front.png",
+      { x: 60, ih: "96%", arch: [40, 40, 520] }),
+    "abaya-d2": split("sand-deep", 1200, 600, T("قصة كلوش", "Cloche cut"), T("تنساب مع كل خطوة", "Flows with every step"),
+      T("قصة واسعة تمنحك إطلالة راقية", "A wide cut for a refined look"), "abaya-walk.png",
+      { x: 140, ih: "94%", bottom: 10, arch: [80, 50, 440], copy: "--cw:60%" }),
+    "abaya-t1": {
+      w: 1200, h: 900, cls: "sand",
+      html: `<img class="photo" src="${img("abaya-sleeve.jpg")}" style="height:64%;object-position:50% 45%" />
+        <div class="band" style="height:36%">${copy("", T("تفاصيل الأكمام", "Sleeve details"), T("شك فاخر مشغول بعناية", "Fine, careful beadwork"), "--cw:100%;--pad:0;--hs:62px;--ps:30px")}</div>`,
+    },
+    "abaya-t2": split("sand-deep", 1200, 900, "", T("قماش ملكي", "Royal fabric"), T("خامة ناعمة تنسدل بأناقة", "A soft fabric that falls gracefully"),
+      "abaya-side.png", { x: 80, ih: "94%", bottom: 20, arch: [30, 70, 470], copy: "--cw:60%;--hs:72px;--ps:32px" }),
+    "abaya-t3": split("sand", 1200, 900, "", T("شحن مجاني", "Free shipping"), T("لجميع مناطق المملكة", "Anywhere in the Kingdom"),
+      "abaya-full.png", { x: 90, ih: "94%", bottom: 20, arch: [40, 70, 460], copy: "--cw:60%;--hs:72px;--ps:32px" }),
+
+    // Perfume: double banner 1200x600, three banners 1200x900
+    "perfume-d1": split("night", 1200, 600, T("او دي بارفيوم انتنس", "Eau de parfum intense"), T("ثبات من الصباح إلى المساء", "Lasts from morning to night"),
+      T("نفحات دافئة تبقى معك طوال اليوم", "Warm notes that stay with you all day"), "perfume-bottle.png",
+      { x: 150, ih: "78%", bottom: 60, glow: [40, 20, 560], floor: [150, 48, 260] }),
+    "perfume-d2": split("gold", 1200, 600, "", T("جاهز للإهداء", "Ready to gift"), T("يوصلك مغلفاً بعناية مع علبته", "Arrives carefully wrapped in its box"),
+      "perfume-box.png", { x: 70, ih: "74%", bottom: 70, floor: [90, 58, 480] }),
+    "perfume-t1": {
+      w: 1200, h: 900, cls: "night",
+      html: `<img class="photo" src="${img("perfume-spray.jpg")}" style="object-position:${ar ? "35%" : "65%"} 50%" />
+        <div class="shade" style="background:linear-gradient(${ar ? "270deg" : "90deg"}, rgb(12 10 9 / 85%) 0%, rgb(12 10 9 / 55%) 40%, rgb(12 10 9 / 0%) 70%)"></div>
+        ${copy("", T("رشة واحدة تكفي", "One spray is enough"), T("تبقى معك لآخر اليوم", "It stays with you all day"), "--cw:55%;--hs:72px;--ps:32px")}`,
+    },
+    "perfume-t2": split("gold", 1200, 900, "", T("تركيز أعلى", "More concentrated"), T("او دي بارفيوم انتنس بثبات أطول", "Eau de parfum intense that lasts longer"),
+      "perfume-bottle.png", { x: 120, ih: "76%", bottom: 90, floor: [110, 76, 300], copy: "--cw:58%;--hs:72px;--ps:32px" }),
+    "perfume-t3": split("night", 1200, 900, "", T("تغليف هدية مجاني", "Free gift wrapping"), T("مع كل طلب للعطر", "With every order"),
+      "perfume-box.png", { x: 40, ih: "60%", bottom: 150, glow: [0, 160, 600], floor: [60, 136, 520], copy: "--cw:52%;--hs:68px;--ps:32px" }),
+
+    // Perfume images grid: product shots without text
+    "perfume-g1": { w: 1000, h: 1000, cls: "night", html: `<div class="glow" style="left:150px;top:120px;width:700px;height:700px"></div>
+        <img class="cut" src="${img("perfume-bottle.png")}" style="left:50%;transform:translateX(-50%);height:74%;bottom:130px" />
+        <img class="reflect" src="${img("perfume-bottle.png")}" style="left:50%;margin-left:-${0.74 * 1000 * 438 / 832 / 2}px;height:74%;top:${1000 - 130}px" />` },
+    "perfume-g2": { w: 1200, h: 600, cls: "night", html: `<img class="photo" src="${img("perfume-spray.jpg")}" style="object-position:50% 40%" />` },
+    "perfume-g3": { w: 800, h: 800, cls: "sand", html: `<img class="cut" src="${img("perfume-box.png")}" style="left:50%;transform:translateX(-50%);height:66%;bottom:130px" />
+        <div class="floor" style="left:12%;width:76%;bottom:118px"></div>` },
+    "perfume-g4": { w: 800, h: 800, cls: "night", html: `<div class="glow" style="left:60px;top:60px;width:680px;height:680px"></div>
+        <img class="cut" src="${img("perfume-bottle.png")}" style="left:50%;transform:translateX(-50%);height:190%;bottom:-760px" />` },
+    "perfume-g5": { w: 600, h: 1200, cls: "gold", html: `<img class="cut" src="${img("perfume-bottle.png")}" style="left:50%;transform:translateX(-50%);height:62%;bottom:230px" />
+        <div class="floor" style="left:18%;width:64%;bottom:214px"></div>` },
+  };
+
+  const spec = B[id];
+  const el = document.getElementById("b");
+  el.className = `b ${spec.cls}`;
+  el.style.cssText = `width:${spec.w}px;height:${spec.h}px;--gx:${ar ? "28%" : "72%"}`;
+  el.innerHTML = spec.html;
+  document.body.style.cssText = `width:${spec.w}px;height:${spec.h}px`;
+</script>
+</body>
+</html>

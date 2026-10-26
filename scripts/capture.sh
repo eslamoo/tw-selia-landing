@@ -33,13 +33,13 @@ section() { # component template window-height [extra query]
 
 ABAYA="&product=1287502680"
 PERFUME="&product=623859566"
-desktop t1 abaya-elegance 5200 "$ABAYA"
-desktop t1-dark abaya-elegance 5200 "$ABAYA&pagemode=dark"
-desktop t2 perfume-signature 4600 "$PERFUME"
-desktop t2-light perfume-signature 4600 "$PERFUME&pagemode=light"
-mobile t1 abaya-elegance 5200 "$ABAYA"
-mobile t1-dark abaya-elegance 5200 "$ABAYA&pagemode=dark"
-mobile t2 perfume-signature 4800 "$PERFUME"
+desktop t1 abaya-elegance 6400 "$ABAYA"
+desktop t1-dark abaya-elegance 6400 "$ABAYA&pagemode=dark"
+desktop t2 perfume-signature 6400 "$PERFUME"
+desktop t2-light perfume-signature 6400 "$PERFUME&pagemode=light"
+mobile t1 abaya-elegance 7400 "$ABAYA"
+mobile t1-dark abaya-elegance 7400 "$ABAYA&pagemode=dark"
+mobile t2 perfume-signature 7400 "$PERFUME"
 
 section page-header perfume-signature 300 "$PERFUME&landing=0"
 section animated-text abaya-elegance 300 "$ABAYA"
@@ -50,7 +50,7 @@ section features abaya-elegance 600 "$ABAYA"
 section images-grid abaya-elegance 900 "$ABAYA"
 section custom-reviews abaya-elegance 700 "$ABAYA"
 section faq abaya-elegance 800 "$ABAYA"
-section double-banner /harness/previews.json 500
-section three-banners /harness/previews.json 700
+section double-banner abaya-elegance 500 "$ABAYA"
+section three-banners abaya-elegance 600 "$ABAYA"
 
 ls -1 "$OUT"

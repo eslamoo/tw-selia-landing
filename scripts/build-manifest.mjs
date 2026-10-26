@@ -156,8 +156,9 @@ const components = [
       drop("source", "مصدر الشعارات", [["store", "وسائل الدفع المفعلة في المتجر"], ["custom", "شعارات مخصصة"]], "store"),
       collection("logos", "شعار", [image("logo", "الشعار", ""), text("name", "الاسم", L("", ""))], [], 0, 20),
       sw("grayscale", "رمادي حتى المرور عليه", false),
-      sw("second_row", "صف ثاني بعكس الاتجاه", false),
-      color("logos_bg", "خلفية الشعار", ""),
+      sw("second_row", "صف ثاني بعكس الاتجاه", true),
+      sw("bigger_logos", "شعارات أكبر", false),
+      color("logos_bg", "خلفية الشعار", "#eeeeee"),
       color("bg_color", "لون خلفية القسم", ""),
       scheme(),
     ],
@@ -285,6 +286,23 @@ const components = [
   },
 ];
 
+// Editor previews and template banners live in public/assets and are served from the content-addressed preview CDN
+// .salla-preview.json is local only; a fresh clone falls back to the bundle's published preview
+const PREVIEW_ID = fs.existsSync(`${ROOT}/.salla-preview.json`)
+  ? JSON.parse(fs.readFileSync(`${ROOT}/.salla-preview.json`, "utf8")).id
+  : process.env.TW_PREVIEW_ID || "eh7svsy3mkb6";
+const assetUrl = (rel) => {
+  const file = `${ROOT}/public/assets/${rel}`;
+  if (!fs.existsSync(file)) return "";
+  const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+  return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/${rel}`;
+};
+const previewUrl = (name) => assetUrl(`previews/${name}.jpg`);
+const banner = (name) => assetUrl(`banners/${name}.jpg`);
+const banners = (prefix, slots) => Object.fromEntries(slots.flatMap(([field, name]) => [
+  [field, banner(`${prefix}-${name}-ar`)], [`${field}_en`, banner(`${prefix}-${name}-en`)],
+]));
+
 // ---------- Templates (content follows the Selia preview store, theme.selia-tech.com) ----------
 const FB = "https://cdn.salla.sa/form-builder";
 const VID = "https://cdn.selia-tech.com/videos";
@@ -320,6 +338,8 @@ const templates = [
         btn_text: L("اطلبيها الآن", "Order now"), border_color: "#d4a574",
         marquee_text: L("قماش ملكي ✦ تطريز شك فاخر ✦ قصة كلوش واسعة", "Royal fabric ✦ Fine bead embroidery ✦ Wide cloche cut"), marquee_bg: "#000000",
       },
+      "double-banner": { ...banners("abaya", [["first_image", "d1"], ["second_image", "d2"]]) },
+      "three-banners": { ...banners("abaya", [["first_image", "t1"], ["second_image", "t2"], ["third_image", "t3"]]) },
       "images-grid": {
         title: L("تفاصيل العباية", "The abaya in detail"),
         image_1: `${ABAYA}/kXM5IFalDSoAebmtgsNdJ9jITtUJTsKzFjYEolbT.jpg`,
@@ -359,7 +379,7 @@ const templates = [
         ]),
       },
     },
-    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "images-grid", "features", "animated-payments", "custom-reviews", "faq"],
+    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "double-banner", "images-grid", "three-banners", "features", "animated-payments", "custom-reviews", "faq"],
   },
   {
     name: "perfume-signature",
@@ -384,6 +404,13 @@ const templates = [
         title: L("العطر اللي يكمل إطلالتك", "The scent that completes your look"), subtitle: L("نفحات دافئة بثبات طويل، في زجاجة تليق بالإهداء", "Warm notes that last, in a bottle made for gifting"),
         btn_text: L("اطلبه الآن", "Order now"), border_color: "#d4a574",
         marquee_text: L("ثبات طويل ✦ تغليف هدية ✦ شحن مجاني", "Long lasting ✦ Gift wrapped ✦ Free shipping"), marquee_bg: "#d4a574", marquee_color: "#111111",
+      },
+      "double-banner": { ...banners("perfume", [["first_image", "d1"], ["second_image", "d2"]]) },
+      "three-banners": { ...banners("perfume", [["first_image", "t1"], ["second_image", "t2"], ["third_image", "t3"]]) },
+      "images-grid": {
+        title: L("العطر عن قرب", "A closer look"),
+        image_1: banner("perfume-g1"), image_2: banner("perfume-g2"), image_3: banner("perfume-g3"), image_4: banner("perfume-g4"), image_5: banner("perfume-g5"),
+        overlay: false,
       },
       "features": {
         title: L("ليش هذا العطر؟", "Why this perfume?"),
@@ -415,7 +442,7 @@ const templates = [
         ]),
       },
     },
-    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "features", "animated-payments", "custom-reviews", "faq"],
+    order: ["animated-text", "page-header", "advanced-slider", "product-hero", "double-banner", "features", "images-grid", "three-banners", "animated-payments", "custom-reviews", "faq"],
   },
 ];
 
@@ -430,18 +457,6 @@ const applyValues = (component, values = {}) => {
   }
   return copy;
 };
-// Editor previews live in public/assets/previews and are served from the content-addressed preview CDN
-// .salla-preview.json is local only; a fresh clone falls back to the bundle's published preview
-const PREVIEW_ID = fs.existsSync(`${ROOT}/.salla-preview.json`)
-  ? JSON.parse(fs.readFileSync(`${ROOT}/.salla-preview.json`, "utf8")).id
-  : process.env.TW_PREVIEW_ID || "eh7svsy3mkb6";
-const previewUrl = (name) => {
-  const file = `${ROOT}/public/assets/previews/${name}.jpg`;
-  if (!fs.existsSync(file)) return "";
-  const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
-  return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/previews/${name}.jpg`;
-};
-// A freshly added section keeps the generic schema defaults; template copy is about one product
 const finalComponents = components.map((c) => ({ ...structuredClone(c), image: previewUrl(c.name) }));
 
 const file = `${ROOT}/twilight-bundle.json`;

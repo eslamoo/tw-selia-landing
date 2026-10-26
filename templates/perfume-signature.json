@@ -1283,6 +1283,143 @@
       ]
     },
     {
+      "title": "بانر مزدوج",
+      "icon": "sicon-layout-grid-rearrange",
+      "name": "double-banner",
+      "key": "e1639f60-7d0f-4739-aa02-e1022a4b43d3",
+      "image": "https://eslamoo.github.io/selia-videos/double-banner.png",
+      "props": {
+        "min-height": "160px"
+      },
+      "fields": [
+        {
+          "id": "first_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "المقاس المقترح 1280×322",
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c23394cccfa37df61edd4fddf09a8496fac7a250f24f566026ad4927e3988d5d/banners/perfume-d1-ar.jpg"
+        },
+        {
+          "id": "first_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "اختياري، يظهر لزوار النسخة الإنجليزية",
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9d4691dd0029054605aa8bb45f6c2be739c1aa2124fb9be12fa3eb67ff6a28e3/banners/perfume-d1-en.jpg"
+        },
+        {
+          "id": "second_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/dfad9a80bbc02bc3cad379735d661cc356ea8cf91ec36deb592a811d91cf38aa/banners/perfume-d2-ar.jpg"
+        },
+        {
+          "id": "second_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/cd9c42dd3cc60441568cacab5cbed8faf698cf22522c0110bc07e8abf2a7d9e7/banners/perfume-d2-en.jpg"
+        },
+        {
+          "id": "rounded",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حواف دائرية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "stack_mobile",
+          "type": "boolean",
+          "format": "switch",
+          "label": "بانر تحت الآخر في الجوال",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "full_width",
+          "type": "boolean",
+          "format": "switch",
+          "label": "عرض كامل بدون هوامش",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "equal_height",
+          "type": "boolean",
+          "format": "switch",
+          "label": "توحيد ارتفاع البانرات",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يقص الصور بنسبة 4:3 لتتساوى",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "مميزات متقدمة",
       "icon": "sicon-award-ribbon",
       "name": "features",
@@ -1507,6 +1644,412 @@
       ]
     },
     {
+      "title": "شبكة صور",
+      "icon": "sicon-image",
+      "name": "images-grid",
+      "key": "a0a73bfb-65ee-4db4-80ae-a82e556d9a2c",
+      "image": "https://eslamoo.github.io/selia-videos/images-grid.jpeg",
+      "props": {
+        "min-height": "520px"
+      },
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "format": "text",
+          "label": "العنوان",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "العطر عن قرب",
+            "en": "A closer look"
+          }
+        },
+        {
+          "id": "image_1",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 1",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/44c73f93b6f108e61f1365d40da8e35785e8dfbe6157b2a40b9135e648d70a4d/banners/perfume-g1.jpg"
+        },
+        {
+          "id": "title_1",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 1",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_2",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 2",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/ad82088b9a2975fa2819cf3b7804bcddb7db9de7c4ea1c26bd5493d151dee843/banners/perfume-g2.jpg"
+        },
+        {
+          "id": "title_2",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 2",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_3",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 3",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/4c7d0ff5cdc96eed16664bf57535c987451b8896df5fa6b1a0191acea09f480d/banners/perfume-g3.jpg"
+        },
+        {
+          "id": "title_3",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 3",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_4",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 4",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9c1542ba61a87620c97f214ddca25abe7fcda0182791c2b1376b02e8aa6fffc0/banners/perfume-g4.jpg"
+        },
+        {
+          "id": "title_4",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 4",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "image_5",
+          "type": "string",
+          "format": "image",
+          "label": "الصورة 5",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/1b60e201724d0aa66a5d27e71fd3c99def83d131716e037ac8685d3eece26baa/banners/perfume-g5.jpg"
+        },
+        {
+          "id": "title_5",
+          "type": "string",
+          "format": "text",
+          "label": "عنوان الصورة 5",
+          "icon": "sicon-format-text-alt",
+          "multilanguage": true,
+          "required": false,
+          "placeholder": null,
+          "description": null,
+          "minLength": 0,
+          "maxLength": 200,
+          "value": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "id": "titles_color",
+          "type": "string",
+          "format": "color",
+          "inputType": "color",
+          "label": "لون العناوين",
+          "icon": "sicon-format-fill",
+          "required": false,
+          "description": null,
+          "value": "#ffffff"
+        },
+        {
+          "id": "bottom_titles",
+          "type": "boolean",
+          "format": "switch",
+          "label": "العناوين أسفل الصور",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "overlay",
+          "type": "boolean",
+          "format": "switch",
+          "label": "تدرج خفيف فوق الصور",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "rounded",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حواف دائرية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "بانر ثلاثي",
+      "icon": "sicon-layout-grid",
+      "name": "three-banners",
+      "key": "fa4e4cfb-1280-4d0d-b449-5f0f0a97c940",
+      "image": "https://eslamoo.github.io/selia-videos/three-banners.png",
+      "props": {
+        "min-height": "160px"
+      },
+      "fields": [
+        {
+          "id": "first_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/b97fae881b695f26a53826912859b66a9d61b0417779f46b1618e1c2b1baae54/banners/perfume-t1-ar.jpg"
+        },
+        {
+          "id": "first_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/fa7ba5592ba2276ee40d8e422d608a0bec799cb6be0c8755fb12a87da0b827fc/banners/perfume-t1-en.jpg"
+        },
+        {
+          "id": "second_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/d922cb60d85e8d199f5cba8f36963b154cf14c66c0b3b7f149899b7a1cbbe51f/banners/perfume-t2-ar.jpg"
+        },
+        {
+          "id": "second_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/86bed456b723644a676a6e06c72e5aad6f12885d6d1138bf857b725f752d2105/banners/perfume-t2-en.jpg"
+        },
+        {
+          "id": "third_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثالث",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/cbe8639f44db121593d06b6020b1099cbcc40a53fb60ed402f68442595276986/banners/perfume-t3-ar.jpg"
+        },
+        {
+          "id": "third_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثالث (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9bc052212caec1724d6295f63963be89e9af1bfc674dcfdb3ac5cc2b607a12e6/banners/perfume-t3-en.jpg"
+        },
+        {
+          "id": "rounded",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حواف دائرية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "stack_mobile",
+          "type": "boolean",
+          "format": "switch",
+          "label": "بانر تحت الآخر في الجوال",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "full_width",
+          "type": "boolean",
+          "format": "switch",
+          "label": "عرض كامل بدون هوامش",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "equal_height",
+          "type": "boolean",
+          "format": "switch",
+          "label": "توحيد ارتفاع البانرات",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يقص الصور بنسبة 4:3 لتتساوى",
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "وسائل الدفع المتحركة",
       "icon": "sicon-credit-card",
       "name": "animated-payments",
@@ -1627,6 +2170,17 @@
           "icon": "sicon-toggle-off",
           "required": false,
           "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "bigger_logos",
+          "type": "boolean",
+          "format": "switch",
+          "label": "شعارات أكبر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
           "value": false,
           "selected": false
         },
@@ -1639,7 +2193,7 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": ""
+          "value": "#eeeeee"
         },
         {
           "id": "bg_color",

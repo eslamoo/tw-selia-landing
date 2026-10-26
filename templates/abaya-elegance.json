@@ -1239,6 +1239,143 @@
       ]
     },
     {
+      "title": "بانر مزدوج",
+      "icon": "sicon-layout-grid-rearrange",
+      "name": "double-banner",
+      "key": "e1639f60-7d0f-4739-aa02-e1022a4b43d3",
+      "image": "https://eslamoo.github.io/selia-videos/double-banner.png",
+      "props": {
+        "min-height": "160px"
+      },
+      "fields": [
+        {
+          "id": "first_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "المقاس المقترح 1280×322",
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9f9aab42d0269589dcf0c79be3731dcd617ad65216360124317ffe92631a6d60/banners/abaya-d1-ar.jpg"
+        },
+        {
+          "id": "first_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": "اختياري، يظهر لزوار النسخة الإنجليزية",
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/6f8163c9d1bd5e63bfa25315aa837035af7ffad4ef642ce174243a60f162217f/banners/abaya-d1-en.jpg"
+        },
+        {
+          "id": "second_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/7484d71972b0937ac0b6bb5783f6b114e53a3bcb9c36d9e33e8becd693123dc9/banners/abaya-d2-ar.jpg"
+        },
+        {
+          "id": "second_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/618d316d6ea1c102ee9753c816f271fcaa01d667b0ce28ae3d961ec14b55ad4e/banners/abaya-d2-en.jpg"
+        },
+        {
+          "id": "rounded",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حواف دائرية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "stack_mobile",
+          "type": "boolean",
+          "format": "switch",
+          "label": "بانر تحت الآخر في الجوال",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "full_width",
+          "type": "boolean",
+          "format": "switch",
+          "label": "عرض كامل بدون هوامش",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "equal_height",
+          "type": "boolean",
+          "format": "switch",
+          "label": "توحيد ارتفاع البانرات",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يقص الصور بنسبة 4:3 لتتساوى",
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "شبكة صور",
       "icon": "sicon-image",
       "name": "images-grid",
@@ -1441,6 +1578,163 @@
           "icon": "sicon-toggle-off",
           "required": false,
           "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "color_scheme",
+          "type": "items",
+          "format": "dropdown-list",
+          "source": "Manual",
+          "label": "وضع الألوان",
+          "icon": "sicon-list",
+          "required": false,
+          "description": "حسب وضع الصفحة يتبع زر الوضع الداكن في رأس الصفحة، أو جهاز الزائر إذا لم تستخدم رأس الصفحة",
+          "options": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            },
+            {
+              "label": "فاتح دائماً",
+              "value": "light",
+              "key": "light"
+            },
+            {
+              "label": "داكن دائماً",
+              "value": "dark",
+              "key": "dark"
+            }
+          ],
+          "selected": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ],
+          "value": [
+            {
+              "label": "حسب وضع الصفحة",
+              "value": "auto",
+              "key": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "بانر ثلاثي",
+      "icon": "sicon-layout-grid",
+      "name": "three-banners",
+      "key": "fa4e4cfb-1280-4d0d-b449-5f0f0a97c940",
+      "image": "https://eslamoo.github.io/selia-videos/three-banners.png",
+      "props": {
+        "min-height": "160px"
+      },
+      "fields": [
+        {
+          "id": "first_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/fad2e04a3b040f2d669f0941cd20f4cd90658565dd89c3f226144c8b2bc4b0c4/banners/abaya-t1-ar.jpg"
+        },
+        {
+          "id": "first_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الأول (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/a2c235f89837023c34cbdf016d7c9b22480c32070c2254f5e5f3ff5ba54dbb5f/banners/abaya-t1-en.jpg"
+        },
+        {
+          "id": "second_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/44c9497be84912fab2ff2089f1e35960ec22592c2d352976b9af1fbc39a15125/banners/abaya-t2-ar.jpg"
+        },
+        {
+          "id": "second_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثاني (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c82bd68930c536b0e03a13e613d2ec3a354b121e96c95699b4cb9e28a77add93/banners/abaya-t2-en.jpg"
+        },
+        {
+          "id": "third_image",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثالث",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/e1b22c1dba030cbc94235c1a41ef48e5895369f3e36baccce41cbdc12d1e6916/banners/abaya-t3-ar.jpg"
+        },
+        {
+          "id": "third_image_en",
+          "type": "string",
+          "format": "image",
+          "label": "البانر الثالث (إنجليزي)",
+          "icon": "sicon-image",
+          "required": false,
+          "description": null,
+          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/2c3a0e6c3dcee050d5da92ecd6cda363036a7218b131db0c7ca08dbb1510d989/banners/abaya-t3-en.jpg"
+        },
+        {
+          "id": "rounded",
+          "type": "boolean",
+          "format": "switch",
+          "label": "حواف دائرية",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "stack_mobile",
+          "type": "boolean",
+          "format": "switch",
+          "label": "بانر تحت الآخر في الجوال",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "full_width",
+          "type": "boolean",
+          "format": "switch",
+          "label": "عرض كامل بدون هوامش",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
+          "value": false,
+          "selected": false
+        },
+        {
+          "id": "equal_height",
+          "type": "boolean",
+          "format": "switch",
+          "label": "توحيد ارتفاع البانرات",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": "يقص الصور بنسبة 4:3 لتتساوى",
           "value": true,
           "selected": true
         },
@@ -1832,6 +2126,17 @@
           "icon": "sicon-toggle-off",
           "required": false,
           "description": null,
+          "value": true,
+          "selected": true
+        },
+        {
+          "id": "bigger_logos",
+          "type": "boolean",
+          "format": "switch",
+          "label": "شعارات أكبر",
+          "icon": "sicon-toggle-off",
+          "required": false,
+          "description": null,
           "value": false,
           "selected": false
         },
@@ -1844,7 +2149,7 @@
           "icon": "sicon-format-fill",
           "required": false,
           "description": null,
-          "value": ""
+          "value": "#eeeeee"
         },
         {
           "id": "bg_color",

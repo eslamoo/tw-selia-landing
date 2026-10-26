@@ -345,7 +345,7 @@
             "icon": "sicon-image-carousel",
             "name": "advanced-slider",
             "key": "5d309060-1e70-4d50-bafb-5dcf25c2c27d",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/df92ccef3a03869428c00fca74a435ec53c1d0b7db6448389283bbd199d5847a/previews/advanced-slider.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/6ea367aafc1146d08f61bb486d8f9b839789522c34a0541fc1b5ca9b87af6afc/previews/advanced-slider.jpg",
             "props": {
                 "min-height": "420px"
             },
@@ -831,7 +831,7 @@
             "icon": "sicon-shopping-bag",
             "name": "product-hero",
             "key": "8ef2d927-0bc3-48e6-863c-f10a3063327e",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/23d327fec3537027390b9eefa9b98c42ff1eb4ced8996855a6c24344d47b2677/previews/product-hero.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/1183540b056643d24a3ee9c26251c694e0ef699a783c87708059c309d91e9fed/previews/product-hero.jpg",
             "props": {
                 "min-height": "640px"
             },
@@ -1241,7 +1241,7 @@
             "icon": "sicon-credit-card",
             "name": "animated-payments",
             "key": "55bf5609-2043-49ee-ac2e-6c3328e98875",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/19cfac11981cbcd77f39e3322fa683214a96bfd1ada68760005a68b39e0c2831/previews/animated-payments.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/f04ba7ae8811f324bc51329c1d16f489d720a60ce28dfe516f0e043ce781562d/previews/animated-payments.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1357,6 +1357,17 @@
                     "icon": "sicon-toggle-off",
                     "required": false,
                     "description": null,
+                    "value": true,
+                    "selected": true
+                },
+                {
+                    "id": "bigger_logos",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "شعارات أكبر",
+                    "icon": "sicon-toggle-off",
+                    "required": false,
+                    "description": null,
                     "value": false,
                     "selected": false
                 },
@@ -1369,7 +1380,7 @@
                     "icon": "sicon-format-fill",
                     "required": false,
                     "description": null,
-                    "value": ""
+                    "value": "#eeeeee"
                 },
                 {
                     "id": "bg_color",
@@ -1654,7 +1665,7 @@
             "icon": "sicon-layout-grid-rearrange",
             "name": "double-banner",
             "key": "e1639f60-7d0f-4739-aa02-e1022a4b43d3",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/cd192c80f738045372d5f57d63b70710cd93776c584f7e2324a7d4067e8c23a1/previews/double-banner.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/48f824bc5f4c20750566eced1b2e57d2a391c38546bd9d668e18f444e53cda24/previews/double-banner.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1791,7 +1802,7 @@
             "icon": "sicon-layout-grid",
             "name": "three-banners",
             "key": "fa4e4cfb-1280-4d0d-b449-5f0f0a97c940",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/1b248f56a77cf12fc93cd9d06e5ac3f5852a5822198905e13947c6897eabab5b/previews/three-banners.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/a361f7d435ee0d3746aaff1d2cf19eb6e21a6fda7f95531103d8936e48fbcb95/previews/three-banners.jpg",
             "props": {
                 "min-height": "160px"
             },
@@ -1948,7 +1959,7 @@
             "icon": "sicon-image",
             "name": "images-grid",
             "key": "a0a73bfb-65ee-4db4-80ae-a82e556d9a2c",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c40092a4b2bf651765312594c8d5c20519f228e34d91aac5c982586b99b65bb8/previews/images-grid.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/e03c4558fd30e84073b94551beebd507346755af7717bba670673aa3f5b9c8b0/previews/images-grid.jpg",
             "props": {
                 "min-height": "520px"
             },
@@ -2197,7 +2208,7 @@
             "icon": "sicon-chat-bubbles",
             "name": "custom-reviews",
             "key": "8a3aab65-04c1-4c21-8a28-cd077242551a",
-            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/00d767432b5392fe4bc6c5e103475991650029a598f6bec3ec56518026094ddd/previews/custom-reviews.jpg",
+            "image": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/96425ebff36e6efb833304da23cf7d1ac0b372422c9cb9c3e0878a787920eb3a/previews/custom-reviews.jpg",
             "props": {
                 "min-height": "300px"
             },
@@ -2544,7 +2555,7 @@
             "path": "templates.abaya-elegance",
             "category_id": "814202285",
             "primary_color": "",
-            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/11bdce7fa5967bb1e06ffc3d7916b7df85f599b50443d615fe25aa1df3bf2670/templates-thumbs/abaya-elegance.jpg",
+            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/b87e7674f69a73907e4471d79705fada9b08a72f9db7f34e670e9ac1732878dd/templates-thumbs/abaya-elegance.jpg",
             "is_default": true,
             "public_preview_url": "https://salla.design/preview/s/eh7svsy3mkb6/abaya-elegance"
         },
@@ -2553,7 +2564,7 @@
             "path": "templates.perfume-signature",
             "category_id": "665151403",
             "primary_color": "",
-            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/1805c16312fcfc75c6dd9f5fbe4f5c0ca7602c74a0f1b137aad736cf094526a1/templates-thumbs/perfume-signature.jpg",
+            "thumbnail": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/016b2bbd8cf98c4b1c17895923b3a59b0154e7a5b982a15efc5352bb49981cd9/templates-thumbs/perfume-signature.jpg",
             "is_default": false,
             "public_preview_url": "https://salla.design/preview/s/eh7svsy3mkb6/perfume-signature"
         }
