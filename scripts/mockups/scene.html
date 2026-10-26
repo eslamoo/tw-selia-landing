@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Marketplace mockups</title>
+<!-- Rendered by scripts/make-marketplace.sh at 1920x1080, scale 2. ?scene=1..6, screens from ./screens -->
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  .stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; perspective: 2600px; }
+
+  /* Backdrops */
+  .light { background: radial-gradient(900px 620px at 24% 18%, #fffaf3 0%, rgb(255 250 243 / 0%) 70%), linear-gradient(165deg, #f6eee3 0%, #ead9c4 100%); }
+  .dark { background: radial-gradient(760px 560px at 62% 46%, rgb(212 165 116 / 30%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(160deg, #1d1915 0%, #0c0a09 100%); }
+  .split { background: linear-gradient(90deg, #f3e9dc 0%, #ead9c4 50%, #191512 50%, #0c0a09 100%); }
+  .blend { background: radial-gradient(700px 500px at 50% 60%, rgb(212 165 116 / 26%) 0%, rgb(212 165 116 / 0%) 70%), linear-gradient(115deg, #f2e7d8 0%, #e3cfb5 42%, #2a231d 58%, #0d0b0a 100%); }
+  .floor { position: absolute; inset: auto 0 0 0; height: 230px; }
+  .light .floor, .blend .floor { background: linear-gradient(180deg, rgb(201 170 132 / 0%) 0%, rgb(201 170 132 / 22%) 100%); }
+  .dark .floor { background: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 35%) 100%); }
+  .arch { position: absolute; border-radius: 999px 999px 0 0; }
+  .light .arch.fill { background: rgb(255 255 255 / 38%); }
+  .arch.line { border: 2px solid rgb(212 165 116 / 45%); border-bottom: 0; }
+  .dark .arch.line, .split .arch.line.on-dark { border-color: rgb(212 165 116 / 28%); }
+  .grain { position: absolute; inset: 0; opacity: .07; mix-blend-mode: multiply; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+  .dark .grain { mix-blend-mode: screen; opacity: .05; }
+
+  /* Laptop */
+  .mac { position: absolute; width: var(--w); transform-style: preserve-3d; }
+  .mac-lid { position: relative; padding: calc(var(--w) * .021) calc(var(--w) * .021) calc(var(--w) * .03); border-radius: calc(var(--w) * .027) calc(var(--w) * .027) calc(var(--w) * .006) calc(var(--w) * .006);
+    background: #0a0a0b; box-shadow: 0 0 0 calc(var(--w) * .0016) #a7a9ae, inset 0 0 0 calc(var(--w) * .0022) #2a2a2d; }
+  .mac-screen { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: calc(var(--w) * .004); background: #000; }
+  .mac-screen img, .phone-screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .mac-screen::after, .phone-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(118deg, rgb(255 255 255 / 9%) 0%, rgb(255 255 255 / 2%) 38%, rgb(255 255 255 / 0%) 39%); pointer-events: none; }
+  .mac-cam { position: absolute; top: 0; left: 50%; width: calc(var(--w) * .085); height: calc(var(--w) * .021); transform: translateX(-50%); }
+  .mac-cam::after { content: ""; position: absolute; left: 50%; top: 42%; width: calc(var(--w) * .0055); height: calc(var(--w) * .0055); border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle at 35% 35%, #3a4a5e, #0c0f14 70%); }
+  .mac-base { position: relative; width: 112%; margin-left: -6%; height: calc(var(--w) * .026);
+    border-radius: 0 0 calc(var(--w) * .03) calc(var(--w) * .03) / 0 0 calc(var(--w) * .016) calc(var(--w) * .016);
+    background: linear-gradient(180deg, #f2f3f5 0%, #d4d6da 30%, #b4b7bc 70%, #8f9297 100%); box-shadow: inset 0 1px 0 #fff; }
+  .mac-base::before { content: ""; position: absolute; top: 0; left: 50%; width: 15%; height: 42%; transform: translateX(-50%); border-radius: 0 0 calc(var(--w) * .012) calc(var(--w) * .012); background: linear-gradient(180deg, #a6a9ae, #d3d5d9); }
+  .mac-shadow { position: absolute; left: -4%; right: -4%; bottom: calc(var(--w) * -.03); height: calc(var(--w) * .05); border-radius: 50%; background: radial-gradient(closest-side, rgb(30 20 10 / 45%), rgb(30 20 10 / 0%)); filter: blur(6px); }
+
+  /* Phone */
+  .phone { position: absolute; width: var(--pw); padding: calc(var(--pw) * .034); border-radius: calc(var(--pw) * .17); background: #101012;
+    box-shadow: 0 0 0 calc(var(--pw) * .007) #8d9096, inset 0 0 0 calc(var(--pw) * .01) #2f3034, 0 50px 90px -40px rgb(20 12 4 / 60%), 0 20px 40px -25px rgb(20 12 4 / 45%); }
+  .phone-screen { position: relative; aspect-ratio: 390 / 844; overflow: hidden; padding-top: 12%; border-radius: calc(var(--pw) * .136); background: var(--sb, #000); }
+  .status { position: absolute; top: 0; inset-inline: 0; height: 12%; aspect-ratio: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 9% 0 10%; color: var(--sbc, #fff);
+    font: 600 calc(var(--pw) * .045) / 1 -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif; direction: ltr; }
+  .status .icons { display: flex; align-items: center; gap: calc(var(--pw) * .014); }
+  .bars { display: flex; align-items: flex-end; gap: calc(var(--pw) * .005); height: calc(var(--pw) * .03); }
+  .bars i { display: block; width: calc(var(--pw) * .008); border-radius: 1px; background: currentColor; }
+  .battery { position: relative; width: calc(var(--pw) * .068); height: calc(var(--pw) * .032); border: 1.5px solid currentColor; border-radius: calc(var(--pw) * .01); opacity: .9; }
+  .battery::before { content: ""; position: absolute; inset: 1.5px; right: 22%; border-radius: 2px; background: currentColor; }
+  .battery::after { content: ""; position: absolute; right: -4px; top: 30%; width: 2px; height: 40%; border-radius: 0 2px 2px 0; background: currentColor; }
+  .island { position: absolute; top: calc(var(--pw) * .062); left: 50%; width: 31%; height: calc(var(--pw) * .088); transform: translateX(-50%); border-radius: 999px; background: #050505; z-index: 2; }
+  .island::after { content: ""; position: absolute; right: 16%; top: 50%; width: calc(var(--pw) * .03); height: calc(var(--pw) * .03); border-radius: 50%; transform: translateY(-50%); background: radial-gradient(circle at 35% 35%, #2c3a4c, #07090c 70%); }
+  .key { position: absolute; width: calc(var(--pw) * .012); border-radius: 3px; background: linear-gradient(90deg, #6e7176, #b4b7bc); }
+  .key.l { left: calc(var(--pw) * -.017); } .key.r { right: calc(var(--pw) * -.017); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage"></div>
+<script>
+  const scene = Number(new URLSearchParams(location.search).get("scene") || 1);
+  const S = (name) => `screens/${name}.png`;
+  const mac = (shot, x, y, w, t = "") => `<div class="mac" style="--w:${w}px;left:${x}px;top:${y}px;transform:${t}">
+      <div class="mac-shadow"></div>
+      <div class="mac-lid"><div class="mac-screen"><img src="${S(shot)}" /></div><div class="mac-cam"></div></div>
+      <div class="mac-base"></div></div>`;
+  // Status bar color and glyph color follow the top of each screen, like a real phone
+  const BAR = { "m-abaya-top": ["#000", "#fff"], "m-abaya-product": ["#fff", "#111"], "m-abaya-product-dark": ["#1d1f1f", "#fff"],
+    "m-abaya-grid": ["#fff", "#111"], "m-abaya-faq": ["#f8f8f8", "#111"], "m-perfume-top": ["#d4a574", "#111"], "m-perfume-product": ["#1d1f1f", "#fff"] };
+  const status = `<div class="status"><span>9:41</span><span class="icons"><span class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:100%"></i></span><span class="battery"></span></span></div>`;
+  const phone = (shot, x, y, w, t = "", z = 1) => `<div class="phone" style="--pw:${w}px;--sb:${BAR[shot][0]};--sbc:${BAR[shot][1]};left:${x}px;top:${y}px;transform:${t};z-index:${z}">
+      <span class="key l" style="top:22%;height:6%"></span><span class="key l" style="top:31%;height:9%"></span><span class="key l" style="top:42%;height:9%"></span><span class="key r" style="top:32%;height:14%"></span>
+      <div class="phone-screen">${status}<img src="${S(shot)}" /></div><div class="island"></div></div>`;
+  const arch = (cls, x, y, w, h) => `<div class="arch ${cls}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`;
+
+  const scenes = {
+    1: ["light", arch("fill", 520, 90, 880, 1000) + arch("line", 470, 40, 980, 1060) +
+        mac("d-abaya-top", 150, 190, 1200, "rotateY(9deg)") + phone("m-abaya-top", 1400, 210, 330, "rotateY(-10deg)", 2)],
+    2: ["light", arch("fill", 1040, 110, 760, 980) + arch("line", 990, 60, 860, 1040) +
+        mac("d-abaya-product", 700, 200, 1080, "rotateY(-9deg)") + phone("m-abaya-product", 200, 150, 360, "rotateY(10deg)", 2)],
+    3: ["dark", arch("line", 760, 40, 980, 1060) +
+        mac("d-perfume-top", 600, 190, 1200, "rotateY(-9deg)") + phone("m-perfume-top", 180, 210, 330, "rotateY(10deg)", 2)],
+    4: ["split", arch("line", 230, 120, 600, 980) + arch("line on-dark", 1090, 120, 600, 980) +
+        phone("m-abaya-product", 560, 120, 380, "rotateY(12deg)") + phone("m-abaya-product-dark", 980, 120, 380, "rotateY(-12deg)")],
+    5: ["light", arch("fill", 300, 90, 880, 1000) + arch("line", 250, 40, 980, 1060) +
+        mac("d-abaya-trust", 130, 190, 1200, "rotateY(9deg)") + phone("m-abaya-faq", 1410, 210, 330, "rotateY(-10deg)", 2)],
+    6: ["blend", arch("line", 610, 60, 700, 1020) +
+        phone("m-abaya-top", 300, 190, 320, "rotateY(18deg) rotateZ(-3deg)", 1) +
+        phone("m-perfume-product", 790, 110, 350, "translateZ(60px)", 3) +
+        phone("m-abaya-grid", 1300, 190, 320, "rotateY(-18deg) rotateZ(3deg)", 1)],
+  };
+  const [bg, html] = scenes[scene];
+  const stage = document.getElementById("stage");
+  stage.className = `stage ${bg}`;
+  stage.innerHTML = `<div class="floor"></div>${html}<div class="grain"></div>`;
+</script>
+</body>
+</html>
