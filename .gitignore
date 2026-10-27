@@ -11,3 +11,9 @@ node_modules/
 CLAUDE.md
 .claude/
 .playwright-mcp/
+
+# Images live on cdn.selia-tech.com or in the Partners Portal, never in the repo
+media/
+templates-thumbs/
+marketplace/*.jpg
+marketplace/*.png

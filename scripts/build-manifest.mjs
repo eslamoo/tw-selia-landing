@@ -1,7 +1,6 @@
 // Source of truth for the section schemas in twilight-bundle.json and the templates/*.json files.
 // Run from the repo root: node scripts/build-manifest.mjs
 import fs from "node:fs";
-import crypto from "node:crypto";
 
 const ROOT = process.cwd();
 const L = (ar, en) => ({ ar, en });
@@ -309,23 +308,14 @@ const components = [
   },
 ];
 
-// Editor previews and template banners live in public/assets and are served from the content-addressed preview CDN
-// .salla-preview.json is local only; a fresh clone falls back to the bundle's published preview
-const PREVIEW_ID = fs.existsSync(`${ROOT}/.salla-preview.json`)
-  ? JSON.parse(fs.readFileSync(`${ROOT}/.salla-preview.json`, "utf8")).id
-  : process.env.TW_PREVIEW_ID || "eh7svsy3mkb6";
-const assetUrl = (rel) => {
-  const file = `${ROOT}/public/assets/${rel}`;
-  if (!fs.existsSync(file)) return "";
-  const hash = crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
-  return `https://cdn.assets.salla.network/previews/${PREVIEW_ID}/assets/${hash}/${rel}`;
+// Section previews and template banners are served from Selia's CDN at the URLs scripts/upload-cdn.sh records
+const CDN = JSON.parse(fs.readFileSync(`${ROOT}/scripts/cdn-assets.json`, "utf8"));
+const cdnUrl = (rel) => {
+  if (!CDN[rel]) throw new Error(`${rel} is not on the CDN yet, run scripts/upload-cdn.sh`);
+  return CDN[rel];
 };
-// Section previews are served from Selia's CDN under the names scripts/upload-cdn.sh uploads
-const previewUrl = (name) => {
-  const hash = crypto.createHash("sha256").update(fs.readFileSync(`${ROOT}/public/assets/previews/${name}.jpg`)).digest("hex");
-  return `https://cdn.selia-tech.com/images/selia-landing/${name}-${hash.slice(0, 8)}.jpg`;
-};
-const banner = (name) => assetUrl(`banners/${name}.jpg`);
+const previewUrl = (name) => cdnUrl(`previews/${name}.jpg`);
+const banner = (name) => cdnUrl(`banners/${name}.jpg`);
 const banners = (prefix, slots) => Object.fromEntries(slots.flatMap(([field, name]) => [
   [field, banner(`${prefix}-${name}-ar`)], [`${field}_en`, banner(`${prefix}-${name}-en`)],
 ]));

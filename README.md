@@ -88,17 +88,21 @@ The harness loads the store settings, Twilight and the bundles core from the CDN
 4. `scripts/make-marketplace.sh <dir>` builds the listing screenshots: realistic iPhone and MacBook frames
    drawn in CSS (`scripts/mockups/scene.html`) around crops of those captures, rendered by headless Chrome
    at 2x. Crop offsets are where each section starts in the capture.
-   The bundle icon `marketplace/icon.png` is the Selia theme's portal icon (the سيليا THEME logo).
+   The bundle icon is the Selia theme's portal icon (the سيليا THEME logo), uploaded in the portal.
 5. `scripts/make-banners.sh` renders the template banners and the perfume grid shots
-   (`scripts/banners/banner.html`) into `public/assets/banners`, in Arabic and English, from the preview
-   store's product photos. They are served from the preview CDN.
+   (`scripts/banners/banner.html`) into `media/banners`, in Arabic and English, from the preview
+   store's product photos. They are served from cdn.selia-tech.com.
 6. Template thumbnails (`templates-thumbs/`) are the top 768x1195 of each full desktop capture. Run
    `RESET_THUMBS=1 node scripts/build-manifest.mjs` before `tw-preview` so it uploads new ones.
 
 Section images (the `image` of each component, shown in the marketplace and the editor) live in
-`public/assets/previews/`. `scripts/make-section-images.sh <dir>` renders them from the section captures
-in one neutral frame (`scripts/sections/frame.html`). `scripts/upload-cdn.sh` uploads them to
-cdn.selia-tech.com (R2 bucket `selia-videos`, wrangler logged in) as `<name>-<sha256 prefix>.jpg`, the
-same URLs `build-manifest.mjs` writes, so a new render never hits a stale cache. Upload before pushing.
+`media/previews/`. `scripts/make-section-images.sh <dir>` renders them from the section captures
+in one neutral frame (`scripts/sections/frame.html`). `scripts/upload-cdn.sh` uploads them, the template
+banners and the listing screenshots to cdn.selia-tech.com (R2 bucket `selia-videos`, wrangler logged in)
+as `<name>-<sha256 prefix>.jpg`, so a new render never hits a stale cache, and records the URLs in
+`scripts/cdn-assets.json` for `build-manifest.mjs`. Upload before building the manifest.
+
+No image is committed: `media/`, `templates-thumbs/` and the listing screenshots are gitignored, so the
+GitHub archive Salla publishes stays well under its 1 MB limit.
 
 Listing copy for the Partners Portal is in `marketplace/LISTING.md`.

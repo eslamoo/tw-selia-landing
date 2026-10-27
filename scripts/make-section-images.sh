@@ -5,7 +5,7 @@
 set -e
 CAP=${1:?capture dir}
 ROOT=${0:A:h}
-OUT=${0:A:h:h}/public/assets/previews
+OUT=${0:A:h:h}/media/previews
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 WORK="$CAP/sections"
 mkdir -p "$WORK/src"

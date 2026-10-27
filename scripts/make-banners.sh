@@ -1,10 +1,10 @@
 #!/bin/zsh
-# Renders the template banners and the perfume grid shots into public/assets/banners, from the Selia
+# Renders the template banners and the perfume grid shots into media/banners, from the Selia
 # preview store's product photos (scripts/banners/banner.html holds the designs).
 # Usage: scripts/make-banners.sh
 set -e
 ROOT=${0:A:h}
-OUT="$ROOT/../public/assets/banners"
+OUT="$ROOT/../media/banners"
 WORK=$(mktemp -d)
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 mkdir -p "$OUT" "$WORK/src"

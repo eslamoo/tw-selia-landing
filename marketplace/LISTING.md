@@ -45,7 +45,10 @@ characters and descriptions at most 100, in the Selia theme listing's voice.
 | `05-banners.jpg` | بانرات وشبكة صور | Banners and image grid | يمكنك عرض بانر مزدوج وثلاثي وشبكة صور، مع نسخة عربية وإنجليزية لكل بانر | Show double and triple banners and an image grid, with an Arabic and English version of each banner |
 | `06-perfume-sections.jpg` | أشكال عناوين ثيم سيليا | Selia title styles | اختر شكل عنوان كل قسم من نفس أشكال عناوين ثيم سيليا | Pick each section's title style from the same styles as the Selia theme |
 
-Icon: `icon.png`, the same سيليا THEME logo the Selia theme uses in the portal.
+Icon: the same سيليا THEME logo the Selia theme uses in the portal.
+
+The screenshot files are not in git: they are on cdn.selia-tech.com under
+`images/selia-landing/marketplace/` (URLs in `scripts/cdn-assets.json`) and in the portal.
 
 ## Support details
 

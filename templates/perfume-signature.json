@@ -1637,7 +1637,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": "المقاس المقترح 1280×322",
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c23394cccfa37df61edd4fddf09a8496fac7a250f24f566026ad4927e3988d5d/banners/perfume-d1-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-d1-ar-c23394cc.jpg"
         },
         {
           "id": "first_image_en",
@@ -1647,7 +1647,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": "اختياري، يظهر لزوار النسخة الإنجليزية",
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9d4691dd0029054605aa8bb45f6c2be739c1aa2124fb9be12fa3eb67ff6a28e3/banners/perfume-d1-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-d1-en-9d4691dd.jpg"
         },
         {
           "id": "second_image",
@@ -1657,7 +1657,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/dfad9a80bbc02bc3cad379735d661cc356ea8cf91ec36deb592a811d91cf38aa/banners/perfume-d2-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-d2-ar-dfad9a80.jpg"
         },
         {
           "id": "second_image_en",
@@ -1667,7 +1667,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/cd9c42dd3cc60441568cacab5cbed8faf698cf22522c0110bc07e8abf2a7d9e7/banners/perfume-d2-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-d2-en-cd9c42dd.jpg"
         },
         {
           "id": "rounded",
@@ -2689,7 +2689,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/44c73f93b6f108e61f1365d40da8e35785e8dfbe6157b2a40b9135e648d70a4d/banners/perfume-g1.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-g1-44c73f93.jpg"
         },
         {
           "id": "title_1",
@@ -2716,7 +2716,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/ad82088b9a2975fa2819cf3b7804bcddb7db9de7c4ea1c26bd5493d151dee843/banners/perfume-g2.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-g2-ad82088b.jpg"
         },
         {
           "id": "title_2",
@@ -2743,7 +2743,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/4c7d0ff5cdc96eed16664bf57535c987451b8896df5fa6b1a0191acea09f480d/banners/perfume-g3.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-g3-4c7d0ff5.jpg"
         },
         {
           "id": "title_3",
@@ -2770,7 +2770,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9c1542ba61a87620c97f214ddca25abe7fcda0182791c2b1376b02e8aa6fffc0/banners/perfume-g4.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-g4-9c1542ba.jpg"
         },
         {
           "id": "title_4",
@@ -2797,7 +2797,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/1b60e201724d0aa66a5d27e71fd3c99def83d131716e037ac8685d3eece26baa/banners/perfume-g5.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-g5-1b60e201.jpg"
         },
         {
           "id": "title_5",
@@ -2921,7 +2921,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/b97fae881b695f26a53826912859b66a9d61b0417779f46b1618e1c2b1baae54/banners/perfume-t1-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-t1-ar-b97fae88.jpg"
         },
         {
           "id": "first_image_en",
@@ -2931,7 +2931,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/fa7ba5592ba2276ee40d8e422d608a0bec799cb6be0c8755fb12a87da0b827fc/banners/perfume-t1-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-t1-en-fa7ba559.jpg"
         },
         {
           "id": "second_image",
@@ -2941,7 +2941,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/d922cb60d85e8d199f5cba8f36963b154cf14c66c0b3b7f149899b7a1cbbe51f/banners/perfume-t2-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-t2-ar-d922cb60.jpg"
         },
         {
           "id": "second_image_en",
@@ -2951,7 +2951,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/86bed456b723644a676a6e06c72e5aad6f12885d6d1138bf857b725f752d2105/banners/perfume-t2-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-t2-en-86bed456.jpg"
         },
         {
           "id": "third_image",
@@ -2961,7 +2961,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/cbe8639f44db121593d06b6020b1099cbcc40a53fb60ed402f68442595276986/banners/perfume-t3-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-t3-ar-cbe8639f.jpg"
         },
         {
           "id": "third_image_en",
@@ -2971,7 +2971,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9bc052212caec1724d6295f63963be89e9af1bfc674dcfdb3ac5cc2b607a12e6/banners/perfume-t3-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/perfume-t3-en-9bc05221.jpg"
         },
         {
           "id": "rounded",

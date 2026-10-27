@@ -1593,7 +1593,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": "المقاس المقترح 1280×322",
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/9f9aab42d0269589dcf0c79be3731dcd617ad65216360124317ffe92631a6d60/banners/abaya-d1-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-d1-ar-9f9aab42.jpg"
         },
         {
           "id": "first_image_en",
@@ -1603,7 +1603,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": "اختياري، يظهر لزوار النسخة الإنجليزية",
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/6f8163c9d1bd5e63bfa25315aa837035af7ffad4ef642ce174243a60f162217f/banners/abaya-d1-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-d1-en-6f8163c9.jpg"
         },
         {
           "id": "second_image",
@@ -1613,7 +1613,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/7484d71972b0937ac0b6bb5783f6b114e53a3bcb9c36d9e33e8becd693123dc9/banners/abaya-d2-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-d2-ar-7484d719.jpg"
         },
         {
           "id": "second_image_en",
@@ -1623,7 +1623,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/618d316d6ea1c102ee9753c816f271fcaa01d667b0ce28ae3d961ec14b55ad4e/banners/abaya-d2-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-d2-en-618d316d.jpg"
         },
         {
           "id": "rounded",
@@ -2316,7 +2316,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/fad2e04a3b040f2d669f0941cd20f4cd90658565dd89c3f226144c8b2bc4b0c4/banners/abaya-t1-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-t1-ar-fad2e04a.jpg"
         },
         {
           "id": "first_image_en",
@@ -2326,7 +2326,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/a2c235f89837023c34cbdf016d7c9b22480c32070c2254f5e5f3ff5ba54dbb5f/banners/abaya-t1-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-t1-en-a2c235f8.jpg"
         },
         {
           "id": "second_image",
@@ -2336,7 +2336,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/44c9497be84912fab2ff2089f1e35960ec22592c2d352976b9af1fbc39a15125/banners/abaya-t2-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-t2-ar-44c9497b.jpg"
         },
         {
           "id": "second_image_en",
@@ -2346,7 +2346,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/c82bd68930c536b0e03a13e613d2ec3a354b121e96c95699b4cb9e28a77add93/banners/abaya-t2-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-t2-en-c82bd689.jpg"
         },
         {
           "id": "third_image",
@@ -2356,7 +2356,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/e1b22c1dba030cbc94235c1a41ef48e5895369f3e36baccce41cbdc12d1e6916/banners/abaya-t3-ar.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-t3-ar-e1b22c1d.jpg"
         },
         {
           "id": "third_image_en",
@@ -2366,7 +2366,7 @@
           "icon": "sicon-image",
           "required": false,
           "description": null,
-          "value": "https://cdn.assets.salla.network/previews/eh7svsy3mkb6/assets/2c3a0e6c3dcee050d5da92ecd6cda363036a7218b131db0c7ca08dbb1510d989/banners/abaya-t3-en.jpg"
+          "value": "https://cdn.selia-tech.com/images/selia-landing/banners/abaya-t3-en-2c3a0e6c.jpg"
         },
         {
           "id": "rounded",
