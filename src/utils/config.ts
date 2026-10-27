@@ -20,8 +20,9 @@ export function resolveText(value: unknown): string {
   if (value === null || value === undefined || value === "") return "";
   if (typeof value === "string") return value;
   if (typeof value === "object") {
-    const obj = value as Record<string, string>;
-    return obj[getLocale()] || obj.ar || obj.en || "";
+    const obj = value as Record<string, unknown>;
+    const text = obj[getLocale()] || obj.ar || obj.en;
+    return typeof text === "string" ? text : "";
   }
   return String(value);
 }

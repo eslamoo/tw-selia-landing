@@ -13,8 +13,8 @@ function l(t) {
   if (t == null || t === "") return "";
   if (typeof t == "string") return t;
   if (typeof t == "object") {
-    const e = t;
-    return e[a()] || e.ar || e.en || "";
+    const e = t, r = e[a()] || e.ar || e.en;
+    return typeof r == "string" ? r : "";
   }
   return String(t);
 }
@@ -25,7 +25,7 @@ function c(t) {
   var e;
   return Array.isArray(t) ? ((e = t[0]) == null ? void 0 : e.value) ?? t[0] ?? "" : t && typeof t == "object" && "value" in t ? t.value : t ?? "";
 }
-function u(t, e) {
+function x(t, e) {
   return Array.isArray(t) ? t.map((r) => {
     if (!r || typeof r != "object") return {};
     const i = {};
@@ -34,7 +34,7 @@ function u(t, e) {
     return i;
   }) : [];
 }
-function x(t) {
+function u(t) {
   const e = l(t.title), r = l(t.subtitle);
   if (!e && !r) return s;
   const i = String(c(t.title_style) || "diamond");
@@ -108,12 +108,12 @@ const m = `
   .slp-title :is(.slp-title__deco, h2), .slp-title :is(.slp-title__deco, h2)::before, .slp-title :is(.slp-title__deco, h2)::after { animation: none !important; }
 }
 `;
-function k(t, e) {
+function y(t, e) {
   if (document.getElementById(t)) return;
   const r = document.createElement("style");
   r.id = t, r.textContent = e, document.head.appendChild(r);
 }
-function y(t) {
+function k(t) {
   const e = String(c(t.color_scheme) || "auto");
   return e === "dark" ? "slp-dark" : e === "light" ? "" : "slp-auto";
 }
@@ -149,12 +149,12 @@ export {
   g as a,
   h as b,
   v as c,
-  x as d,
+  u as d,
   a as e,
-  u as g,
-  k as i,
+  x as g,
+  y as i,
   l as r,
-  y as s,
+  k as s,
   b as t,
   c as u
 };
