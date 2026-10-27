@@ -4568,7 +4568,9 @@
             ]
         }
     ],
-    "features": [],
+    "features": [
+        "landing-page-templates"
+    ],
     "templates": [
         {
             "id": "3f5d2a8c-1b7e-4c69-9d41-6a2e8b0c7f13",
