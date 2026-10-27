@@ -291,7 +291,7 @@ const components = [
   },
   {
     title: "الأسئلة الشائعة",
-    icon: "sicon-help-circle",
+    icon: "sicon-help",
     name: "faq",
     key: "33827d3f-ee1f-4f87-8994-d126dd4319cd",
     image: `${PREVIEW}/faq.png`,
