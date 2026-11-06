@@ -32,18 +32,21 @@ Every text is editable in Arabic and English, colors follow your store, and the 
 
 ## Screenshots (upload in this order)
 
-Realistic iPhone and MacBook frames on the Selia dark background, 1600x1200 (the size the Partners Portal
-requires), under 200 KB, no added text or logos. Built by `scripts/make-marketplace.sh`. Titles are at most 30
-characters and descriptions at most 100, in the Selia theme listing's voice.
+Salla rejected the first set (portal note: design the images and give them fitting titles and descriptions,
+and show the landing page feature). The portal allows at most 6 images and the bundle has 11 blocks, so
+image 1 is the cover, image 2 is the landing page feature, and images 3 to 6 each show 2 or 3 blocks, every
+block as its own device screen or card. Real captures of one template per image (never abaya and perfume in
+the same image) on the Selia dark background, 1600x1200, under 200 KB, no added text or logos. Titles are at
+most 30 characters and descriptions at most 100.
 
-| File | Title AR | Title EN | Description AR | Description EN |
-|---|---|---|---|---|
-| `01-abaya-template.jpg` | صفحة هبوط سيليا | Selia Landing Page | استمتع بتصميم صفحة الهبوط ✨ | Enjoy designing your landing page ✨ |
-| `02-perfume-template.jpg` | قوالب جاهزة لمنتجك | Ready templates | قالبين جاهزين للعبايات والعطور بكل عناصر سيليا مع بانرات مصممة لكل منتج | Two ready templates for abayas and perfumes with every Selia section and banners for each product |
-| `03-abaya-sections.jpg` | منتج مفصل مع الشراء السريع | Product details with quick buy | اعرض منتجك بكل تفاصيله مع اختيار الكمية وزر الشراء السريع | Show your product in full detail with a quantity picker and a quick buy button |
-| `04-light-dark.jpg` | خاصية الوضع الداكن | Dark mode | دعم كامل لزر التنقل بين الوضع الداكن والفاتح | Full support for switching between dark and light mode |
-| `05-banners.jpg` | بانرات وشبكة صور | Banners and image grid | يمكنك عرض بانر مزدوج وثلاثي وشبكة صور، مع نسخة عربية وإنجليزية لكل بانر | Show double and triple banners and an image grid, with an Arabic and English version of each banner |
-| `06-perfume-sections.jpg` | أشكال عناوين ثيم سيليا | Selia title styles | اختر شكل عنوان كل قسم من نفس أشكال عناوين ثيم سيليا | Pick each section's title style from the same styles as the Selia theme |
+| File | Blocks | Title AR | Title EN | Description AR | Description EN |
+|---|---|---|---|---|---|
+| `01-overview.jpg` | cover, abaya | مجموعة سيليا لصفحات الهبوط | Selia landing page blocks | ابنِ صفحة هبوط احترافية لمنتجك بـ 11 عنصر من عناصر سيليا ✨ | Build a professional landing page for your product with 11 Selia blocks ✨ |
+| `02-landing-page.jpg` | full page, abaya light, dark and mobile | صفحة هبوط كاملة لمنتج واحد | Full landing page per product | قالبين جاهزين للعبايات والعطور، كل قالب صفحة كاملة لمنتج واحد مع الشراء السريع | 2 ready templates for abayas and perfumes, each a full page for one product with quick buy |
+| `03-header-bar-slider.jpg` | page-header, animated-text, advanced-slider (perfume) | رأس الصفحة والشريط والسلايدر | Header, text bar and slider | رأس صفحة بشعار متجرك وزر الوضع الداكن، وشريط إعلاني متحرك، وسلايدر صور وفيديو | Header with your logo and dark mode switch, a moving announcement bar and an image and video slider |
+| `04-product-features-payments.jpg` | product-hero, features, animated-payments (abaya) | المنتج والمميزات ووسائل الدفع | Product, features and payments | اعرض منتجك بصوره وسعره وزر الشراء السريع، مع مميزات المنتج ووسائل الدفع المتحركة | Your product with images, price and quick buy, plus its features and moving payment methods |
+| `05-banners-grid.jpg` | double-banner, three-banners, images-grid (perfume) | بانر مزدوج وثلاثي وشبكة صور | 2 and 3 banners, image grid | بانر مزدوج وبانر ثلاثي بنسخة عربية وإنجليزية لكل بانر، وشبكة صور تعرض منتجك من قرب | Double and triple banners in Arabic and English, and an image grid that shows your product up close |
+| `06-reviews-faq.jpg` | custom-reviews, faq (abaya light and dark) | آراء العملاء والأسئلة الشائعة | Customer reviews and FAQ | آراء عملائك بالتقييم والنجوم، وأسئلة شائعة تفتح بضغطة، بالوضع الفاتح والداكن | Customer reviews with star ratings and expandable FAQ, in light and dark mode |
 
 Icon: the same سيليا THEME logo the Selia theme uses in the portal.
 
