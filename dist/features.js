@@ -1,10 +1,10 @@
-import { LitElement as m, nothing as c, html as i } from "lit";
+import { LitElement as m, nothing as l, html as i } from "lit";
 import { property as d } from "lit/decorators.js";
-import { i as p, c as g, a as _, g as h, r as o, s as b, d as u } from "./styles-oAYEgvXC.js";
-var v = Object.defineProperty, x = (l, t, r, f) => {
-  for (var s = void 0, e = l.length - 1, n; e >= 0; e--)
-    (n = l[e]) && (s = n(t, r, s) || s);
-  return s && v(t, r, s), s;
+import { i as c, c as g, a as _, g as h, r as p, s as b, d as v } from "./styles-oAYEgvXC.js";
+var u = Object.defineProperty, x = (o, t, r, f) => {
+  for (var s = void 0, e = o.length - 1, n; e >= 0; e--)
+    (n = o[e]) && (s = n(t, r, s) || s);
+  return s && u(t, r, s), s;
 };
 const y = `
 .slp-ft__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -24,20 +24,20 @@ class a extends m {
     return this;
   }
   connectedCallback() {
-    super.connectedCallback(), this.classList.add("slp-host"), p("slp-base", g), p("slp-features", y);
+    super.connectedCallback(), this.classList.add("slp-host"), c("slp-base", g), c("slp-features", y);
   }
   render() {
-    const t = _(this.config), r = h(t.items, "items").filter((e) => o(e.title));
-    if (!r.length) return c;
+    const t = _(this.config), r = h(t.items, "items").map((e) => ({ image: e.image, icon: e.icon, heading: p(e.title), text: p(e.sub_title) })).filter((e) => e.heading);
+    if (!r.length) return l;
     const s = `--slp-ft-cols:${r.length > 3 ? 4 : r.length};${t.bg_color ? `--slp-section-bg:${t.bg_color};` : ""}${t.icon_bg ? `--slp-ft-icon-bg:${t.icon_bg}` : ""}`;
     return i`<section class="slp-block slp-section slp-ft ${b(t)}" style=${s}>
       <div class="slp-container">
-        ${u(t)}
+        ${v(t)}
         <div class="slp-ft__grid">
           ${r.map((e) => i`<div class="slp-ft__item">
             ${e.image ? i`<img class="slp-ft__img" src=${e.image} alt="" loading="lazy" />` : i`<span class="slp-ft__icon"><i class=${e.icon || "sicon-star2"}></i></span>`}
-            <h3>${o(e.title)}</h3>
-            ${o(e.sub_title) ? i`<p>${o(e.sub_title)}</p>` : c}
+            <h3>${e.heading}</h3>
+            ${e.text ? i`<p>${e.text}</p>` : l}
           </div>`)}
         </div>
       </div>

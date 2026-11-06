@@ -34,7 +34,9 @@ export default class Features extends LitElement {
 
   render() {
     const cfg = getConfig(this.config);
-    const items = getCollectionItems<Record<string, any>>(cfg.items, "items").filter((i) => resolveText(i.title));
+    const items = getCollectionItems<Record<string, any>>(cfg.items, "items")
+      .map((i) => ({ image: i.image, icon: i.icon, heading: resolveText(i.title), text: resolveText(i.sub_title) }))
+      .filter((i) => i.heading);
     if (!items.length) return nothing;
     const cols = items.length > 3 ? 4 : items.length;
     const style = `--slp-ft-cols:${cols};${cfg.bg_color ? `--slp-section-bg:${cfg.bg_color};` : ""}${cfg.icon_bg ? `--slp-ft-icon-bg:${cfg.icon_bg}` : ""}`;
@@ -46,8 +48,8 @@ export default class Features extends LitElement {
             ${item.image
               ? html`<img class="slp-ft__img" src=${item.image} alt="" loading="lazy" />`
               : html`<span class="slp-ft__icon"><i class=${item.icon || "sicon-star2"}></i></span>`}
-            <h3>${resolveText(item.title)}</h3>
-            ${resolveText(item.sub_title) ? html`<p>${resolveText(item.sub_title)}</p>` : nothing}
+            <h3>${item.heading}</h3>
+            ${item.text ? html`<p>${item.text}</p>` : nothing}
           </div>`)}
         </div>
       </div>
