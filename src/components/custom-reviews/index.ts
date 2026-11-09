@@ -1,6 +1,6 @@
 import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
-import { getCollectionItems, getConfig, resolveText, t } from "../../utils/config";
+import { getCollectionItems, getConfig, localizedString, t } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 import { sectionTitle } from "../../utils/title";
 
@@ -65,18 +65,18 @@ export default class CustomReviews extends LitElement {
 
   render() {
     const cfg = getConfig(this.config);
-    const items = getCollectionItems<Review>(cfg.items, "items").filter((r) => resolveText(r.review));
+    const items = getCollectionItems<Review>(cfg.items, "items").filter((r) => localizedString(r.review));
     if (!items.length) return nothing;
     return html`<section class="slp-block slp-section slp-rv ${schemeClass(cfg)}" style="${cfg.bg_color ? `--slp-section-bg:${cfg.bg_color};` : ""}${cfg.card_bg ? `--slp-rv-card:${cfg.card_bg}` : ""}">
       <div class="slp-container">
         ${sectionTitle(cfg)}
         <div class="slp-rv__track" @pointerdown=${() => window.clearInterval(this.timer)}>
           ${items.map((r) => {
-            const name = resolveText(r.name);
+            const name = localizedString(r.name);
             const rate = Math.min(Math.max(Number(r.rate) || 5, 1), 5);
             return html`<article class="slp-rv__card">
               <i class="slp-rv__quote sicon-quote"></i>
-              <p class="slp-rv__text">${resolveText(r.review)}</p>
+              <p class="slp-rv__text">${localizedString(r.review)}</p>
               <div class="slp-rv__author">
                 ${r.image
                   ? html`<img class="slp-rv__avatar" src=${r.image} alt=${name} loading="lazy" />`

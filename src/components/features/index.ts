@@ -1,6 +1,6 @@
 import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
-import { getCollectionItems, getConfig, resolveText } from "../../utils/config";
+import { getCollectionItems, getConfig, localizedString } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 import { sectionTitle } from "../../utils/title";
 
@@ -35,7 +35,7 @@ export default class Features extends LitElement {
   render() {
     const cfg = getConfig(this.config);
     const items = getCollectionItems<Record<string, any>>(cfg.items, "items")
-      .map((i) => ({ image: i.image, icon: i.icon, heading: resolveText(i.title), text: resolveText(i.sub_title) }))
+      .map((i) => ({ image: i.image, icon: i.icon, heading: localizedString(i.title), text: localizedString(i.sub_title) }))
       .filter((i) => i.heading);
     if (!items.length) return nothing;
     const cols = items.length > 3 ? 4 : items.length;

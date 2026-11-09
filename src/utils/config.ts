@@ -16,7 +16,7 @@ export function isRtl(): boolean {
 }
 
 /** Resolves a multilingual value ({ ar, en } or plain string) to the active locale. */
-export function resolveText(value: unknown): string {
+export function localizedString(value: unknown): string {
   if (value === null || value === undefined || value === "") return "";
   if (typeof value === "string") return value;
   if (typeof value === "object") {

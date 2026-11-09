@@ -1,7 +1,7 @@
-import { LitElement as P, nothing as o, html as i } from "lit";
-import { property as S, state as g } from "lit/decorators.js";
+import { LitElement as M, nothing as o, html as i } from "lit";
+import { property as P, state as g } from "lit/decorators.js";
 import { unsafeHTML as f } from "lit/directives/unsafe-html.js";
-import { i as v, c as z, a as y, t as m, r as $, u as w, s as b, d as k, b as M } from "./styles-oAYEgvXC.js";
+import { i as v, c as z, a as y, t as m, l as $, u as w, s as b, d as k, b as S } from "./styles-JUcWJpkt.js";
 import { f as C, l as L, c as x, o as N, s as j, m as q, i as T, p as A } from "./landing-BqmPvx7F.js";
 var B = Object.defineProperty, _ = (n, t, e, r) => {
   for (var s = void 0, a = n.length - 1, c; a >= 0; a--)
@@ -62,9 +62,9 @@ const I = `
 `, U = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.165 512.165" aria-hidden="true"><path d="m437.476 320.656c-.004-.05-.007-.101-.011-.15-1.541-21.368-5.481-39.513-12.39-57.037-.093-.265-.193-.528-.302-.79-.395-.951-39.225-95.684-21.044-147.746 1.641-4.697.845-9.901-2.123-13.894s-7.716-6.249-12.691-6.037c-1.333.058-28.492 1.565-57.3 26.911-25.213-52.021-29.194-107.287-29.235-107.89-.341-5.227-3.383-9.896-8.026-12.32-4.644-2.425-10.213-2.249-14.697.457-39.788 24.034-70.525 53.365-91.356 87.18-16.82 27.302-27.192 57.459-30.829 89.634-2.184 19.327-1.665 37.002-.054 51.85.746 6.879-6.125 12.051-12.529 9.432l-38.613-15.797c-2.632-1.077-5.512-1.525-8.32-1.073-5.912.952-10.518 5.194-12.095 10.682-3.504 12.189-6.128 23.455-8.023 34.441-6.596 38.261-3.897 77.447 7.802 113.325 11.762 36.068 32.059 67.129 58.697 89.824 31.481 26.822 69.604 40.477 111.176 40.477 22.939 0 46.93-4.158 71.431-12.557 38.865-13.321 69.645-39.707 89.011-76.303 16.095-30.419 23.739-66.863 21.521-102.619z" fill="#ff001e"/><path d="m296.687 260.081c-3.792-5.657-10.918-8.056-17.356-5.829-6.438 2.223-10.57 8.503-10.063 15.295 1.789 23.976-.608 94.475-33.954 103.618-28.387 7.787-43.529-5.362-45-6.726-3.681-4.013-9.084-5.533-14.39-4.261-5.342 1.285-9.38 5.573-10.805 10.879-.283 1.053-2.793 10.461-3.851 16.59-6.784 39.356 6.081 78.356 33.576 101.781 16.127 13.74 35.578 20.736 56.725 20.736 11.536 0 23.58-2.084 35.855-6.292 19.779-6.78 36.691-21.121 48.908-41.475 10.219-17.024 16.161-36.889 16.305-54.5.366-45.31-16.889-91.515-55.95-149.816z" fill="#ffeb00"/></svg>';
 function O(n) {
   const t = n.toLocaleString("en-US");
-  return M() ? n === 1 ? "مرة واحدة" : n === 2 ? "مرتين" : `${t} ${n <= 10 ? "مرات" : "مرة"}` : `${t} ${n === 1 ? "time" : "times"}`;
+  return S() ? n === 1 ? "مرة واحدة" : n === 2 ? "مرتين" : `${t} ${n <= 10 ? "مرات" : "مرة"}` : `${t} ${n === 1 ? "time" : "times"}`;
 }
-class d extends P {
+class d extends M {
   constructor() {
     super(...arguments), this.product = null, this.loading = !0, this.active = 0, this.quantity = 1;
   }
@@ -200,7 +200,7 @@ class d extends P {
                   class="slp-mp__thumb ${p === this.active ? "is-active" : ""}" aria-label=${l.alt || s.name}
                   @click=${() => this.goTo(p)}><img src=${l.url} alt="" loading="lazy" /></button>`)}</div>` : o}
           </div>
-          ${c ? i`<div class="slp-mp__marquee${M() ? " slp-mp__marquee--rtl" : ""}"><ul>${Array.from({ length: 12 }, (l, p) => i`<li aria-hidden=${p ? "true" : "false"}>
+          ${c ? i`<div class="slp-mp__marquee${S() ? " slp-mp__marquee--rtl" : ""}"><ul>${Array.from({ length: 12 }, (l, p) => i`<li aria-hidden=${p ? "true" : "false"}>
                 <span>${c}</span><i class=${t.marquee_icon || "sicon-star"}></i></li>`)}</ul></div>` : o}
           <div class="slp-mp__info">
             ${this.renderMeta(t)}
@@ -216,7 +216,7 @@ class d extends P {
   }
 }
 _([
-  S({ type: Object })
+  P({ type: Object })
 ], d.prototype, "config");
 _([
   g()

@@ -1,6 +1,6 @@
 import { html, LitElement, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
-import { getCollectionItems, getConfig, isRtl, resolveText, t, unwrapValue } from "../../utils/config";
+import { getCollectionItems, getConfig, isRtl, localizedString, t, unwrapValue } from "../../utils/config";
 import { ctaAction, getSalla, openCheckout } from "../../utils/landing";
 import { baseCss, injectStyles } from "../../utils/styles";
 
@@ -153,9 +153,9 @@ export default class AdvancedSlider extends LitElement {
   }
 
   private caption(slide: Slide) {
-    const title = resolveText(slide.title);
-    const desc = resolveText(slide.desc);
-    const btn = resolveText(slide.btn_text);
+    const title = localizedString(slide.title);
+    const desc = localizedString(slide.desc);
+    const btn = localizedString(slide.btn_text);
     const action = ctaAction();
     if (!title && !desc && !btn) return nothing;
     const position = String(unwrapValue(slide.content_position) || "center");

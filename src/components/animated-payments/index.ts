@@ -1,6 +1,6 @@
 import { html, LitElement, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
-import { getCollectionItems, getConfig, resolveText, unwrapValue } from "../../utils/config";
+import { getCollectionItems, getConfig, localizedString, unwrapValue } from "../../utils/config";
 import { getSalla } from "../../utils/landing";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 import { sectionTitle } from "../../utils/title";
@@ -49,7 +49,7 @@ export default class AnimatedPayments extends LitElement {
     if (unwrapValue(cfg.source) === "custom") {
       return getCollectionItems<Record<string, any>>(cfg.logos, "logos")
         .filter((l) => l.logo)
-        .map((l) => ({ src: l.logo, name: resolveText(l.name) }));
+        .map((l) => ({ src: l.logo, name: localizedString(l.name) }));
     }
     return this.storeLogos;
   }

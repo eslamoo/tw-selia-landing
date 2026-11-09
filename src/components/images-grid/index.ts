@@ -1,6 +1,6 @@
 import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
-import { getConfig, resolveText } from "../../utils/config";
+import { getConfig, localizedString } from "../../utils/config";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 import { sectionTitle } from "../../utils/title";
 
@@ -44,7 +44,7 @@ export default class ImagesGrid extends LitElement {
 
   render() {
     const cfg = getConfig(this.config);
-    const cells = [1, 2, 3, 4, 5].map((n) => ({ n, src: cfg[`image_${n}`], label: resolveText(cfg[`title_${n}`]) }));
+    const cells = [1, 2, 3, 4, 5].map((n) => ({ n, src: cfg[`image_${n}`], label: localizedString(cfg[`title_${n}`]) }));
     if (!cells.some((c) => c.src)) return nothing;
     const classes = [
       "slp-block slp-section slp-ig",

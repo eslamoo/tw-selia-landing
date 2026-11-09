@@ -1,10 +1,10 @@
-import { LitElement as y, html as l, nothing as n } from "lit";
+import { LitElement as y, html as r, nothing as n } from "lit";
 import { property as m, state as d } from "lit/decorators.js";
-import { i as g, c as _, u as h, g as f, r as u, a as v, s as b, d as x } from "./styles-oAYEgvXC.js";
+import { i as g, c as _, u as h, g as f, l as u, a as v, s as b, d as x } from "./styles-JUcWJpkt.js";
 import { g as w } from "./landing-BqmPvx7F.js";
 var $ = Object.defineProperty, c = (i, s, e, t) => {
-  for (var a = void 0, o = i.length - 1, r; o >= 0; o--)
-    (r = i[o]) && (a = r(s, e, a) || a);
+  for (var a = void 0, o = i.length - 1, l; o >= 0; o--)
+    (l = i[o]) && (a = l(s, e, a) || a);
   return a && $(s, e, a), a;
 };
 const k = `
@@ -43,11 +43,11 @@ class p extends y {
     return h(s.source) === "custom" ? f(s.logos, "logos").filter((e) => e.logo).map((e) => ({ src: e.logo, name: u(e.name) })) : this.storeLogos;
   }
   row(s, e = !1) {
-    const t = Math.max(2, Math.ceil(12 / s.length)), a = (o) => l`<div class="slp-pay__group" aria-hidden=${o ? "true" : "false"}>
-      ${Array.from({ length: t }).flatMap(() => s).map((r) => l`<div class="slp-pay__logo">
-        <img src=${r.src} alt=${o ? "" : r.name} loading="lazy" /></div>`)}
+    const t = Math.max(2, Math.ceil(12 / s.length)), a = (o) => r`<div class="slp-pay__group" aria-hidden=${o ? "true" : "false"}>
+      ${Array.from({ length: t }).flatMap(() => s).map((l) => r`<div class="slp-pay__logo">
+        <img src=${l.src} alt=${o ? "" : l.name} loading="lazy" /></div>`)}
     </div>`;
-    return l`<div class="slp-pay__row${e ? " slp-pay__row--reverse" : ""}">${a(!1)}${a(!0)}</div>`;
+    return r`<div class="slp-pay__row${e ? " slp-pay__row--reverse" : ""}">${a(!1)}${a(!0)}</div>`;
   }
   render() {
     const s = v(this.config), e = this.logos(s);
@@ -56,7 +56,7 @@ class p extends y {
       s.bg_color ? `--slp-section-bg:${s.bg_color}` : "",
       s.logos_bg ? `--slp-pay-logo-bg:${s.logos_bg}` : ""
     ].filter(Boolean).join(";");
-    return l`<section class="slp-block slp-section slp-pay ${b(s)}${s.grayscale ? " slp-pay--gray" : ""}${s.bigger_logos ? " slp-pay--big" : ""}" style=${t}>
+    return r`<section class="slp-block slp-section slp-pay ${b(s)}${s.grayscale ? " slp-pay--gray" : ""}${s.bigger_logos ? " slp-pay--big" : ""}" style=${t}>
       <div class="slp-container">
         ${x(s)}
         ${this.row(e)}

@@ -1,6 +1,6 @@
 import { html, LitElement, nothing } from "lit";
 import { property } from "lit/decorators.js";
-import { getConfig, isRtl, resolveText } from "../../utils/config";
+import { getConfig, isRtl, localizedString } from "../../utils/config";
 import { baseCss, injectStyles } from "../../utils/styles";
 
 // Selia's announcement bar: every copy slides by its own width, so the speed holds for any text length
@@ -37,7 +37,7 @@ export default class AnimatedText extends LitElement {
 
   render() {
     const cfg = getConfig(this.config);
-    const text = resolveText(cfg.text);
+    const text = localizedString(cfg.text);
     if (!text) return nothing;
     const speed = Math.min(Math.max(Number(cfg.speed) || 7, 3), 60);
     const style = `--slp-at-bg:${cfg.bg || "#111111"};--slp-at-color:${cfg.color || "#ffffff"};--slp-at-speed:${speed}s`;

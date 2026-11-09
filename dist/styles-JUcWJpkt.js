@@ -25,7 +25,7 @@ function c(t) {
   var e;
   return Array.isArray(t) ? ((e = t[0]) == null ? void 0 : e.value) ?? t[0] ?? "" : t && typeof t == "object" && "value" in t ? t.value : t ?? "";
 }
-function x(t, e) {
+function u(t, e) {
   return Array.isArray(t) ? t.map((r) => {
     if (!r || typeof r != "object") return {};
     const i = {};
@@ -34,7 +34,7 @@ function x(t, e) {
     return i;
   }) : [];
 }
-function u(t) {
+function x(t) {
   const e = l(t.title), r = l(t.subtitle);
   if (!e && !r) return s;
   const i = String(c(t.title_style) || "diamond");
@@ -149,11 +149,11 @@ export {
   g as a,
   h as b,
   v as c,
-  u as d,
+  x as d,
   a as e,
-  x as g,
+  u as g,
   y as i,
-  l as r,
+  l,
   k as s,
   b as t,
   c as u

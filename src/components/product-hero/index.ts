@@ -1,7 +1,7 @@
 import { html, LitElement, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
-import { getConfig, isRtl, resolveText, t, unwrapValue } from "../../utils/config";
+import { getConfig, isRtl, localizedString, t, unwrapValue } from "../../utils/config";
 import { ctaAction, fetchProduct, isLandingPage, landingProductId, money, openCheckout, pageMode, syncCheckoutQuantity } from "../../utils/landing";
 import { baseCss, injectStyles, schemeClass } from "../../utils/styles";
 import { sectionTitle } from "../../utils/title";
@@ -202,7 +202,7 @@ export default class ProductHero extends LitElement {
     }
     const action = ctaAction(p.url || "");
     if (action.kind === "none") return nothing;
-    const label = resolveText(cfg.btn_text) || t({ ar: "اشترِ الآن", en: "Buy now" });
+    const label = localizedString(cfg.btn_text) || t({ ar: "اشترِ الآن", en: "Buy now" });
     const max = Number(p.max_quantity) || 99;
     return html`<div class="slp-mp__actions">
       ${cfg.show_quantity !== false && action.kind === "checkout"
@@ -251,7 +251,7 @@ export default class ProductHero extends LitElement {
 
     const p = this.product;
     const images = this.images();
-    const marquee = resolveText(cfg.marquee_text);
+    const marquee = localizedString(cfg.marquee_text);
     const subtitle = cfg.show_subtitle !== false ? p.subtitle : "";
     const desc = cfg.show_description ? String(p.description || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : "";
 

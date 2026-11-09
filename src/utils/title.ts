@@ -1,10 +1,10 @@
 import { html, nothing } from "lit";
-import { resolveText, unwrapValue } from "./config";
+import { localizedString, unwrapValue } from "./config";
 
 /** Section title with Selia's block title styles. Diamond is the style on the Selia demo store. */
 export function sectionTitle(cfg: Record<string, any>) {
-  const title = resolveText(cfg.title);
-  const subtitle = resolveText(cfg.subtitle);
+  const title = localizedString(cfg.title);
+  const subtitle = localizedString(cfg.subtitle);
   if (!title && !subtitle) return nothing;
   const style = String(unwrapValue(cfg.title_style) || "diamond");
   return html`<div class="slp-title slp-ts--${style}">
